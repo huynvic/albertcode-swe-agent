@@ -1,0 +1,80 @@
+name: Release check
+
+# Installs a published release the way a new user does, on clean Windows, macOS and Linux
+# machines: the bootstrap downloads the installer for the machine, checks it against SHA256SUMS,
+# installs, and AlbertCode reports its version; then the bootstrap uninstalls it.
+#
+# The release's files are fetched with this workflow's own token and served from disk, so this
+# also works while the repository is private.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to check (default: the latest release)"
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    name: New user on ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: Linux, runner: ubuntu-latest }
+          - { name: macOS (Apple silicon), runner: macos-latest }
+          - { name: macOS (Intel), runner: macos-15-intel }
+          - { name: Windows, runner: windows-latest }
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Fetch the release, laid out as GitHub serves it
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WANTED: ${{ inputs.tag || github.event.release.tag_name }}
+        run: |
+          tag="${WANTED:-$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName --jq .tagName)}"
+          mkdir -p "mirror/download/$tag" mirror/latest/download
+          gh release download "$tag" --repo "$GITHUB_REPOSITORY" --dir "mirror/download/$tag"
+          cp "mirror/download/$tag/SHA256SUMS" mirror/latest/download/SHA256SUMS
+          echo "VERSION=${tag#v}" >> "$GITHUB_ENV"
+          ls "mirror/download/$tag"
+
+      - name: Install, as on macOS and Linux
+        if: runner.os != 'Windows'
+        run: |
+          ALBERTCODE_DOWNLOAD_BASE="file://$PWD/mirror" sh installer/install.sh --yes | tee install.txt
+          grep -q "is ready" install.txt
+          "$HOME/.local/bin/albertcode" --version | tee version.txt
+          grep -q "$VERSION" version.txt
+      - name: Uninstall, as on macOS and Linux
+        if: runner.os != 'Windows'
+        run: |
+          sh installer/install.sh --uninstall --yes | tee uninstall.txt
+          grep -q "AlbertCode is uninstalled." uninstall.txt
+          test ! -e "$HOME/.local/bin/albertcode"
+
+      - name: Install, as on Windows (irm | iex)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $env:ALBERTCODE_DOWNLOAD_BASE = 'file:///' + ((Get-Location).Path -replace '\\', '/') + '/mirror'
+          $env:ALBERTCODE_INSTALL_ARGS = '--yes'
+          Get-Content installer/install.ps1 -Raw | Invoke-Expression
+          $found = & "$env:USERPROFILE\.local\bin\albertcode.exe" --version
+          Write-Output $found
+          if ($found -notmatch [regex]::Escape($env:VERSION)) { exit 1 }
+      - name: Uninstall, as on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $env:ALBERTCODE_INSTALL_ARGS = '--uninstall --yes'
+          Get-Content installer/install.ps1 -Raw | Invoke-Expression
+          if (Test-Path "$env:USERPROFILE\.local\bin\albertcode.exe") { exit 1 }

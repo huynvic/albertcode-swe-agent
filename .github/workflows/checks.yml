@@ -1,0 +1,61 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  release-gate:
+    name: Release gate (files and full history)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+      - name: Scan every file and commit
+        env:
+          # Optional: the maintainers' private denylist, kept as a repository secret, never in the repository.
+          PRIVATE_DENYLIST: ${{ secrets.ALBERTCODE_PRIVATE_DENYLIST }}
+        run: |
+          if [ -n "$PRIVATE_DENYLIST" ]; then
+            printf '%s\n' "$PRIVATE_DENYLIST" > "$RUNNER_TEMP/denylist.txt"
+            export ALBERTCODE_PRIVATE_DENYLIST="$RUNNER_TEMP/denylist.txt"
+          fi
+          python3 scripts/release_gate.py
+
+  bootstrap-sh:
+    name: Bootstrap (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: ShellCheck
+        if: runner.os == 'Linux'
+        run: shellcheck -s sh installer/install.sh installer/tests/test_install_sh.sh
+      - name: Tests (sh)
+        run: sh installer/tests/test_install_sh.sh
+      - name: Tests (dash)
+        if: runner.os == 'Linux'
+        run: dash installer/tests/test_install_sh.sh
+
+  bootstrap-ps1:
+    name: Bootstrap (Windows, PowerShell ${{ matrix.shell }})
+    strategy:
+      fail-fast: false
+      matrix:
+        shell: [powershell, pwsh]
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Tests
+        shell: ${{ matrix.shell }}
+        run: |
+          & ./installer/tests/test_install_ps1.ps1
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }

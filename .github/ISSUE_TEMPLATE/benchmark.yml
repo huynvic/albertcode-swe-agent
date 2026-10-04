@@ -1,0 +1,25 @@
+name: Benchmark reproduction
+description: You reproduced a published result, or couldn't
+labels: [benchmark]
+body:
+  - type: input
+    id: result
+    attributes:
+      label: Which published result
+      description: A link to its report in benchmarks/results/
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Your setup
+      description: AlbertCode version, model and settings, the task list, and the run date.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Your outcome
+      description: Your resolved count, and a link to your per-task outcomes if you can share them.
+    validations:
+      required: true
