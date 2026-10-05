@@ -7,13 +7,12 @@ the approvals. The model you choose does the reasoning. You can change models at
 
 | Provider | What you need |
 |---|---|
-| OpenAI | An API key |
-| Anthropic | An API key |
+| Major hosted model providers | An API key. `/connect` lists every provider AlbertCode supports. |
 | Kimi (Moonshot) | An API key |
 | Hugging Face | A token. Open-weight models run through Hugging Face's inference router. |
 | OpenRouter | An API key. Gives access to many vendors' models. |
-| Any OpenAI-compatible service | Its address and, if it needs one, a key |
-| A model on your machine | Ollama, LM Studio, vLLM or another OpenAI-compatible local server |
+| Any compatible API service | Its address and, if it needs one, a key |
+| A model on your machine | Ollama, LM Studio, vLLM or another local model server |
 
 Connect one with `/connect` in the terminal, or **Connect a provider** in the browser or VS Code.
 AlbertCode checks the key or address works before saving it, and shows the provider as connected
@@ -35,8 +34,9 @@ This sends one tool-calling request and tells you whether the model handled it.
 
 ## Where your keys are kept
 
-Keys are stored on your machine, in AlbertCode's settings folder, and are sent only to the provider
-they belong to. `/disconnect` removes one key, and `/disconnect all` removes every saved key.
+Keys are kept on your machine by your system's own protection (the macOS Keychain, Windows data
+protection or your Linux keyring), and are sent only to the provider they belong to. See the
+[security model](security.md). `/disconnect` removes one key, and `/disconnect all` removes every saved key.
 
 ## Privacy and your provider
 

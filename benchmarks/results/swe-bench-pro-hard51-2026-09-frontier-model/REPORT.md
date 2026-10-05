@@ -1,4 +1,4 @@
-# SWE-bench Pro HARD-51 — GPT-5.6 Luna — September 2026
+# SWE-bench Pro HARD-51 — September 2026
 
 > **Status: SELF-REPORTED.** The AlbertCode developer ran and graded this evaluation. It has not
 > been run or verified by Scale AI, by the SWE-bench Pro maintainers, or by anyone else.
@@ -7,14 +7,14 @@
 |---|---|
 | Benchmark, version, split | SWE-bench Pro V2, HARD-51: all 51 tasks (`ScaleAI/SWE-bench_Pro`, config `hard`, revision `2d52cb3`) |
 | AlbertCode version | 1.9.0 with later changes, frozen before the run and unchanged during it |
-| Model, provider, settings | GPT-5.6 Luna through OpenAI's API, at **high** reasoning effort, set by the evaluation harness (AlbertCode's default with this model uses less) |
+| Model, provider, settings | A frontier model, used through its provider's hosted API at **high** reasoning effort, set by the evaluation harness (AlbertCode's default with this model uses less). This report doesn't name the model or its provider |
 | Mode and limits per task | Direct mode: AlbertCode works in the task's code, runs its checks and hands over the change. One attempt, 50 minutes. No web lookup, no person involved, and each task started fresh |
 | Tasks attempted | 51 of 51 |
 | **Resolved** | **39 / 51 (76.5%)**, 95% interval 63.2% to 86.0% |
 | Unresolved | 12: 10 changes delivered but failing the tests, 2 attempts that ended without a change |
 | Runtime | Median 8.5 min per task; 7.9 hours in total |
 | Tokens | 146.6 M input, 1.1 M output in total |
-| Cost | US$30.63 in total, US$0.79 per resolved task, at OpenAI's list price. This is an upper bound: cached input isn't separated in the records, so all input is priced at the full rate |
+| Cost | US$30.63 in total, US$0.79 per resolved task, at the provider's list price. This is an upper bound: cached input isn't separated in the records, so all input is priced at the full rate |
 | Run date | 30 September 2026 (final re-grades completed 1 October) |
 
 ## What HARD-51 is
@@ -77,8 +77,7 @@ fairest measure.**
   measure, and 22 is a small sample.
 - **High reasoning effort was set by the harness.** It isn't AlbertCode's default with this model,
   which uses less, so results with the default settings may differ.
-- **One model, one version.** The result is for the AlbertCode build described above with GPT-5.6
-  Luna. Later versions and other models will score differently.
+- **One model, one version.** The result is for the AlbertCode build described above with this model. Later versions and other models will score differently.
 - **Small sample.** With 51 tasks, the 95% interval is wide: 63% to 86%.
 - **No comparison is made.** Other systems' HARD-51 numbers were produced under different
   settings, so this report doesn't compare against them.

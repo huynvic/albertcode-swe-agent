@@ -49,7 +49,7 @@ body:
     id: model
     attributes:
       label: Model provider and model
-      placeholder: OpenAI / …, Ollama / qwen3-coder, …
+      placeholder: The provider and model you connected, e.g. a local server and its model
   - type: textarea
     id: logs
     attributes:

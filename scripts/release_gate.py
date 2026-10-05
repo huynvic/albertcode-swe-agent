@@ -34,7 +34,7 @@ SECRETS: dict[str, re.Pattern[str]] = {
     "private key": re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----"),
     "AWS access key": re.compile(r"\b(?:AKIA|ASIA)[0-9A-Z]{16}\b"),
     "GitHub token": re.compile(r"\b(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{36,}\b|\bgithub_pat_[A-Za-z0-9_]{60,}\b"),
-    "OpenAI-style key": re.compile(r"\bsk-(?:proj-|ant-|or-)?[A-Za-z0-9_-]{20,}\b"),
+    "Provider API key": re.compile(r"\bsk-(?:proj-|ant-|or-)?[A-Za-z0-9_-]{20,}\b"),
     "Hugging Face token": re.compile(r"\bhf_[A-Za-z0-9]{30,}\b"),
     "Slack token": re.compile(r"\bxox[abprs]-[A-Za-z0-9-]{10,}\b"),
     "Google API key": re.compile(r"\bAIza[0-9A-Za-z_-]{35}\b"),

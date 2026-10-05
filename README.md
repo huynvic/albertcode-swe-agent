@@ -310,11 +310,11 @@ work. Accepted changes are ordinary edits: commit them, or undo them, with Git.
 
 | Provider | Connect with |
 |---|---|
-| OpenAI · Anthropic · Kimi | An API key |
+| Major hosted model providers, and Kimi | An API key |
 | OpenRouter | An API key: many vendors' models through one account |
 | Hugging Face | A token, for open-weight models |
-| Any OpenAI-compatible service | Its address, and a key if it needs one |
-| Your own machine | Ollama, LM Studio, vLLM or any OpenAI-compatible local server |
+| Any compatible API service | Its address, and a key if it needs one |
+| Your own machine | Ollama, LM Studio, vLLM or another local model server |
 
 AlbertCode checks a key or address works before saving it. The model must support tool calling;
 `/test` checks one in a single request. More in [Models](docs/models.md).
@@ -332,14 +332,14 @@ vulnerability, follow [SECURITY.md](SECURITY.md).
 
 | Benchmark | Model | Resolved | Status |
 |---|---|---|---|
-| [SWE-bench Pro HARD-51](benchmarks/results/swe-bench-pro-hard51-2026-09-gpt-5.6-luna/REPORT.md) | GPT-5.6 Luna | **39 of 51 (76%)** | Self-reported |
+| [SWE-bench Pro HARD-51](benchmarks/results/swe-bench-pro-hard51-2026-09-frontier-model/REPORT.md) | A frontier hosted model | **39 of 51 (76%)** | Self-reported |
 
 SWE-bench Pro is Scale AI's benchmark of real software-engineering work: issues and features in
 professional open-source projects, judged by each project's own hidden tests. HARD-51 is its
 hardest part, the tasks that at least two of five frontier model families failed. AlbertCode had
 one attempt per task, up to 50 minutes each, with no human help. On the 22 tasks held out from all
 of its development, it resolved 14. We ran and graded this ourselves; it hasn't been independently
-verified. The [report](benchmarks/results/swe-bench-pro-hard51-2026-09-gpt-5.6-luna/REPORT.md) gives the method, every task's outcome and the limitations.
+verified. The [report](benchmarks/results/swe-bench-pro-hard51-2026-09-frontier-model/REPORT.md) gives the method, every task's outcome and the limitations.
 
 ## Documentation
 

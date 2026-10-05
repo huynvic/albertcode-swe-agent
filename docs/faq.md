@@ -21,7 +21,7 @@ code never leaves your machine. See [PRIVACY.md](../PRIVACY.md).
 
 ## Which models can I use?
 
-OpenAI, Anthropic, Kimi, Hugging Face, OpenRouter, any OpenAI-compatible service, or a local model
+Major hosted model providers, Kimi, Hugging Face, OpenRouter, any compatible API service, or a local model
 through Ollama, LM Studio or vLLM. The model must support tool calling. See [Models](models.md).
 
 ## Can it change my files without asking?
