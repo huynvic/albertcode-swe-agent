@@ -26,9 +26,8 @@ through Ollama, LM Studio or vLLM. The model must support tool calling. See [Mod
 
 ## Can it change my files without asking?
 
-Not in the default governed mode: you approve the plan, then the result. Fast mode applies its
-result without asking, and direct mode can be set to write without asking. You choose those modes
-explicitly.
+Not in the default governed mode: you approve the plan, then the result. Direct mode asks before
+each write, unless you set it to *auto*. You choose that explicitly.
 
 ## What happens if I edit a file while it's working?
 

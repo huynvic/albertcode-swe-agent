@@ -62,14 +62,30 @@ $env:ALBERTCODE_INSTALL_ARGS = '--check'; irm https://raw.githubusercontent.com/
 Run the install command again. It finds the installed version, shows what will change, and
 replaces it.
 
+macOS and Linux (Terminal):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.sh | sh
+```
+
+Windows (PowerShell):
+
+```powershell
+irm https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.ps1 | iex
+```
+
 Saved provider keys and model choices are cleared the first time a new version starts. Connect your
 model again with `/connect`.
 
 ## Uninstalling
 
+macOS and Linux (Terminal):
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.sh | sh -s -- --uninstall
 ```
+
+Windows (PowerShell):
 
 ```powershell
 $env:ALBERTCODE_INSTALL_ARGS = '--uninstall'; irm https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.ps1 | iex

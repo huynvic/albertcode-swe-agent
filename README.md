@@ -131,14 +131,31 @@ take `Install-AlbertCode-<version>-linux-x86_64.sh` and run `bash Install-Albert
 
 <br>
 
-**Update.** Run the install command again. It shows what will change. Saved model keys are cleared
-the first time a new version starts, so reconnect with `/connect`.
+**Update.** Run the install command again. It shows what will change, then replaces the old
+version. Saved model keys are cleared the first time a new version starts, so reconnect with
+`/connect`.
 
-**Uninstall.** Run the install command with `--uninstall`. It asks first and keeps your settings:
+macOS and Linux (Terminal):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.sh | sh
+```
+
+Windows (PowerShell):
+
+```powershell
+irm https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.ps1 | iex
+```
+
+**Uninstall.** It lists what it will remove and asks first. Your settings are kept.
+
+macOS and Linux (Terminal):
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.sh | sh -s -- --uninstall
 ```
+
+Windows (PowerShell):
 
 ```powershell
 $env:ALBERTCODE_INSTALL_ARGS = '--uninstall'; irm https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.ps1 | iex
@@ -186,13 +203,12 @@ be followed in another.
 | Browser | `albertcode --ui` | Reading plans and diffs side by side; several sessions at once |
 | VS Code | The AlbertCode panel, or right-click a folder → *Open Here* | Staying in your editor |
 
-**Four modes.** Switch with `/mode`, or use one for a single request with `/plan`, `/fast` or `/do`.
+**Three modes.** Switch with `/mode`, or use one for a single request with `/plan` or `/do`.
 
 | Mode | What happens | Use it for |
 |---|---|---|
 | **Governed** (default) | You approve a plan; it works in an isolated copy, runs your tests and reviews the result; you approve the diff | Changes you care about |
-| **Fast** | It works in an isolated copy with no approval steps, then applies the result | Small changes you'll review in Git |
-| **Direct** | It works in your files, asking before each write (or not, with `auto`). Needs Git | Pairing on something you're watching |
+| **Direct** | It works in your files, asking before each write, or applying writes as they come with `auto`. Needs Git | Quick changes you're watching |
 | **Ask** | It answers questions and changes nothing | Understanding a codebase |
 
 **Everyday commands** (type `/help` for all of them):
@@ -278,8 +294,8 @@ work. Accepted changes are ordinary edits: commit them, or undo them, with Git.
 - **Approval built in.** Two clear decision points, so nothing reaches your repository by surprise.
 - **Changes are proven, not just written.** AlbertCode runs your own toolchain (pytest, npm
   scripts, `go test`, cargo, Maven, Gradle, `dotnet`) and shows what passed and what didn't.
-- **Choose your pace.** *Governed* for changes you care about, *fast* for small ones, *direct* to
-  work in your files with a prompt before each write, and *ask* to explore a codebase without
+- **Choose your pace.** *Governed* for changes you care about, *direct* to work in your files with
+  a prompt before each write (or none, with *auto*), and *ask* to explore a codebase without
   changing anything.
 - **Any model.** Connect a hosted provider or a local model, and switch at any time.
 - **Three interfaces.** Terminal (`albertcode`), browser (`albertcode --ui`) and VS Code, all
@@ -348,7 +364,7 @@ verified. The [report](benchmarks/results/swe-bench-pro-hard51-2026-09-gpt-5.6-l
 Many agents edit your working tree as they go, and leave you to work out whether the result is
 right. AlbertCode builds the change in an isolated copy. It runs your own tests, reviews the
 change, and brings you a diff with the evidence, and you decide whether it lands. When you want
-speed instead, fast and direct modes skip the ceremony.
+speed instead, direct mode skips the ceremony.
 
 </details>
 

@@ -15,11 +15,10 @@ All three talk to the same local service, so a task started in one can be follow
 | Mode | What happens | Use it when |
 |---|---|---|
 | **Governed** (default) | You approve a plan, it works in an isolated copy, runs your tests and reviews the result, then you approve the diff | Changes you care about |
-| **Fast** | It works in an isolated copy with no approval steps, and applies the result when done; review it with Git | Small, low-risk changes you will review in Git |
 | **Direct** | It works in your real files and asks before each write (or, with `auto`, doesn't ask). Needs Git. | Pairing on something you're watching |
 | **Ask** | It answers questions and changes nothing | Understanding a codebase |
 
-Switch with `/mode`, or start one request in a given mode with `/plan`, `/fast` or `/do`.
+Switch with `/mode`, or start one request in a given mode with `/plan` or `/do`.
 
 ## Approvals
 
@@ -42,7 +41,6 @@ and undo them with Git.
 | `/model [search]` | Choose a model |
 | `/test [model]` | Check a model can drive AlbertCode |
 | `/plan <request>` | Start a governed change |
-| `/fast <request>` | Start a change with no approval steps |
 | `/do <request>` | Work directly in your files, asking before each write |
 | `/mode [governed\|direct\|auto\|ask]` | How plain requests are handled |
 | `/chat [message]` | Talk to the model without starting a task |

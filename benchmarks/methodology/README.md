@@ -5,7 +5,7 @@ How a benchmark run is done and reported. A result that doesn't meet this standa
 ## Before the run
 
 - **Fix the setup and record it**: the AlbertCode version, the model and provider, sampling
-  settings, the mode (governed, fast or direct), and any time or cost limits per task.
+  settings, the mode (governed or direct), and any time or cost limits per task.
 - **Fix the task list** before the first task runs. The full benchmark or an official split is
   preferred. A subset needs a stated selection rule (for example, a random sample with its seed),
   chosen before any result is seen.
