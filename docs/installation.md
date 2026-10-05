@@ -89,11 +89,21 @@ each system, plus a `SHA256SUMS` file:
 | System | File | Run it with |
 |---|---|---|
 | Windows | `Install-AlbertCode-<version>-windows-x64.cmd` | Double-click, or run it from a terminal |
-| Mac with Apple silicon | `Install-AlbertCode-<version>-macos-arm64.command` | Right-click → Open the first time |
-| Mac with Intel | `Install-AlbertCode-<version>-macos-x86_64.command` | Right-click → Open the first time |
-| Linux | `Install-AlbertCode-<version>-linux-x86_64.sh` (or `-linux-aarch64.sh` on ARM) | `bash Install-AlbertCode-<version>-linux-x86_64.sh` |
+| Mac with Apple silicon | `Install-AlbertCode-<version>-macos-arm64.zip` | Open the zip, then double-click the installer inside |
+| Mac with Intel | `Install-AlbertCode-<version>-macos-x86_64.zip` | Open the zip, then double-click the installer inside |
+| Linux (x86-64) | `Install-AlbertCode-<version>-linux-x86_64.sh` | `bash Install-AlbertCode-<version>-linux-x86_64.sh` |
 
 An installer for the wrong processor stops before changing anything and says which one to use.
+There is no Linux installer for ARM processors yet.
+
+The Mac installer is also in each release as a bare `.command` file, which the one-line command
+uses. Download the `.zip` instead: a browser saves a bare `.command` without permission to run,
+so double-clicking it says it "could not be executed because you do not have appropriate access
+privileges". If that happens, run it from Terminal instead:
+
+```bash
+bash ~/Downloads/Install-AlbertCode-<version>-macos-arm64.command
+```
 
 Check a download before running it:
 
@@ -111,7 +121,12 @@ shasum -a 256 -c SHA256SUMS --ignore-missing      # macOS
 The installers are not yet code-signed, which the [roadmap](../ROADMAP.md) covers. Until they are:
 
 - **Windows SmartScreen** may say it protected your PC. Choose *More info* → *Run anyway*.
-- **macOS Gatekeeper** may refuse to open the file the first time. Right-click it and choose *Open*.
+- **macOS Gatekeeper** says it can't verify the installer is free of malware. Choose *Done*, open
+  **System Settings → Privacy & Security**, scroll down, and click **Open Anyway** next to the
+  installer's name. Then open the installer again and confirm. You only do this once.
+
+The one-line install command avoids both warnings, because nothing is downloaded through a
+browser.
 
 Check the checksum first if you downloaded the file by hand.
 

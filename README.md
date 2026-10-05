@@ -63,8 +63,8 @@ has one per system, plus `SHA256SUMS`:
 | System | File |
 |---|---|
 | Windows 10 and 11 (x64; also runs on ARM) | `Install-AlbertCode-<version>-windows-x64.cmd` |
-| macOS, Apple silicon | `Install-AlbertCode-<version>-macos-arm64.command` |
-| macOS, Intel | `Install-AlbertCode-<version>-macos-x86_64.command` |
+| macOS, Apple silicon | `Install-AlbertCode-<version>-macos-arm64.zip` |
+| macOS, Intel | `Install-AlbertCode-<version>-macos-x86_64.zip` |
 | Linux (glibc), x86-64 | `Install-AlbertCode-<version>-linux-x86_64.sh` |
 
 **VS Code extension.** Download `albertcode-<version>.vsix` from the same release, then choose
