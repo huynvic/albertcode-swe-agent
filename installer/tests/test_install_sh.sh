@@ -20,7 +20,7 @@ check() {  # check <name> <condition...>
     name="$1"; shift
     if "$@"; then printf 'ok    %s\n' "$name"; else printf 'FAIL  %s\n' "$name"; FAILED=1; fi
 }
-# shellcheck disable=SC2329  # called through check
+# shellcheck disable=SC2317,SC2329  # called through check
 contains() { printf '%s' "$1" | grep -qF -- "$2"; }
 
 # release <version>: a release folder with an installer that reports its version and arguments.
@@ -49,7 +49,8 @@ check "--version picks that release" contains "$out" "fake installer 9.8.6 args:
 out="$(run --yes --version v9.8.6)"
 check "a leading v is accepted" contains "$out" "fake installer 9.8.6"
 
-out="$(cat "$BOOTSTRAP" | ALBERTCODE_DOWNLOAD_BASE="$MIRROR" sh -s -- --yes --reinstall 2>&1)"
+# The script arrives on standard input, as it does from `curl ... | sh`.
+out="$(ALBERTCODE_DOWNLOAD_BASE="$MIRROR" sh -s -- --yes --reinstall < "$BOOTSTRAP" 2>&1)"
 check "works through a pipe, with options after sh -s --" contains "$out" "fake installer 9.8.7 args: --yes --reinstall"
 
 # A changed installer is refused before it runs.

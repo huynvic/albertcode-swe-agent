@@ -50,8 +50,10 @@ LOCAL_PATHS = re.compile(
     r"[A-Za-z]:\\Users\\(?!runneradmin\b)[^\\\s]+\\|/tmp/[\w.-]+/)"
 )
 EMAIL = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
-# Addresses that identify nobody: GitHub's no-reply addresses, and reserved example domains.
-EMAIL_ALLOWED = re.compile(r"@(?:users\.noreply\.github\.com|example\.(?:com|org|net|invalid))$", re.I)
+# Addresses that identify nobody: GitHub's no-reply and service addresses (on commits GitHub or
+# Dependabot makes), and reserved example domains.
+EMAIL_ALLOWED = re.compile(r"(?:@users\.noreply\.github\.com|^(?:noreply|support)@github\.com"
+                           r"|@example\.(?:com|org|net|invalid))$", re.I)
 
 FORBIDDEN_NAMES = re.compile(
     r"(?i)(?:^|/)(?:\.env(?:\.[\w.-]+)?|id_rsa|id_ed25519|\.netrc|\.npmrc|\.pypirc|credentials(?:\.json)?)$"
