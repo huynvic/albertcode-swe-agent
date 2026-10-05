@@ -13,7 +13,7 @@ jobs:
     name: Release gate (files and full history)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
       - name: Scan every file and commit
@@ -35,7 +35,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: ShellCheck
         if: runner.os == 'Linux'
         run: shellcheck -s sh installer/install.sh installer/tests/test_install_sh.sh
@@ -49,7 +49,7 @@ jobs:
     name: Bootstrap (Windows)
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       # Both shells a user may run the one-line command from. (`shell` cannot come from a matrix.)
       - name: Tests (Windows PowerShell 5.1)
         shell: powershell
