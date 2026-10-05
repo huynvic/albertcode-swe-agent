@@ -1,9 +1,6 @@
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/logo/mark.svg">
-  <img src="assets/logo/mark-light.svg" alt="AlbertCode" width="84" height="84">
-</picture>
+<img src="assets/logo/albertcode-logo.png" alt="AlbertCode" width="96" height="96">
 
 <h1>AlbertCode SWE Agent</h1>
 

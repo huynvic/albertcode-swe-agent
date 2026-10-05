@@ -2,6 +2,7 @@
 
 | File | Use |
 |---|---|
+| `logo/albertcode-logo.png` | The logo as supplied, 1024×1024; shown at the top of the README |
 | `logo/mark.svg` | The app icon: the mark on its dark tile (GitHub dark mode, terminals, social) |
 | `logo/mark-light.svg` | The app icon for light backgrounds (the same tile, which reads on both) |
 | `logo/glyph.svg` | The mark without its tile; its cursor takes the surrounding text colour |
