@@ -3,6 +3,15 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.33.1 — 2026-10-05
+
+AlbertCode's own logo and colour, everywhere.
+
+- The AlbertCode logo is a sharp vector image in the browser interface, and VS Code's activity bar
+  shows it instead of the old "A" icon.
+- The browser, the terminal and VS Code all use the logo's signal orange, `#FF7A4D`.
+- The terminal's `/help` no longer lists `/fast`: the modes are Governed, Direct and Ask.
+
 ## 1.33.0 — 2026-10-05
 
 Security hardening for everything AlbertCode keeps on your computer. See the

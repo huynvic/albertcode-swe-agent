@@ -53,7 +53,7 @@ editing. It takes a minute or two.
 When it finishes, **open a new terminal** and check it:
 
 ```bash
-albertcode --version     # AlbertCode SWE Agent 1.33.0
+albertcode --version     # AlbertCode SWE Agent 1.33.1
 albertcode doctor        # which build tools AlbertCode can find
 ```
 
