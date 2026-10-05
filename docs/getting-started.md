@@ -35,13 +35,14 @@ For a browser interface instead, run `albertcode --ui`.
 
 ## 3. Connect a model
 
-```text
-/connect
-```
+The first time, with no model connected, AlbertCode opens the connect step for you:
 
-Pick a provider and enter its key, or the address of a model running on your machine. AlbertCode
-checks the key or address works before saving it. Then choose a model with `/model`.
-[Models](models.md) lists what is supported.
+1. Pick a provider, then enter its key, or the address of a model running on your machine.
+2. AlbertCode checks the key or address works before saving it.
+3. Choose a model from the list that opens next.
+
+Skipped it? Run `/connect` at any time, and `/model` to change models. [Models](models.md) lists
+what is supported.
 
 ## 4. Ask for a change
 

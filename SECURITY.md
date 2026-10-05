@@ -10,8 +10,8 @@ Report them privately through GitHub: open the repository's **Security** tab and
 Please include:
 
 - what the problem is, and what someone could do with it;
-- the steps to reproduce it, the AlbertCode version (the installer prints it, and so does running
-  it again with `--check`), and your operating system;
+- the steps to reproduce it, the AlbertCode version (`albertcode --version`), and your operating
+  system;
 - whether it is already public anywhere.
 
 Never include real keys, tokens or private code in a report. A redacted example is enough.

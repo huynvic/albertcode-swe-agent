@@ -28,7 +28,7 @@ body:
     id: version
     attributes:
       label: AlbertCode version
-      description: The installer prints it, and so does running the install command again with --check.
+      description: Run `albertcode --version`.
     validations:
       required: true
   - type: dropdown
