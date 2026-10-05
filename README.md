@@ -154,9 +154,11 @@ AlbertCode checks a key or address works before saving it. The model must suppor
 ## Privacy and security
 
 Your code goes only to the model provider you choose. With a local model, it never leaves your
-machine. AlbertCode collects no telemetry and needs no account, and saved keys are readable only
-by your user. See [PRIVACY.md](PRIVACY.md). To report a vulnerability, follow
-[SECURITY.md](SECURITY.md).
+machine. Saved keys are kept by your system's own protection (the macOS Keychain, Windows data
+protection or your Linux keyring), and are never given to the commands AlbertCode runs. Only
+AlbertCode itself can use the service it runs on your computer. There's no telemetry and no
+account. See the [security model](docs/security.md) and [PRIVACY.md](PRIVACY.md). To report a
+vulnerability, follow [SECURITY.md](SECURITY.md).
 
 ## Benchmarks
 
@@ -173,6 +175,7 @@ method and cost, and will be labelled **self-reported** or **independently verif
 | [Using AlbertCode](docs/usage.md) | Modes, approvals, commands and scripting |
 | [Models](docs/models.md) | Providers, local models, and what a model needs |
 | [Extending](docs/extending.md) | Custom commands, custom agents and MCP servers |
+| [Security model](docs/security.md) | How your keys, code and data are protected |
 | [Troubleshooting](docs/troubleshooting.md) | Fixes for common problems |
 | [FAQ](docs/faq.md) | Short answers |
 

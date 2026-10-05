@@ -21,9 +21,11 @@ local model.
 
 ## What is kept on your machine
 
-- **Settings**, including the provider keys you saved, in AlbertCode's settings folder. Keys are
-  sent only to the provider they belong to. They are stored unencrypted in that folder, so anyone
-  who can read your user account's files can read them. `/disconnect all` removes every saved key.
+- **Settings**, in AlbertCode's settings folder. The provider keys and MCP sign-ins you saved are
+  kept by your system's own protection: the macOS Keychain, Windows data protection, or your Linux
+  desktop keyring. Without a keyring, they go in a file only your user can read. Keys are sent
+  only to the provider they belong to. `/disconnect all` removes every saved key. See
+  [Security model](docs/security.md).
 - **Task history**: plans, diffs, test results, reviews and the evidence log, so you can review
   past work. `/tasks clear` deletes it.
 - **Task workspaces**: the isolated copies of your repository that tasks work in. `/cleanup`

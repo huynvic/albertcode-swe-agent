@@ -3,6 +3,19 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.33.0 — 2026-10-05
+
+Security hardening for everything AlbertCode keeps on your computer. See the
+[security model](docs/security.md).
+
+- Only AlbertCode itself can use the service it runs on your computer. The terminal, VS Code and
+  `albertcode --ui` sign in automatically.
+- Saved keys and MCP sign-ins are kept by the macOS Keychain, Windows data protection or your
+  Linux keyring, and are never passed on a command line.
+- Your keys are never given to the commands AlbertCode runs, including your project's Git hooks,
+  and are masked if they turn up in anything sent to the model.
+- AlbertCode's folders and task database are readable only by you.
+
 ## 1.32.0 — 2026-10-05
 
 The first public release.
