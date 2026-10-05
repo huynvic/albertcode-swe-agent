@@ -1,7 +1,5 @@
 # Benchmarks
 
-**No results have been published yet.**
-
 This page is where AlbertCode SWE Agent's evaluation results will be published. Every result follows
 the rules below, so you can judge how far to trust it.
 
@@ -9,7 +7,7 @@ the rules below, so you can judge how far to trust it.
 
 | Benchmark | Model | Tasks | Resolved | Status | Report |
 |---|---|---|---|---|---|
-| *None yet* | | | | | |
+| SWE-bench Pro V2, HARD-51 (all 51 tasks) | GPT-5.6 Luna | 51 | 39 (76.5%) | Self-reported | [Report](results/swe-bench-pro-hard51-2026-09-gpt-5.6-luna/REPORT.md) |
 
 ## Rules for every result
 

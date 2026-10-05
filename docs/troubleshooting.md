@@ -14,6 +14,10 @@ with what you ran, what you expected, and what happened. Leave out keys, tokens 
 | macOS says the installer "could not be executed because you do not have appropriate access privileges" | The browser saved it without permission to run. Download the `.zip` for your Mac from the release and open the installer inside it, or run `bash ~/Downloads/Install-AlbertCode-<version>-macos-arm64.command` in Terminal (`x86_64` on an Intel Mac). |
 | macOS says it can't verify the installer is free of malware | The installers aren't signed yet. Open **System Settings → Privacy & Security**, click **Open Anyway**, then open the installer again. Or use the one-line install command, which doesn't trigger the warning. |
 | The installer refuses to run under `sudo` on Linux | Run it as yourself. It installs for your user, and only asks for `sudo` if Git is missing. |
+| Linux says "the release has no installer for Linux on … processors" | Only x86-64 is supported for now, not ARM. |
+| The install fails on Alpine or another musl-based Linux | Not supported: AlbertCode needs a glibc-based distribution such as Ubuntu, Debian or Fedora. |
+| PowerShell refuses to run the install command on Windows | Your organisation may block scripts. Download the `.cmd` installer from the release and double-click it instead. |
+| The browser page says to open AlbertCode from your terminal | Run `albertcode --ui`. It signs your browser in. |
 | The installer says the package inside it is damaged | The download was cut short or altered. Download it again. |
 
 Everything an installer run did is written to its log:

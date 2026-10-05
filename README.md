@@ -33,7 +33,7 @@ and touches your files only when you approve.</p>
 
 ## Installation
 
-**macOS and Linux**
+**macOS and Linux** (Terminal)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.sh | sh
@@ -46,31 +46,95 @@ irm https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installe
 ```
 
 The installer picks the build for your machine and verifies its SHA-256 checksum. It then shows
-what it will do and asks before it changes anything. It installs everything AlbertCode needs,
-including Python, for your user only. No pip, virtual environments or PATH editing.
+what it will do and asks `Proceed? [Y/N]` before it changes anything. It installs everything
+AlbertCode needs, including Python, for your user only. No pip, virtual environments or PATH
+editing. It takes a minute or two.
+
+When it finishes, **open a new terminal** and check it:
+
+```bash
+albertcode --version     # AlbertCode SWE Agent 1.33.0
+albertcode doctor        # which build tools AlbertCode can find
+```
+
+### Requirements
+
+| | |
+|---|---|
+| **Windows** | Windows 10 or 11, x64 (the x64 build also runs on ARM PCs). PowerShell 5.1 or 7 |
+| **macOS** | A current macOS, on Apple silicon or Intel |
+| **Linux** | x86-64 with glibc: Ubuntu 20.04+, Debian 10+, Fedora, RHEL 8+, openSUSE, Arch. Not Alpine or other musl systems, and not ARM yet |
+| **Disk** | About 1 GB free |
+| **Network** | pypi.org and github.com while installing; your model provider while working |
+| **Git** | Recommended. The installer offers to install it if it's missing |
+
+You don't need Python: the installer uses your Python 3.12 if you have it, and otherwise downloads
+one for AlbertCode alone.
 
 <details>
-<summary><strong>Other ways to install, update or remove</strong></summary>
+<summary><strong>Step by step on macOS</strong></summary>
 
 <br>
 
-**Download an installer.** Each [release](https://github.com/huynvic/albertcode-swe-agent/releases/latest)
-has one per system, plus `SHA256SUMS`:
+1. Open **Terminal** (Applications → Utilities, or press ⌘ Space and type *Terminal*).
+2. Paste the macOS command above and press Return.
+3. Read the plan, then type `Y`.
+4. Close Terminal and open a new window, then run `albertcode --version`.
 
-| System | File |
-|---|---|
-| Windows 10 and 11 (x64; also runs on ARM) | `Install-AlbertCode-<version>-windows-x64.cmd` |
-| macOS, Apple silicon | `Install-AlbertCode-<version>-macos-arm64.zip` |
-| macOS, Intel | `Install-AlbertCode-<version>-macos-x86_64.zip` |
-| Linux (glibc), x86-64 | `Install-AlbertCode-<version>-linux-x86_64.sh` |
+**Prefer a download?** From the [latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest),
+take the `.zip` for your Mac: `macos-arm64` for Apple silicon (M1 and later), `macos-x86_64` for
+Intel. Not sure which you have? Open the Apple menu → *About This Mac*. Open the zip, then double-click
+the installer inside it.
 
-**VS Code extension.** Download `albertcode-<version>.vsix` from the same release, then choose
-*Extensions → … → Install from VSIX*.
+The installers aren't code-signed yet, so the first time macOS says it can't verify the installer.
+Choose *Done*, open **System Settings → Privacy & Security**, click **Open Anyway**, then open the
+installer again. The one-line command above avoids this.
 
-**Update.** Run the install command again.
+</details>
 
-**Uninstall.** Run the install command with `--uninstall`, which asks first and keeps your
-settings:
+<details>
+<summary><strong>Step by step on Windows</strong></summary>
+
+<br>
+
+1. Open **PowerShell**: press the Windows key, type *PowerShell*, and press Enter. You don't
+   need "Run as administrator".
+2. Paste the Windows command above and press Enter.
+3. Read the plan, then type `Y`.
+4. Close PowerShell and open a new window, then run `albertcode --version`.
+
+**Prefer a download?** From the [latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest),
+take `Install-AlbertCode-<version>-windows-x64.cmd` and double-click it. The installers aren't
+code-signed yet, so SmartScreen may say it protected your PC. Choose *More info* → *Run anyway*.
+
+If your organisation blocks PowerShell scripts, use the downloaded `.cmd` installer instead.
+
+</details>
+
+<details>
+<summary><strong>Step by step on Linux</strong></summary>
+
+<br>
+
+1. Open a terminal. Make sure `curl` is installed (`sudo apt install curl` on Ubuntu and Debian).
+2. Paste the Linux command above and press Enter. Run it as yourself, not with `sudo`.
+3. Read the plan, then type `Y`. It asks for your password only if it needs to install Git.
+4. Open a new terminal, then run `albertcode --version`.
+
+**Prefer a download?** From the [latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest),
+take `Install-AlbertCode-<version>-linux-x86_64.sh` and run `bash Install-AlbertCode-<version>-linux-x86_64.sh`.
+
+</details>
+
+<details>
+<summary><strong>Update, uninstall, VS Code extension and other options</strong></summary>
+
+<br>
+
+**Update.** Run the install command again. It shows what will change. Saved model keys are cleared
+the first time a new version starts, so reconnect with `/connect`.
+
+**Uninstall.** Run the install command with `--uninstall`. It asks first and keeps your settings:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.sh | sh -s -- --uninstall
@@ -80,8 +144,14 @@ curl -fsSL https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/i
 $env:ALBERTCODE_INSTALL_ARGS = '--uninstall'; irm https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installer/install.ps1 | iex
 ```
 
-The installers aren't code-signed yet. [Installation](docs/installation.md) covers SmartScreen,
-Gatekeeper, manual checksum checks, proxies and other options.
+**VS Code extension.** Download `albertcode-<version>.vsix` from the
+[latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest), then in VS Code
+choose *Extensions → … → Install from VSIX*. Install AlbertCode itself first: the extension uses it.
+
+**Other options:** `--check` only shows the plan, `--yes` installs without asking (for scripts and
+CI), and `--version X.Y.Z` installs a specific release. On Windows, put options in
+`ALBERTCODE_INSTALL_ARGS` as above. Manual checksum checks, proxies and more are in
+[Installation](docs/installation.md).
 
 </details>
 
@@ -104,6 +174,91 @@ in an isolated copy, runs your tests, reviews the result, and shows you the diff
 and only then does the change reach your files.
 
 [Getting started](docs/getting-started.md) walks through a first task in about five minutes.
+
+## Using AlbertCode
+
+**Three interfaces, one agent.** All three use the same local service, so a task started in one can
+be followed in another.
+
+| Interface | Start it | Good for |
+|---|---|---|
+| Terminal | `albertcode` in your project folder | Working where you already are |
+| Browser | `albertcode --ui` | Reading plans and diffs side by side; several sessions at once |
+| VS Code | The AlbertCode panel, or right-click a folder → *Open Here* | Staying in your editor |
+
+**Four modes.** Switch with `/mode`, or use one for a single request with `/plan`, `/fast` or `/do`.
+
+| Mode | What happens | Use it for |
+|---|---|---|
+| **Governed** (default) | You approve a plan; it works in an isolated copy, runs your tests and reviews the result; you approve the diff | Changes you care about |
+| **Fast** | It works in an isolated copy with no approval steps, then applies the result | Small changes you'll review in Git |
+| **Direct** | It works in your files, asking before each write (or not, with `auto`). Needs Git | Pairing on something you're watching |
+| **Ask** | It answers questions and changes nothing | Understanding a codebase |
+
+**Everyday commands** (type `/help` for all of them):
+
+| Command | |
+|---|---|
+| `/connect` | Connect a model provider: its key, or the address of a local model |
+| `/model` | Choose a model |
+| `/test` | Check that a model can drive AlbertCode |
+| `/plan <request>` | Start a governed change |
+| `/attach <paths>` | Give it files or screenshots |
+| `/tasks` | Recent tasks |
+| `/status` | The repository and model in use |
+| `/exit` | Leave. The service keeps running; `albertcode stop` stops it |
+
+Every step is also a subcommand (`albertcode create`, `approve`, `diff`, `accept`), so AlbertCode
+fits scripts and CI. See [Using AlbertCode](docs/usage.md).
+
+## Troubleshooting
+
+<details>
+<summary><strong>Installing</strong></summary>
+
+<br>
+
+| Problem | Fix |
+|---|---|
+| `albertcode: command not found` right after installing | Open a new terminal. The installer added the command to your PATH, and only new terminals see it |
+| **macOS:** "could not be executed because you do not have appropriate access privileges" | The browser saved the installer without permission to run. Download the `.zip` for your Mac instead, or run `bash ~/Downloads/Install-AlbertCode-<version>-macos-arm64.command` in Terminal (`x86_64` on Intel) |
+| **macOS:** "Apple could not verify…" or "unidentified developer" | Open **System Settings → Privacy & Security**, click **Open Anyway**, and open the installer again. Or use the one-line command |
+| **Windows:** "Windows protected your PC" | Choose *More info* → *Run anyway* |
+| **Windows:** PowerShell refuses to run the command | Your organisation may block scripts. Download the `.cmd` installer from the release and double-click it instead |
+| **Linux:** the installer refuses to run under `sudo` | Run it as yourself. It installs for your user, and asks for `sudo` only if Git is missing |
+| **Linux:** "the release has no installer for Linux on … processors" | Only x86-64 is supported for now, not ARM |
+| **Linux:** the install fails on Alpine or another musl-based system | Not supported: AlbertCode needs a glibc-based distribution such as Ubuntu, Debian or Fedora |
+| pypi.org can't be reached | Check your connection. Behind a proxy, set `HTTPS_PROXY` and run the command again |
+| `invalid peer certificate` or `UnknownIssuer` | Your network inspects encrypted traffic. Current installers retry with your computer's certificates; if that fails, set `UV_NATIVE_TLS=1` and run again |
+| "the package inside it is damaged" | The download was cut short or altered. Download it again |
+
+Every installer run writes a log: `~/.local/share/albertcode-installer/install.log` on macOS and
+Linux, `%LOCALAPPDATA%\AlbertCode\install.log` on Windows.
+
+</details>
+
+<details>
+<summary><strong>Running</strong></summary>
+
+<br>
+
+| Problem | Fix |
+|---|---|
+| "No model is connected" | Run `/connect`, or choose **Connect a provider** in the browser or VS Code |
+| After updating, your model is no longer connected | Saved keys are cleared when a new version first starts. Run `/connect` again |
+| A model connects but tasks stall or fail early | The model may not handle tool calling well. Run `/test`, and see [Models](docs/models.md#what-a-model-needs) |
+| Tests don't run, or use the wrong tool | Run `albertcode doctor` to see which build tools AlbertCode finds, then install or add the missing one to your PATH |
+| The browser page says to open AlbertCode from your terminal | Run `albertcode --ui`. It signs your browser in |
+| VS Code can't reach AlbertCode | Run `albertcode` once in a terminal to start the service, then reload the VS Code window |
+| Accepting a change is refused | You edited a file the change also touches. Look at your edits, then run the task again |
+| Everything seems stuck | Run `albertcode stop`, then `albertcode` again |
+
+</details>
+
+Still stuck? [Open an issue](https://github.com/huynvic/albertcode-swe-agent/issues/new/choose) with
+what you ran, what you expected and what happened, plus `albertcode --version` and your operating
+system. Never include keys, tokens or private code. More fixes are in
+[Troubleshooting](docs/troubleshooting.md).
 
 ## How it works
 
@@ -159,9 +314,16 @@ vulnerability, follow [SECURITY.md](SECURITY.md).
 
 ## Benchmarks
 
-No results have been published yet. Each result will state its benchmark, model, task count,
-method and cost, and will be labelled **self-reported** or **independently verified**. See
-[how results are reported](benchmarks/README.md).
+| Benchmark | Model | Resolved | Status |
+|---|---|---|---|
+| [SWE-bench Pro HARD-51](benchmarks/results/swe-bench-pro-hard51-2026-09-gpt-5.6-luna/REPORT.md) | GPT-5.6 Luna | **39 of 51 (76%)** | Self-reported |
+
+SWE-bench Pro is Scale AI's benchmark of real software-engineering work: issues and features in
+professional open-source projects, judged by each project's own hidden tests. HARD-51 is its
+hardest part, the tasks that at least two of five frontier model families failed. AlbertCode had
+one attempt per task, up to 50 minutes each, with no human help. On the 22 tasks held out from all
+of its development, it resolved 14. We ran and graded this ourselves; it hasn't been independently
+verified. The [report](benchmarks/results/swe-bench-pro-hard51-2026-09-gpt-5.6-luna/REPORT.md) gives the method, every task's outcome and the limitations.
 
 ## Documentation
 
