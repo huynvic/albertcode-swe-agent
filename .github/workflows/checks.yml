@@ -46,16 +46,18 @@ jobs:
         run: dash installer/tests/test_install_sh.sh
 
   bootstrap-ps1:
-    name: Bootstrap (Windows, PowerShell ${{ matrix.shell }})
-    strategy:
-      fail-fast: false
-      matrix:
-        shell: [powershell, pwsh]
+    name: Bootstrap (Windows)
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
-      - name: Tests
-        shell: ${{ matrix.shell }}
+      # Both shells a user may run the one-line command from. (`shell` cannot come from a matrix.)
+      - name: Tests (Windows PowerShell 5.1)
+        shell: powershell
+        run: |
+          & ./installer/tests/test_install_ps1.ps1
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Tests (PowerShell 7)
+        shell: pwsh
         run: |
           & ./installer/tests/test_install_ps1.ps1
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
