@@ -12,10 +12,10 @@ It plans, changes, tests and reviews in an isolated copy of your repository,<br>
 and touches your files only when you approve.</p>
 
 <p>
-<a href="https://github.com/huynvic/albertcode-swe-agent/releases/latest"><img src="https://img.shields.io/github/v/release/huynvic/albertcode-swe-agent?label=release&color=3DDC97" alt="Latest release"></a>
+<a href="https://github.com/huynvic/albertcode-swe-agent/releases/latest"><img src="https://img.shields.io/github/v/release/huynvic/albertcode-swe-agent?label=release&color=FF7A4D" alt="Latest release"></a>
 <a href="docs/installation.md"><img src="https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux-0D1117" alt="Windows, macOS and Linux"></a>
 <a href="https://github.com/huynvic/albertcode-swe-agent/actions/workflows/checks.yml"><img src="https://github.com/huynvic/albertcode-swe-agent/actions/workflows/checks.yml/badge.svg" alt="Checks"></a>
-<a href="https://github.com/huynvic/albertcode-swe-agent/stargazers"><img src="https://img.shields.io/github/stars/huynvic/albertcode-swe-agent?style=flat&color=3DDC97" alt="GitHub stars"></a>
+<a href="https://github.com/huynvic/albertcode-swe-agent/stargazers"><img src="https://img.shields.io/github/stars/huynvic/albertcode-swe-agent?style=flat&color=FF7A4D" alt="GitHub stars"></a>
 </p>
 
 <p>
