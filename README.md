@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.33.2
+> albertcode --version     # AlbertCode SWE Agent 1.33.3
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 

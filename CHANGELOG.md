@@ -3,6 +3,11 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.33.3 — 2026-10-06
+
+- **The browser interface no longer labels your install "development".** Under the logo it now
+  shows just the version.
+
 ## 1.33.2 — 2026-10-06
 
 - **Tasks start on Windows in projects with a `node_modules` folder.** Earlier versions failed
