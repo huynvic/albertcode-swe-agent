@@ -42,16 +42,19 @@ ledger.
 
 ## Terminal
 
-In the browser interface, **Terminal** in the top bar (or Ctrl+`) opens a real shell docked under
-the chat, in the open repository: zsh or bash on macOS and Linux, PowerShell on Windows.
+In the browser interface, **Terminal** in the top bar (or Ctrl+`) opens a real shell in the open
+repository: zsh or bash on macOS and Linux, PowerShell on Windows. It opens beside the chat, in the
+side panel like Files; the button in its header docks it under the chat instead, and back, and
+AlbertCode remembers where you put it. Run your project's tests, builds and other checks here.
 
 - **Tabs.** **+** (or Ctrl+Shift+`) opens another; **Terminal** in the Files panel opens one in the
   selected folder. Close a tab with its ×, a middle-click, or Delete when the tab is focused.
-- **Size.** Drag the panel's top edge, or double-click it (or use the arrow button) to maximise.
+- **Size.** Beside the chat, drag the side panel's edge. Under the chat, drag the panel's top edge,
+  or double-click it (or use the arrow button) to maximise.
 - **Copy and paste.** Select to copy with Ctrl+C (Ctrl+C with nothing selected interrupts, as
   usual), or Ctrl+Shift+C and Ctrl+Shift+V. On a Mac, ⌘C and ⌘V.
-- **It keeps running.** Hide the panel, or reload the page: each shell carries on and comes back
-  with what it wrote. A shell that has ended says so; press Enter to start a new one.
+- **It keeps running.** Hide it, move it, open a file in the side panel, or reload the page: each
+  shell carries on and comes back with what it wrote. A shell that has ended says so; press Enter to start a new one.
 
 The first time, the panel explains what it allows and asks you to turn it on: what you type runs
 on this computer as you, and the limits AlbertCode puts on the agent's commands do not apply to it.
@@ -59,23 +62,6 @@ Only your own AlbertCode page can connect, a shared AlbertCode server never offe
 model key is in its environment. Turning it on or off and opening or closing a shell are recorded
 in the ledger; what you type is not. Turn it off from the panel's ⋯ menu, which closes every shell
 it opened; **Open in your terminal app** there opens your own terminal instead.
-
-## Run panel and terminal
-
-In the browser interface, **Run** in the top bar lists the checks the open repository already has:
-its tests, type checks, lint and build, as AlbertCode finds them, with the ones your repository's
-contract requires first. Click **Run** beside one to run it; its output and how long it took show
-below. One check runs at a time in each repository.
-
-Only those checks can be run from the panel, and each one follows the same rules as the commands
-the agent runs. A check your repository's rules do not allow says so and is not run.
-
-**Open in Terminal**, at the top of the Run panel, opens a terminal in the repository: the one
-above when it is on, and otherwise your own terminal app (Terminal on macOS, Windows Terminal or
-PowerShell on Windows, your desktop's terminal on Linux).
-
-Both are offered only on your own computer, and each run and each terminal opened is recorded in
-AlbertCode's ledger.
 
 ## Approvals
 

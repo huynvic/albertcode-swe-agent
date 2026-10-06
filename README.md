@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.36.0
+> albertcode --version     # AlbertCode SWE Agent 1.37.0
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 
@@ -498,16 +498,17 @@ something to the Trash, from the toolbar, the ⋯ menu on each row, a right-clic
 
 ### Terminal
 
-**Terminal** in the top bar (or <kbd>Ctrl</kbd> <kbd>`</kbd>) opens a real shell under the chat:
-zsh or bash on macOS and Linux, PowerShell on Windows, in the open repository. Open more as tabs,
-drag the edge to resize, maximise it, or hide it; your shells keep running, even across a page
-reload. Colours, clickable links, full-screen programs, and copy and paste all work as in your own
-terminal, in light and dark.
+**Terminal** in the top bar (or <kbd>Ctrl</kbd> <kbd>`</kbd>) opens a real shell beside the chat,
+like Files: zsh or bash on macOS and Linux, PowerShell on Windows, in the open repository. The
+button in its header docks it under the chat instead, and back; AlbertCode remembers where you
+like it. Open more as tabs, and hide or move it whenever you like: your shells keep running, even
+across a page reload. Colours, clickable links, full-screen programs, and copy and paste all work
+as in your own terminal, in light and dark. Run your project's tests and other checks here.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-shell-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-shell-light.png">
-  <img src="assets/readme/screen-shell-light.png" alt="The terminal docked under the chat: a bash tab in the shop repository showing git log, git status and a test run with 12 passed." width="100%">
+  <img src="assets/readme/screen-shell-light.png" alt="The terminal beside the chat: a bash tab in the shop repository showing git log, git status and a test run with 12 passed." width="100%">
 </picture>
 
 | Shortcut | What it does |
@@ -523,22 +524,6 @@ terminal, in light and dark.
 > AlbertCode page can connect to it, and a shared AlbertCode server never offers it. Opening and
 > closing a shell are recorded in the evidence ledger; what you type is not. Turn it off at any
 > time from the panel's ⋯ menu.
-
-### Run panel
-
-**Run** in the top bar lists the checks your project already has (tests, type checks, lint,
-build) and runs the one you choose, with its output beside the chat. **Open in Terminal** opens a
-terminal in the repository (your own terminal app while the terminal above is off).
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-run-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-run-light.png">
-  <img src="assets/readme/screen-run-light.png" alt="The Run panel beside the chat: the project's test command with a Run button, and its output below, showing 2 passed." width="100%">
-</picture>
-
-> [!NOTE]
-> Only the project's own checks can be run there, and each one follows the same rules as the
-> agent's commands. A check your repository's rules do not allow says so and is not run.
 
 <br>
 

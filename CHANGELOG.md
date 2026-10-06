@@ -3,19 +3,14 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.36.0 — 2026-10-06
+## 1.37.0 — 2026-10-06
 
-- **A terminal inside the browser.** **Terminal** in the top bar (or Ctrl+`) opens a real shell
-  under the chat, in the open repository: zsh or bash on macOS and Linux, PowerShell on Windows.
-  Tabs, resize and maximise, colours, clickable links, copy and paste; shells keep running when
-  the panel is hidden or the page reloads. Off until you turn it on; only your own AlbertCode page
-  can connect; opening and closing a shell are in the evidence ledger.
-
-- **A Run panel in the browser.** **Run** in the top bar lists the checks the repository already
-  has (tests, type checks, lint, build) and runs the one you choose, with its output in the panel.
-  Only those checks can be run there, and each follows the same rules as the agent's own commands.
-- **Open in Terminal.** Opens your own terminal app in the repository from the Run panel, or in the
-  selected folder from the Files panel.
+- **A terminal inside the browser.** **Terminal** in the top bar (or Ctrl+`) opens a real shell in
+  the open repository: zsh or bash on macOS and Linux, PowerShell on Windows. It sits beside the
+  chat like Files, or docked under it; one button moves it, and AlbertCode remembers the choice.
+  Tabs, colours, clickable links, copy and paste; shells keep running when it is hidden, moved or
+  the page reloads. Off until you turn it on; only your own AlbertCode page can connect; opening
+  and closing a shell are in the evidence ledger.
 - **Governed changes.** AlbertCode plans a change, you approve the plan, it builds the change in an
   isolated copy of your repository, runs your own tests, reviews the result, and shows you the diff.
   Your files change only when you accept it.
