@@ -3,10 +3,13 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.34.1 — 2026-10-06
+## 1.35.0 — 2026-10-06
 
-The first public release of AlbertCode SWE Agent.
-
+- **A Run panel in the browser.** **Run** in the top bar lists the checks the repository already
+  has (tests, type checks, lint, build) and runs the one you choose, with its output in the panel.
+  Only those checks can be run there, and each follows the same rules as the agent's own commands.
+- **Open in Terminal.** Opens your own terminal app in the repository from the Run panel, or in the
+  selected folder from the Files panel.
 - **Governed changes.** AlbertCode plans a change, you approve the plan, it builds the change in an
   isolated copy of your repository, runs your own tests, reviews the result, and shows you the diff.
   Your files change only when you accept it.

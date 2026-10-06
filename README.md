@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.34.1
+> albertcode --version     # AlbertCode SWE Agent 1.35.0
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 
@@ -495,6 +495,22 @@ something to the Trash, from the toolbar, the ⋯ menu on each row, a right-clic
 > hidden, and files that look like they hold secrets, such as `.env` or keys, are shown with a lock
 > and never opened or changed. Nothing is overwritten, and anything you delete can be restored from
 > the Trash or Recycle Bin.
+
+### Run panel and terminal
+
+**Run** in the top bar lists the checks your project already has (tests, type checks, lint,
+build) and runs the one you choose, with its output beside the chat. **Open in Terminal** opens
+your own terminal app in the repository; in the Files panel, it opens in the selected folder.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-run-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-run-light.png">
+  <img src="assets/readme/screen-run-light.png" alt="The Run panel beside the chat: the project's test command with a Run button, and its output below, showing 2 passed." width="100%">
+</picture>
+
+> [!NOTE]
+> Only the project's own checks can be run there, and each one follows the same rules as the
+> agent's commands. A check your repository's rules do not allow says so and is not run.
 
 <br>
 

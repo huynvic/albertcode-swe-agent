@@ -40,6 +40,23 @@ overwrite anything. Deleted items go to the Trash (the Recycle Bin on Windows), 
 them. The panel is offered only on your own computer, and every change is recorded in AlbertCode's
 ledger.
 
+## Run panel and terminal
+
+In the browser interface, **Run** in the top bar lists the checks the open repository already has:
+its tests, type checks, lint and build, as AlbertCode finds them, with the ones your repository's
+contract requires first. Click **Run** beside one to run it; its output and how long it took show
+below. One check runs at a time in each repository.
+
+Only those checks can be run from the panel, and each one follows the same rules as the commands
+the agent runs. A check your repository's rules do not allow says so and is not run.
+
+**Open in Terminal**, at the top of the Run panel, opens your own terminal app in the repository:
+Terminal on macOS, Windows Terminal (or PowerShell) on Windows, and your desktop's terminal on
+Linux. In the Files panel, **Terminal** in the toolbar opens it in the selected folder.
+
+Both are offered only on your own computer, and each run and each terminal opened is recorded in
+AlbertCode's ledger.
+
 ## Approvals
 
 In governed mode there are two:
