@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.40.0
+> albertcode --version     # AlbertCode SWE Agent 1.41.0
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 
@@ -602,6 +602,25 @@ test titled `[R3] …` checks R3.
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-requirements-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-requirements-light.png">
   <img src="assets/readme/screen-requirements-light.png" alt="The Requirements page: one complete, two partial, one missing and one failed, with a progress bar, and five requirements each with its status, the reason, its evidence and an action: Fix with Albert, Add a test or Build with Albert." width="100%">
+</picture>
+
+### Architecture
+
+**Architecture**, in the ⋮ menu, draws what your app is made of and how the parts connect, from
+its own files, in three columns: what people use (frontends and web pages), what runs (API servers
+and background jobs), and what it relies on (databases, caches, sign-in, queues, file storage and
+outside services such as payments or email).
+
+Nothing is guessed. Every box comes from a file that declares it (`package.json`,
+`pyproject.toml`, `requirements.txt`, `go.mod`, `docker-compose.yml`, or the names in
+`.env.example`), and a line is drawn only where a file shows the connection. Select a part to see
+those files, what it connects to and why, and its routes, pages and data models, each one click
+from the code.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-architecture-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-architecture-light.png">
+  <img src="assets/readme/screen-architecture-light.png" alt="The Architecture page: a Next.js app, a FastAPI server and Celery jobs, connected to PostgreSQL, Redis, NextAuth, Stripe and SendGrid, with the FastAPI server selected: the file that declares it, what it connects to and why, and its two routes with their files and lines." width="100%">
 </picture>
 
 <br>

@@ -108,6 +108,13 @@ computer as you, outside the limits AlbertCode puts on the agent's commands:
 - Its buttons only put a request in the chat. Nothing is built until you send it and approve the
   plan and the diff.
 
+## Architecture
+
+- It only reads, in the open repository, and runs nothing. It never follows a link and skips
+  dependencies and build output.
+- Files that may hold a secret (your `.env`, keys, a secrets folder) are never read.
+  `.env.example` and similar files are read for variable names only, never values.
+
 ## The installer
 
 The install command downloads `SHA256SUMS` from this repository's release, and checks the

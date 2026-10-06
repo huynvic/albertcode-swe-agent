@@ -3,8 +3,11 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.40.0 — 2026-10-06
+## 1.41.0 — 2026-10-06
 
+- **Architecture.** See what your app is made of and how the parts connect, drawn from its own
+  files: what people use, what runs, and what it relies on. Every box and line comes from a file
+  in your repository; select a part to see which, with its routes, pages and data models.
 - **Requirements.** Turn a specification into a checklist that proves itself. Your model drafts
   the list from your specification; you edit and save it, and it is kept in your repository. Each
   requirement shows Complete, Partial, Failed or Missing, worked out from your browser tests and

@@ -122,6 +122,22 @@ A browser test belongs to a requirement when its title starts with the requireme
 brackets, for example `test('[R3] notes can be searched', …)`. A task belongs to it when its
 request says "(requirement R3)". The actions word their requests that way for you.
 
+## Architecture
+
+**Architecture**, in the ⋮ menu, shows what the open repository is made of, read from its files.
+
+- **Three columns.** People use (frontends, web pages), it runs (API servers, background jobs), it
+  relies on (databases, caches, sign-in, queues, file storage, outside services).
+- **Evidence.** Select a part to see the files that put it on the map, what it connects to and the
+  file that shows each connection, and its routes, pages and data models with their files and lines.
+  Click a file to open it beside the map.
+- **What it reads.** `package.json`, `pyproject.toml`, `requirements*.txt` and `go.mod` for the parts;
+  `docker-compose.yml` for the services that run beside the app; `.env.example` for the outside
+  services it is set up for (names only); the code for routes (Express, Fastify, FastAPI, Flask,
+  Django, Next.js), pages (Next.js, React Router) and data models (Prisma, SQLAlchemy, Django,
+  SQLModel, Mongoose, Drizzle).
+- **Read again** reads the files afresh; otherwise the map is kept for half a minute.
+
 ## Approvals
 
 In governed mode there are two:
