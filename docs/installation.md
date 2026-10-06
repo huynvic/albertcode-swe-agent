@@ -79,6 +79,15 @@ model again with `/connect`.
 
 ## Uninstalling
 
+From version 1.33.2, on any system:
+
+```
+albertcode uninstall
+```
+
+`--all` also removes your settings, saved keys and task history; `--check` only shows the plan.
+It needs nothing from the internet. Or, with any version:
+
 macOS and Linux (Terminal):
 
 ```bash

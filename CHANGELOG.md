@@ -3,6 +3,16 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.33.2 — 2026-10-06
+
+- **Tasks start on Windows in projects with a `node_modules` folder.** Earlier versions failed
+  every such task with "Internal Server Error"; projects on USB drives and some network shares
+  could fail the same way on macOS and Linux.
+- **`albertcode --ui` opens the browser page signed in again**, instead of a page asking you to run
+  `albertcode --ui`.
+- **`albertcode uninstall`** removes AlbertCode on Windows, macOS and Linux with nothing downloaded.
+  `--all` also removes settings, saved keys and task history.
+
 ## 1.33.1 — 2026-10-05
 
 AlbertCode's own logo and colour, everywhere.

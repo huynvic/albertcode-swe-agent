@@ -53,7 +53,7 @@ editing. It takes a minute or two.
 When it finishes, **open a new terminal** and check it:
 
 ```bash
-albertcode --version     # AlbertCode SWE Agent 1.33.1
+albertcode --version     # AlbertCode SWE Agent 1.33.2
 albertcode doctor        # which build tools AlbertCode can find
 ```
 
@@ -148,6 +148,15 @@ irm https://raw.githubusercontent.com/huynvic/albertcode-swe-agent/main/installe
 ```
 
 **Uninstall.** It lists what it will remove and asks first. Your settings are kept.
+
+From version 1.33.2, on any system:
+
+```
+albertcode uninstall
+```
+
+`--all` also removes your settings, saved keys and task history; `--check` only shows the plan.
+It needs nothing from the internet. Or, with any version:
 
 macOS and Linux (Terminal):
 
