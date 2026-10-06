@@ -76,6 +76,24 @@ start command once and remembers it.
   **Ask Albert to fix** puts the error into the chat; **Logs** shows the app's output.
 - **Restart** and **Stop** are in the panel's header.
 
+### Edit by clicking
+
+**Edit** in the Preview panel lets you change the app by clicking it.
+
+1. Turn on **Edit**. Hovering outlines what you would choose; links and buttons do not act while
+   editing. Click to choose; Esc lets go.
+2. Change the text, text colour, background, size, weight, alignment, padding or corners. The app
+   shows the change at once. **Undo** puts it back.
+3. **Review change** finds where it comes from in the source:
+   - **Found where it comes from**: the files and lines, and the diff. **Apply change** writes
+     exactly that diff, only if the files have not changed since, and the dev server reloads.
+   - **Albert will make this change**: the reason, such as the text being built from data, written
+     in several places, or styled with utility classes. **Ask Albert** sends it as a task.
+4. **Done** turns editing off.
+
+Direct edits are offered for React with TypeScript, Next.js, Vite with React, and plain HTML, CSS
+and JavaScript, for text written once in the source and for styles in plain CSS or CSS modules.
+
 ## Task board
 
 **Tasks**, in the ⋮ menu at the top right, opens every task as a board with five columns:

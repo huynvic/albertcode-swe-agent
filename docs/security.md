@@ -115,6 +115,16 @@ computer as you, outside the limits AlbertCode puts on the agent's commands:
 - Files that may hold a secret (your `.env`, keys, a secrets folder) are never read.
   `.env.example` and similar files are read for variable names only, never values.
 
+## Visual editing
+
+- While **Edit** is on, the preview is shown through a proxy on your own computer that only talks
+  to your app and adds AlbertCode's selection script. The script and AlbertCode only accept
+  messages from each other.
+- Your files change only when you click **Apply change**, with exactly the diff you were shown,
+  and only if the files have not changed since. Links, files outside the repository and files that
+  may hold secrets are never written. Each change is recorded in the evidence ledger.
+- Only a few style properties with plain values are written, so an edit cannot add code.
+
 ## The installer
 
 The install command downloads `SHA256SUMS` from this repository's release, and checks the

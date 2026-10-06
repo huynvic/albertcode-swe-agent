@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.41.0
+> albertcode --version     # AlbertCode SWE Agent 1.42.0
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 
@@ -539,6 +539,29 @@ reports an error now. **Ask Albert to fix** puts the error into the chat for you
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-preview-light.png">
   <img src="assets/readme/screen-preview-light.png" alt="The app preview beside the chat at tablet width, with a red notice above it: the app answered with an error (500), the TypeError from its output and where it happened, and buttons to ask Albert to fix it or show the logs." width="100%">
 </picture>
+
+#### Edit by clicking
+
+Turn on **Edit** in the Preview panel and click anything in your app: a heading, a button, a card.
+Change its text, text colour, background, size, weight, alignment, padding or corners, and you see
+the change at once. Nothing is saved yet.
+
+**Review change** finds where it comes from in your code. When there is exactly one safe place (the
+text is written once, or the style comes from one CSS rule), it shows the diff, and **Apply
+change** writes exactly that; your app reloads with it. When there is not (the text is built from
+data, it appears in several places, or it is styled with utility classes), AlbertCode says why, and
+**Ask Albert** makes the change as a normal task, with the plan and diff for you to approve.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-visual-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-visual-light.png">
+  <img src="assets/readme/screen-visual-light.png" alt="Editing the app in the preview: a button is selected, its text, background, size and corners are changed in the panel below the app, and the review shows the diff to the CSS file with buttons to ask Albert instead or apply the change." width="100%">
+</picture>
+
+> [!NOTE]
+> Direct edits work for React with TypeScript, Next.js, Vite with React, and plain HTML, CSS and
+> JavaScript. For other stacks, Albert makes every change. Apply only writes if the files are
+> unchanged since you reviewed them, and each change is recorded in the evidence ledger.
 
 ### Task board
 

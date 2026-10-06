@@ -3,8 +3,13 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.41.0 — 2026-10-06
+## 1.42.0 — 2026-10-06
 
+- **Visual editing.** Click anything in the preview and change its text, colours, size, weight,
+  alignment, padding or corners, and see it at once. **Review change** finds the one place in your
+  code it belongs and shows the diff to approve; when there is no single safe place, AlbertCode
+  says why and Albert makes the change as a task. Direct edits work for React with TypeScript,
+  Next.js, Vite with React, and plain HTML, CSS and JavaScript.
 - **Architecture.** See what your app is made of and how the parts connect, drawn from its own
   files: what people use, what runs, and what it relies on. Every box and line comes from a file
   in your repository; select a part to see which, with its routes, pages and data models.
