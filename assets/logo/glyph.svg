@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="160 160 704 704" width="64" height="64" role="img" aria-label="AlbertCode">
+  <rect x="200" y="200" width="624" height="624" rx="182" fill="none" stroke="#FF7A4D" stroke-width="36"/>
+  <path d="M381 369 L512 512 L381 655" fill="none" stroke="#FF7A4D" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M642 369 V446 M642 578 V655" fill="none" stroke="currentColor" stroke-width="40" stroke-linecap="round"/>
+  <circle cx="642" cy="512" r="54" fill="none" stroke="#FF7A4D" stroke-width="36"/>
+</svg>

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or idea
+    url: https://github.com/huynvic/albertcode-swe-agent/discussions
+    about: Ask a question or share an idea in Discussions.
+  - name: Security vulnerability
+    url: https://github.com/huynvic/albertcode-swe-agent/security/advisories/new
+    about: Report it privately. Please don't open a public issue.

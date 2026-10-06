@@ -1,0 +1,58 @@
+name: Bug report
+description: Something doesn't work as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Don't include API keys, tokens or private code.** Security problems go
+        through the Security tab instead; see SECURITY.md.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. cd into a Python repository
+        2. run `albertcode`
+        3. ask for …
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: AlbertCode version
+      description: Run `albertcode --version`.
+    validations:
+      required: true
+  - type: dropdown
+    id: interface
+    attributes:
+      label: Interface
+      options: [Terminal, Browser, VS Code, Installer, Other]
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Operating system
+      placeholder: macOS 15.1 (Apple silicon), Ubuntu 24.04, Windows 11 …
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model provider and model
+      placeholder: The provider and model you connected, e.g. a local server and its model
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output or logs
+      description: Paste relevant output. Remove anything private first.
+      render: text

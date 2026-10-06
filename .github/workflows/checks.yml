@@ -1,0 +1,63 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  release-gate:
+    name: Release gate (files and full history)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Scan every file and commit
+        env:
+          # Optional: the maintainers' private denylist, kept as a repository secret, never in the repository.
+          PRIVATE_DENYLIST: ${{ secrets.ALBERTCODE_PRIVATE_DENYLIST }}
+        run: |
+          if [ -n "$PRIVATE_DENYLIST" ]; then
+            printf '%s\n' "$PRIVATE_DENYLIST" > "$RUNNER_TEMP/denylist.txt"
+            export ALBERTCODE_PRIVATE_DENYLIST="$RUNNER_TEMP/denylist.txt"
+          fi
+          python3 scripts/release_gate.py
+
+  bootstrap-sh:
+    name: Bootstrap (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: ShellCheck
+        if: runner.os == 'Linux'
+        run: shellcheck -s sh installer/install.sh installer/tests/test_install_sh.sh
+      - name: Tests (sh)
+        run: sh installer/tests/test_install_sh.sh
+      - name: Tests (dash)
+        if: runner.os == 'Linux'
+        run: dash installer/tests/test_install_sh.sh
+
+  bootstrap-ps1:
+    name: Bootstrap (Windows)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # Both shells a user may run the one-line command from. (`shell` cannot come from a matrix.)
+      - name: Tests (Windows PowerShell 5.1)
+        shell: powershell
+        run: |
+          & ./installer/tests/test_install_ps1.ps1
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Tests (PowerShell 7)
+        shell: pwsh
+        run: |
+          & ./installer/tests/test_install_ps1.ps1
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }

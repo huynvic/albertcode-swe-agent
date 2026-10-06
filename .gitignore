@@ -1,0 +1,39 @@
+# Secrets and local configuration: never commit these.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+.netrc
+.npmrc
+.pypirc
+
+# Built and downloaded files. Releases carry these; the repository does not.
+*.whl
+*.vsix
+*.zip
+*.tar.gz
+*.exe
+*.msi
+*.dmg
+dist/
+build/
+Install-AlbertCode-*
+
+# Debug output, logs and caches
+*.map
+*.log
+*.db
+*.sqlite*
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
