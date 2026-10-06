@@ -103,6 +103,25 @@ The files are yours: run them from your own terminal with `npx playwright test`,
 commit them. Installing, downloading a browser and running tests are each your click, and each is
 recorded in the evidence ledger.
 
+## Requirements
+
+**Requirements**, in the ⋮ menu, keeps what the app must do as a list you can check.
+
+1. **Draft requirements**: paste a specification (a brief, a list, a ticket). With a model
+   connected, it drafts one checkable requirement per behaviour; without one, it uses the
+   specification's own bullets and sentences. Or choose **Write them myself**.
+2. Edit, reorder, add and remove, then **Save requirements**. The list is saved in the repository
+   as `.albertcode/requirements.json`; each requirement keeps its number (R1, R2…) when you edit.
+3. Each requirement then shows **Complete**, **Partial**, **Failed** or **Missing**, from the latest
+   browser test run and the tasks built for it, with the reason and the evidence.
+4. One action moves it on: **Build with Albert** for a missing one, **Fix with Albert** for a failed
+   one, **Add a test** for one nothing checks yet. Each puts a request in the chat for you to send.
+   **Check now** runs the browser tests again.
+
+A browser test belongs to a requirement when its title starts with the requirement's number in
+brackets, for example `test('[R3] notes can be searched', …)`. A task belongs to it when its
+request says "(requirement R3)". The actions word their requests that way for you.
+
 ## Approvals
 
 In governed mode there are two:

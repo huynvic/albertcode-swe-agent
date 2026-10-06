@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.39.0
+> albertcode --version     # AlbertCode SWE Agent 1.40.0
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 
@@ -577,6 +577,32 @@ change them, run them yourself with `npx playwright test`, and commit them.
 > none does it offer to download Playwright's Chromium (about 150 MB), and only when you ask.
 > Results come from Playwright's own report: a run that leaves no report is shown as not having
 > run, never as a pass.
+
+### Requirements
+
+**Requirements**, in the ⋮ menu, turns your specification into a checklist and shows where each
+item stands. Paste the specification and your model drafts one requirement per behaviour; edit
+the list and save it. It is kept in your repository as `.albertcode/requirements.json`, numbered
+R1, R2 and so on, beside the code it describes.
+
+Each requirement's status is worked out from evidence, never guessed:
+
+| Status | When |
+|---|---|
+| **Complete** | It has browser tests, and all of them passed in the latest run |
+| **Partial** | Some of its tests passed, or it was built but no test checks it yet |
+| **Failed** | One of its tests failed, or the task that built it failed |
+| **Missing** | Nothing has built it, and no test has passed for it |
+
+Each row says why, lists the tests and tasks behind it, and offers the next step: **Build with
+Albert**, **Fix with Albert** or **Add a test**. What they make links back by itself: a browser
+test titled `[R3] …` checks R3.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-requirements-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-requirements-light.png">
+  <img src="assets/readme/screen-requirements-light.png" alt="The Requirements page: one complete, two partial, one missing and one failed, with a progress bar, and five requirements each with its status, the reason, its evidence and an action: Fix with Albert, Add a test or Build with Albert." width="100%">
+</picture>
 
 <br>
 

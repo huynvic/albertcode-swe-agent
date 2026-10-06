@@ -3,8 +3,12 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.39.0 — 2026-10-06
+## 1.40.0 — 2026-10-06
 
+- **Requirements.** Turn a specification into a checklist that proves itself. Your model drafts
+  the list from your specification; you edit and save it, and it is kept in your repository. Each
+  requirement shows Complete, Partial, Failed or Missing, worked out from your browser tests and
+  tasks, with the reason and the evidence, and one click to build it, fix it or add a test.
 - **Browser tests.** **Test** in the top bar checks your app the way people use it, with Playwright
   tests kept in your repository's `e2e/` folder. Albert writes them as a normal task (you approve
   the plan and the diff); one click installs the runner and runs them against your app. A failure

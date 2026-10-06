@@ -99,6 +99,15 @@ computer as you, outside the limits AlbertCode puts on the agent's commands:
   output is checked for secrets before it is shown.
 - **Tests are written like any change**, as a task with a plan and a diff you approve.
 
+## Requirements
+
+- The list is saved in the open repository, at `.albertcode/requirements.json`, only when you click
+  **Save**, and never through a link. Saving is recorded in the evidence ledger.
+- A specification is sent only to the model you chose, like any chat message; without one, it is
+  split on your computer.
+- Its buttons only put a request in the chat. Nothing is built until you send it and approve the
+  plan and the diff.
+
 ## The installer
 
 The install command downloads `SHA256SUMS` from this repository's release, and checks the

@@ -34,7 +34,7 @@ function Read-Options([string[]]$words) {
         $word = $words[$i]
         switch -regex ($word) {
             '^--version$' {
-                if ($i + 1 -ge $words.Count) { $options.Problem = '--version needs a version, for example --version 1.39.0'; return $options }
+                if ($i + 1 -ge $words.Count) { $options.Problem = '--version needs a version, for example --version 1.40.0'; return $options }
                 $i++; $options.Version = $words[$i] }
             '^--version=' { $options.Version = $word.Substring(10) }
             '^--uninstall$' { $options.Uninstall = $true }
