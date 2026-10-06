@@ -73,7 +73,7 @@ standard users can't read.
 
 ## The terminal in the browser
 
-The browser can show a real shell, docked under the chat. Because what you type there runs on your
+The browser can show a real shell, beside the chat or under it. Because what you type there runs on your
 computer as you, outside the limits AlbertCode puts on the agent's commands:
 
 - It is **off until you turn it on**, and the panel says what it allows before you can.
@@ -86,6 +86,18 @@ computer as you, outside the limits AlbertCode puts on the agent's commands:
 - **No model key is in the shell's environment.**
 - Turning it on or off and opening or closing a shell are **recorded in the evidence ledger**.
   What you type is not.
+
+## Preview and browser tests
+
+- **Your click starts them.** The preview, installing the test runner, downloading a browser and
+  running tests each happen only when you ask, in the open repository, and on your own computer
+  only. Each is recorded in the evidence ledger.
+- **Fixed programs.** Only the test runner, its browser install and your package manager's install
+  run, with no shell in between. A single test file can be run only if it is one of the
+  repository's own.
+- **No secrets in a test run.** Settings that hold keys are removed from its environment, and its
+  output is checked for secrets before it is shown.
+- **Tests are written like any change**, as a task with a plan and a diff you approve.
 
 ## The installer
 

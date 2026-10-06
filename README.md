@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.37.0
+> albertcode --version     # AlbertCode SWE Agent 1.39.0
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 
@@ -524,6 +524,59 @@ as in your own terminal, in light and dark. Run your project's tests and other c
 > AlbertCode page can connect to it, and a shared AlbertCode server never offers it. Opening and
 > closing a shell are recorded in the evidence ledger; what you type is not. Turn it off at any
 > time from the panel's ⋯ menu.
+
+### Preview
+
+**Preview** in the top bar starts your app if it is not running and shows it beside the chat. If
+the project has no dev script, it asks for the start command once. Switch between desktop, tablet
+and phone widths, restart or stop it, and open its logs. The status line says whether the app is
+answering and how (`Running · localhost:5173 · 200 · 12 ms`). When something is wrong it says so
+above the app: it did not start, it stopped, it answers with an error page, or its own output
+reports an error now. **Ask Albert to fix** puts the error into the chat for you to send.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-preview-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-preview-light.png">
+  <img src="assets/readme/screen-preview-light.png" alt="The app preview beside the chat at tablet width, with a red notice above it: the app answered with an error (500), the TypeError from its output and where it happened, and buttons to ask Albert to fix it or show the logs." width="100%">
+</picture>
+
+### Task board
+
+**Tasks**, in the ⋮ menu at the top right, shows every task on a board, in columns for where each
+one stands: Planned, Active, Blocked, Verifying and Completed. Each card shows how far it has come, what it is
+waiting for ("Plan waiting for you", "Diff waiting for you"), its checks and files, and why it
+failed if it did. Open a card to pick the task up where it is. **List** shows the same tasks as a
+searchable list.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-board-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-board-light.png">
+  <img src="assets/readme/screen-board-light.png" alt="The task board: nine tasks in five columns, Planned, Active, Blocked, Verifying and Completed, each card with its progress, what it waits for, its checks and files." width="100%">
+</picture>
+
+### Browser tests
+
+**Test** in the top bar checks your app the way a person uses it: pages, forms, saved data and
+sign-in. The tests are Playwright files in your repository's `e2e/` folder, so you can read them,
+change them, run them yourself with `npx playwright test`, and commit them.
+
+1. **Write browser tests** asks Albert for them as a normal task: you approve the plan and the diff.
+2. **Install** adds the test runner with your project's package manager.
+3. **Run tests** starts the app if needed, runs every test in a browser, and shows what passed and
+   what failed. A failure comes with its error, the line in the test, a screenshot and a trace,
+   and **Fix with Albert** starts a task with all of that in it.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-tests-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-tests-light.png">
+  <img src="assets/readme/screen-tests-light.png" alt="The Test panel beside the chat: one test passed and one failed. The failure shows its error, the screenshot taken when it failed, and buttons to fix it with Albert, open the test, download the trace or run it again." width="100%">
+</picture>
+
+> [!NOTE]
+> AlbertCode uses a Chrome, Edge or Chromium that is already on your computer. Only if there is
+> none does it offer to download Playwright's Chromium (about 150 MB), and only when you ask.
+> Results come from Playwright's own report: a run that leaves no report is shown as not having
+> run, never as a pass.
 
 <br>
 

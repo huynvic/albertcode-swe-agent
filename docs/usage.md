@@ -63,6 +63,46 @@ model key is in its environment. Turning it on or off and opening or closing a s
 in the ledger; what you type is not. Turn it off from the panel's ⋯ menu, which closes every shell
 it opened; **Open in your terminal app** there opens your own terminal instead.
 
+## Preview
+
+**Preview** in the browser's top bar starts the open repository's app if it is not running and
+shows it in the side panel. It uses the project's dev script; when there is none, it asks for the
+start command once and remembers it.
+
+- **Widths.** Desktop, tablet (834 px) and phone (390 px).
+- **Status.** Whether the app is answering, on which address, with which status and how fast.
+- **Problems, said plainly.** It did not start, it stopped, it answers with an error page, or its
+  output reports an error now. An error that has since been fixed is not shown as current.
+  **Ask Albert to fix** puts the error into the chat; **Logs** shows the app's output.
+- **Restart** and **Stop** are in the panel's header.
+
+## Task board
+
+**Tasks**, in the ⋮ menu at the top right, opens every task as a board with five columns:
+Planned, Active, Blocked (waiting for you, or failed), Verifying and Completed. Each card shows
+its progress through plan, build, verify, approve and accept; what it is waiting for; its checks
+and files; and why it failed if it did. Open a card to continue the task. **List** shows the same
+tasks as a list you can search. The board updates by itself while tasks run.
+
+## Browser tests
+
+**Test** in the top bar runs your repository's Playwright tests (`e2e/*.spec.ts`) against the
+preview, in a browser.
+
+1. **Write browser tests** asks Albert for them as a normal task, through the usual plan and diff
+   approvals: one file per journey people take through the app, a `playwright.config.ts` that runs
+   against the preview, and `@playwright/test` in `package.json`.
+2. **Install** runs your package manager's install, so the test runner is there.
+3. A browser: a Chrome, Edge or Chromium already installed is used. Only when there is none does
+   the panel offer Playwright's Chromium, about 150 MB, downloaded when you click.
+4. **Run tests** starts the app if it is not running, runs every test (or one file), and shows the
+   results. Each failure has its error, its place in the test, its screenshot and its trace, with
+   **Fix with Albert**, **Open the test** and **Run again**.
+
+The files are yours: run them from your own terminal with `npx playwright test`, change them, and
+commit them. Installing, downloading a browser and running tests are each your click, and each is
+recorded in the evidence ledger.
+
 ## Approvals
 
 In governed mode there are two:
