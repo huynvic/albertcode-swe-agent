@@ -17,6 +17,7 @@ with what you ran, what you expected, and what happened. Leave out keys, tokens 
 | Linux says "the release has no installer for Linux on … processors" | Only x86-64 is supported for now, not ARM. |
 | The install fails on Alpine or another musl-based Linux | Not supported: AlbertCode needs a glibc-based distribution such as Ubuntu, Debian or Fedora. |
 | PowerShell refuses to run the install command on Windows | Your organisation may block scripts. Download the `.cmd` installer from the release and double-click it instead. |
+| **macOS:** "New folder" in the repository picker says the folder is read-only | You are at the top of the disk ("This computer") or in a system folder such as Applications. Choose **Home** or **Documents** in the picker and make the folder there. From 1.33.4 the button is dimmed in such folders. If macOS says "Operation not permitted" in Documents or Desktop, allow your terminal app in **System Settings → Privacy & Security → Files and Folders**. |
 | The browser page says to open AlbertCode from your terminal | Run `albertcode --ui`. It signs your browser in. In 1.33.0 and 1.33.1, `albertcode --ui` itself opened this page: update to 1.33.2. |
 | The uninstall command fails with `404` or can't download | Run `albertcode uninstall` instead (1.33.2 and later). It needs nothing from the internet. |
 | Every task fails with "Internal Server Error" on Windows, in a project with `node_modules` | Fixed in 1.33.2. On older versions, turn on Developer Mode (Settings → System → For developers). |

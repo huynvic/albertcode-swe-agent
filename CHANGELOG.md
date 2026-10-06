@@ -3,6 +3,15 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.33.4 — 2026-10-06
+
+- **"New folder" in the repository picker says where it cannot work, before you try.** On a Mac,
+  "This computer" is the top of the disk, which macOS keeps read-only, and folders such as
+  Applications and Users belong to the system. The button is now dimmed there and explains why;
+  make the folder in Home or Documents instead. If macOS blocks Documents or Desktop, the message
+  names the setting to change.
+- The picker no longer offers AlbertCode's own data folder as "Where the service started".
+
 ## 1.33.3 — 2026-10-06
 
 - **The browser interface no longer labels your install "development".** Under the logo it now

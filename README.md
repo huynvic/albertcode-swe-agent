@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.33.3
+> albertcode --version     # AlbertCode SWE Agent 1.33.4
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 
@@ -526,6 +526,7 @@ Linux, `%LOCALAPPDATA%\AlbertCode\install.log` on Windows.
 | A model connects but tasks stall or fail early | The model may not handle tool calling well. Run `/test`, and see [Models](docs/models.md#what-a-model-needs) |
 | Tests don't run, or use the wrong tool | Run `albertcode doctor` to see which build tools AlbertCode finds, then install or add the missing one to your PATH |
 | The browser page says to open AlbertCode from your terminal | Run `albertcode --ui`. It signs your browser in |
+| **macOS:** "New folder" says the folder is read-only | You are at the top of the disk ("This computer") or in a system folder. Choose **Home** or **Documents** in the picker and make the folder there |
 | VS Code can't reach AlbertCode | Run `albertcode` once in a terminal to start the service, then reload the VS Code window |
 | Accepting a change is refused | You edited a file the change also touches. Look at your edits, then run the task again |
 | Everything seems stuck | Run `albertcode stop`, then `albertcode` again |
