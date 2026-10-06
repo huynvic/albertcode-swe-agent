@@ -3,7 +3,13 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.35.0 — 2026-10-06
+## 1.36.0 — 2026-10-06
+
+- **A terminal inside the browser.** **Terminal** in the top bar (or Ctrl+`) opens a real shell
+  under the chat, in the open repository: zsh or bash on macOS and Linux, PowerShell on Windows.
+  Tabs, resize and maximise, colours, clickable links, copy and paste; shells keep running when
+  the panel is hidden or the page reloads. Off until you turn it on; only your own AlbertCode page
+  can connect; opening and closing a shell are in the evidence ledger.
 
 - **A Run panel in the browser.** **Run** in the top bar lists the checks the repository already
   has (tests, type checks, lint, build) and runs the one you choose, with its output in the panel.

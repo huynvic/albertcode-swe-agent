@@ -71,6 +71,22 @@ reviews), and the isolated copies tasks work in. On macOS and Linux the folder i
 you, and so is the task database inside it. On Windows it is in your own profile, which other
 standard users can't read.
 
+## The terminal in the browser
+
+The browser can show a real shell, docked under the chat. Because what you type there runs on your
+computer as you, outside the limits AlbertCode puts on the agent's commands:
+
+- It is **off until you turn it on**, and the panel says what it allows before you can.
+  Turning it off closes every shell it opened.
+- **Only your own AlbertCode page can connect.** Each shell has its own key, held by the page, and
+  the connection must also come from AlbertCode's own page and carry its sign-in. The key never
+  appears in an address.
+- A **shared AlbertCode server never offers it**; it exists only when AlbertCode runs for one person
+  on their own computer.
+- **No model key is in the shell's environment.**
+- Turning it on or off and opening or closing a shell are **recorded in the evidence ledger**.
+  What you type is not.
+
 ## The installer
 
 The install command downloads `SHA256SUMS` from this repository's release, and checks the

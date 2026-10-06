@@ -62,7 +62,7 @@ PASS=""          # options handed to the installer, already validated
 while [ $# -gt 0 ]; do
     case "$1" in
         --version)
-            [ $# -ge 2 ] || fail "--version needs a version, for example --version 1.35.0"
+            [ $# -ge 2 ] || fail "--version needs a version, for example --version 1.36.0"
             VERSION="$2"; shift ;;
         --version=*) VERSION="${1#--version=}" ;;
         --uninstall) UNINSTALL=1 ;;
