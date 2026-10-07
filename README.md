@@ -688,8 +688,8 @@ Keys stay in your computer's key store: never in your repository, a log, the pag
   your repository and your latest test run.
 - **Build this system** hands the design to Albert as a plan you approve, and **Build what changed**
   only what you added since.
-- **Your own services.** Add your own APIs and MCP servers to the library with a small file; see
-  [Usage](docs/usage.md#your-own-services).
+- **Your own APIs.** Add *REST API (OpenAPI)*, *GraphQL API*, *MCP server* or *Webhook* from the
+  library and give its address; it is checked like any other service.
 
 **Environments, variables and contracts.**
 
@@ -706,6 +706,33 @@ Keys stay in your computer's key store: never in your repository, a log, the pag
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-environments-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-environments-light.png">
   <img src="assets/readme/screen-system-environments-light.png" alt="The System page in the Staging environment: Development and Staging tabs at the top, and a connection from the Next.js app to the FastAPI server selected. Its contract lists GET /api/orders/{id}, in the code at both ends with the file and line of each, and POST /api/orders, not in the code yet." width="100%">
+</picture>
+
+**Fix every problem with Albert.** The **Fix** tab lists every open problem the evidence shows, from
+development, testing and your running environments: services failing their checks, failing browser
+tests and requirements, and contract items your code does not keep yet. Each comes from a real check
+or test, with its evidence and file. **Fix with Albert** fixes one; **Fix all** fixes them together,
+as one plan you approve, each with a test that would have caught it.
+
+**Release only after verification.**
+
+- **Is it ready?** **Release** checks one environment before anything goes out: your code is
+  committed, every service connected there passes a check run right now, your browser tests,
+  requirements and contracts hold, and nothing you designed is left unbuilt. Anything that could not
+  be checked is shown as a warning, never as passing.
+- **Release with proof.** Only when nothing fails can you record the commit as that environment's
+  release. AlbertCode runs the checks again at that moment and tags the commit locally (for example
+  `release-staging-3`). AlbertCode does not deploy for you: your own pipeline or command deploys the
+  tagged commit.
+- **Observe, repair, roll back.** Each environment keeps its recent checks (**Check now**, or every
+  minute while the page is open). **Fix with Albert** sends what failed and what changed since the
+  last release. **Roll back to this** hands Albert the exact change back to a chosen release, checked
+  to apply cleanly first, as a plan you approve; your history is kept.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-release-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-release-light.png">
+  <img src="assets/readme/screen-system-release-light.png" alt="Releasing from the System page: the Release tab for Development lists each check with a tick or a warning (the code is committed, the connected service is working, every contract item is in the code; nothing is connected for three parts and no browser tests have run yet) and offers to release the commit to Development." width="100%">
 </picture>
 
 <picture>

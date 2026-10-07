@@ -3,7 +3,19 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.45.0 — 2026-10-07
+## 1.46.0 — 2026-10-08
+
+- **Fix every problem with Albert.** One **Fix** tab lists every open problem from development,
+  testing and your running environments, each from a real check or test with its evidence. Fix one,
+  or all of them as one plan you approve.
+- **Release only after verification.** **Release** checks an environment (code committed, services
+  working now, tests, requirements and contracts holding) and records the commit as its release only
+  when nothing fails, tagged locally. Your own pipeline deploys it.
+- **Observe, repair, roll back.** Each environment keeps its recent checks; **Fix with Albert** sends
+  what failed and what changed since the last release; **Roll back to this** hands Albert the exact
+  change back to a release, checked first, as a plan you approve.
+- **Security update** for the sign-in library, and fixes: a harmless browser notice no longer shows
+  as an error or re-enables Send while Albert is working.
 
 - **Environments.** Development, Staging and Production, each with its own connections, keys and
   statuses on the same System map.
@@ -22,7 +34,6 @@ on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases)
 - **Plan the features.** Your model lists the product's features, which parts each is built on and
   what is missing. Missing services are suggested on the map and added only when you say so. The
   **Plan** tab shows each feature's requirement, parts, code and tests.
-- **Your own services** join the library from a small file, without a new version.
 - **Starting after an update.** The first start after installing could be reported as failing while
   AlbertCode was still starting; it now waits for it.
 - **Visual editing on Windows.** Applying a change while your app's server had the file open could

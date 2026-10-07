@@ -234,7 +234,29 @@ each one.
   both ends*, *at one end only*, *not in the code yet* or *outside this repository*, with the files
   and lines to open. The build request includes every contract.
 
-### Your own services
+### Releasing, fixing and rolling back
+
+- **Fix.** The **Fix** tab (and the *N to fix* button in the bar) lists every open problem for the
+  environment shown: services failing their last check, failing browser tests, failing requirements,
+  and contract items not in the code. **Fix with Albert** asks for one; tick several, or none for all,
+  and press **Fix** to ask for them together. Each request is a plan you approve.
+- **Release.** **Release** in the bar opens the checklist. **Is it ready?** runs every check for the
+  environment shown. When nothing is marked ✕, **Release** records the commit, with an optional note,
+  and tags it `release-<environment>-<number>` in your repository. It is refused if anything fails when
+  AlbertCode checks again at that moment, including files you changed and did not commit. Deploy the
+  tagged commit with your own pipeline or command.
+- **Observe.** **Check now** checks every connected service in the environment and keeps the result
+  in the strip; tick *Check every minute while this page is open* to keep watching.
+- **Roll back.** Each release you have moved on from offers **Roll back to this** (for the latest,
+  **Undo what changed since**). Albert receives the exact change back to that release, worked out by
+  AlbertCode and checked to apply cleanly, and makes it as a plan you approve; then commit it and
+  release again. Commit or put aside your own changes first. When the change is very large, AlbertCode
+  gives you the `git revert` command to run instead.
+
+### Your own services (advanced)
+
+The easy way to add your own API or MCP server is from the library: *REST API (OpenAPI)*, *GraphQL
+API*, *MCP server* or *Webhook*. For a service those do not cover, you can describe it in a file:
 
 Add services to the library in `system-providers.json` in AlbertCode's data folder (on macOS
 `~/Library/Application Support/AlbertCode SWE Agent`, on Windows
