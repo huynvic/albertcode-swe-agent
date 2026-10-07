@@ -691,6 +691,23 @@ Keys stay in your computer's key store: never in your repository, a log, the pag
 - **Your own services.** Add your own APIs and MCP servers to the library with a small file; see
   [Usage](docs/usage.md#your-own-services).
 
+**Environments, variables and contracts.**
+
+- **Development, Staging and Production**, each with its own connections, keys and statuses on the
+  same map. Switch at the top of the page; add an environment with **+**.
+- **Variables instead of keys.** Tick **Read them from environment variables** and type `${NAME}`.
+  Only the name is kept; the value is read from the terminal AlbertCode was started in, each time it
+  checks, and never appears in a result, the page or a file.
+- **Contracts on connections.** Select a line and say what it carries: endpoints, tables, topics.
+  Each item is looked for in the code at both ends and shown with the file and line, or as not in the
+  code yet. **Build this system** asks Albert to make every item, with a test.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-environments-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-environments-light.png">
+  <img src="assets/readme/screen-system-environments-light.png" alt="The System page in the Staging environment: Development and Staging tabs at the top, and a connection from the Next.js app to the FastAPI server selected. Its contract lists GET /api/orders/{id}, in the code at both ends with the file and line of each, and POST /api/orders, not in the code yet." width="100%">
+</picture>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-design-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-design-light.png">

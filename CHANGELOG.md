@@ -3,8 +3,15 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.44.0 — 2026-10-07
+## 1.45.0 — 2026-10-07
 
+- **Environments.** Development, Staging and Production, each with its own connections, keys and
+  statuses on the same System map.
+- **Variables instead of keys.** Type `${NAME}` when connecting: only the name is kept, and the value
+  is read from the terminal AlbertCode was started in each time it checks. It never appears in a
+  result, the page or a file, and AlbertCode's own settings can never be used.
+- **Contracts on connections.** Say what a connection carries (endpoints, tables, topics) and see
+  where the code at each end has it, or that it is not there yet. Building makes every item.
 - **Design your system, then have Albert build it.** The System map is a design canvas: lanes,
   zoom, **Fit** and **Tidy**, and connections you draw by dragging a box's dot onto another box.
   What you design is shown as planned until your code has it. **Build this system** hands the design

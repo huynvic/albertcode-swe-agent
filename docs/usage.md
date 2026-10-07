@@ -215,6 +215,25 @@ each one.
   the requirements; **Build what changed** asks only for what was added since. Each starts as a
   plan you approve, in the panel beside the map.
 
+### Environments, variables and contracts
+
+- **Environments.** The tabs at the top of the System page are Development and any of Staging and
+  Production you add with **+**. Each environment has its own connections, keys and statuses on the
+  same map, and **Check everything** checks the one shown. **Remove** an environment to forget its
+  connections and keys; Development always stays.
+- **Variables.** When connecting, tick **Read them from environment variables** and type `${NAME}`
+  in any field (capital letters, digits and `_`). AlbertCode keeps only the name and reads the value
+  each time it checks, from the terminal it was started in, so set the variable there before running
+  `albertcode --ui`. If it is not set, the check says which variable is missing and sends nothing.
+  Variables AlbertCode uses for itself (such as `DATABASE_URL`, and names starting `ALBERTCODE_` or
+  `AGENT_`) cannot be used; give the service its own, such as `APP_DATABASE_URL`.
+- **Contracts.** Select a line between two parts and add what it carries: an **Endpoint**
+  (`GET /orders/{id}`), a **Table**, a **Topic or queue**, or **Other**. Each item is looked for in
+  the code under each part's own folder. An endpoint counts only where its method is next to its path
+  (where it is served, and where it is called unless it is a GET). Each item shows *in the code at
+  both ends*, *at one end only*, *not in the code yet* or *outside this repository*, with the files
+  and lines to open. The build request includes every contract.
+
 ### Your own services
 
 Add services to the library in `system-providers.json` in AlbertCode's data folder (on macOS
