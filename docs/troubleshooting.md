@@ -34,6 +34,10 @@ Everything an installer run did is written to its log:
 
 | Symptom | Fix |
 |---|---|
+| System: a service shows "Nothing is listening at that address and port" | The service is not running, or the address or port is wrong. Start it, or press **Change connection** and fix the address. |
+| System: "The key was rejected (401)" or "The password was not accepted" | The key or password is wrong or has been replaced. Make a new one in that service and press **Change connection**. |
+| System: "Answers, sign-in not proven" | It answered, but the sign-in could not be shown to work, for example a Kafka broker, an MCP server that needs a browser sign-in (add it under Tools and skills), or a MySQL account that needs encryption the server does not offer. The reason is shown under the box. |
+| System: a MongoDB address starting `mongodb+srv://` is refused | Use the standard address instead (`mongodb://host:27017/…`), shown in most hosted services under *Connect → Drivers*. |
 | It says no model is connected | Run `/connect`, or **Connect a provider** in the browser or VS Code. |
 | A model connects but tasks stall or fail early | The model may not handle tool calling well. Run `/test`, and see [Models](models.md#what-a-model-needs). |
 | Tests don't run, or run with the wrong tool | Run `albertcode doctor` to see which build tools AlbertCode can find. Install the missing one, or put it on your PATH. |

@@ -3,8 +3,18 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.42.2 — 2026-10-07
+## 1.43.0 — 2026-10-07
 
+- **System.** A new page with every part of your app and every service it relies on, on one map.
+  It starts from your code and grows from a library of 109 services, each with its logo, what it is,
+  how it is checked and what Albert can do with it. Drag boxes to arrange them, drag services in
+  from the library, and select a line to see which file shows that connection.
+- **Connected means checked.** Give a service its address and key and AlbertCode checks it straight
+  away, read-only. A service is marked working only when the check signed in; otherwise it says
+  why. Keys stay in your computer's key store. **Check everything** checks them all at once.
+- **Albert beside every box.** Ask why something fails and your model answers from the last check.
+  **Fix with Albert**, **Wire it into the app** and each service's actions run in a panel beside the
+  map, where you watch the work and approve the plan and the change.
 - **Updating on Windows while AlbertCode is open.** If AlbertCode was still running somewhere
   (another terminal, VS Code, or its background service), installing a new version could stop with
   "Access is denied (os error 5)". The installer now lists the AlbertCode programs still running,

@@ -164,6 +164,35 @@ request says "(requirement R3)". The actions word their requests that way for yo
   SQLModel, Mongoose, Drizzle).
 - **Read again** reads the files afresh; otherwise the map is kept for half a minute.
 
+## System
+
+**System**, in the ⋮ menu, shows every part of the app and every service it relies on, and checks
+each one.
+
+- **The map.** It starts from the repository (the same files Architecture reads) and grows from the
+  library. Drag boxes to arrange them; where they go is kept for this repository on this computer.
+  Select a line to see the file that shows the connection, and **Go to** either end. On a narrow
+  window the map becomes a list.
+- **The library.** 109 services in 15 groups, each with what it is, how it is checked, what Albert
+  can do with it and how it connects (built in, its own MCP server, a sign-in app, or an API key).
+  Search, filter by group, select one for its details, then drag it onto the map or press **+**.
+  Your own service: add *REST API (OpenAPI)*, *GraphQL API*, *MCP server* or *Webhook* and give its
+  address.
+- **Connect.** Select a box, press **Connect**, and give what it asks for (an address, a user, a key).
+  AlbertCode keeps them in your system's key store and checks the service at once. Leave the key
+  empty later to keep the saved one; **Forget the connection** removes it.
+- **What the statuses mean.** *Working*: the check signed in and a read-only request answered.
+  *Answers, sign-in not proven*: it answered, but the sign-in could not be shown to work (for
+  example a service that needs no key, or a sign-in the check does not speak). *Failing*: with the
+  reason. *Not connected* and *Not checked*: nothing is claimed. Seven services that need a sign-in
+  in your browser (such as Google Analytics) are checked with Albert instead.
+- **Check everything** checks every connected service side by side.
+- **Ask Albert.** Ask a question about a box and your model answers from its last check and where
+  the repository uses it. **Fix with Albert**, **Wire it into the app** and each service's actions
+  open Albert's work in a panel beside the map: a change starts as a governed plan for your
+  approval, a question is answered. **Open in Chat** moves it to the chat; closing the panel leaves
+  it working, and **Albert's work** brings it back.
+
 ## Approvals
 
 In governed mode there are two:

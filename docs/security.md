@@ -115,6 +115,20 @@ computer as you, outside the limits AlbertCode puts on the agent's commands:
 - Files that may hold a secret (your `.env`, keys, a secrets folder) are never read.
   `.env.example` and similar files are read for variable names only, never values.
 
+## System
+
+- Addresses and keys go to your system's key store (Keychain, Windows data protection, or the
+  desktop secret service), never to your repository, a log, the page or a model. The page is told
+  only whether a key is saved, and an address is shown without any password in it.
+- Every check is read-only and short: databases are queried read-only, mail servers are signed in to
+  without sending, storage lists one name, web services get one read-only request. Redirects are
+  not followed, so a key only goes to the address you gave, and a password is never sent to a mail
+  server on another computer without encryption.
+- Albert never sees a key. Questions send your model the service's name, its last check and where
+  your repository uses it; fixes go through the usual plan and diff approvals.
+- Connections, checks and changes to the map are recorded in the evidence ledger, without the key.
+  `albertcode uninstall --all` forgets every saved connection.
+
 ## Visual editing
 
 - While **Edit** is on, the preview is shown through a proxy on your own computer that only talks

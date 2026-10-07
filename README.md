@@ -650,6 +650,43 @@ from the code.
 
 <br>
 
+### System
+
+**System**, in the ⋮ menu, puts every part of your app and every service it relies on onto one map,
+and checks that each one really works.
+
+- **It starts from your code.** The web app, the API, background jobs, the database, the cache,
+  payments, email and the rest appear on their own, read from your repository's files.
+- **Add anything from the library.** 109 services, each with its logo, what it is, how it is checked
+  and what Albert can do with it: databases, caches and queues, sign-in, payments, email and
+  messaging, storage, hosting, monitoring, analytics, search, AI services, content tools, and your
+  own APIs or MCP servers. Search it, then drag a service onto the map or press **+**.
+- **Arrange it your way.** Drag the boxes; they stay where you put them. Select a line to see which
+  file shows that connection, and go to either end. On a narrow window the map becomes a list.
+- **Connected means checked.** Give a service its address and key and AlbertCode checks it straight
+  away, read-only: it signs in and asks something harmless, and never writes or sends anything. A
+  service is marked working only when that check signed in; otherwise it says what went wrong.
+  **Check everything** checks every connected service at once.
+- **Albert beside every box.** Ask why something fails or what depends on it, and your model answers
+  from the last check. **Fix with Albert**, **Wire it into the app** and each service's own actions
+  run in a panel beside the map, so you see Albert work and approve the plan and the change there.
+
+Keys stay in your computer's key store: never in your repository, a log, the page or a model's view.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-light.png">
+  <img src="assets/readme/screen-system-light.png" alt="The System page: a Next.js app, a FastAPI server and Celery jobs connected to Redis, PostgreSQL, email, Sentry and Stripe. PostgreSQL is checked and working; Redis is selected and failing because its password was not accepted, with Fix with Albert and the actions Albert can take." width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-albert-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-albert-light.png">
+  <img src="assets/readme/screen-system-albert-light.png" alt="Fix with Albert on the System page: Albert's work opens in a panel beside the map, asking to start a governed change, with buttons to plan it, do it directly or keep talking." width="100%">
+</picture>
+
+<br>
+
 ## Models
 
 | Provider | Connect with |
