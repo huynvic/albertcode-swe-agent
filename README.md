@@ -673,6 +673,30 @@ and checks that each one really works.
 
 Keys stay in your computer's key store: never in your repository, a log, the page or a model's view.
 
+**Design it, then have Albert build it.**
+
+- **A design canvas.** Lanes for what people use, what runs, your data and outside services. Drag a
+  box's dot onto another box to connect them; zoom, move around, **Fit** and **Tidy**. What you
+  design is dashed (*planned*) until your code has it, then turns solid.
+- **Start from a backbone.** 21 of them: SaaS, enterprise web app, AI application, e-commerce,
+  internal business system, CRM, marketplace, bookings and more. Say what your product is ("a CRM
+  for a legal practice") and its parts, connections and requirements go on the map, adapted to
+  your product by your model. Save any map as your own backbone for the next app.
+- **Plan the features.** Your model lists the product's features, which parts each is built on and
+  what the map is missing. Missing services appear dotted as *suggested* and are added only when you
+  press **Add**. The **Plan** tab shows each feature's requirement, parts, code and tests, all from
+  your repository and your latest test run.
+- **Build this system** hands the design to Albert as a plan you approve, and **Build what changed**
+  only what you added since.
+- **Your own services.** Add your own APIs and MCP servers to the library with a small file; see
+  [Usage](docs/usage.md#your-own-services).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-design-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-design-light.png">
+  <img src="assets/readme/screen-system-design-light.png" alt="Designing on the System page: a SaaS backbone for a law-firm practice-management app, with a web app, API, database, sign-in, billing, email and analytics laid out in lanes and connected. The Plan tab lists the product's features with the parts each uses, and suggests adding Sentry, shown dotted on the map with an Add button." width="100%">
+</picture>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-light.png">

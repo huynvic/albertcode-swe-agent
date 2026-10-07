@@ -193,6 +193,44 @@ each one.
   approval, a question is answered. **Open in Chat** moves it to the chat; closing the panel leaves
   it working, and **Albert's work** brings it back.
 
+### Designing and building
+
+- **Connect boxes.** Drag a box's dot onto another box, or click the dot and then the other box.
+  Select a line to see it, or **Remove this connection**. A box or line you designed is dashed
+  (*planned*); once the repository has that part, it is shown as built. Ctrl or ⌘ with the wheel
+  zooms; drag empty space to move; **Fit** shows everything and **Tidy** lines boxes up in their
+  lanes.
+- **Backbones.** **Backbones** opens 21 designs. Pick one, say what your product is, and choose
+  whether to add its requirements (adapted to your product by your model, if one is connected).
+  Parts already on the map are reused. **Save this map as a backbone** keeps the current design,
+  with how many of its parts were checked and working, under *Your backbones*; you can delete it
+  there.
+- **Plan features.** Describe the product in the **Plan** tab and press **Plan the features**. Your
+  model lists the features, the requirement each delivers and the parts each uses, and names
+  missing services, the smallest addition for each need. They appear dotted on the map; **Add**
+  puts one on the map, joined to the part that needs it. For each feature the tab shows its
+  requirement's status, its parts, where the code is and how many of its tests passed in the latest
+  run.
+- **Build.** **Build this system** asks Albert to build the whole design, with the feature plan and
+  the requirements; **Build what changed** asks only for what was added since. Each starts as a
+  plan you approve, in the panel beside the map.
+
+### Your own services
+
+Add services to the library in `system-providers.json` in AlbertCode's data folder (on macOS
+`~/Library/Application Support/AlbertCode SWE Agent`, on Windows
+`%LOCALAPPDATA%\AlbertCode SWE Agent`, on Linux `~/.local/share/AlbertCode SWE Agent`):
+
+```json
+[{"id": "acme-crm", "name": "Acme CRM", "desc": "Our CRM's API",
+  "probe": {"kind": "http", "url": "https://api.acme.example/me", "auth": "bearer"},
+  "fields": {"secret": {"label": "API key"}}, "fns": [{"label": "List contacts"}]}]
+```
+
+`kind` is `http`, `openapi`, `graphql`, `mcp` or `app`. An `http` check's URL must start with
+`https://` or with `{address}` (the address you type when connecting). Only this file is read,
+never one in a repository.
+
 ## Approvals
 
 In governed mode there are two:

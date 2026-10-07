@@ -3,9 +3,24 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.43.0 — 2026-10-07
+## 1.44.0 — 2026-10-07
 
-- **System.** A new page with every part of your app and every service it relies on, on one map.
+- **Design your system, then have Albert build it.** The System map is a design canvas: lanes,
+  zoom, **Fit** and **Tidy**, and connections you draw by dragging a box's dot onto another box.
+  What you design is shown as planned until your code has it. **Build this system** hands the design
+  to Albert as a plan you approve; **Build what changed** only what you added since.
+- **Backbones.** Start from one of 21 (SaaS, enterprise web app, AI application, e-commerce,
+  internal business system, CRM and more), say what your product is, and its parts, connections and
+  requirements go on the map. Save any map as your own backbone.
+- **Plan the features.** Your model lists the product's features, which parts each is built on and
+  what is missing. Missing services are suggested on the map and added only when you say so. The
+  **Plan** tab shows each feature's requirement, parts, code and tests.
+- **Your own services** join the library from a small file, without a new version.
+- **Starting after an update.** The first start after installing could be reported as failing while
+  AlbertCode was still starting; it now waits for it.
+- **Visual editing on Windows.** Applying a change while your app's server had the file open could
+  fail with "Access is denied". It now waits a moment and tries again, and never leaves half a change.
+- **System.** A page with every part of your app and every service it relies on, on one map.
   It starts from your code and grows from a library of 109 services, each with its logo, what it is,
   how it is checked and what Albert can do with it. Drag boxes to arrange them, drag services in
   from the library, and select a line to see which file shows that connection.
