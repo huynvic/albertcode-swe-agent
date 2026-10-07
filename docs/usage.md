@@ -75,6 +75,14 @@ start command once and remembers it.
   output reports an error now. An error that has since been fixed is not shown as current.
   **Ask Albert to fix** puts the error into the chat; **Logs** shows the app's output.
 - **Restart** and **Stop** are in the panel's header.
+- **A free port, every time.** Before the app starts, its usual port is checked. If another program
+  holds it, the app gets the next free one and the status line says so. Commands you type are told
+  the port too: `python -m http.server`, `manage.py runserver`, `flask run`, `uvicorn`,
+  `fastapi dev`, `rails server`, and `vite`, `next dev` or `astro`, directly or through `npx`. Other
+  programs get it in the `PORT` setting.
+- **Apps that forbid framing.** The preview is shown through a small proxy on your computer, so an
+  app that tells browsers not to show it inside another page still shows here. The
+  **Open in a new tab** button opens the app at its own address.
 
 ### Edit by clicking
 

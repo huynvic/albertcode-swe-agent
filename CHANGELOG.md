@@ -3,8 +3,14 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.42.0 — 2026-10-06
+## 1.42.1 — 2026-10-07
 
+- **Your app shows in the preview.** Apps that tell browsers not to show them inside another page
+  (Django does by default, as do many security setups) opened in their own tab but showed
+  "localhost refused to connect" in the preview. They now show in the preview too.
+- **Never a busy port.** Before your app starts, AlbertCode checks its port, and when something else
+  is using it, gives the app the next free one, now also when you typed the start command yourself
+  (`python -m http.server`, `flask run`, `uvicorn`, `npx vite` and others).
 - **Visual editing.** Click anything in the preview and change its text, colours, size, weight,
   alignment, padding or corners, and see it at once. **Review change** finds the one place in your
   code it belongs and shows the diff to approve; when there is no single safe place, AlbertCode

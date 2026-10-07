@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.42.0
+> albertcode --version     # AlbertCode SWE Agent 1.42.1
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 
@@ -528,7 +528,9 @@ as in your own terminal, in light and dark. Run your project's tests and other c
 ### Preview
 
 **Preview** in the top bar starts your app if it is not running and shows it beside the chat. If
-the project has no dev script, it asks for the start command once. Switch between desktop, tablet
+the project has no dev script, it asks for the start command once. Before the app starts,
+AlbertCode checks its port: when something else is using it, the app gets the next free one, so it
+never shows another project's app. Switch between desktop, tablet
 and phone widths, restart or stop it, and open its logs. The status line says whether the app is
 answering and how (`Running · localhost:5173 · 200 · 12 ms`). When something is wrong it says so
 above the app: it did not start, it stopped, it answers with an error page, or its own output
@@ -703,6 +705,8 @@ Linux, `%LOCALAPPDATA%\AlbertCode\install.log` on Windows.
 | The browser page says to open AlbertCode from your terminal | Run `albertcode --ui`. It signs your browser in |
 | **macOS:** "New folder" says the folder is read-only | You are at the top of the disk ("This computer") or in a system folder. Choose **Home** or **Documents** in the picker and make the folder there |
 | VS Code can't reach AlbertCode | Run `albertcode` once in a terminal to start the service, then reload the VS Code window |
+| The preview says "localhost refused to connect" but the app opens in its own tab | Update to 1.42.1 or later: apps that forbid being shown inside another page now show in the preview too |
+| The app starts on a different port than usual | Its usual port was busy, so AlbertCode gave it a free one. The status line shows where it is; nothing else using the usual port is touched |
 | Accepting a change is refused | You edited a file the change also touches. Look at your edits, then run the task again |
 | Everything seems stuck | Run `albertcode stop`, then `albertcode` again |
 
