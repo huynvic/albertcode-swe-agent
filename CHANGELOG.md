@@ -3,8 +3,12 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.42.1 — 2026-10-07
+## 1.42.2 — 2026-10-07
 
+- **Updating on Windows while AlbertCode is open.** If AlbertCode was still running somewhere
+  (another terminal, VS Code, or its background service), installing a new version could stop with
+  "Access is denied (os error 5)". The installer now lists the AlbertCode programs still running,
+  closes them after you say yes, and then installs.
 - **Your app shows in the preview.** Apps that tell browsers not to show them inside another page
   (Django does by default, as do many security setups) opened in their own tab but showed
   "localhost refused to connect" in the preview. They now show in the preview too.

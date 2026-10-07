@@ -104,7 +104,7 @@ editing. It takes a minute or two.
 > When it finishes, **open a new terminal**, then check it:
 >
 > ```bash
-> albertcode --version     # AlbertCode SWE Agent 1.42.1
+> albertcode --version     # AlbertCode SWE Agent 1.42.2
 > albertcode doctor        # which build tools AlbertCode can find
 > ```
 
@@ -679,6 +679,7 @@ AlbertCode checks a key or address works before saving it. The model must suppor
 | **macOS:** "Apple could not verify…" or "unidentified developer" | Open **System Settings → Privacy & Security**, click **Open Anyway**, and open the installer again. Or use the one-line command |
 | **Windows:** "Windows protected your PC" | Choose *More info* → *Run anyway* |
 | **Windows:** PowerShell refuses to run the command | Your organisation may block scripts. Download the `.cmd` installer from the release and double-click it instead |
+| **Windows:** "failed to remove directory …\Scripts: Access is denied (os error 5)" | AlbertCode was still open somewhere, and Windows does not let a running program's files be replaced. Installers from 1.42.2 close it for you after asking. With an older one, close every terminal and VS Code window using AlbertCode (or run `albertcode stop`), then run the installer again |
 | **Linux:** the installer refuses to run under `sudo` | Run it as yourself. It installs for your user, and asks for `sudo` only if Git is missing |
 | **Linux:** "the release has no installer for Linux on … processors" | Only x86-64 is supported for now, not ARM |
 | **Linux:** the install fails on Alpine or another musl-based system | Not supported: AlbertCode needs a glibc-based distribution such as Ubuntu, Debian or Fedora |
