@@ -194,7 +194,12 @@ TODAY
 | **Test**: **Fix with Albert** on a failing test | That test |
 
 So a problem fixed from the **Verify** stage joins the chats you already had about that part or test, and
-repairing the same slice three times stays together. Chats you start by typing are not filed under
+repairing the same slice three times stays together.
+
+**No second chat for the same work.** While a chat about a thing is still working, or waiting for you, a
+System page button about the same thing opens that chat rather than starting another: pressing **Build**
+twice, or going to the chat and back and pressing it again, leaves one chat and one task. A new chat about
+it starts only once that work is over (accepted, rejected, cancelled or failed). Chats you start by typing are not filed under
 anything. A topic belongs to its folder: slice 1 of two different repositories are two topics.
 
 Click a topic's row to open or close it; AlbertCode remembers your choice. A topic opens by itself

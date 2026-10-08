@@ -652,8 +652,8 @@ from the code.
 
 ### System
 
-**System**, in the ⋮ menu, puts every part of your app and every service it relies on onto one map,
-and checks that each one really works.
+**System**, in the top bar next to **Terminal**, puts every part of your app and every service it
+relies on onto one map, and checks that each one really works.
 
 - **It starts from your code.** The web app, the API, background jobs, the database, the cache,
   payments, email and the rest appear on their own, read from your repository's files.
@@ -670,6 +670,8 @@ and checks that each one really works.
 - **Albert beside every box.** Ask why something fails or what depends on it, and your model answers
   from the last check. **Fix with Albert**, **Wire it into the app** and each service's own actions
   run in a panel beside the map, so you see Albert work and approve the plan and the change there.
+  The panel stays when you go to the chat and come back, the **System** button shows when Albert is
+  working, and each piece of work keeps one chat.
 
 Keys stay in your computer's key store: never in your repository, a log, the page or a model's view.
 
@@ -700,12 +702,21 @@ ticks what is done, and opens any stage in one click.
 - **Your own APIs.** Add *REST API (OpenAPI)*, *GraphQL API*, *MCP server* or *Webhook* from the
   library and give its address; it is checked like any other service.
 
-**Build it one working slice at a time.**
+**Build it step by step.**
 
-- **A plan Albert follows.** The **Build** stage turns your design into what to build, in order: what
-  the product is for, its requirements and the journeys people take, then slices. Each slice is one
-  thing a person can do, built from the screen through the API to the data and back. Albert builds
-  the smallest real flow first, and the next slice starts only when this one is proven running.
+- **The app first, then each service, then the features.** The **Build** stage turns your design into
+  what to build, in order: what the product is for, its requirements and the journeys people take,
+  then the steps. **The app runs** comes first: each part started and answering, and nothing else yet.
+  Then each service your features use is added on its own, through an adapter: the database, then
+  sign-in, and so on. Then the features connect them, each one thing a person can do, built from the
+  screen through the API to the data and back. Each step starts only when the one before it is proven
+  running.
+- **Like a senior full-stack engineer.** Albert follows each framework's own way of doing things,
+  builds only what the step needs and builds it properly, decides and keeps moving, tests as it goes,
+  and says what it built. A repair finds the cause in the evidence first and fixes it there.
+- **Packages are yours to install.** Albert lists what each part needs and never installs anything
+  itself. When something is missing, **Verify** lists it with its own **Install** button instead of
+  sending Albert to fix code that is not broken.
 - **Proven, not assumed.** Each part and connection on the map shows *Planned*, *Building*, *Built*,
   *Connected*, *Testing*, *Verified* or *Failed*, only on evidence, and only *Verified* is green: a
   journey has passed on your code as it is now. **Verify** starts your app, checks that every part
@@ -723,13 +734,13 @@ ticks what is done, and opens any stage in one click.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-build-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-build-light.png">
-  <img src="assets/readme/screen-system-build-light.png" alt="The Build stage on the System page for a notes app: the five stages Design, Plan, Build, Verify and Operate are all ticked, and every step from product intent to release is ticked. On the map, the web app, the API and the notes database are Verified and healthy." width="100%">
+  <img src="assets/readme/screen-system-build-light.png" alt="The Build stage on the System page for a notes app: the five stages Design, Plan, Build, Verify and Operate are all ticked, and its slices, in order, are all Verified: 1, The app runs, with the API and the web app; 2, Add Notes database (SQLite); 3, Add a note and see it in the list; 4, Delete a note; and 5, Every journey, end to end. On the map, the web app, the API and the notes database are Verified and healthy." width="100%">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-queue-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-queue-light.png">
-  <img src="assets/readme/screen-system-queue-light.png" alt="Building several slices at once for a notes app that emails a daily digest: the build queue is running, slice 1 is waiting for you to approve Albert's plan, with Open, Pause and Cancel, and slice 2 is queued. On the map, the web app, the API and the database that slice 1 is built on show Building." width="100%">
+  <img src="assets/readme/screen-system-queue-light.png" alt="Building every slice at once for a notes app that emails a daily digest: the build queue is running, 0 of 7 done. Slice 1, The app runs (the notes API, the digest worker and the web app, and nothing else yet), is waiting for you to approve Albert's plan, with Open, Pause and Cancel; slice 2, Add Notes database (PostgreSQL), and slice 3, Add Email (SMTP), are queued after it. The System button in the top bar shows Albert is working." width="100%">
 </picture>
 
 **Run every part with one button.** **Start all** runs your whole app on your computer: every part
@@ -958,7 +969,7 @@ offline: **⋮ → Documentation** in the browser interface.
 | [**Browser interface**](docs/browser.md) | The layout, the ⋮ menu, the command palette, every shortcut, Files and Terminal |
 | [**VS Code**](docs/vscode.md) | The extension, its panel, every command and setting |
 | [**Models**](docs/models.md) | Providers, local models, and what a model needs |
-| [**The System page**](docs/system.md) | Design an app, decide Albert's recommendations, build it slice by slice or several at once, verify it, run every part, fix and release |
+| [**The System page**](docs/system.md) | Design an app, decide Albert's recommendations, build it step by step (the app, each service, then the features), verify it, run every part, fix and release |
 | [**Architecture**](docs/architecture.md) | What a repository is made of, read from its own files |
 | [**Requirements**](docs/requirements.md) | What the app must do, as a checklist backed by evidence |
 | [**Preview and browser tests**](docs/preview-and-tests.md) | Run the app beside the chat, edit it by clicking, test it in a real browser |

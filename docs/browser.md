@@ -17,7 +17,7 @@ version of AlbertCode signs in again.
 ## The layout
 
 ```text
-┌ Sidebar ────────────┬ Top bar: page · Preview · Test · Files · Terminal · ⋮ ─────────┐
+┌ Sidebar ────────────┬ Top bar: page · Preview · Test · Files · Terminal · System · ⋮ ┐
 │ AlbertCode  v1.47   │                                                              │
 │ ┌ repository ─────┐ │   The page: Chat, or System, Requirements, Architecture…    │
 │ │ N notes  Browse │ │                                                              │
@@ -36,7 +36,9 @@ version of AlbertCode signs in again.
 - **New session** and **Search sessions**, then every session, newest first, grouped by day. See
   [Sessions](chat.md#sessions) and [Chats about one thing](chat.md#chats-about-one-thing).
 - **The top bar**: the page you are on, the side panels (**Preview**, **Test**, **Files**,
-  **Terminal**) and the **⋮** menu with every page and setting.
+  **Terminal**), the [**System**](system.md) page, and the **⋮** menu with every other page and setting.
+  A pulsing dot on **System** means Albert is working on your system (a build, a verification, a fix);
+  a still amber one means that work is waiting for you.
 - **The message box** at the bottom of Chat, with the mode chip, the model chip, the agent chip and
   the attach button.
 
@@ -75,7 +77,6 @@ again goes back to that folder. A run it had going carries on.
 |---|---|---|
 | Workspace | **Chat** | The conversation |
 | | **Requirements** | [Requirements](requirements.md) |
-| | **System** | [System](system.md) |
 | | **Architecture** | [Architecture](architecture.md) |
 | | **Contract** | [The contract](contract.md): read it, write one, its history |
 | | **Tools and skills** | [Tools and skills](extending.md#tools-and-skills) |
@@ -93,7 +94,8 @@ again goes back to that folder. A run it had going carries on.
 | | **Light or dark** | Switch the theme |
 | | **Refresh models** | Ask the providers for their model lists again |
 
-A dot on the **⋮** button means a task is waiting for you.
+A dot on the **⋮** button means a task is waiting for you. **System** is not in the menu: it has its own
+button in the top bar, next to **Terminal**.
 
 ## The command palette
 

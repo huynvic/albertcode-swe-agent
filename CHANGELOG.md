@@ -3,6 +3,26 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.49.0 — 2026-10-08
+
+- **Step by step, the app first.** The System page's **Build** stage starts with **The app runs**: each
+  part started and answering, nothing else yet. Then each service your features use is added on its
+  own, through an adapter, and then the features connect them. Each step is proven running before the
+  next starts.
+- **Like a senior full-stack engineer.** Albert follows each framework's own way, builds only what the
+  step needs and builds it properly, decides and keeps moving, tests as it goes, and says what it
+  built. A repair finds the cause in the evidence first and fixes it there.
+- **Quicker first steps.** The app and its services are proven by running them, with no browser test
+  runner to install yet. If something later breaks an earlier step, that step is the one repaired.
+- **No loops over missing packages.** **Verify** lists each package your app still needs with its own
+  **Install** button, and nothing is sent to Albert to fix. A build queue pauses for it.
+- **System in the top bar,** next to **Terminal**. The chat beside the map stays when you come back,
+  the **System** button shows when Albert is working, and each piece of work keeps one chat.
+- **See where Albert is.** The map shows the part Albert is writing now, and the build queue says how
+  far it is.
+- **Fixed:** a front end no longer looks installed because of the browser test runner at the root of
+  your repository, and a package added after the last install is found missing.
+
 ## 1.48.0 — 2026-10-08
 
 - **Albert recommends, you decide.** On the System page's **Plan** stage, each recommendation says

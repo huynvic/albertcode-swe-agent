@@ -86,6 +86,29 @@ approve like any other change.
 | Correct one | Edit the file: the next task believes what it says |
 | Forget them | `/memory forget` (asks first), or delete the file, then commit |
 
+## Checks that could not run
+
+The repository's own checks (its tests, type checks, lint and build) run on every governed change. A
+check that cannot run here proves nothing about the change, so it is recorded as **Not run**, with why,
+and never sent back to Albert as a defect to repair:
+
+- its tool is not installed (`No module named pytest`);
+- the project's packages are not installed yet: a JavaScript project with no `node_modules`, tests that
+  stop because a package the project declares cannot be imported, or a script whose declared program is
+  missing;
+- the type check needs TypeScript and the project has not installed it (it is never fetched from the
+  registry to check).
+
+A test that ran and failed, an import of the project's own code, or a package the project does not
+declare is still a failure, and Albert repairs it. A check your contract names is required evidence, so
+it fails when it cannot run.
+
+**Example.** In a new project, Albert writes `api/requirements.txt` with `fastapi` and a test that imports
+it. `python -m pytest` stops with *No module named 'fastapi'*, so the check shows *Not run: the tests
+could not start, because fastapi is declared by the project and not installed for this Python*, and the
+change goes to review instead of round the repair rounds. Install the packages (**Install packages** on
+the System page's **Run** tab, or `pip install -r requirements.txt`) and the check runs next time.
+
 ## Language checks
 
 After each edit, the file is checked by its language's own checker, the one your editor would use,

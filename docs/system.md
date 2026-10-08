@@ -1,14 +1,16 @@
 # The System page
 
-**System**, in the browser's **⋮** menu, is where you design a whole app, connect the services it
-relies on, have Albert build it one working slice at a time, run every part of it, fix what fails and
-release it. Everything on the page comes from evidence: your repository's files, checks that really
+**System**, in the browser's top bar next to **Terminal**, is where you design a whole app, connect the services it
+relies on, have Albert build it step by step (the app first, then each service, then the features that
+connect them), run every part of it, fix what fails and release it. Everything on the page comes from evidence: your repository's files, checks that really
 signed in, and tests that really ran.
 
 ```text
- Describe ─▶ Plan the features ─▶ Build slice 1 ─▶ Verify ─▶ … next slices ─▶ End to end ─▶ Release
-   (what)        (map + journeys)      (Albert)     (runtime + browser)                    (checks)
+ Describe ─▶ Plan the features ─▶ The app ─▶ Each service ─▶ Each feature ─▶ End to end ─▶ Release
+  (what)      (map + journeys)    (runs)     (one by one)   (connects them)  (together)   (checks)
 ```
+
+Albert builds each step and AlbertCode verifies it, running, before the next one starts.
 
 This guide goes through the page from top to bottom, then walks through
 [three examples](#examples).
@@ -26,7 +28,19 @@ This guide goes through the page from top to bottom, then walks through
 
 When you ask Albert something from this page, its chat opens in a panel beside the map, so you see
 the work and approve its plan and diff there. **Open in Chat** moves it to the chat page; closing the
-panel leaves the work running, and **Albert's work** in the bar brings it back.
+panel with **✕** leaves the work running, and **Albert's work** in the bar brings it back. Go to another
+page and come back, and the panel is there again as you left it.
+
+**Albert at work.** While Albert works, the panel's heading says *Working on …* and its mark breathes;
+when its plan, a write or its change waits for you it says *Waiting for you*. **Albert's work** pulses
+while the panel is hidden, and a dot on **System** in the top bar says the same from any page.
+
+**One chat per piece of work.** A button that asks Albert about something a chat is already working on,
+or waiting on you for, opens that chat instead of starting another: pressing **Build** again, or coming
+back from the chat page and pressing it, never makes a second chat or a second task. While Albert works
+on a slice, its button says **Albert is working on it · Open** (or **Waiting for you · Open**), and the
+bar's next step says **Building: …**; when the work is over, its buttons come back. A button whose own
+work is under way keeps a spinner, such as **Asking Albert…** or **Verifying…**, until it is done.
 
 ### The five stages
 
@@ -280,7 +294,7 @@ each part. Albert builds nothing until the product, its requirements and its jou
 | 3. User journeys | Each feature has a journey a test can walk |
 | 4. Architecture | Each feature is on parts of the map |
 | 5. Build manifest | The map is made into what to build, run and prove |
-| 6. First slice | The smallest real flow is running and proven |
+| 6. First slice | The app runs, each service is added, and the smallest real flow is running and proven |
 | 7. Features | Every other feature is proven running |
 | 8. Integration | Each outside service is made real and checked |
 | 9. End to end | Every journey passes together |
@@ -293,12 +307,23 @@ so on. While a [build queue](#build-several-slices-build-selected-build-all) wor
 
 ### Slices
 
-A slice is one thing a person can do, built from the screen through each part it needs to the data
-and back, and proven running before the next one starts:
+Albert builds the app step by step, never all at once, and each step is proven running before the next
+one starts:
+
+1. **The app** first: each part started and answering its health route, and the front end reaching the
+   API. No database, no sign-in and no features yet.
+2. Then each **Service** the features use, one at a time, through an adapter: the database first (its
+   migration set up, with no tables until a feature needs one), then each outside service, with a
+   stand-in until its own slice makes the real one work.
+3. Then the features, which connect them: each is one thing a person can do, built from the screen
+   through each part it needs to the data and back, with a browser test that walks its journey.
+4. Last, each outside service made real, and every journey together.
 
 | Kind | What it is |
 |---|---|
-| **First slice** | The smallest real flow the product has. Nothing else is built until it runs and passes |
+| **The app** | The app itself, running: each part answers, and the front end reaches the API. Nothing else yet |
+| **Service** | One service the app uses (a database, sign-in…), added through its adapter. A database must answer AlbertCode's check; an outside service answers through its stand-in |
+| **First feature** | The smallest real flow the product has, on the app and its services |
 | **Feature** | Each other feature, in order |
 | **Outside service** | Each outside service (payments, email…) made real: until then the app uses a stand-in |
 | **End to end** | Every journey, passing together |
@@ -307,20 +332,50 @@ The slice that is next shows its journey and one button:
 
 | Button | What it does |
 |---|---|
-| **Build** | Albert builds this slice end to end, and only this slice. It starts as a plan you approve |
+| **Build** | Albert builds this slice, and only this slice, on the ones already in place. It starts as a plan you approve |
 | **Verify** | AlbertCode starts the app and proves the slice works (see below) |
+| **Verify again** | Built, but something it needs is not installed yet: press **Install** on each one listed, then verify again. Nothing is repaired for this |
 | **Repair** | It failed its verification: Albert gets the evidence and fixes it (at most 3 attempts) |
 | **Roll back** | It failed three repairs: Albert puts the code back as it was at the last checkpoint, as a change you approve. Then build it again |
 | **Connect** | Built: connect its services on the map so AlbertCode can check them, then verify |
 | **Plan** | It needs a part the map does not have yet: add it from the Plan |
 
-**What Albert is asked.** A build request names the slice, the product, the requirement, the journey,
-how to tell it works, and every part it goes through: its folder, how it starts, its port, its health
-route, the environment variables it is configured by (names only), its connections and endpoints, and
-the data it keeps (with a migration). Each service is reached through an adapter, with a stand-in for
-tests. It also asks for a browser test titled `[R1] …` that walks the journey. A repair request adds
-what failed, each failed journey's error, how each part was run, and the last lines each failing part
-printed.
+**What Albert is asked.** Each build request asks for one step, and says what is not part of it. Every
+request names the product and every part the slice goes through: its folder, how it starts, its port,
+its health route and the environment variables it is configured by (names only).
+
+- **The app**: each part's skeleton in the framework's own layout, starting and answering its health
+  route, with a test for it, and the front end reaching the API. *Nothing else yet.*
+- **A service**: that one service added to the part that uses it, through an adapter configured by its
+  environment variables, with a stand-in for tests. A database also gets its migration set up, with no
+  tables until a feature needs one. *No feature uses it yet.*
+- **A feature**: the requirement, the journey, how to tell it works, its endpoints and the data it
+  keeps (with a migration), built on the parts already in place, and a browser test titled `[R1] …`
+  that walks the journey.
+
+A repair request adds what failed, each failed journey's error, how each part was run, and the last
+lines each failing part printed, and asks Albert to find each failure's cause in that evidence before
+changing anything, and to fix it at its source without rewriting what works.
+
+**One part at a time.** Within a step, the request gives the order: the part everything else stands on
+first (the API, with its data and its adapters), finished with its own tests and health route; then the
+parts that use it (the front end); then the connections between them; and, in a feature, last the
+browser test for the journey. On the map, only the part or connection Albert is writing now shows
+**Building**; a part it finished shows a ✓, and Albert moves to the next.
+
+**Like a senior full-stack engineer.** Every request asks Albert to follow each framework's own
+conventions; to build only what the step needs, and to build it properly; to decide and keep moving
+rather than ask what the request already answers; to test as it builds; to finish and check each part
+before the next; and to end by saying what it built.
+
+**Packages are yours to install.** Albert does not install packages or run project generators
+(`npm install`, `pip install`, `npx create-…`): it writes each part by hand and lists what it needs in
+the part's own dependency file (`package.json`, `requirements.txt` or `pyproject.toml`), with the browser
+test runner in the `package.json` at the repository root. A test, build or type check that needs
+packages that are not installed is not run, and is shown as *Not run*, with why; it is never sent back to
+Albert as a defect to repair. You install the packages with one click each when the slice is verified
+(see [Verification](#verification)). In an empty folder the request says there is no code yet, so Albert
+plans the files from the request instead of looking for code that is not there.
 
 ### Build several slices: Build selected, Build all
 
@@ -346,7 +401,7 @@ change. The bar's next step reads **Building · 1 of 3**. Each slice in the queu
 | State | Meaning |
 |---|---|
 | **Queued** | Waiting its turn |
-| **Processing** | Albert is planning or writing it |
+| **Processing** | Albert is planning or writing it, and the line under the queue says how far: *Albert is planning it: 6 steps so far*, *Albert is writing it: 12 files written, 2 commands run*, *Albert's change is being reviewed* |
 | **Waiting for you** | A plan, a write or a change waits for your approval: press **Open** |
 | **Verifying** | AlbertCode is starting the app and walking the slice's journeys |
 | **Completed** | It passed its verification; the slice itself then shows **Verified**, from that evidence |
@@ -372,6 +427,11 @@ green: if the code changes afterwards, the slice is no longer verified.
   After 3 failed repairs it stops: **Roll back** on the slice, or change the design.
 - The slice needs a service connected, or a part the map does not have: the queue pauses. Connect it on
   the map, or decide it on the **Plan** stage, then **Resume**.
+- Something the app needs is not installed (a part's packages, the browser test runner, or a browser):
+  the queue pauses with *Install what it needs, then resume*, and lists each one with its own **Install**
+  button. Install them, then **Resume**: it verifies again. If you installed them another way, in a
+  terminal, **Resume** verifies again too. This is never sent to Albert to repair, and does not count
+  against the slice's verifications.
 
 **Never twice.** One queue at a time per repository and environment. While a queue runs or is paused,
 the slices' own buttons are hidden and AlbertCode refuses to build, verify, repair or roll back a slice
@@ -385,23 +445,37 @@ verified the queue verifies it again before carrying on, and says so on that sli
 AlbertCode restarts, it waits with *AlbertCode restarted: open the System page to carry on*, because
 the tasks are made as you; opening the System page carries it on.
 
-**Example.** A notes app has three slices: *Write a note*, *List notes* and *Search notes*. You tick
-**Select all**, keep **Governed**, and press **Build all (3)**. The queue starts slice 1: *Processing*,
-then *Waiting for you*. **Open** shows Albert's plan; you approve it. Albert writes the code, and you
-accept the change. The slice moves to *Verifying*, its journey passes in the browser, and it shows
-**Verified**; slice 2 starts. Slice 3's verification fails, so Albert repairs it (*repair 1 of 3*),
-you accept the fix, and it passes: **Build queue · 3 of 3 done**.
+**Example.** A notes app on a Vite front end, a FastAPI API and SQLite has six slices: *The app runs*,
+*Add SQLite*, *Write a note*, *List notes*, *Search notes* and *Every journey, end to end*. You tick
+**Select all**, keep **Governed**, and press **Build all (6)**. The queue starts with the app:
+*Processing*, then *Waiting for you*. **Open** shows Albert's plan (the API and the web app, each
+starting and answering, and nothing else); you approve it, then accept the change. The slice moves to
+*Verifying*: both parts start and answer, and it shows **Verified**. Then SQLite is added to the API
+through its adapter; the queue pauses for you to connect it on the map, and after **Resume** it is
+verified the same way. *Write a note* connects them, from the screen to the
+table and back, and its journey passes in the browser. *Search notes*' verification fails, so Albert
+repairs it (*repair 1 of 3*), you accept the fix, and it passes: **Build queue · 6 of 6 done**.
 
 ### Verification
 
 **Verify** proves a slice on evidence, never on a command that ran or a port that opened:
 
 1. **Read the repository**: how many parts are in the code.
-2. **Start the app**: every part the slice needs, through the [runtime](#run-every-part).
-3. **Each part answers its health route**.
-4. **Check each connected service**.
-5. **Walk every journey in a browser**: the browser tests titled `[R…]` for this slice and the ones
-   before it, at the app's one address.
+2. **Install what the app needs**, only when something is missing: a part's packages, the browser test
+   runner, or a browser to run the tests in. The verification stops here, before starting anything, and
+   lists each one with what installs it (`npm install` in `web/`, for example) and an **Install** button.
+   Installing fetches from the network and runs what it fetches, so it is always your click. This is not
+   a failure of the code: press **Install** on each, then **Verify again**.
+3. **Start the app**: every part the slice needs, through the [runtime](#run-every-part).
+4. **Each part answers its health route**.
+5. **Check each connected service**.
+6. **Walk every journey in a browser**: the browser tests titled `[R…]` for this slice and the ones
+   before it, at the app's one address. **The app** and a **Service** have no journey of their own, so
+   their verification ends at step 5 (and needs no browser test runner); each feature walks its own.
+
+A verification proves the slice it is for and every slice before it, so a slice can be verified once the
+ones before it are built. When one fails, the first slice it did not prove is the one to repair: an API
+that no longer starts is **The app**'s to fix, not the feature's.
 
 When everything passes, AlbertCode keeps a **checkpoint**: a Git commit of the code that passed, kept
 under `refs/albertcode/checkpoints/<environment>` and not on any of your branches (files that may hold
@@ -417,7 +491,7 @@ the code holds, a verification of the code as it is now, and what the runtime se
 | Status | A part | A connection |
 |---|---|---|
 | **Planned** | Not in the code yet | Not in the code yet |
-| **Building** | Albert is building a slice through it now: in the [build queue](#build-several-slices-build-selected-build-all), or in the chat beside the map | Albert is building a slice through it now |
+| **Building** | Albert is writing it now: in the [build queue](#build-several-slices-build-selected-build-all), or in the chat beside the map. One part at a time | Albert is making the connection now |
 | **Built** | Its code is in the repository, but nothing has proven it answers yet | The code makes the connection |
 | **Connected** | It answers: its health route in a verification of this code, or to the runtime now; for a service, its check passes | Both ends answer |
 | **Testing** | A verification through it is running now | A verification through it is running now |
@@ -430,9 +504,10 @@ or **Built** until a slice through them is verified again; red clears the same w
 that Albert uses a stand-in for stays **Built** until its own slice connects the real one. Select a part
 or a connection to read why it has its status. Parts no feature needs show their check, as before.
 
-**Example.** In the notes app, slice 1 passes: Web app, API and Notes database turn **Verified**. You edit
-`api/main.py`: all three show **Connected**, because the runtime still finds them answering but no journey
-has passed on the new code. You press **Verify** and the journey fails: the parts it walked through show
+**Example.** In the notes app, *The app runs* passes: Web app and API turn **Connected**, because they
+answer but no journey has gone through them yet. *Add SQLite* passes: SQLite turns **Connected** too.
+*Write a note* passes: all three turn **Verified**. You edit `api/main.py`: all three show **Connected**,
+because the runtime still finds them answering but no journey has passed on the new code. You press **Verify** and the journey fails: the parts it walked through show
 **Failed**, and selecting one shows the journey's error. Albert repairs it, the verification passes, and
 they are green again.
 
@@ -655,11 +730,26 @@ one in a repository.
    Web app → API → SQLite by dragging the dots.
 4. **Plan the features**. The plan lists *Add a note and see it in the list*, with its journey (*Open
    the app → Type a note and add it → See it in the list*) and requirement R1.
-5. The bar now says **Build: Add a note and see it in the list**. Press it, read the plan, approve it,
-   then accept the diff.
-6. **Verify**. AlbertCode starts the three parts, checks each, and walks the `[R1]` browser test at the
-   app's one address. Everything passes: the slice is *Verified* and a checkpoint is kept.
-7. **Start all** keeps the app running at `localhost:4400` while you build the next feature.
+5. The bar now says **Build: The app runs**. Press it, read the plan, approve it, then accept the diff.
+   Albert writes the API in `api/` and the web app in `web/`, each starting and answering its health
+   route, the web app reaching the API, and nothing else yet. It lists what each part needs in
+   `api/requirements.txt` and `web/package.json`, and does not install them.
+6. **Verify**. Nothing is installed yet, so it stops at **Install what the app needs**: *Web app:
+   `npm install` in web/; API: `python3 -m venv .venv && .venv/bin/python -m pip install -r
+   requirements.txt` in api/*. Press **Install** on each; each turns *Installed*.
+7. **Verify again**. AlbertCode starts both parts and each answers: *The app runs* is *Verified*.
+8. **Build: Add SQLite**. Albert adds the database to the API through an adapter, with its migration set
+   up and no tables yet. The slice then shows **Connect**: connect SQLite on the map so AlbertCode can
+   check it, then **Verify**: the API answers and the check reaches the database.
+9. **Build: Add a note and see it in the list**. Albert adds the notes table, its endpoint, the screen
+   and a `[R1]` browser test that walks the journey. **Verify** stops once more, for *The browser test
+   runner: `npm install`*: press **Install**, then **Verify again**. AlbertCode walks the `[R1]` test at
+   the app's one address. Everything passes: the slice is *Verified* and a checkpoint is kept.
+10. **Start all** keeps the app running at `localhost:4400` while you build the next feature.
+
+With **Build all** instead of each slice's own button, the same happens on its own, one slice after
+another: the queue pauses at step 6 and step 9 with the same lists and **Install** buttons, and
+**Resume** carries on each time.
 
 ### Connect PostgreSQL in Staging without saving its password
 
@@ -679,6 +769,7 @@ albertcode --ui
 2. **How it runs** → Start command `go run . --port {port}`, Port `8100`, Health route `/health` →
    **Save**.
 3. Connect the front end to it, and **Plan the features**.
-4. Build the first slice: Albert writes the service in `pricing-service/`, serving `GET /health`.
+4. Build **The app runs**: Albert writes the service in `pricing-service/`, serving `GET /health`, and
+   the front end that reaches it.
 5. **Start all**: the runtime runs `go run . --port 8100` in `pricing-service/`, and the part turns
    *Healthy* when `GET /health` answers.
