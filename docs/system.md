@@ -21,11 +21,25 @@ This guide goes through the page from top to bottom, then walks through
 | **The bar** | How many parts are working, then **Read again**, **Check everything**, **N to fix** and **Release**. A part counts as working when its check passes or, in Development while **Start all** runs it, when the runtime proves it up |
 | **What you're building** | Your product in one sentence (**Describe it** / **Edit**), how many parts and connections are built, and **Backbones**, **Add service**, **Plan features**, **Start all** and the next build step (such as **Build: Add a note**) |
 | **The map** | Every part of the app in lanes, with the lines between them. On a narrow window, a list |
-| **The side panel** | Tabs: **Details**, **Plan**, **Build**, **Run**, **Fix**, **Release**, and the **Library** |
+| **The stages** | Under what you're building: **Design**, **Plan**, **Build**, **Verify** and **Operate**, each with how far it is. ✓ marks a stage that is done; the one to do now is outlined. Select one to open it |
+| **The side panel** | The same five stages: **Design** (the **Parts** and the **Library**), **Plan**, **Build**, **Verify** and **Operate** (**Run** and **Release**) |
 
 When you ask Albert something from this page, its chat opens in a panel beside the map, so you see
 the work and approve its plan and diff there. **Open in Chat** moves it to the chat page; closing the
 panel leaves the work running, and **Albert's work** in the bar brings it back.
+
+### The five stages
+
+| Stage | What you do there | Done when |
+|---|---|---|
+| **Design** | Lay the app out on the map: parts from the **Library**, connections, a selected part's details | You said what you're building, and the map has parts |
+| **Plan** | Turn what you're building into features, and decide Albert's recommendations | Every feature has its requirement, journey and parts |
+| **Build** | Build the slices, one at a time or several in a [build queue](#build-several-slices-build-selected-build-all) | Every slice is in the code |
+| **Verify** | See what is verified, verify the next slice, and fix every open problem | Every journey passes together, end to end |
+| **Operate** | **Run** every part at one address; **Release** an environment | The environment is released |
+
+Each says, in a few words, where it stands: *2 of 4 built*, *1 of 4 verified*, *Running · 3/3*. A stage
+remembers where you left it: **Operate** opens on **Release** again if that is where you were.
 
 ## The map
 
@@ -87,7 +101,7 @@ For parts that no entry describes, see [Your own parts](#your-own-parts).
 
 ## Details: one part
 
-Select a box to see it in **Details**:
+Select a box to see its details (on the **Design** stage):
 
 - **Rename** it.
 - **Why it is on the map**: the file that put it there, or *Planned: not in the code yet*.
@@ -149,7 +163,7 @@ service its own, such as `SHOP_DATABASE_URL`.
 
 The tabs at the top are **Development** and any of **Staging** and **Production** you add with **+**.
 Each environment has its own connections, keys and statuses on the same map, and **Check everything**,
-**Fix** and **Release** work on the one shown. **Remove** an environment to forget its connections and
+**Verify** and **Release** work on the one shown. **Remove** an environment to forget its connections and
 keys; Development always stays.
 
 In **Production**, checks only read, and Albert never sees its keys: build and fix changes still go
@@ -170,7 +184,7 @@ Each item is looked for in the code under each part's own folder, and shows *in 
 ends*, *at one end only*, *not in the code yet* or *outside this repository*, with the files and
 lines to open. An endpoint counts only where its method is next to its path: where it is served, and
 where it is called unless it is a `GET`. Build requests include every contract, and items not in the
-code yet appear on the **Fix** tab.
+code yet appear on the **Verify** stage.
 
 ## Backbones
 
@@ -195,22 +209,66 @@ working, under *Your backbones*; you can delete it there.
 
 ## Plan: the product and its features
 
-The **Plan** tab turns what you're building into features:
+The **Plan** stage turns what you're building into features:
 
 1. **Describe your product**, in a sentence or two: *"A notes app: write a short note and keep it in a
    list"*.
 2. Press **Plan the features**. Your model lists the features, the [requirement](requirements.md) each
    delivers, the parts each uses, **the journey** a person takes through it (the steps a browser test
    will walk) and **how to tell it works**.
-3. Anything the map is missing appears dotted as *suggested*: **Add** puts it on the map, joined to the
-   part that needs it.
+3. Anything the map is missing appears dotted as *suggested*, and as a recommendation (below): **Add**
+   puts it on the map, joined to the part that needs it, and the feature that needed it is built on it.
+   **×** rejects it.
 
-For each feature the tab shows its requirement's status, its parts, where the code is, and how many of
+For each feature the stage shows its requirement's status, its parts, where the code is, and how many of
 its tests passed in the latest run. **Describe it again** starts over.
+
+### Recommendations: Albert recommends, you decide
+
+The **Plan** stage opens with Albert's recommendations, and the bar shows how many are waiting for you
+(*3 suggestions*). Nothing changes until you accept one. Each card says:
+
+| On the card | Meaning |
+|---|---|
+| **Required**, **Recommended** or **Optional** | Required: a feature cannot work, or would be unsafe, without it. Required ones come first |
+| The area | Capability, security, reliability, correctness, testing, performance, scalability, cost, compatibility or approach |
+| Where it comes from | **From the plan** (what a planned feature needs), **Albert's review** of the design, or **From a check** of the map, the code and what ran |
+| Why, and what changes | Why it matters here, and exactly what accepting it does |
+
+| Button | What it does |
+|---|---|
+| **Accept** | Applies it: adds the part, draws the line, lists the endpoints in the contract, or, for a change to your code, asks Albert as a plan you approve |
+| **Modify** | Change it first, then **Accept with these changes**: another provider of the same kind, only some of the endpoints, or other words for Albert's advice |
+| **Defer** | Puts it off: it moves to **Later**, where **Decide now** brings it back |
+| **Reject** | Changes nothing. A required one first tells you what rejecting it means. Albert is told not to do it |
+| **Explain** | Shows the benefits, trade-offs, risks, what it depends on, the alternatives, what rejecting it would mean, and what it rests on |
+
+Your decisions are kept with the map, for every session. **Decided** lists them, each with
+**Reconsider**. A rejected recommendation is not offered again unless what it rests on changes (for
+example, another feature needs it too); it then says *Offered again*. Every request to Albert (building a
+slice, the whole map, a repair, the next plan) carries your decisions, and Albert may use only the parts
+and providers on your map: it never adds one you did not choose, or swaps one you did. A slice that
+needs a service you rejected says so on the **Build** stage, with what you can do instead.
+
+What the checks look for:
+
+| Recommendation | When |
+|---|---|
+| Add a service | A planned feature needs a capability no part provides |
+| Add or connect a broker | A Celery worker has no Redis or RabbitMQ joined to it |
+| Connect a service | A built database or service cannot be checked, so the slices through it cannot be verified |
+| Give a part a health route | **Start all** shows it *Running* but nothing proves it works |
+| Add endpoints to a contract | The plan's features call endpoints the line's contract does not list |
+| Stop keeping a key file in Git | A file that looks like it holds keys (`.env`, `*.pem`…) is tracked by Git: read by name only, never opened. Accepting shows the steps, which are yours to take |
+| Take a part off the map | A planned part no feature uses (never one with code) |
+
+**Albert's review** (with **Plan the features**) adds up to six pieces of advice about security,
+performance, scalability, cost, compatibility and approach, each with its reason; accepted advice is
+followed in every build.
 
 ## Build: one working slice at a time
 
-The **Build** tab is the Build Manifest: what to build, in which order, and how far the evidence takes
+The **Build** stage is the Build Manifest: what to build, in which order, and how far the evidence takes
 each part. Albert builds nothing until the product, its requirements and its journeys are known.
 
 ### From what it is for to its release
@@ -230,7 +288,8 @@ each part. Albert builds nothing until the product, its requirements and its jou
 
 A step counts as done only when every step before it is. The button in the bar always offers the next
 one: **Describe the product**, **Plan the features**, **Build: …**, **Verify: …**, **Repair: …** and
-so on.
+so on. While a [build queue](#build-several-slices-build-selected-build-all) works, it reads
+**Building · 1 of 3** and opens the queue.
 
 ### Slices
 
@@ -263,6 +322,76 @@ tests. It also asks for a browser test titled `[R1] …` that walks the journey.
 what failed, each failed journey's error, how each part was run, and the last lines each failing part
 printed.
 
+### Build several slices: Build selected, Build all
+
+You need not press each slice's button in turn. Above the slices, **Build several** builds the ones you
+choose one after another, in order, and verifies each before the next starts:
+
+1. Tick the slices to build (each slice that is not verified has a tick box), or tick **Select all**.
+2. Choose **How Albert works**, as in the chat:
+   - **Governed**: you approve Albert's plan, then the change, for each slice.
+   - **Direct — ask each write**: Albert works in your files, and every write waits for your OK.
+   - **Direct — auto-approve**: Albert works in your files, and writes land without asking. Git is the undo.
+3. Leave **Repair a failed verification automatically, up to 3 times** ticked, or untick it to decide
+   each repair yourself.
+4. Press **Build selected** or **Build all**.
+
+A slice is built on the ones before it, so choosing slice 3 alone also queues slices 1 and 2 if they
+are not verified; they say *Needed first*. The model chosen in the chat builds each one.
+
+**The queue.** While it works, the **Build** stage shows **Build queue · 1 of 3 done**, what is happening now,
+and **Open** on a slice waiting for you, which opens its chat where you approve the plan, a write or the
+change. The bar's next step reads **Building · 1 of 3**. Each slice in the queue moves through:
+
+| State | Meaning |
+|---|---|
+| **Queued** | Waiting its turn |
+| **Processing** | Albert is planning or writing it |
+| **Waiting for you** | A plan, a write or a change waits for your approval: press **Open** |
+| **Verifying** | AlbertCode is starting the app and walking the slice's journeys |
+| **Completed** | It passed its verification; the slice itself then shows **Verified**, from that evidence |
+| **Failed** | It stopped; the queue says why |
+| **Cancelled** | You cancelled the queue before it was built |
+
+A slice turns green only when its verification passes. A queue saying *Completed* never makes a slice
+green: if the code changes afterwards, the slice is no longer verified.
+
+| Button | What it does |
+|---|---|
+| **Pause** | The step under way finishes (a task Albert is working on carries on) and nothing new starts |
+| **Resume** | Carries on from where it paused |
+| **Try again** | A stopped queue picks up at the slice that stopped, with fresh attempts |
+| **Cancel** | Asks first, then cancels the task under way. What was verified stays verified |
+| **Clear** | Removes a finished or cancelled queue's summary |
+
+**When it stops or pauses by itself.** The queue never guesses; it stops with the reason:
+
+- You rejected Albert's plan or change, or Albert's task failed or was cancelled: **Try again** asks again.
+- A build left the slice unbuilt: it is tried once more, then the queue stops and says what is missing.
+- A verification failed: Albert repairs it, at most 3 times (or the queue stops, if you unticked repair).
+  After 3 failed repairs it stops: **Roll back** on the slice, or change the design.
+- The slice needs a service connected, or a part the map does not have: the queue pauses. Connect it on
+  the map, or decide it on the **Plan** stage, then **Resume**.
+
+**Never twice.** One queue at a time per repository and environment. While a queue runs or is paused,
+the slices' own buttons are hidden and AlbertCode refuses to build, verify, repair or roll back a slice
+by hand. The queue also never starts a task while another change is under way in the repository: it
+says *Waiting for another change in this repository to finish first.*
+
+A change to the code leaves every earlier verification out of date, so when an earlier slice is no longer
+verified the queue verifies it again before carrying on, and says so on that slice.
+
+**It lasts.** The queue is kept with the map, so refreshing or closing the page does not stop it. After
+AlbertCode restarts, it waits with *AlbertCode restarted: open the System page to carry on*, because
+the tasks are made as you; opening the System page carries it on.
+
+**Example.** A notes app has three slices: *Write a note*, *List notes* and *Search notes*. You tick
+**Select all**, keep **Governed**, and press **Build all (3)**. The queue starts slice 1: *Processing*,
+then *Waiting for you*. **Open** shows Albert's plan; you approve it. Albert writes the code, and you
+accept the change. The slice moves to *Verifying*, its journey passes in the browser, and it shows
+**Verified**; slice 2 starts. Slice 3's verification fails, so Albert repairs it (*repair 1 of 3*),
+you accept the fix, and it passes: **Build queue · 3 of 3 done**.
+
 ### Verification
 
 **Verify** proves a slice on evidence, never on a command that ran or a port that opened:
@@ -280,16 +409,34 @@ secrets are left out). **Roll back** returns to it. Checkpoints need the folder 
 repository. When the code changes after a verification, the evidence goes stale: *the code has changed
 since*, and the slice must be verified again.
 
-### Part and connection states
+### Statuses on the map
 
-Every part and line on the Build tab moves through four states, on evidence only:
+Every part and connection a feature needs shows its status on the map, worked out from evidence only: what
+the code holds, a verification of the code as it is now, and what the runtime sees now.
 
-| State | A part | A connection |
+| Status | A part | A connection |
 |---|---|---|
 | **Planned** | Not in the code yet | Not in the code yet |
-| **Materialized** | Its code is in the repository | The code connects both ends, and both are built |
-| **Connected** | It answers (its health route, or its service's check) and all its lines are connected | Both ends answer |
-| **Verified** | A journey that passed goes through it (and an outside service's own check works) | A journey that passed goes through both ends |
+| **Building** | Albert is building a slice through it now: in the [build queue](#build-several-slices-build-selected-build-all), or in the chat beside the map | Albert is building a slice through it now |
+| **Built** | Its code is in the repository, but nothing has proven it answers yet | The code makes the connection |
+| **Connected** | It answers: its health route in a verification of this code, or to the runtime now; for a service, its check passes | Both ends answer |
+| **Testing** | A verification through it is running now | A verification through it is running now |
+| **Verified** | A journey that passed on the code as it is now goes through it | A journey that passed on the code as it is now goes through both ends |
+| **Failed** | A verification of this code found it failing, its check fails, or the runtime finds it down now | A journey through it failed, or one of its ends is failing |
+
+Only **Verified** is green, and only on evidence about the code as it is now. Change the code and earlier
+evidence is out of date: green parts go back to **Connected** (if the runtime still finds them answering)
+or **Built** until a slice through them is verified again; red clears the same way. An outside service
+that Albert uses a stand-in for stays **Built** until its own slice connects the real one. Select a part
+or a connection to read why it has its status. Parts no feature needs show their check, as before.
+
+**Example.** In the notes app, slice 1 passes: Web app, API and Notes database turn **Verified**. You edit
+`api/main.py`: all three show **Connected**, because the runtime still finds them answering but no journey
+has passed on the new code. You press **Verify** and the journey fails: the parts it walked through show
+**Failed**, and selecting one shows the journey's error. Albert repairs it, the verification passes, and
+they are green again.
+
+The **Build** stage's slices, the stage row and the bar's next step use the same evidence.
 
 **Out of step** lists where the map, the code and what ran disagree: an endpoint the API does not
 serve yet, a line drawn that the code does not make, a database in the code that is not connected on
@@ -299,7 +446,7 @@ the map. **Not built** lists boxes no feature needs: they would be code with not
 
 **Start all**, in the bar, runs your whole app on this computer: every part the app needs, in the
 order they need each other, each on a port of its own, wired to the others, and reached at **one
-address**. The **Run** tab shows it:
+address**. **Operate** → **Run** shows it:
 
 ```text
 Running · 3 of 3 up · all healthy                         [Restart all] [Stop all]
@@ -398,7 +545,7 @@ slice.
 
 ### Run settings
 
-**How it runs**, in a part's **Details**, says how the runtime starts it, before any guess:
+**How it runs**, in a part's details, says how the runtime starts it, before any guess:
 
 | Field | Meaning |
 |---|---|
@@ -419,10 +566,12 @@ Health route   /health
 build request says so. A folder outside the repository, a folder that looks like it holds secrets, or
 a command that can't be read is refused with the reason.
 
-## Fix: every problem in one place
+## Verify: what passed, and every problem
 
-The **Fix** tab (and **N to fix** in the bar) lists every open problem for the environment shown,
-from the evidence:
+The **Verify** stage first says how many slices are verified and whether the last verification passed
+(and whether the code has changed since), with the next **Verify** or **Repair** and **Every slice**,
+which opens the **Build** stage. Below, it (and **N to fix** in the bar) lists every open problem for the
+environment shown, from the evidence:
 
 | Stage | Problems |
 |---|---|
@@ -437,11 +586,17 @@ test, requirement or connection it is about.
 
 ## Release: only after verification
 
-The **Release** tab checks one environment before anything goes out, and records what went out.
+**Operate** → **Release** checks one environment before anything goes out, and records what went out.
 
-1. **Is it ready?** runs every check for the environment shown: your code is committed, every service
-   connected there passes a check run now, your browser tests, requirements and contracts hold, and
-   nothing you designed is left unbuilt. Anything that could not be checked is a warning, never a pass.
+1. **Is it ready?** runs every check for the environment shown: your code is committed, the app is
+   verified end to end on this very code, every service connected there passes a check run now, your
+   browser tests, requirements and contracts hold, and nothing you designed is left unbuilt. Anything
+   that could not be checked is a warning, never a pass.
+
+   *Verified end to end* applies once you have planned the features: every slice must be verified on
+   the code being released. Verification starts the app on this computer and walks its journeys, so it
+   is done in Development whatever you release to: journeys never run against Staging's or Production's
+   data. Change the code after verifying and the release is refused until you verify again.
 2. When nothing is marked ✕, **Release** records the commit, with an optional note, and tags it
    `release-<environment>-<number>` in your repository (for example `release-staging-3`). AlbertCode
    runs the checks again at that moment and refuses if anything fails, including files you changed and
@@ -459,6 +614,19 @@ changed since the last release.
 AlbertCode and checked to apply cleanly, and makes it as a plan you approve; then commit it and release
 again. Commit or put aside your own changes first. When the change is very large, AlbertCode gives you
 the `git revert` command to run instead.
+
+## What AlbertCode does not do
+
+Some things you might expect are deliberately not done, or not done yet. Each is said here rather than
+imitated:
+
+| Not done | Why, and what to do instead |
+|---|---|
+| **Deploying** | AlbertCode checks, records and tags a release; your own pipeline or command deploys the tagged commit. It never runs deploy commands or holds deploy credentials, so nothing it runs changes a live environment by itself. If your pipeline deploys tags, `git push origin release-staging-3` deploys that release |
+| **Starting containers** | Parts run as processes on this computer. Start containers yourself (for example `docker compose up -d db`), then connect them on the map; their checks then say when they are up. Services in the cloud, or anywhere else, are connected the same way |
+| **Verifying against Staging or Production** | Journeys are walked in Development only. Other environments are checked read-only, by each service's own check |
+| **Pausing a task halfway** | The build queue pauses between steps: a task Albert is working on finishes its step, or you cancel it |
+| **Resizing or grouping boxes** | Every box has one size and sits in its lane; **Tidy** lines them up |
 
 ## Your own services in a file (advanced)
 

@@ -3,18 +3,33 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.47.0 — 2026-10-08
+## 1.48.0 — 2026-10-08
 
-- **Build one working slice at a time.** The System page's **Build** tab turns your design into a plan:
+- **Albert recommends, you decide.** On the System page's **Plan** stage, each recommendation says
+  whether it is required, recommended or optional, why and what it changes. **Accept**, **Modify**,
+  **Defer** or **Reject** it, or ask Albert to **Explain** it. Your decisions are kept and Albert
+  follows them: it never adds or swaps a service you did not choose.
+- **Build several slices at once.** Tick slices, or **Select all**, then **Build selected** or **Build
+  all**: they are built in order, each verified before the next, even if you close the page, with
+  **Pause**, **Resume** and **Cancel**. Nothing is ever started twice.
+- **Every part's status, on evidence.** Each part and connection shows Planned, Building, Built,
+  Connected, Testing, Verified or Failed. Only Verified is green, and only on your code as it is now.
+- **Five stages.** **Design**, **Plan**, **Build**, **Verify** and **Operate**, each with how far it is.
+- **Release what was verified.** A release waits until your app is verified end to end on the exact
+  code released. Verification runs in Development, never against your live data.
+- **Fixed:** a service added for a feature is now used by it; building several slices no longer
+  stops when an earlier slice needs verifying again.
+
+- **Build one working slice at a time.** The System page's **Build** stage turns your design into a plan:
   what the product is for, its requirements and journeys, then slices, each one thing a person can do,
   built from the screen to the data and back. The next slice starts only when this one is proven
   running.
-- **Proven, not assumed.** Parts move from Planned to Materialized, Connected and Verified only on
+- **Proven, not assumed.** Parts move from Planned to Built, Connected and Verified only on
   evidence. **Verify** starts your app, checks every part and connected service, and walks every
   journey in a browser; a slice that passes is kept as a checkpoint, and one that fails gets
   **Repair**, then **Roll back** if it still fails.
 - **Start all.** One button runs every part of your app on your computer, in order, each on its own
-  port, wired to the others and reached at one address. The **Run** tab shows each part's state and
+  port, wired to the others and reached at one address. **Operate** → **Run** shows each part's state and
   log, with Stop, Restart, Install packages and Fix with Albert.
 - **Parts of your own.** Add your own front end, service, worker or data store, and say how it runs.
 - **Only the folder you opened.** The System page and Architecture read only the files in the open
@@ -26,7 +41,7 @@ on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases)
 - **Fixed:** a build could wait on a step without saying why; the System page now fills the window
   beside the chat.
 
-- **Fix every problem with Albert.** One **Fix** tab lists every open problem from development,
+- **Fix every problem with Albert.** The **Verify** stage lists every open problem from development,
   testing and your running environments, each from a real check or test with its evidence. Fix one,
   or all of them as one plan you approve.
 - **Release only after verification.** **Release** checks an environment (code committed, services
@@ -54,7 +69,7 @@ on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases)
   requirements go on the map. Save any map as your own backbone.
 - **Plan the features.** Your model lists the product's features, which parts each is built on and
   what is missing. Missing services are suggested on the map and added only when you say so. The
-  **Plan** tab shows each feature's requirement, parts, code and tests.
+  **Plan** stage shows each feature's requirement, parts, code and tests.
 - **Starting after an update.** The first start after installing could be reported as failing while
   AlbertCode was still starting; it now waits for it.
 - **Visual editing on Windows.** Applying a change while your app's server had the file open could

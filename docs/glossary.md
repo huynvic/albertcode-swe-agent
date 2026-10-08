@@ -13,9 +13,10 @@ The words AlbertCode uses, in one place.
 | **Backbone** | A ready-made system design to start the System map from; 21 come with AlbertCode, and you can save your own |
 | **Boundary** | The limits a repository's [contract](contract.md) sets; also the button on the repository card |
 | **Build Manifest** | The System page's plan of what to build, in which order, and how far the evidence takes each part |
+| **Build queue** | Slices you chose with **Build selected** or **Build all**, built and verified one after another; see [Build several slices](system.md#build-several-slices-build-selected-build-all) |
 | **Checkpoint** | A Git commit kept when a slice passes its verification, which **Roll back** returns to |
 | **Command (custom)** | A message you send often, used by name: `/review src/cart.py` |
-| **Connected (a part)** | It answers its check, and all its connections do |
+| **Connected (a part)** | It answers: its health route in a verification of the code as it is, or to the runtime now; for a service, its check passes. Not yet proven by a journey |
 | **Connector** | A ready-made MCP server you add in a couple of answers |
 | **Contract (repository)** | `albertcode.contract.toml`: what AlbertCode may do in a repository. See [The contract](contract.md) |
 | **Contract (on a connection)** | What a line on the System map carries (endpoints, tables, topics), looked for in the code at both ends |
@@ -30,7 +31,6 @@ The words AlbertCode uses, in one place.
 | **Journey** | The steps a person takes through a feature, which a browser test walks |
 | **Language checks** | The checker each edited file is run through (pyright, gopls…), so Albert fixes what its edit broke |
 | **Library** | The 113 services you can add to the System map |
-| **Materialized** | A part whose code is in the repository |
 | **MCP server** | An outside tool server Albert can use, over the Model Context Protocol |
 | **Memory** | `.albertcode/memory.md`: what Albert has learned about a repository |
 | **Mode** | How plain requests are handled: Governed, Direct (ask each write or auto) or Ask only |
@@ -39,6 +39,7 @@ The words AlbertCode uses, in one place.
 | **Plugin** | Commands, agents and MCP servers in one shareable folder. See [Plugins](plugins.md) |
 | **Preview** | Your app, run with one command, beside the chat |
 | **Ready line** | What a part with no port prints when it is ready, such as `worker ready` |
+| **Recommendation** | Something Albert suggests about your design (required, recommended or optional), with why and what it changes. You accept, change, put off or reject it; see [Recommendations](system.md#recommendations-albert-recommends-you-decide) |
 | **Release** | A commit recorded, and tagged `release-<environment>-<n>`, as what went out to an environment, after every check passed |
 | **Repair** | Albert fixing a slice that failed its verification, from the evidence (at most three times) |
 | **Requirement** | One thing the app must do, numbered R1, R2… in `.albertcode/requirements.json` |
@@ -48,8 +49,9 @@ The words AlbertCode uses, in one place.
 | **Skill** | A project convention written down in `.albertcode/skills/`, which changes what the model is told |
 | **Slice** | One thing a person can do, built from the screen to the data and back, and proven running before the next |
 | **Stand-in** | A fake of an outside service, used in tests and until its integration slice makes it real |
+| **Status (on the map)** | Where a part or connection stands, on evidence only: Planned, Building, Built, Connected, Testing, Verified or Failed. See [Statuses on the map](system.md#statuses-on-the-map) |
 | **Task** | One change: its request, plan, build, checks, reviews and diff |
 | **Tool (saved)** | One of your commands, saved so the model can call it by name |
 | **Topic** | The thing a group of chats is about (a slice, a part, a test…), shown as one row in the sidebar |
-| **Verified** | Proven: a browser journey that passed went through it |
+| **Verified** | Proven: a browser journey that passed on the code as it is now went through it. The only status shown green |
 | **Verify** | Start the app, check every part and walk the journeys in a browser: the proof a slice works |

@@ -673,6 +673,10 @@ and checks that each one really works.
 
 Keys stay in your computer's key store: never in your repository, a log, the page or a model's view.
 
+**Five stages.** The page works in **Design**, **Plan**, **Build**, **Verify** and **Operate**. A row
+under what you're building says how far each is (*2 of 4 built*, *1 of 4 verified*, *Running · 3/3*),
+ticks what is done, and opens any stage in one click.
+
 **Design it, then have Albert build it.**
 
 - **A design canvas.** Lanes for what people use, what runs, your data and outside services. Drag a
@@ -684,8 +688,13 @@ Keys stay in your computer's key store: never in your repository, a log, the pag
   your product by your model. Save any map as your own backbone for the next app.
 - **Plan the features.** Your model lists the product's features, which parts each is built on and
   what the map is missing. Missing services appear dotted as *suggested* and are added only when you
-  press **Add**. The **Plan** tab shows each feature's requirement, parts, code and tests, all from
+  press **Add**. The **Plan** stage shows each feature's requirement, parts, code and tests, all from
   your repository and your latest test run.
+- **Albert recommends, you decide.** Each recommendation says whether it is required, recommended or
+  optional, why, what it changes and the evidence. **Accept** it, **Modify** it (another provider,
+  other endpoints), **Defer** it, **Reject** it, or ask Albert to **Explain** it. Your decisions are
+  kept and go with every request: Albert never adds or swaps a service you did not choose, and does
+  not offer a rejected idea again unless something it rests on changes.
 - **Build this system** hands the design to Albert as a plan you approve, and **Build what changed**
   only what you added since.
 - **Your own APIs.** Add *REST API (OpenAPI)*, *GraphQL API*, *MCP server* or *Webhook* from the
@@ -693,15 +702,20 @@ Keys stay in your computer's key store: never in your repository, a log, the pag
 
 **Build it one working slice at a time.**
 
-- **A plan Albert follows.** The **Build** tab turns your design into what to build, in order: what
+- **A plan Albert follows.** The **Build** stage turns your design into what to build, in order: what
   the product is for, its requirements and the journeys people take, then slices. Each slice is one
   thing a person can do, built from the screen through the API to the data and back. Albert builds
   the smallest real flow first, and the next slice starts only when this one is proven running.
-- **Proven, not assumed.** Each part moves from *Planned* to *Materialized*, *Connected* and
-  *Verified* only on evidence. **Verify** starts your app, checks that every part answers, checks each
-  connected service and walks every journey in a browser. A slice that passes is kept as a
-  checkpoint; one that fails gets **Repair**, with exactly what failed, and **Roll back** returns to
-  the last checkpoint. Every change is a plan you approve.
+- **Proven, not assumed.** Each part and connection on the map shows *Planned*, *Building*, *Built*,
+  *Connected*, *Testing*, *Verified* or *Failed*, only on evidence, and only *Verified* is green: a
+  journey has passed on your code as it is now. **Verify** starts your app, checks that every part
+  answers, checks each connected service and walks every journey in a browser. A slice that passes is
+  kept as a checkpoint; one that fails gets **Repair**, with exactly what failed, and **Roll back**
+  returns to the last checkpoint. Every change is a plan you approve.
+- **Build several at once.** Tick the slices you want, or **Select all**, then **Build selected** or
+  **Build all**. They are built in order, each verified before the next, even if you close the page.
+  Each one shows *Queued*, *Processing*, *Waiting for you* (with **Open**), *Verifying*, *Completed* or
+  *Failed*, with **Pause**, **Resume** and **Cancel**. Nothing is ever started twice.
 - **Parts of your own.** Add your own front end, service, worker or data store (a Go service, a Rust
   worker) and say how it runs: its folder, start command, port, and the route or line that proves it
   is up. You can design a whole app this way, from an empty folder.
@@ -709,21 +723,27 @@ Keys stay in your computer's key store: never in your repository, a log, the pag
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-build-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-build-light.png">
-  <img src="assets/readme/screen-system-build-light.png" alt="The Build tab on the System page for a notes app: every step from product intent to end to end is ticked and Release is next, and the slices Add a note and see it in the list, and Delete a note, are both Verified. On the map, the web app, the API and the notes database are healthy." width="100%">
+  <img src="assets/readme/screen-system-build-light.png" alt="The Build stage on the System page for a notes app: the five stages Design, Plan, Build, Verify and Operate are all ticked, and every step from product intent to release is ticked. On the map, the web app, the API and the notes database are Verified and healthy." width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-queue-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-queue-light.png">
+  <img src="assets/readme/screen-system-queue-light.png" alt="Building several slices at once for a notes app that emails a daily digest: the build queue is running, slice 1 is waiting for you to approve Albert's plan, with Open, Pause and Cancel, and slice 2 is queued. On the map, the web app, the API and the database that slice 1 is built on show Building." width="100%">
 </picture>
 
 **Run every part with one button.** **Start all** runs your whole app on your computer: every part
 in the order they need each other, each on a port of its own, wired to the others through
 environment variables (`PORT`, `API_URL`, `DATABASE_URL`…), and reached at one address that serves
 your API, your front end and WebSockets. A part counts as up only when its health route answers, its
-first page loads or it prints its ready line. The **Run** tab shows each part's state and log, with
+first page loads or it prints its ready line. **Operate** → **Run** shows each part's state and log, with
 **Stop**, **Restart**, **Install packages** and **Fix with Albert**. A part that stops by itself is
 started again a few times at most, and keys are masked in everything it prints.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-run-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-run-light.png">
-  <img src="assets/readme/screen-system-run-light.png" alt="The Run tab on the System page: running, 3 of 3 up, all healthy and verified, with Restart all and Stop all, the app's one address at localhost:4400 with Preview, and each part: the notes database checked where it is, the API started with uvicorn in its folder on port 8000, and the web app with npm run dev on port 5173, all healthy." width="100%">
+  <img src="assets/readme/screen-system-run-light.png" alt="Operate, then Run, on the System page: running, 3 of 3 up, all healthy and verified, with Restart all and Stop all, the app's one address at localhost:4400 with Preview, and each part: the notes database checked where it is, the API started with uvicorn in its folder on port 8000, and the web app with npm run dev on port 5173, all healthy." width="100%">
 </picture>
 
 **Environments, variables and contracts.**
@@ -743,7 +763,8 @@ started again a few times at most, and keys are masked in everything it prints.
   <img src="assets/readme/screen-system-environments-light.png" alt="The System page in the Staging environment: Development and Staging tabs at the top, and a connection from the Next.js app to the FastAPI server selected. Its contract lists GET /api/orders/{id}, in the code at both ends with the file and line of each, and POST /api/orders, not in the code yet." width="100%">
 </picture>
 
-**Fix every problem with Albert.** The **Fix** tab lists every open problem the evidence shows, from
+**Fix every problem with Albert.** The **Verify** stage shows how many slices are verified, then lists
+every open problem the evidence shows, from
 development, testing and your running environments: services failing their checks, failing browser
 tests and requirements, and contract items your code does not keep yet. Each comes from a real check
 or test, with its evidence and file. **Fix with Albert** fixes one; **Fix all** fixes them together,
@@ -752,7 +773,8 @@ as one plan you approve, each with a test that would have caught it.
 **Release only after verification.**
 
 - **Is it ready?** **Release** checks one environment before anything goes out: your code is
-  committed, every service connected there passes a check run right now, your browser tests,
+  committed, the app is verified end to end on this very code (in Development, never against your
+  live data), every service connected there passes a check run right now, your browser tests,
   requirements and contracts hold, and nothing you designed is left unbuilt. Anything that could not
   be checked is shown as a warning, never as passing.
 - **Release with proof.** Only when nothing fails can you record the commit as that environment's
@@ -767,13 +789,13 @@ as one plan you approve, each with a test that would have caught it.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-release-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-release-light.png">
-  <img src="assets/readme/screen-system-release-light.png" alt="Releasing from the System page: the Release tab for Development lists each check with a tick or a warning (the code is committed, the connected service is working, every contract item is in the code; nothing is connected for three parts and no browser tests have run yet) and offers to release the commit to Development." width="100%">
+  <img src="assets/readme/screen-system-release-light.png" alt="Releasing from the System page: Operate, then Release, for Development lists each check with a tick or a warning: the code is committed, the app is verified end to end on this code, the connected service is working; three parts are not connected, so not checked." width="100%">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-design-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-design-light.png">
-  <img src="assets/readme/screen-system-design-light.png" alt="Designing on the System page: a SaaS backbone for a law-firm practice-management app, with a web app, API, database, sign-in, billing, email and analytics laid out in lanes and connected. The Plan tab lists the product's features with the parts each uses, and suggests adding Sentry, shown dotted on the map with an Add button." width="100%">
+  <img src="assets/readme/screen-system-design-light.png" alt="Deciding Albert's recommendations on the System page: the Plan stage for a notes app that emails a daily digest lists four recommendations. The first, required, adds Redis as the broker the digest worker's jobs come through; the next, recommended, rate-limits note creation. Each says why and what it changes, with Accept, Modify, Defer, Reject and Explain." width="100%">
 </picture>
 
 <picture>
@@ -936,7 +958,7 @@ offline: **⋮ → Documentation** in the browser interface.
 | [**Browser interface**](docs/browser.md) | The layout, the ⋮ menu, the command palette, every shortcut, Files and Terminal |
 | [**VS Code**](docs/vscode.md) | The extension, its panel, every command and setting |
 | [**Models**](docs/models.md) | Providers, local models, and what a model needs |
-| [**The System page**](docs/system.md) | Design an app, connect its services, build it slice by slice, verify it, run every part, fix and release |
+| [**The System page**](docs/system.md) | Design an app, decide Albert's recommendations, build it slice by slice or several at once, verify it, run every part, fix and release |
 | [**Architecture**](docs/architecture.md) | What a repository is made of, read from its own files |
 | [**Requirements**](docs/requirements.md) | What the app must do, as a checklist backed by evidence |
 | [**Preview and browser tests**](docs/preview-and-tests.md) | Run the app beside the chat, edit it by clicking, test it in a real browser |

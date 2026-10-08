@@ -51,18 +51,24 @@ Everything an installer run did is written to its log:
 
 | Symptom | Fix |
 |---|---|
+| A recommendation I rejected came back | It is offered again only when what it rests on changed, such as another feature now needing it; the card says *Offered again*. Reject it again, or **Reconsider** it under **Decided**. |
+| A slice says it needs a service I rejected | The feature cannot be built as planned without that capability. Open the **Plan** stage: **Reconsider** it, accept it with another provider (**Modify**), add a part of your own, or describe the product again without it. |
 | The build button says **Describe the product** or **Plan the features** | Albert builds nothing until the product, its requirements and journeys are known. Describe it in a sentence, then **Plan the features** on the Plan tab. |
-| A slice says it needs a part the map does not have yet | Open the **Plan** tab and **Add** the suggested part, or add it from the library. |
+| A slice says it needs a part the map does not have yet | Open the **Plan** stage and **Add** the suggested part, or add it from the library. |
+| The slices' **Build** and **Verify** buttons are gone | A [build queue](system.md#build-several-slices-build-selected-build-all) is working on them. Let it finish, or **Cancel** it on the **Build** stage, to act on a slice by hand. |
+| The build queue says *AlbertCode restarted: open the System page to carry on* | Open the System page: the queue carries on from where it was. |
+| The build queue says *Waiting for another change in this repository to finish first* | A task you started is still changing this repository. Approve, accept or cancel it in its chat; the queue then carries on. |
 | **Start all**: a part says *Cannot run here* | AlbertCode could not tell how to start it. Give its folder a `dev` or `start` script, or open the part's **Details** → **How it runs** and give its start command. |
 | A part says its packages are missing | Press **Install packages** on it: AlbertCode runs the install command it shows. |
 | **Install packages** fails with a certificate or network error | Your network needs a proxy or its own certificates. Set `HTTPS_PROXY` (and `SSL_CERT_FILE`, `PIP_CERT` or `NODE_EXTRA_CA_CERTS` if your company gives you a certificate) in your terminal, run `albertcode stop`, then start `albertcode --ui` from that terminal. |
 | A database in `docker-compose.yml` is not started | AlbertCode does not start containers. Run `docker compose up -d` yourself, then **Connect** the database on the map: its check decides when it is up. |
 | Redis says it cannot be started | Install Redis (`redis-server`) and press **Start all** again, or connect a Redis you already run on the map. |
 | A part is **Running** but not **Healthy** | Nothing proves it works: give it a health route (`/health`) or, for a worker, a ready line it prints, in **How it runs**. |
-| A part is **Unhealthy** right after a change | Its code fails to load: read its log on the **Run** tab, or press **Fix with Albert** on it. The dev server picks up the fix by itself. |
+| A part is **Unhealthy** right after a change | Its code fails to load: read its log in **Operate** → **Run**, or press **Fix with Albert** on it. The dev server picks up the fix by itself. |
 | A part **Crashed** and stays stopped | It stopped three times within ten minutes. Read its log, fix the cause, then **Start**. |
-| The app's address keeps showing *Starting…* | A part is still starting or waiting for a part it needs. The **Run** tab says which, and why. |
+| The app's address keeps showing *Starting…* | A part is still starting or waiting for a part it needs. **Operate** → **Run** says which, and why. |
 | **Verify** fails at *Walk every journey*: no browser test walks [R1] yet | The slice needs a browser test titled `[R1] …`. Build the slice (its request asks for one), or **Add a test** on the Requirements page. |
-| The Build tab says *the code has changed since* | The last verification was of older code. Press **Verify** again. |
+| The **Build** stage says *the code has changed since* | The last verification was of older code. Press **Verify** again. |
 | **Roll back** says there is no checkpoint yet | A checkpoint is kept each time a slice passes its verification, and only in a Git repository. Run `git init` and commit, then verify a slice. |
 | **Release** is refused | Something failed when it checked again, or you have files that are not committed. The checklist says which. |
+| **Release** says the app is not verified end to end on this code | Every slice must be verified on the code being released. Open the **Verify** stage and verify (or build several at once on the **Build** stage); if you changed code since, verify again. |

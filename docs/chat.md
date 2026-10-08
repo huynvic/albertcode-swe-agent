@@ -184,16 +184,16 @@ TODAY
 
 | Started from | Filed under |
 |---|---|
-| The **Build** tab: build a slice, **Repair**, **Roll back** | That slice |
+| The **Build** stage: build a slice, **Repair**, **Roll back** | That slice |
 | A box on the System map: **Ask Albert**, **Fix with Albert**, **Wire it into the app** | That part |
-| The **Run** tab: **Fix with Albert** on a part that does not run | That part |
-| The **Fix** tab: **Fix with Albert** on one problem | The thing the problem is about: the part, the browser test, the requirement or the connection |
-| The **Fix** tab: several problems at once | *Problems in* the environment |
-| The **Release** tab: **Fix with Albert**, **Roll back to this** | That environment's releases |
+| **Operate** → **Run**: **Fix with Albert** on a part that does not run | That part |
+| The **Verify** stage: **Fix with Albert** on one problem | The thing the problem is about: the part, the browser test, the requirement or the connection |
+| The **Verify** stage: several problems at once | *Problems in* the environment |
+| **Operate** → **Release**: **Fix with Albert**, **Roll back to this** | That environment's releases |
 | **Requirements**: **Build with Albert**, **Fix with Albert**, **Add a test** | That requirement |
 | **Test**: **Fix with Albert** on a failing test | That test |
 
-So a problem fixed from the **Fix** tab joins the chats you already had about that part or test, and
+So a problem fixed from the **Verify** stage joins the chats you already had about that part or test, and
 repairing the same slice three times stays together. Chats you start by typing are not filed under
 anything. A topic belongs to its folder: slice 1 of two different repositories are two topics.
 
