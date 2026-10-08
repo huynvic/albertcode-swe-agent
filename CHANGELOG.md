@@ -3,7 +3,28 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.46.0 — 2026-10-08
+## 1.47.0 — 2026-10-08
+
+- **Build one working slice at a time.** The System page's **Build** tab turns your design into a plan:
+  what the product is for, its requirements and journeys, then slices, each one thing a person can do,
+  built from the screen to the data and back. The next slice starts only when this one is proven
+  running.
+- **Proven, not assumed.** Parts move from Planned to Materialized, Connected and Verified only on
+  evidence. **Verify** starts your app, checks every part and connected service, and walks every
+  journey in a browser; a slice that passes is kept as a checkpoint, and one that fails gets
+  **Repair**, then **Roll back** if it still fails.
+- **Start all.** One button runs every part of your app on your computer, in order, each on its own
+  port, wired to the others and reached at one address. The **Run** tab shows each part's state and
+  log, with Stop, Restart, Install packages and Fix with Albert.
+- **Parts of your own.** Add your own front end, service, worker or data store, and say how it runs.
+- **Only the folder you opened.** The System page and Architecture read only the files in the open
+  folder as they are now.
+- **Chats kept together.** Chats about the same slice, part, test, requirement or release are grouped
+  in the sidebar.
+- **Documentation.** A complete guide with examples for every command, page and button, inside
+  AlbertCode (**⋮ → Documentation**) and in [docs](docs/README.md).
+- **Fixed:** a build could wait on a step without saying why; the System page now fills the window
+  beside the chat.
 
 - **Fix every problem with Albert.** One **Fix** tab lists every open problem from development,
   testing and your running environments, each from a real check or test with its evidence. Fix one,

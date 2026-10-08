@@ -1,311 +1,69 @@
 # Using AlbertCode
 
+The short version of everything. Each section links to its full guide.
+
 ## Three interfaces, one agent
 
-| Interface | Start it | Good for |
-|---|---|---|
-| Terminal | `albertcode` | Working where you already are |
-| Browser | `albertcode --ui` | Reading plans and diffs side by side; several sessions at once |
-| VS Code | the AlbertCode panel | Staying in the editor; right-click a folder → *Open Here* |
+| Interface | Start it | Good for | Guide |
+|---|---|---|---|
+| Terminal | `albertcode` | Working where you already are; scripts and CI | [Terminal](terminal.md) |
+| Browser | `albertcode --ui` | Plans and diffs side by side; several sessions at once; the System page | [Browser interface](browser.md) |
+| VS Code | The AlbertCode panel | Staying in the editor; right-click a folder → *Open Here* | [VS Code](vscode.md) |
 
-All three talk to the same local service, so a task started in one can be followed in another.
+All three talk to the same local service, so a task started in one can be followed in another. See
+[How AlbertCode works](how-it-works.md).
 
 ## Modes
 
 | Mode | What happens | Use it when |
 |---|---|---|
 | **Governed** (default) | You approve a plan, it works in an isolated copy, runs your tests and reviews the result, then you approve the diff | Changes you care about |
-| **Direct** | It works in your real files and asks before each write (or, with `auto`, doesn't ask). Needs Git. | Pairing on something you're watching |
-| **Ask** | It answers questions and changes nothing | Understanding a codebase |
+| **Direct** | It works in your real files and asks before each write (or, with *auto*, doesn't ask). Needs Git | Pairing on something you're watching |
+| **Ask only** | It answers questions and changes nothing; a change is offered for your go | Understanding a codebase |
 
-Switch with `/mode`, or start one request in a given mode with `/plan` or `/do`.
-
-## Files panel
-
-In the browser interface, **Files** in the top bar shows the open repository's files beside the
-chat. Click a folder to open it, and a file to read it in the viewer; **Back to Files** returns.
-
-| To | Do this |
-|---|---|
-| Make a file or folder | **New file** or **New folder** in the toolbar. It goes into the selected folder |
-| Rename | Right-click → **Rename**, or select it and press F2 |
-| Duplicate | Right-click → **Duplicate**. The copy is called "name copy" |
-| Copy or move | Right-click → **Copy** or **Cut**, then right-click a folder → **Paste** (or Ctrl/⌘ C, X and V) |
-| Copy a path | Right-click → **Copy path** (full) or **Copy relative path** |
-| Delete | Right-click → **Move to Trash**, or Delete (⌘⌫ on a Mac), then confirm |
-
-What it will not do, by design: work outside the open repository or through a link; show or change
-Git's own folder; open or change a file that looks like it holds secrets (shown with a lock);
-overwrite anything. Deleted items go to the Trash (the Recycle Bin on Windows), where you can restore
-them. The panel is offered only on your own computer, and every change is recorded in AlbertCode's
-ledger.
-
-## Terminal
-
-In the browser interface, **Terminal** in the top bar (or Ctrl+`) opens a real shell in the open
-repository: zsh or bash on macOS and Linux, PowerShell on Windows. It opens beside the chat, in the
-side panel like Files; the button in its header docks it under the chat instead, and back, and
-AlbertCode remembers where you put it. Run your project's tests, builds and other checks here.
-
-- **Tabs.** **+** (or Ctrl+Shift+`) opens another; **Terminal** in the Files panel opens one in the
-  selected folder. Close a tab with its ×, a middle-click, or Delete when the tab is focused.
-- **Size.** Beside the chat, drag the side panel's edge. Under the chat, drag the panel's top edge,
-  or double-click it (or use the arrow button) to maximise.
-- **Copy and paste.** Select to copy with Ctrl+C (Ctrl+C with nothing selected interrupts, as
-  usual), or Ctrl+Shift+C and Ctrl+Shift+V. On a Mac, ⌘C and ⌘V.
-- **It keeps running.** Hide it, move it, open a file in the side panel, or reload the page: each
-  shell carries on and comes back with what it wrote. A shell that has ended says so; press Enter to start a new one.
-
-The first time, the panel explains what it allows and asks you to turn it on: what you type runs
-on this computer as you, and the limits AlbertCode puts on the agent's commands do not apply to it.
-Only your own AlbertCode page can connect, a shared AlbertCode server never offers it, and no
-model key is in its environment. Turning it on or off and opening or closing a shell are recorded
-in the ledger; what you type is not. Turn it off from the panel's ⋯ menu, which closes every shell
-it opened; **Open in your terminal app** there opens your own terminal instead.
-
-## Preview
-
-**Preview** in the browser's top bar starts the open repository's app if it is not running and
-shows it in the side panel. It uses the project's dev script; when there is none, it asks for the
-start command once and remembers it.
-
-- **Widths.** Desktop, tablet (834 px) and phone (390 px).
-- **Status.** Whether the app is answering, on which address, with which status and how fast.
-- **Problems, said plainly.** It did not start, it stopped, it answers with an error page, or its
-  output reports an error now. An error that has since been fixed is not shown as current.
-  **Ask Albert to fix** puts the error into the chat; **Logs** shows the app's output.
-- **Restart** and **Stop** are in the panel's header.
-- **A free port, every time.** Before the app starts, its usual port is checked. If another program
-  holds it, the app gets the next free one and the status line says so. Commands you type are told
-  the port too: `python -m http.server`, `manage.py runserver`, `flask run`, `uvicorn`,
-  `fastapi dev`, `rails server`, and `vite`, `next dev` or `astro`, directly or through `npx`. Other
-  programs get it in the `PORT` setting.
-- **Apps that forbid framing.** The preview is shown through a small proxy on your computer, so an
-  app that tells browsers not to show it inside another page still shows here. The
-  **Open in a new tab** button opens the app at its own address.
-
-### Edit by clicking
-
-**Edit** in the Preview panel lets you change the app by clicking it.
-
-1. Turn on **Edit**. Hovering outlines what you would choose; links and buttons do not act while
-   editing. Click to choose; Esc lets go.
-2. Change the text, text colour, background, size, weight, alignment, padding or corners. The app
-   shows the change at once. **Undo** puts it back.
-3. **Review change** finds where it comes from in the source:
-   - **Found where it comes from**: the files and lines, and the diff. **Apply change** writes
-     exactly that diff, only if the files have not changed since, and the dev server reloads.
-   - **Albert will make this change**: the reason, such as the text being built from data, written
-     in several places, or styled with utility classes. **Ask Albert** sends it as a task.
-4. **Done** turns editing off.
-
-Direct edits are offered for React with TypeScript, Next.js, Vite with React, and plain HTML, CSS
-and JavaScript, for text written once in the source and for styles in plain CSS or CSS modules.
-
-## Task board
-
-**Tasks**, in the ⋮ menu at the top right, opens every task as a board with five columns:
-Planned, Active, Blocked (waiting for you, or failed), Verifying and Completed. Each card shows
-its progress through plan, build, verify, approve and accept; what it is waiting for; its checks
-and files; and why it failed if it did. Open a card to continue the task. **List** shows the same
-tasks as a list you can search. The board updates by itself while tasks run.
-
-## Browser tests
-
-**Test** in the top bar runs your repository's Playwright tests (`e2e/*.spec.ts`) against the
-preview, in a browser.
-
-1. **Write browser tests** asks Albert for them as a normal task, through the usual plan and diff
-   approvals: one file per journey people take through the app, a `playwright.config.ts` that runs
-   against the preview, and `@playwright/test` in `package.json`.
-2. **Install** runs your package manager's install, so the test runner is there.
-3. A browser: a Chrome, Edge or Chromium already installed is used. Only when there is none does
-   the panel offer Playwright's Chromium, about 150 MB, downloaded when you click.
-4. **Run tests** starts the app if it is not running, runs every test (or one file), and shows the
-   results. Each failure has its error, its place in the test, its screenshot and its trace, with
-   **Fix with Albert**, **Open the test** and **Run again**.
-
-The files are yours: run them from your own terminal with `npx playwright test`, change them, and
-commit them. Installing, downloading a browser and running tests are each your click, and each is
-recorded in the evidence ledger.
-
-## Requirements
-
-**Requirements**, in the ⋮ menu, keeps what the app must do as a list you can check.
-
-1. **Draft requirements**: paste a specification (a brief, a list, a ticket). With a model
-   connected, it drafts one checkable requirement per behaviour; without one, it uses the
-   specification's own bullets and sentences. Or choose **Write them myself**.
-2. Edit, reorder, add and remove, then **Save requirements**. The list is saved in the repository
-   as `.albertcode/requirements.json`; each requirement keeps its number (R1, R2…) when you edit.
-3. Each requirement then shows **Complete**, **Partial**, **Failed** or **Missing**, from the latest
-   browser test run and the tasks built for it, with the reason and the evidence.
-4. One action moves it on: **Build with Albert** for a missing one, **Fix with Albert** for a failed
-   one, **Add a test** for one nothing checks yet. Each puts a request in the chat for you to send.
-   **Check now** runs the browser tests again.
-
-A browser test belongs to a requirement when its title starts with the requirement's number in
-brackets, for example `test('[R3] notes can be searched', …)`. A task belongs to it when its
-request says "(requirement R3)". The actions word their requests that way for you.
-
-## Architecture
-
-**Architecture**, in the ⋮ menu, shows what the open repository is made of, read from its files.
-
-- **Three columns.** People use (frontends, web pages), it runs (API servers, background jobs), it
-  relies on (databases, caches, sign-in, queues, file storage, outside services).
-- **Evidence.** Select a part to see the files that put it on the map, what it connects to and the
-  file that shows each connection, and its routes, pages and data models with their files and lines.
-  Click a file to open it beside the map.
-- **What it reads.** `package.json`, `pyproject.toml`, `requirements*.txt` and `go.mod` for the parts;
-  `docker-compose.yml` for the services that run beside the app; `.env.example` for the outside
-  services it is set up for (names only); the code for routes (Express, Fastify, FastAPI, Flask,
-  Django, Next.js), pages (Next.js, React Router) and data models (Prisma, SQLAlchemy, Django,
-  SQLModel, Mongoose, Drizzle).
-- **Read again** reads the files afresh; otherwise the map is kept for half a minute.
-
-## System
-
-**System**, in the ⋮ menu, shows every part of the app and every service it relies on, and checks
-each one.
-
-- **The map.** It starts from the repository (the same files Architecture reads) and grows from the
-  library. Drag boxes to arrange them; where they go is kept for this repository on this computer.
-  Select a line to see the file that shows the connection, and **Go to** either end. On a narrow
-  window the map becomes a list.
-- **The library.** 109 services in 15 groups, each with what it is, how it is checked, what Albert
-  can do with it and how it connects (built in, its own MCP server, a sign-in app, or an API key).
-  Search, filter by group, select one for its details, then drag it onto the map or press **+**.
-  Your own service: add *REST API (OpenAPI)*, *GraphQL API*, *MCP server* or *Webhook* and give its
-  address.
-- **Connect.** Select a box, press **Connect**, and give what it asks for (an address, a user, a key).
-  AlbertCode keeps them in your system's key store and checks the service at once. Leave the key
-  empty later to keep the saved one; **Forget the connection** removes it.
-- **What the statuses mean.** *Working*: the check signed in and a read-only request answered.
-  *Answers, sign-in not proven*: it answered, but the sign-in could not be shown to work (for
-  example a service that needs no key, or a sign-in the check does not speak). *Failing*: with the
-  reason. *Not connected* and *Not checked*: nothing is claimed. Seven services that need a sign-in
-  in your browser (such as Google Analytics) are checked with Albert instead.
-- **Check everything** checks every connected service side by side.
-- **Ask Albert.** Ask a question about a box and your model answers from its last check and where
-  the repository uses it. **Fix with Albert**, **Wire it into the app** and each service's actions
-  open Albert's work in a panel beside the map: a change starts as a governed plan for your
-  approval, a question is answered. **Open in Chat** moves it to the chat; closing the panel leaves
-  it working, and **Albert's work** brings it back.
-
-### Designing and building
-
-- **Connect boxes.** Drag a box's dot onto another box, or click the dot and then the other box.
-  Select a line to see it, or **Remove this connection**. A box or line you designed is dashed
-  (*planned*); once the repository has that part, it is shown as built. Ctrl or ⌘ with the wheel
-  zooms; drag empty space to move; **Fit** shows everything and **Tidy** lines boxes up in their
-  lanes.
-- **Backbones.** **Backbones** opens 21 designs. Pick one, say what your product is, and choose
-  whether to add its requirements (adapted to your product by your model, if one is connected).
-  Parts already on the map are reused. **Save this map as a backbone** keeps the current design,
-  with how many of its parts were checked and working, under *Your backbones*; you can delete it
-  there.
-- **Plan features.** Describe the product in the **Plan** tab and press **Plan the features**. Your
-  model lists the features, the requirement each delivers and the parts each uses, and names
-  missing services, the smallest addition for each need. They appear dotted on the map; **Add**
-  puts one on the map, joined to the part that needs it. For each feature the tab shows its
-  requirement's status, its parts, where the code is and how many of its tests passed in the latest
-  run.
-- **Build.** **Build this system** asks Albert to build the whole design, with the feature plan and
-  the requirements; **Build what changed** asks only for what was added since. Each starts as a
-  plan you approve, in the panel beside the map.
-
-### Environments, variables and contracts
-
-- **Environments.** The tabs at the top of the System page are Development and any of Staging and
-  Production you add with **+**. Each environment has its own connections, keys and statuses on the
-  same map, and **Check everything** checks the one shown. **Remove** an environment to forget its
-  connections and keys; Development always stays.
-- **Variables.** When connecting, tick **Read them from environment variables** and type `${NAME}`
-  in any field (capital letters, digits and `_`). AlbertCode keeps only the name and reads the value
-  each time it checks, from the terminal it was started in, so set the variable there before running
-  `albertcode --ui`. If it is not set, the check says which variable is missing and sends nothing.
-  Variables AlbertCode uses for itself (such as `DATABASE_URL`, and names starting `ALBERTCODE_` or
-  `AGENT_`) cannot be used; give the service its own, such as `APP_DATABASE_URL`.
-- **Contracts.** Select a line between two parts and add what it carries: an **Endpoint**
-  (`GET /orders/{id}`), a **Table**, a **Topic or queue**, or **Other**. Each item is looked for in
-  the code under each part's own folder. An endpoint counts only where its method is next to its path
-  (where it is served, and where it is called unless it is a GET). Each item shows *in the code at
-  both ends*, *at one end only*, *not in the code yet* or *outside this repository*, with the files
-  and lines to open. The build request includes every contract.
-
-### Releasing, fixing and rolling back
-
-- **Fix.** The **Fix** tab (and the *N to fix* button in the bar) lists every open problem for the
-  environment shown: services failing their last check, failing browser tests, failing requirements,
-  and contract items not in the code. **Fix with Albert** asks for one; tick several, or none for all,
-  and press **Fix** to ask for them together. Each request is a plan you approve.
-- **Release.** **Release** in the bar opens the checklist. **Is it ready?** runs every check for the
-  environment shown. When nothing is marked ✕, **Release** records the commit, with an optional note,
-  and tags it `release-<environment>-<number>` in your repository. It is refused if anything fails when
-  AlbertCode checks again at that moment, including files you changed and did not commit. Deploy the
-  tagged commit with your own pipeline or command.
-- **Observe.** **Check now** checks every connected service in the environment and keeps the result
-  in the strip; tick *Check every minute while this page is open* to keep watching.
-- **Roll back.** Each release you have moved on from offers **Roll back to this** (for the latest,
-  **Undo what changed since**). Albert receives the exact change back to that release, worked out by
-  AlbertCode and checked to apply cleanly, and makes it as a plan you approve; then commit it and
-  release again. Commit or put aside your own changes first. When the change is very large, AlbertCode
-  gives you the `git revert` command to run instead.
-
-### Your own services (advanced)
-
-The easy way to add your own API or MCP server is from the library: *REST API (OpenAPI)*, *GraphQL
-API*, *MCP server* or *Webhook*. For a service those do not cover, you can describe it in a file:
-
-Add services to the library in `system-providers.json` in AlbertCode's data folder (on macOS
-`~/Library/Application Support/AlbertCode SWE Agent`, on Windows
-`%LOCALAPPDATA%\AlbertCode SWE Agent`, on Linux `~/.local/share/AlbertCode SWE Agent`):
-
-```json
-[{"id": "acme-crm", "name": "Acme CRM", "desc": "Our CRM's API",
-  "probe": {"kind": "http", "url": "https://api.acme.example/me", "auth": "bearer"},
-  "fields": {"secret": {"label": "API key"}}, "fns": [{"label": "List contacts"}]}]
-```
-
-`kind` is `http`, `openapi`, `graphql`, `mcp` or `app`. An `http` check's URL must start with
-`https://` or with `{address}` (the address you type when connecting). Only this file is read,
-never one in a repository.
+Switch with `/mode`, or start one request in a given mode with `/plan` or `/do`. See
+[Chatting with Albert](chat.md).
 
 ## Approvals
 
 In governed mode there are two:
 
-1. **The plan.** You see the goal, the files it expects to change, the steps, the test plan, the
-   risk and how to roll back. Rejecting it discards the task.
-2. **The result.** You see the diff, the test and check results, and the review. Accepting applies
-   the change to your repository. Acceptance is refused if a file it changes was edited since the
-   task started.
+1. **The plan.** The goal, the files it expects to change, the steps, the test plan, the risk and how
+   to roll back. Approve it, ask for changes, or reject it.
+2. **The result.** The diff, the test and check results, and the reviews. Accept it, ask for changes,
+   or discard it. Acceptance is refused if a file it changes was edited since the task started.
 
 Accepted changes are ordinary edits in your working tree: review them with `git diff`, commit them,
 and undo them with Git.
 
-## Terminal commands
+## Everyday commands
 
 | Command | |
 |---|---|
-| `/connect [provider]` | Connect a provider: its key, or the address of a local model |
-| `/model [search]` | Choose a model |
-| `/test [model]` | Check a model can drive AlbertCode |
-| `/plan <request>` | Start a governed change |
-| `/do <request>` | Work directly in your files, asking before each write |
+| `/connect`, `/model`, `/test` | Connect a provider, choose a model, check it ([Models](models.md)) |
+| `/plan <request>`, `/do <request>` | Start a governed or a direct change |
 | `/mode [governed\|direct\|auto\|ask]` | How plain requests are handled |
-| `/chat [message]` | Talk to the model without starting a task |
+| `/new` | A fresh conversation |
 | `/attach <paths>` | Give it files or screenshots |
-| `/workspace` | Show or change the repository |
-| `/tasks` | Recent tasks |
-| `/preview` | Run this repository's app at an address of its own |
-| `/commands`, `/agents` | Your custom commands and agents ([Extending](extending.md)) |
-| `/mcp`, `/connectors` | MCP servers ([Extending](extending.md)) |
-| `/ledger` | The record of what each task did, and whether it is intact |
-| `/status` | The repository and model in use |
+| `/tasks`, `/ledger` | Recent tasks; the evidence ledger ([Tasks and evidence](tasks-and-evidence.md)) |
+| `/commands`, `/agents`, `/plugins`, `/tools` | Your extensions ([Extending](extending.md)) |
+| `/mcp`, `/connectors` | MCP servers ([MCP servers](mcp.md)) |
+| `/contract` | The repository's boundary ([The contract](contract.md)) |
 | `/help` | Every command |
-| `/exit` | Leave (the service keeps running; `albertcode stop` stops it) |
+
+The [terminal reference](terminal.md) lists all of them, with examples. In the browser,
+<kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>K</kbd> opens the command palette.
+
+## The pages of the browser interface
+
+| Page | What it is for |
+|---|---|
+| [System](system.md) | Design the whole app, connect its services, have Albert build it slice by slice, run every part, fix and release |
+| [Architecture](architecture.md) | What the repository is made of, read from its files |
+| [Requirements](requirements.md) | What the app must do, as a checklist with evidence |
+| [Preview and browser tests](preview-and-tests.md) | Run the app beside the chat, edit it by clicking, and test it in a browser |
+| [Tasks and the evidence ledger](tasks-and-evidence.md) | Every task, and the record of what each did |
+| [Files and Terminal](browser.md#files) | The repository's files, and a real shell, beside the chat |
 
 ## Scripting
 
@@ -319,13 +77,14 @@ albertcode diff    "$TASK"     # the change
 albertcode accept  "$TASK"     # apply it
 ```
 
-`albertcode reject` discards a task, and `albertcode --help` lists every subcommand.
+`albertcode reject` discards a task, and `albertcode --help` lists every subcommand. See
+[Terminal](terminal.md#subcommands).
 
 ## Attachments
 
 Paste or drop screenshots, logs and documents into the browser or VS Code, or use `/attach` in the
 terminal. Images reach the model as images, if the model accepts them. If it doesn't, AlbertCode
-tells you.
+tells you. See [Attachments](chat.md#attachments).
 
 ## Checking your setup
 

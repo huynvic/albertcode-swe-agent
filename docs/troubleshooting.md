@@ -44,4 +44,25 @@ Everything an installer run did is written to its log:
 | Acceptance is refused | A file the change touches was edited after the task started. Look at your edits, then run the task again. |
 | After updating, your provider is no longer connected | Saved keys are cleared when a new version first starts. Run `/connect` again. |
 | The service seems stuck | Run `albertcode stop`, then `albertcode` again. |
-| VS Code can't reach the service | Run `albertcode` once in a terminal to start the service, then reload the window. |
+| VS Code says **Service unreachable** | Run `albertcode` once in a terminal to start the service, then run **Developer: Reload Window**. |
+| A chat is not grouped with the others about the same thing | Only chats started from a page's button (Build, Repair, Fix with Albert, Ask Albert…) are filed under a topic; chats you start by typing are not. See [Chats about one thing](chat.md#chats-about-one-thing). |
+
+## Building and running a system
+
+| Symptom | Fix |
+|---|---|
+| The build button says **Describe the product** or **Plan the features** | Albert builds nothing until the product, its requirements and journeys are known. Describe it in a sentence, then **Plan the features** on the Plan tab. |
+| A slice says it needs a part the map does not have yet | Open the **Plan** tab and **Add** the suggested part, or add it from the library. |
+| **Start all**: a part says *Cannot run here* | AlbertCode could not tell how to start it. Give its folder a `dev` or `start` script, or open the part's **Details** → **How it runs** and give its start command. |
+| A part says its packages are missing | Press **Install packages** on it: AlbertCode runs the install command it shows. |
+| **Install packages** fails with a certificate or network error | Your network needs a proxy or its own certificates. Set `HTTPS_PROXY` (and `SSL_CERT_FILE`, `PIP_CERT` or `NODE_EXTRA_CA_CERTS` if your company gives you a certificate) in your terminal, run `albertcode stop`, then start `albertcode --ui` from that terminal. |
+| A database in `docker-compose.yml` is not started | AlbertCode does not start containers. Run `docker compose up -d` yourself, then **Connect** the database on the map: its check decides when it is up. |
+| Redis says it cannot be started | Install Redis (`redis-server`) and press **Start all** again, or connect a Redis you already run on the map. |
+| A part is **Running** but not **Healthy** | Nothing proves it works: give it a health route (`/health`) or, for a worker, a ready line it prints, in **How it runs**. |
+| A part is **Unhealthy** right after a change | Its code fails to load: read its log on the **Run** tab, or press **Fix with Albert** on it. The dev server picks up the fix by itself. |
+| A part **Crashed** and stays stopped | It stopped three times within ten minutes. Read its log, fix the cause, then **Start**. |
+| The app's address keeps showing *Starting…* | A part is still starting or waiting for a part it needs. The **Run** tab says which, and why. |
+| **Verify** fails at *Walk every journey*: no browser test walks [R1] yet | The slice needs a browser test titled `[R1] …`. Build the slice (its request asks for one), or **Add a test** on the Requirements page. |
+| The Build tab says *the code has changed since* | The last verification was of older code. Press **Verify** again. |
+| **Roll back** says there is no checkpoint yet | A checkpoint is kept each time a slice passes its verification, and only in a Git repository. Run `git init` and commit, then verify a slice. |
+| **Release** is refused | Something failed when it checked again, or you have files that are not committed. The checklist says which. |

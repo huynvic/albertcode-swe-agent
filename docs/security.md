@@ -129,6 +129,23 @@ computer as you, outside the limits AlbertCode puts on the agent's commands:
 - Connections, checks and changes to the map are recorded in the evidence ledger, without the key.
   `albertcode uninstall --all` forgets every saved connection.
 
+## Running your app
+
+**Start all** on the System page runs your app's parts on your computer. It is yours, not Albert's:
+
+- It is offered only by AlbertCode running for one person on their own computer, from its own page, and
+  only starts or stops on your click. Albert's tasks never start or stop it.
+- Each part runs as you, from its own folder, with a small environment: its port, the addresses of what
+  it uses, and your proxy and certificate settings. AlbertCode's own keys and access token are never
+  given to it.
+- The keys of services you connected are read from your key store when a part starts, given only to
+  the parts that use that service, and masked in everything the parts print.
+- Every part, and the app's one address, listens on `127.0.0.1` only.
+- What the parts print is kept in memory, masked, and never written into your repository.
+- **Stop all** stops every part and everything it started. Parts left running by an AlbertCode that
+  ended without stopping them are stopped the next time it starts, but only when they are verifiably the
+  processes it started.
+
 ## Visual editing
 
 - While **Edit** is on, the preview is shown through a proxy on your own computer that only talks

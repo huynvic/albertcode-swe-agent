@@ -691,6 +691,41 @@ Keys stay in your computer's key store: never in your repository, a log, the pag
 - **Your own APIs.** Add *REST API (OpenAPI)*, *GraphQL API*, *MCP server* or *Webhook* from the
   library and give its address; it is checked like any other service.
 
+**Build it one working slice at a time.**
+
+- **A plan Albert follows.** The **Build** tab turns your design into what to build, in order: what
+  the product is for, its requirements and the journeys people take, then slices. Each slice is one
+  thing a person can do, built from the screen through the API to the data and back. Albert builds
+  the smallest real flow first, and the next slice starts only when this one is proven running.
+- **Proven, not assumed.** Each part moves from *Planned* to *Materialized*, *Connected* and
+  *Verified* only on evidence. **Verify** starts your app, checks that every part answers, checks each
+  connected service and walks every journey in a browser. A slice that passes is kept as a
+  checkpoint; one that fails gets **Repair**, with exactly what failed, and **Roll back** returns to
+  the last checkpoint. Every change is a plan you approve.
+- **Parts of your own.** Add your own front end, service, worker or data store (a Go service, a Rust
+  worker) and say how it runs: its folder, start command, port, and the route or line that proves it
+  is up. You can design a whole app this way, from an empty folder.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-build-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-build-light.png">
+  <img src="assets/readme/screen-system-build-light.png" alt="The Build tab on the System page for a notes app: every step from product intent to end to end is ticked and Release is next, and the slices Add a note and see it in the list, and Delete a note, are both Verified. On the map, the web app, the API and the notes database are healthy." width="100%">
+</picture>
+
+**Run every part with one button.** **Start all** runs your whole app on your computer: every part
+in the order they need each other, each on a port of its own, wired to the others through
+environment variables (`PORT`, `API_URL`, `DATABASE_URL`…), and reached at one address that serves
+your API, your front end and WebSockets. A part counts as up only when its health route answers, its
+first page loads or it prints its ready line. The **Run** tab shows each part's state and log, with
+**Stop**, **Restart**, **Install packages** and **Fix with Albert**. A part that stops by itself is
+started again a few times at most, and keys are masked in everything it prints.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-system-run-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-system-run-light.png">
+  <img src="assets/readme/screen-system-run-light.png" alt="The Run tab on the System page: running, 3 of 3 up, all healthy and verified, with Restart all and Stop all, the app's one address at localhost:4400 with Preview, and each part: the notes database checked where it is, the API started with uvicorn in its folder on port 8000, and the web app with npm run dev on port 5173, all healthy." width="100%">
+</picture>
+
 **Environments, variables and contracts.**
 
 - **Development, Staging and Production**, each with its own connections, keys and statuses on the
@@ -888,16 +923,33 @@ hardest part, the tasks that at least two of five frontier model families failed
 
 ## Documentation
 
+The full guide covers every command, page and button, with examples. It is also inside AlbertCode,
+offline: **⋮ → Documentation** in the browser interface.
+
 | Guide | What's in it |
 |---|---|
 | [**Getting started**](docs/getting-started.md) | Install, connect a model, and complete a first task |
-| [**Installation**](docs/installation.md) | Options, updating, uninstalling and requirements |
-| [**Using AlbertCode**](docs/usage.md) | Modes, approvals, commands and scripting |
+| [**How AlbertCode works**](docs/how-it-works.md) | The service, the modes, a change's two approvals, tasks, sessions and evidence |
+| [**Chatting with Albert**](docs/chat.md) | Asking, changing, approving, sessions, chats grouped by topic, attachments |
+| [**Using AlbertCode**](docs/usage.md) | The short version of everything, with links |
+| [**Terminal**](docs/terminal.md) | Every option, slash command and subcommand, scripting, environment variables |
+| [**Browser interface**](docs/browser.md) | The layout, the ⋮ menu, the command palette, every shortcut, Files and Terminal |
+| [**VS Code**](docs/vscode.md) | The extension, its panel, every command and setting |
 | [**Models**](docs/models.md) | Providers, local models, and what a model needs |
-| [**Extending**](docs/extending.md) | Custom commands, custom agents and MCP servers |
+| [**The System page**](docs/system.md) | Design an app, connect its services, build it slice by slice, verify it, run every part, fix and release |
+| [**Architecture**](docs/architecture.md) | What a repository is made of, read from its own files |
+| [**Requirements**](docs/requirements.md) | What the app must do, as a checklist backed by evidence |
+| [**Preview and browser tests**](docs/preview-and-tests.md) | Run the app beside the chat, edit it by clicking, test it in a real browser |
+| [**Tasks and evidence**](docs/tasks-and-evidence.md) | The task board, a task's evidence, the evidence ledger and compliance exports |
+| [**The contract**](docs/contract.md) | What AlbertCode may do in a repository |
+| [**Extending**](docs/extending.md) | Custom commands, custom agents, saved tools and skills |
+| [**MCP servers**](docs/mcp.md) | Connectors, adding servers, sign-in, prompts and resources |
+| [**Plugins**](docs/plugins.md) | Installing, updating and making plugins |
+| [**Installation**](docs/installation.md) | Options, updating, uninstalling and requirements |
 | [**Security model**](docs/security.md) | How your keys, code and data are protected |
 | [**Troubleshooting**](docs/troubleshooting.md) | Fixes for common problems |
 | [**FAQ**](docs/faq.md) | Short answers |
+| [**Glossary**](docs/glossary.md) | Every term, in one place |
 
 <br>
 
