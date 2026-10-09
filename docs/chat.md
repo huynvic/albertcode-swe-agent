@@ -174,33 +174,25 @@ opens to its chats**, with a count:
 
 ```text
 TODAY
-  ▾ Add a note and see it listed     3
-      Repair slice 1 …
-      Repair slice 1 …
-      Build slice 1 …
-  ▸ Notes API                        2
+  ▾ Add a note and see it listed     2
+      Add a browser test for R1 …
+      Build R1: add a note …
+  ▸ notes.spec.ts: add a note        2
     What does this repository do?
 ```
 
 | Started from | Filed under |
 |---|---|
-| The **Build** stage: build a slice, **Repair**, **Roll back** | That slice |
-| A box on the System map: **Ask Albert**, **Fix with Albert**, **Wire it into the app** | That part |
-| **Operate** → **Run**: **Fix with Albert** on a part that does not run | That part |
-| The **Verify** stage: **Fix with Albert** on one problem | The thing the problem is about: the part, the browser test, the requirement or the connection |
-| The **Verify** stage: several problems at once | *Problems in* the environment |
-| **Operate** → **Release**: **Fix with Albert**, **Roll back to this** | That environment's releases |
 | **Requirements**: **Build with Albert**, **Fix with Albert**, **Add a test** | That requirement |
 | **Test**: **Fix with Albert** on a failing test | That test |
 
-So a problem fixed from the **Verify** stage joins the chats you already had about that part or test, and
-repairing the same slice three times stays together.
+So the work on one requirement, or on one test, stays together.
 
 **No second chat for the same work.** While a chat about a thing is still working, or waiting for you, a
-System page button about the same thing opens that chat rather than starting another: pressing **Build**
-twice, or going to the chat and back and pressing it again, leaves one chat and one task. A new chat about
+page's button about the same thing opens that chat rather than starting another: pressing **Fix with
+Albert** twice, or going to the chat and back and pressing it again, leaves one chat and one task. A new chat about
 it starts only once that work is over (accepted, rejected, cancelled or failed). Chats you start by typing are not filed under
-anything. A topic belongs to its folder: slice 1 of two different repositories are two topics.
+anything. A topic belongs to its folder: the same test in two different repositories is two topics.
 
 Click a topic's row to open or close it; AlbertCode remembers your choice. A topic opens by itself
 when it holds the chat you are in. Searching finds chats inside topics and opens their topic.

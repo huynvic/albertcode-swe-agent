@@ -28,11 +28,6 @@ Commands you type are told the port too: `python -m http.server`, `manage.py run
 **Apps that forbid framing.** The preview is shown through a small proxy on your computer, so an app
 that tells browsers not to show it inside another page still shows here.
 
-> [!NOTE]
-> Preview runs one command. For an app of several parts (a front end, an API, a worker and a
-> database), use **Start all** on the [System page](system.md#run-every-part): it starts every part,
-> wires them together and serves them at one address. Starting Preview stops that runtime first.
-
 ## Edit by clicking
 
 **Edit** in the Preview panel lets you change the app by clicking it.
@@ -84,7 +79,7 @@ and the command to run it, filed under that test in the sidebar. Fixing the same
 ### Tests that check requirements
 
 Title a test with a requirement's number in brackets and it becomes that requirement's evidence on the
-[Requirements page](requirements.md) and the [System page](system.md):
+[Requirements page](requirements.md):
 
 ```ts
 import { test, expect } from '@playwright/test';
@@ -97,5 +92,4 @@ test('[R1] add a note and see it in the list', async ({ page }) => {
 });
 ```
 
-The config reads the app's address from `BASE_URL`, which AlbertCode sets to the preview, or to the
-app's one address when the System page verifies a slice.
+The config reads the app's address from `BASE_URL`, which AlbertCode sets to the preview.

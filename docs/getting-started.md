@@ -78,6 +78,5 @@ Commit the accepted change with Git as you normally would. Git is also how you u
 - [How AlbertCode works](how-it-works.md): the ideas behind every page.
 - [Chatting with Albert](chat.md): modes, approvals, sessions and attachments.
 - [Terminal](terminal.md), [Browser interface](browser.md) and [VS Code](vscode.md): every command.
-- [The System page](system.md): design a whole app, and have Albert build and run it.
 - [Extending](extending.md): your own commands, agents, tools, plugins and MCP servers.
 - [All the documentation](README.md).

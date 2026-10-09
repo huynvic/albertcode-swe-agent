@@ -52,9 +52,7 @@ behind it, each one click away.
 
 - **A task** belongs to it when its request says `(requirement R3)`.
 
-The buttons below word their requests that way for you, and so does the
-[System page](system.md#build-one-working-slice-at-a-time): each slice's browser test is titled with
-its requirement.
+The buttons below word their requests that way for you.
 
 ## Move one forward
 

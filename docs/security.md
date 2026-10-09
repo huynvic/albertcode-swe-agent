@@ -115,44 +115,6 @@ computer as you, outside the limits AlbertCode puts on the agent's commands:
 - Files that may hold a secret (your `.env`, keys, a secrets folder) are never read.
   `.env.example` and similar files are read for variable names only, never values.
 
-## System
-
-- Addresses and keys go to your system's key store (Keychain, Windows data protection, or the
-  desktop secret service), never to your repository, a log, the page or a model. The page is told
-  only whether a key is saved, and an address is shown without any password in it.
-- Every check is read-only and short: databases are queried read-only, mail servers are signed in to
-  without sending, storage lists one name, web services get one read-only request. Redirects are
-  not followed, so a key only goes to the address you gave, and a password is never sent to a mail
-  server on another computer without encryption.
-- Albert never sees a key. Questions send your model the service's name, its last check and where
-  your repository uses it; fixes go through the usual plan and diff approvals.
-- Connections, checks and changes to the map are recorded in the evidence ledger, without the key.
-  `albertcode uninstall --all` forgets every saved connection.
-
-## Running your app
-
-**Start all** on the System page runs your app's parts on your computer. It is yours, not Albert's:
-
-- It is offered only by AlbertCode running for one person on their own computer, from its own page, and
-  only starts or stops on your click. Albert's tasks never start or stop it.
-- Each part runs as you, from its own folder, with a small environment: its port, the addresses of what
-  it uses, and your proxy and certificate settings. AlbertCode's own keys and access token are never
-  given to it.
-- The keys of services you connected are read from your key store when a part starts, given only to
-  the parts that use that service, and masked in everything the parts print.
-- Every part, and the app's one address, listens on `127.0.0.1` only.
-- The app's one address keeps no cookies of its own: each browser's cookies go with its own requests,
-  and a cookie a part sets (a session, say) goes back only to the browser that asked, so two people
-  using the app at once are never signed in as each other.
-- It passes every page on as it came, except while a verification walks the journeys: then each page
-  carries the layout check, a script tag that removes itself as it runs. The script and its report
-  answer only to that verification's token, a report holds where on the screen and a few words of text,
-  never the page, and it goes no further than the verification's evidence on this computer.
-- What the parts print is kept in memory, masked, and never written into your repository.
-- **Stop all** stops every part and everything it started. Parts left running by an AlbertCode that
-  ended without stopping them are stopped the next time it starts, but only when they are verifiably the
-  processes it started.
-
 ## Visual editing
 
 - While **Edit** is on, the preview is shown through a proxy on your own computer that only talks

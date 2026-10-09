@@ -106,8 +106,8 @@ it fails when it cannot run.
 **Example.** In a new project, Albert writes `api/requirements.txt` with `fastapi` and a test that imports
 it. `python -m pytest` stops with *No module named 'fastapi'*, so the check shows *Not run: the tests
 could not start, because fastapi is declared by the project and not installed for this Python*, and the
-change goes to review instead of round the repair rounds. Install the packages (**Install packages** on
-the System page's **Run** tab, or `pip install -r requirements.txt`) and the check runs next time.
+change goes to review instead of round the repair rounds. Install the packages
+(`pip install -r requirements.txt`) and the check runs next time.
 
 ## Language checks
 

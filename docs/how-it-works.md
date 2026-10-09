@@ -128,9 +128,9 @@ its own limits. See [The contract](contract.md).
 
 | Folder | Holds |
 |---|---|
-| Data folder: `~/Library/Application Support/AlbertCode SWE Agent` (macOS), `~/.local/share/AlbertCode SWE Agent` (Linux), `%LOCALAPPDATA%\AlbertCode SWE Agent` (Windows) | Task history, isolated copies, the evidence ledger, System maps, the service's log (`backend.log`) |
+| Data folder: `~/Library/Application Support/AlbertCode SWE Agent` (macOS), `~/.local/share/AlbertCode SWE Agent` (Linux), `%LOCALAPPDATA%\AlbertCode SWE Agent` (Windows) | Task history, isolated copies, the evidence ledger, the service's log (`backend.log`) |
 | Settings folder: `~/Library/Application Support/AlbertCode SWE Agent` (macOS), `~/.config/AlbertCode SWE Agent` (Linux), `%APPDATA%\AlbertCode SWE Agent` (Windows) | Your settings, personal commands and agents, installed plugins |
-| Your system's key store: the macOS Keychain, Windows data protection or your Linux keyring | Provider keys, MCP sign-ins and the keys of services you connect on the System page |
+| Your system's key store: the macOS Keychain, Windows data protection or your Linux keyring | Provider keys and MCP sign-ins |
 
 `/cleanup` shows how much space the isolated copies use and clears them. `albertcode uninstall
 --all` removes everything AlbertCode keeps outside your repositories.
@@ -151,5 +151,4 @@ Beyond single changes, the browser has pages for the whole app:
 |---|---|
 | [Requirements](requirements.md) | What the app must do, as a checklist with evidence |
 | [Architecture](architecture.md) | What the repository is made of, read from its files |
-| [System](system.md) | Design the app on a map, connect its services, have Albert build it slice by slice, run every part, fix problems and release |
 | [Preview and browser tests](preview-and-tests.md) | Run the app beside the chat, edit it by clicking, and test it in a browser |

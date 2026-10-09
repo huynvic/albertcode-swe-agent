@@ -17,9 +17,9 @@ version of AlbertCode signs in again.
 ## The layout
 
 ```text
-┌ Sidebar ────────────┬ Top bar: page · Preview · Test · Files · Terminal · System · ⋮ ┐
+┌ Sidebar ────────────┬ Top bar: page · Preview · Test · Files · Terminal · ⋮ ─────────┐
 │ AlbertCode  v1.47   │                                                              │
-│ ┌ repository ─────┐ │   The page: Chat, or System, Requirements, Architecture…    │
+│ ┌ repository ─────┐ │   The page: Chat, or Requirements, Architecture, Tasks…     │
 │ │ N notes  Browse │ │                                                              │
 │ │ Boundary  Run   │ │                                     ┌ Side panel ─────────┐  │
 │ └─────────────────┘ │                                     │ Preview, Test,      │  │
@@ -36,9 +36,7 @@ version of AlbertCode signs in again.
 - **New session** and **Search sessions**, then every session, newest first, grouped by day. See
   [Sessions](chat.md#sessions) and [Chats about one thing](chat.md#chats-about-one-thing).
 - **The top bar**: the page you are on, the side panels (**Preview**, **Test**, **Files**,
-  **Terminal**), the [**System**](system.md) page, and the **⋮** menu with every other page and setting.
-  A pulsing dot on **System** means Albert is working on your system (a build, a verification, a fix);
-  a still amber one means that work is waiting for you.
+  **Terminal**), and the **⋮** menu with every other page and setting.
 - **The message box** at the bottom of Chat, with the mode chip, the model chip, the agent chip and
   the attach button.
 
@@ -94,8 +92,7 @@ again goes back to that folder. A run it had going carries on.
 | | **Light or dark** | Switch the theme |
 | | **Refresh models** | Ask the providers for their model lists again |
 
-A dot on the **⋮** button means a task is waiting for you. **System** is not in the menu: it has its own
-button in the top bar, next to **Terminal**.
+A dot on the **⋮** button means a task is waiting for you.
 
 ## The command palette
 
@@ -122,7 +119,6 @@ command or a session, <kbd>Enter</kbd> to run it.
 | Mode: Ask only | The mode chip |
 | Open tasks | **Tasks** |
 | Open requirements | **Requirements** |
-| Open system | **System** |
 | Open architecture | **Architecture** |
 | Open evidence ledger | **Evidence ledger** |
 | Open the contract | **Contract** |
@@ -167,7 +163,6 @@ Typed in the message box, these are answered by the page and never sent to a mod
 | <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>C</kbd>, <kbd>X</kbd>, <kbd>V</kbd> | Files | Copy, cut, paste into the selected folder |
 | <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd>, <kbd>Enter</kbd> | Files | Move, open or close a folder, open a file |
 | Double-click a session's title | Sidebar | Rename it |
-| <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + mouse wheel | System map | Zoom |
 
 ## Files
 
@@ -222,8 +217,7 @@ runs its browser tests. Both have their own guide: [Preview and browser tests](p
 
 **Run app** on the repository card is the quickest way to start the app with one command: AlbertCode
 fills in the command it found (such as `npm run dev`), or you type one, then **Run**. **Open** opens
-the app in a new tab, **Stop** stops it. For an app of several parts (a front end, an API, a worker,
-a database), use **Start all** on the [System page](system.md#run-every-part) instead.
+the app in a new tab, **Stop** stops it.
 
 ## The side panel
 

@@ -25,11 +25,10 @@ You can read it inside AlbertCode too, offline: **⋮ → Documentation** in the
 | [VS Code](vscode.md) | Installing the extension, the panel, every command and setting |
 | [Models](models.md) | Providers, local models, choosing and testing a model, pace, keys |
 
-## Building and running whole apps
+## What your app is made of, and what it must do
 
 | Guide | What's in it |
 |---|---|
-| [The System page](system.md) | Design an app on a map, connect its services, plan its features, have Albert build it slice by slice, verify it, run every part, fix problems, release |
 | [Architecture](architecture.md) | What a repository is made of, read from its own files |
 | [Requirements](requirements.md) | What the app must do, as a checklist backed by evidence |
 | [Preview and browser tests](preview-and-tests.md) | Run the app beside the chat, edit it by clicking, test it in a real browser |
@@ -77,8 +76,7 @@ You can read it inside AlbertCode too, offline: **⋮ → Documentation** in the
 | Add an MCP server | `/mcp add`, `/connectors` | **MCP servers** | **Add an MCP Server** |
 | Make a custom command | `/commands new` | **Commands, agents and plugins** | **Custom Commands** |
 | Install a plugin | `/plugins install …` | **Plugins** | **Plugins** |
-| Run the app | `/preview` | **Preview**, or **Start all** on System | **Run App** |
-| Design and build a whole app | | **System** | |
+| Run the app | `/preview` | **Preview** | **Run App** |
 | Every command | `/help` | <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>K</kbd> | <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>Shift</kbd> <kbd>P</kbd> → *AlbertCode* |
 
 ## Getting help

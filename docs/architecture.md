@@ -1,8 +1,8 @@
 # The Architecture page
 
 **Architecture**, in the browser's **⋮** menu, draws what your app is made of and how its parts
-connect, read from the repository's own files. Use it to learn a codebase, to check what a change
-touches, or as the starting point of the [System page](system.md), which reads the same files.
+connect, read from the repository's own files. Use it to learn a codebase, or to check what a change
+touches.
 
 ## What you see
 
@@ -74,6 +74,3 @@ click a route to open its handler. Then ask in the chat: *"Walk me through what 
 
 **Before a change.** Select the database to see which parts use it, then ask Albert for the change
 knowing what it touches.
-
-**Starting the System page.** Everything Architecture finds is already on the System map, where you
-can connect each service, check it and build what is missing.

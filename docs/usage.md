@@ -7,7 +7,7 @@ The short version of everything. Each section links to its full guide.
 | Interface | Start it | Good for | Guide |
 |---|---|---|---|
 | Terminal | `albertcode` | Working where you already are; scripts and CI | [Terminal](terminal.md) |
-| Browser | `albertcode --ui` | Plans and diffs side by side; several sessions at once; the System page | [Browser interface](browser.md) |
+| Browser | `albertcode --ui` | Plans and diffs side by side; several sessions at once | [Browser interface](browser.md) |
 | VS Code | The AlbertCode panel | Staying in the editor; right-click a folder → *Open Here* | [VS Code](vscode.md) |
 
 All three talk to the same local service, so a task started in one can be followed in another. See
@@ -58,7 +58,6 @@ The [terminal reference](terminal.md) lists all of them, with examples. In the b
 
 | Page | What it is for |
 |---|---|
-| [System](system.md) | Design the whole app, connect its services, have Albert build it slice by slice, run every part, fix and release |
 | [Architecture](architecture.md) | What the repository is made of, read from its files |
 | [Requirements](requirements.md) | What the app must do, as a checklist with evidence |
 | [Preview and browser tests](preview-and-tests.md) | Run the app beside the chat, edit it by clicking, and test it in a browser |
