@@ -35,7 +35,8 @@ that tells browsers not to show it inside another page still shows here.
 1. Turn on **Edit**. Hovering outlines what you would choose; links and buttons do not act while
    editing. Click to choose; <kbd>Esc</kbd> lets go.
 2. Change its **text**, **text colour**, **background**, **size**, **weight**, **alignment**,
-   **padding** or **corners**. The app shows the change at once. **Undo** puts it back.
+   **padding** or **corners**, or its picture or video ([below](#pictures-and-videos)). The app shows
+   the change at once. **Undo** puts it back.
 3. **Review change** finds where it comes from in your code:
    - **Found where it comes from**: the files and lines, and the diff. **Apply change** writes exactly
      that diff, only if the files have not changed since you reviewed them, and your dev server
@@ -52,6 +53,39 @@ stacks, Albert makes every change. Each applied change is recorded in the eviden
 **Example.** Click the *Sign up* button, set its background to `#16a34a` and its corners to 12 px,
 then **Review change**. AlbertCode finds the one CSS rule the button's style comes from, shows the
 two-line diff, and **Apply change** writes it.
+
+### Pictures and videos
+
+Click a picture, a video or a section with a background picture, and the panel shows it (**Picture**,
+**Video** or **Background**, with its file name and size). **Replace picture…** or **Replace video…**
+chooses a file from your computer, or drop one on the panel. The app shows it at once. Click anything
+else, and **Add a picture or video…** chooses one to go after it.
+
+On **Review change**, the file is sent to AlbertCode and checked by what it is, whatever it is called:
+
+| Accepted | Largest |
+|---|---|
+| Pictures: PNG, JPEG, GIF, WebP, AVIF, SVG | 20 MB |
+| Videos: MP4, WebM, Ogg, MOV | 95 MB (GitHub refuses a file over 100 MB) |
+
+An SVG with a script, an event handler, embedded HTML or a link to another address in it is refused.
+The file waits outside your project until **Apply change**. What the review offers:
+
+| Where the picture comes from | What **Apply change** does |
+|---|---|
+| Named once in the code: `<img src="…">`, Next.js `<Image src="…">`, a `url(…)` in a stylesheet, an `import`, a video's `<source>` | **Adds** your file next to the old one, with a plain name (`Waiting Room.PNG` becomes `waiting-room.png`), and points that one place at it. A video's `type` changes with it. The old file stays |
+| Named in several places, or its address is built in code | **Replaces** the file itself, when yours is the same type, and says that everywhere it is shown changes |
+| Anything else: a new picture, a picture with a file for each screen size (`srcset`, `<picture>`), a video in place of a picture, another type | **Add the file and ask Albert**: your file goes into the project, and Albert puts it in place, as a task you approve |
+
+If your picture's shape differs from the size the code gives it, the review says it may look
+stretched. Nothing is written over a file that changed, or appeared, after the review.
+
+**Example.** Click the clinic's logo, **Replace picture…**, and choose `Waiting Room.png`. The app shows
+it at once. **Review change** says *Adds images/waiting-room.png · PNG · 312 KB · 1600 × 900* and shows
+the one line of `index.html` that changes; **Apply change** writes both. Then click the page's heading,
+**Add a picture or video…**, choose `tour.mp4`, and **Add the file and ask Albert**: the video goes into
+`videos/`, the panel says *Added to the project*, and Albert is asked to put it after the heading, as a plan
+you approve in the chat.
 
 ## Browser tests
 

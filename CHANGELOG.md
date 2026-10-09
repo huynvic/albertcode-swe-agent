@@ -3,6 +3,23 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.51.0 — 2026-10-09
+
+- **Pictures and videos in Edit.** Turn on **Edit** in the Preview and click a picture, a video or a
+  section with a background picture, then **Replace picture…** or **Replace video…** (or drop a file
+  on the panel): the app shows it at once, and **Review change** names the file it adds and the one
+  line of code that changes. Click anything else, and **Add a picture or video…** puts your file in
+  the project and asks Albert to place it.
+- **Checked by what they are.** PNG, JPEG, GIF, WebP, AVIF and SVG pictures up to 20 MB; MP4, WebM, Ogg
+  and MOV videos up to 95 MB. A file waits outside your project until **Apply change**, and an SVG that
+  could run code is refused.
+- **The System page is no longer part of AlbertCode.** Keys it saved for the services you connected
+  are removed when 1.51.0 first starts, with the model keys; a map you drew stays in AlbertCode's data
+  folder.
+- **Fixed:** with Kimi, Hugging Face, OpenRouter, another compatible API service or a model on your
+  machine, a task's tokens are counted against the model that used them, and cached input is counted
+  as cached.
+
 ## 1.50.0 — 2026-10-09
 
 - **Every screen fits.** **Verify** now measures every screen your journeys open, signed in where they

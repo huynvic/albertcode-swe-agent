@@ -124,6 +124,12 @@ computer as you, outside the limits AlbertCode puts on the agent's commands:
   and only if the files have not changed since. Links, files outside the repository and files that
   may hold secrets are never written. Each change is recorded in the evidence ledger.
 - Only a few style properties with plain values are written, so an edit cannot add code.
+- A picture or video you choose is checked by its bytes (PNG, JPEG, GIF, WebP, AVIF or SVG; MP4, WebM,
+  Ogg or MOV), kept outside your project in AlbertCode's private data folder until you apply it, and
+  only usable in the repository it was chosen for. An SVG with a script, an event handler, embedded
+  HTML, an entity or a link to another address is refused. It is written only inside the repository,
+  never through a link or into a built or installed folder, and never over a file that changed or
+  appeared after the review; if any write fails, everything is put back.
 
 ## The installer
 

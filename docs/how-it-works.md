@@ -88,9 +88,9 @@ browser, or `albertcode rollback <task>`, which deletes its isolated copy.
 - A **session** (or chat) is one conversation. It can hold several questions and several tasks; a
   follow-up such as "now add a test for the empty case" continues the task before it. **New
   session** starts a fresh conversation; nothing said in one session reaches another.
-- A **topic** groups the sessions started about one thing. Building a slice of your app, repairing
-  it twice and rolling it back are four sessions about one slice: the browser's sidebar shows them
-  as one row that opens to all four. See [Chats about one thing](chat.md#chats-about-one-thing).
+- A **topic** groups the sessions started about one thing. Building a requirement, adding a test for
+  it and fixing it are three sessions about one requirement: the browser's sidebar shows them as one
+  row that opens to all three. See [Chats about one thing](chat.md#chats-about-one-thing).
 
 Runs belong to the service, not the window. Starting a new session, opening another one or closing
 the page never stops a run; its session in the sidebar shows when it is working or waiting for you.

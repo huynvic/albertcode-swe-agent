@@ -554,6 +554,13 @@ change** writes exactly that; your app reloads with it. When there is not (the t
 data, it appears in several places, or it is styled with utility classes), AlbertCode says why, and
 **Ask Albert** makes the change as a normal task, with the plan and diff for you to approve.
 
+Pictures and videos too: click one, or a section with a background picture, then **Replace
+picture…** or **Replace video…**, or drop a file on the panel. The app shows it at once, and
+**Review change** names the file it adds and the one line of code that changes. Click anything
+else, and **Add a picture or video…** puts your file in the project and asks Albert to place it.
+Files are checked by what they are (pictures up to 20 MB, videos up to 95 MB) and wait outside your
+project until **Apply change**. See [Pictures and videos](docs/preview-and-tests.md#pictures-and-videos).
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-visual-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-visual-light.png">
