@@ -141,6 +141,9 @@ computer as you, outside the limits AlbertCode puts on the agent's commands:
 - The keys of services you connected are read from your key store when a part starts, given only to
   the parts that use that service, and masked in everything the parts print.
 - Every part, and the app's one address, listens on `127.0.0.1` only.
+- The app's one address keeps no cookies of its own: each browser's cookies go with its own requests,
+  and a cookie a part sets (a session, say) goes back only to the browser that asked, so two people
+  using the app at once are never signed in as each other.
 - What the parts print is kept in memory, masked, and never written into your repository.
 - **Stop all** stops every part and everything it started. Parts left running by an AlbertCode that
   ended without stopping them are stopped the next time it starts, but only when they are verifiably the

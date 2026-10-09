@@ -37,6 +37,20 @@ connection:
 Lines need evidence too: the front end calls the API where its code fetches from it; the back end uses
 a database, a sign-in library or a service where the same manifest declares both.
 
+A route on a FastAPI router or a Flask blueprint carries the router's prefix, so the list a router
+serves at `""` is found where it is:
+
+```python
+router = APIRouter(prefix="/api/shipments")
+
+@router.get("")           # GET /api/shipments
+@router.get("/{ref}")     # GET /api/shipments/{ref}
+```
+
+A library that signs and checks tokens (PyJWT, jose, jsonwebtoken) is how the code reaches the sign-in
+provider it also has, such as Okta, and is shown inside that box. Without a provider it is the app's
+own sign-in, a box of its own.
+
 A framework it does not recognise is listed as *found in a manifest*, not guessed at.
 
 ## Only the folder as it is now

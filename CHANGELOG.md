@@ -3,6 +3,27 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.49.1 — 2026-10-09
+
+- **Security fix.** The one address **Start all** gives your app (`localhost:4400`) kept cookies, so a
+  second browser could be signed in as the first person. It now keeps none: each browser keeps its
+  own. Affects 1.47.0 to 1.49.0.
+- **Started again in its place.** A part that is up but not working, whose services moved, or whose
+  code changed and does not reload by itself (a worker, say), is started again where it runs, never as
+  a second copy.
+- **Every declared package checked** before a Python part starts, each missing one listed under
+  **Install packages**.
+- **Redis with nothing to connect.** In Development, with `redis-server` installed, AlbertCode runs its
+  own Redis and its answer proves the step.
+- **A service that does not answer is yours to start.** Verification names it and what it said, and
+  asks you to start it or change its connection; nothing is sent to Albert to repair. A browser the
+  tests could not start is something to install.
+- **Clearer evidence.** Each connected service is named with what it answered.
+- **The map reads more of your code:** routes under a router's prefix, endpoints under a parameter,
+  services in variables, packages and setup files, and sign-in token libraries. A line to a later step
+  no longer holds back what is verified before it.
+- **Names on lines never overlap,** and the line between two neighbours keeps its own name.
+
 ## 1.49.0 — 2026-10-08
 
 - **Step by step, the app first.** The System page's **Build** stage starts with **The app runs**: each

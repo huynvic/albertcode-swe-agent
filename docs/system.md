@@ -74,6 +74,23 @@ payments, email and the rest appear on their own, read from the same files the
 | A chip with a port | It is running now (see [Run every part](#run-every-part)) |
 | A tick or a cross | Albert finished, or hit a problem, on this part in the current chat |
 
+**How your code shows a part.** A dashed box turns solid when your code has what it describes: a
+package that reaches it (`@okta/okta-react`, `stripe`), the variable it is configured by, named in a
+`.env.example` (names written for the browser, such as `NEXT_PUBLIC_…` or `VITE_…`, count too), the
+image it runs from in `docker-compose.yml`, or the file that sets it up (`.github/workflows/ci.yml`
+for GitHub Actions, `vercel.json` for Vercel, a `Dockerfile` for Docker). Each build request names
+the variable or file to use, so a box Albert builds turns solid. An API that only sends jobs to a
+Celery worker stays the API: the worker is the folder whose code defines the tasks.
+
+For example, with this `api/.env.example` the Company sign-in (Okta), Error reports (Sentry) and
+Monitoring (Datadog) boxes turn solid:
+
+```text
+OKTA_ISSUER=https://your-company.okta.com/oauth2/default
+SENTRY_DSN=
+DD_API_KEY=
+```
+
 **Moving around.** Drag a box to arrange the map; it stays where you put it, for this repository on
 this computer. Drag empty space to move. <kbd>Ctrl</kbd>/<kbd>⌘</kbd> with the mouse wheel, or **−**
 and **+**, zooms. **Fit** shows everything; **Tidy** lines the boxes up in their lanes. **List** shows
@@ -81,7 +98,9 @@ every part and how it stands; **Library** opens the library.
 
 **Connecting boxes.** Drag a box's dot onto another box, or click the dot and then the other box.
 Select a line to see the file that shows the connection, its [contract](#contracts-on-connections),
-**Go to** either end, or **Remove this connection**.
+**Go to** either end, or **Remove this connection**. Each line is named by what it carries, such as
+*HTTP*, *SQL* or *Sign-in*, where the name covers no box and no other name; when a busy corner leaves
+no room for it, point at the line or select it to read its name.
 
 **Read again** reads the repository afresh, for example after you changed files outside AlbertCode.
 
@@ -322,7 +341,7 @@ one starts:
 | Kind | What it is |
 |---|---|
 | **The app** | The app itself, running: each part answers, and the front end reaches the API. Nothing else yet |
-| **Service** | One service the app uses (a database, sign-in…), added through its adapter. A database must answer AlbertCode's check; an outside service answers through its stand-in |
+| **Service** | One service the app uses (a database, sign-in…), added through its adapter. A database must answer AlbertCode's check; a Redis the runtime runs itself in Development is proven by its answer, with nothing to connect; an outside service answers through its stand-in |
 | **First feature** | The smallest real flow the product has, on the app and its services |
 | **Feature** | Each other feature, in order |
 | **Outside service** | Each outside service (payments, email…) made real: until then the app uses a stand-in |
@@ -347,8 +366,9 @@ its health route and the environment variables it is configured by (names only).
 - **The app**: each part's skeleton in the framework's own layout, starting and answering its health
   route, with a test for it, and the front end reaching the API. *Nothing else yet.*
 - **A service**: that one service added to the part that uses it, through an adapter configured by its
-  environment variables, with a stand-in for tests. A database also gets its migration set up, with no
-  tables until a feature needs one. *No feature uses it yet.*
+  environment variables, with a stand-in for tests. A database with tables (PostgreSQL, MySQL, SQLite
+  and the like) also gets its migration set up, with no tables until a feature needs one; a cache or a
+  queue such as Redis has none to set up. *No feature uses it yet.*
 - **A feature**: the requirement, the journey, how to tell it works, its endpoints and the data it
   keeps (with a migration), built on the parts already in place, and a browser test titled `[R1] …`
   that walks the journey.
@@ -465,10 +485,18 @@ repairs it (*repair 1 of 3*), you accept the fix, and it passes: **Build queue �
    runner, or a browser to run the tests in. The verification stops here, before starting anything, and
    lists each one with what installs it (`npm install` in `web/`, for example) and an **Install** button.
    Installing fetches from the network and runs what it fetches, so it is always your click. This is not
-   a failure of the code: press **Install** on each, then **Verify again**.
-3. **Start the app**: every part the slice needs, through the [runtime](#run-every-part).
+   a failure of the code: press **Install** on each, then **Verify again**. A browser the tests could
+   not start is found here too, even after the app has started: Playwright's own was never downloaded,
+   and the tests do not use the Chrome, Edge or Chromium AlbertCode found on the computer (it names it in
+   `PW_CHROMIUM_PATH`, which each slice's request asks the tests to use).
+3. **Start the app**: every part the slice needs, through the [runtime](#run-every-part). A service
+   connected on the map that does not answer where it is (a database that is down, say) stops it here:
+   the slice asks you to start it or change its connection, and is never sent to Albert to repair.
 4. **Each part answers its health route**.
-5. **Check each connected service**.
+5. **Check each connected service**, each named with what it answered (*Database: Signed in · 4
+   tables · read-only query answered*), and each one the runtime runs itself: in Development, with
+   `redis-server` installed and no Redis connected on the map, the runtime's own Redis answering is
+   the check (*Cache and job queue, run here: PING answered*), and there is nothing to connect.
 6. **Walk every journey in a browser**: the browser tests titled `[R…]` for this slice and the ones
    before it, at the app's one address. **The app** and a **Service** have no journey of their own, so
    their verification ends at step 5 (and needs no browser test runner); each feature walks its own.
@@ -501,8 +529,10 @@ the code holds, a verification of the code as it is now, and what the runtime se
 Only **Verified** is green, and only on evidence about the code as it is now. Change the code and earlier
 evidence is out of date: green parts go back to **Connected** (if the runtime still finds them answering)
 or **Built** until a slice through them is verified again; red clears the same way. An outside service
-that Albert uses a stand-in for stays **Built** until its own slice connects the real one. Select a part
-or a connection to read why it has its status. Parts no feature needs show their check, as before.
+that Albert uses a stand-in for stays **Built** until its own slice connects the real one. A line to a
+part a later slice builds (the API's line to CI, say) waits for that slice, and does not hold back the
+parts and features verified before it. Select a part or a connection to read why it has its status.
+Parts no feature needs show their check, as before.
 
 **Example.** In the notes app, *The app runs* passes: Web app and API turn **Connected**, because they
 answer but no journey has gone through them yet. *Add SQLite* passes: SQLite turns **Connected** too.
@@ -594,9 +624,31 @@ that reloads by itself.
 - **Recovery.** A part that stops by itself is started again after 2, 5 and 10 seconds: at most three
   times in ten minutes, then it is left stopped with the reason. A dev server that reloads after a bad
   edit is not restarted: it answers again once the code is fixed.
+- **Started again, never twice.** Pressing **Start all** while the app runs leaves alone each part
+  that works and still has the right addresses. A part that runs but does not work, or that started
+  before a service it uses was connected on the map (or before a part it reaches moved to another
+  port), is stopped and started again in its place, never beside itself. So is a part whose code has
+  changed since it started and that does not reload by itself: a Celery worker, a `start` script or a
+  command of your own (dev servers such as `next dev`, `vite`, `uvicorn --reload`, Flask in debug mode
+  and Django's `runserver` reload by themselves). A verification does the same before it checks
+  anything, so no part is judged by an address it was never given, or by code it is not running. Its
+  log says why:
+
+  ```text
+  API  Starting it again: what it reaches has changed since it started
+  API  $ python3 -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload  (in api)
+  API  INFO:     Application startup complete.
+  ```
 - **Install packages.** A part whose packages are missing says so before it starts, with the exact
   command: **Install packages** runs it (`npm install` or your package manager; for Python, a `.venv`
-  and `pip install`). A failed install says why, for example a network that needs a proxy.
+  and `pip install`). A failed install says why, for example a network that needs a proxy. For a
+  Python part, every package its `requirements.txt` (or `pyproject.toml`) lists is checked, not only
+  its framework, so a package added in a later step is found before the part starts:
+
+  ```text
+  Workers  Its packages are not installed
+           Declared in its project but not installed: redis. Install packages runs it for you.
+  ```
 - **Logs.** The **Log** section shows what every part prints, or one part's, with errors marked. Keys
   are masked. **Its log** on a part jumps to it.
 - **Fix with Albert** on a part that fails sends Albert how it was started, what it printed and what
