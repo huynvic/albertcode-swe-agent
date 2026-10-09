@@ -3,6 +3,17 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.50.0 — 2026-10-09
+
+- **Every screen fits.** **Verify** now measures every screen your journeys open, signed in where they
+  sign in. Text cut off by a box, an element wider than its place (over its edge or under its
+  neighbour), text running out of its box, and a page wider than its window each fail it, named where
+  they are, and a repair gets the same lines.
+- **What is meant is left alone:** an ellipsis, a closed panel, a hidden label, a slide out of view, a
+  table that scrolls in its own box. Add `data-albertcode-layout="ignore"` to leave out anything else.
+- **Only while it verifies.** The check is a small script your app's one address adds to each page while
+  the journeys walk, and that removes itself as it runs; at any other time your pages pass as they came.
+
 ## 1.49.1 — 2026-10-09
 
 - **Security fix.** The one address **Start all** gives your app (`localhost:4400`) kept cookies, so a

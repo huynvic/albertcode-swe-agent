@@ -500,6 +500,23 @@ repairs it (*repair 1 of 3*), you accept the fix, and it passes: **Build queue Â
 6. **Walk every journey in a browser**: the browser tests titled `[Râ€¦]` for this slice and the ones
    before it, at the app's one address. **The app** and a **Service** have no journey of their own, so
    their verification ends at step 5 (and needs no browser test runner); each feature walks its own.
+7. **Every screen fits**: each screen the journeys open is measured as they walk, at the size they open
+   it and signed in where they sign in. Text cut off by a box that hides its overflow, an element wider
+   than the box it sits in (out over its edge or under the box beside it), text running out of its own
+   box, and a page wider than its window all fail the step, and each is named where it is:
+
+   ```text
+   /shipments: header.bar cuts off "Ana Silva (stand-in sign-in)"
+   /status: table "Errors reported" runs 76 px past its place
+   ```
+
+   A repair gets the same lines. What a page hides or shortens on purpose is not a fault: text with an
+   ellipsis or a line clamp, a closed panel, a visually hidden label, a slide out of view, a table that
+   scrolls in its own box. Anything else you mean to cut, such as a carousel, add
+   `data-albertcode-layout="ignore"` to and it is left out with all inside it. The check is a small
+   script the app's one address puts into each page while the journeys walk, and only then; it removes
+   its own tag as it runs, and a page whose policy lets no script from its own address run is said as
+   *could not be checked*, not failed.
 
 A verification proves the slice it is for and every slice before it, so a slice can be verified once the
 ones before it are built. When one fails, the first slice it did not prove is the one to repair: an API

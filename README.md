@@ -720,7 +720,8 @@ ticks what is done, and opens any stage in one click.
 - **Proven, not assumed.** Each part and connection on the map shows *Planned*, *Building*, *Built*,
   *Connected*, *Testing*, *Verified* or *Failed*, only on evidence, and only *Verified* is green: a
   journey has passed on your code as it is now. **Verify** starts your app, checks that every part
-  answers, checks each connected service and walks every journey in a browser. A slice that passes is
+  answers, checks each connected service, walks every journey in a browser and measures every screen
+  the journeys open, so nothing is cut off or runs past its place. A slice that passes is
   kept as a checkpoint; one that fails gets **Repair**, with exactly what failed, and **Roll back**
   returns to the last checkpoint. Every change is a plan you approve.
 - **Build several at once.** Tick the slices you want, or **Select all**, then **Build selected** or
