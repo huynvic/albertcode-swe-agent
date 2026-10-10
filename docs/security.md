@@ -43,6 +43,10 @@ This applies to model provider keys and to sign-ins for MCP servers.
   the interface shows its last four characters, so you can tell which key is in place.
 - **A key is never passed on a command line.** Other programs can list command lines while they
   run.
+- **A key saved under an unusual name stays in the file.** On macOS and Linux, a key goes to the
+  Keychain or keyring only when its name starts with a letter or digit and has only letters,
+  digits, spaces and `_ . : @ + -`. A profile made with `albertcode configure --name team/prod`,
+  say, keeps its key in the file only your user can read.
 - **The commands AlbertCode runs never get your keys.** That covers your tests, your build, your
   project's Git hooks, and MCP servers. Each gets only what it needs to run. To give an MCP
   server a key, reference it by name in that server's settings.

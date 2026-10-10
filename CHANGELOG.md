@@ -3,6 +3,18 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.51.1 — 2026-10-10
+
+- **Preview passes your app's headers on safely.** A header split over several lines reaches the
+  browser on one line, and one whose name is not a header name is dropped.
+- **Keys saved under an unusual name stay in the file.** On macOS and Linux, a key goes to the
+  Keychain or keyring only when its name starts with a letter or digit and has only letters, digits,
+  spaces and `_ . : @ + -`; a key under any other name is kept in the file only your user can read.
+- **Requirements read a long line at once.** A line with a long run of spaces after its bullet no
+  longer slows the checklist down.
+- **Fixed:** the evidence ledger, in the browser and in VS Code, shows a tool or action named like a
+  built-in JavaScript method (`constructor`) as its name.
+
 ## 1.51.0 — 2026-10-09
 
 - **Pictures and videos in Edit.** Turn on **Edit** in the Preview and click a picture, a video or a
