@@ -3,6 +3,22 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.51.2 — 2026-10-12
+
+- **No more looking at the same page over and over.** With a model that cannot see pictures, a task
+  that checked its page in the browser could lose its place after every look and open the page again,
+  for as long as it was allowed to run. Screenshots now cost what they cost the model, only Albert's
+  two latest stay in the conversation (the pictures you attach always stay), and a model that cannot
+  see is told so instead of being asked to look.
+- **A run that only repeats itself is stopped.** When every step of several rounds in a row repeats
+  one already taken and gets the same answer, Albert is told it is going in circles, then asked to
+  finish, and after seven such rounds the run stops before the model is asked again. What it wrote is
+  kept and checked. See [When a run goes in circles](docs/tasks-and-evidence.md#when-a-run-goes-in-circles).
+- **Answers start sooner.** A conversation asks the model for a light think while it streams, and a
+  change you ask for starts straight away instead of being read through first.
+- **Every provider's models are told how hard to think at each step:** lightly in a conversation, hard
+  for the plan and the change. See [Models](docs/models.md#what-a-model-needs).
+
 ## 1.51.1 — 2026-10-10
 
 - **Preview passes your app's headers on safely.** A header split over several lines reaches the

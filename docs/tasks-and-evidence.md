@@ -143,6 +143,42 @@ that would let a repository choose its own program are fixed.
 Each governed task works in its own isolated copy of the repository, kept until you accept or discard
 it. `/cleanup` (terminal) shows how much space the copies use and clears them.
 
+## When a run goes in circles
+
+A model that has lost its place, or sees no way forward, can ask for the same things over and over: the
+same page, the same file, the same failing command, getting the same answer each time. Every one of those
+rounds is a request to the model you pay for, so AlbertCode stops it early instead of letting it run to the
+end of its rounds:
+
+| Rounds in a row that only repeated earlier steps, with the same answers | What happens |
+|---|---|
+| 3 | The answers tell Albert it is going in circles, and to take a different step or finish |
+| 5 | Its tool calls are refused, and it is asked to finish with what it has |
+| 7 | The run stops before the model is asked again |
+
+A round with anything new in it, such as a file read for the first time, a changed file, or a command
+whose output changed, starts the count again, so long work that is moving is never stopped this way.
+What was written is kept: a governed change goes on to its checks and reviews as it stands, and a run
+stopped this way is never carried on with a fresh budget, because that would only start the circle again.
+
+**Example.** Albert builds a chess page in `index.html`, then opens it in the browser to look, and opens
+it again, and again, getting the same page each time. A few rounds later the run stops, and the task
+says:
+
+```text
+Stopped at round 11: the last 7 rounds only repeated steps already taken, and each was answered
+exactly as before, so the work was going in circles. It was stopped rather than left to spend more on
+the model. Nothing it had already written is lost.
+```
+
+`index.html` is there: a governed change is checked and reviewed as it stands, and in Direct mode the
+message also names the files already written. Ask again with what is still missing named ("the pieces
+don't move when clicked"), or in a smaller piece.
+
+Pictures don't fill the conversation either. A screenshot counts at what it costs the model (about as
+much as a page of text), only Albert's two latest screenshots stay in the conversation, and the
+pictures you attached always stay with your request.
+
 ## Pace
 
 At the *thorough* pace (the default), every governed change gets an independent security review and an

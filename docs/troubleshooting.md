@@ -40,6 +40,8 @@ Everything an installer run did is written to its log:
 | Acceptance is refused | A file the change touches was edited after the task started. Look at your edits, then run the task again. |
 | After updating, your provider is no longer connected | Saved keys are cleared when a new version first starts. Run `/connect` again. |
 | The service seems stuck | Run `albertcode stop`, then `albertcode` again. |
+| A run stopped saying it was *going in circles* | Albert repeated the same steps and got the same answers several rounds running, so it was stopped before it spent more on the model. What it wrote is kept. Ask again naming what is still missing, or ask for a smaller piece. See [When a run goes in circles](tasks-and-evidence.md#when-a-run-goes-in-circles). |
+| Every step says *Waiting for the model* for a long time | Each step is one request to your model, so a slow model or a busy provider is slow on every step. Try a faster model for the same work, or the *fast* pace, which skips the two reviews. If the same step repeats with nothing new, the run is stopped for you (see the row above). |
 | VS Code says **Service unreachable** | Run `albertcode` once in a terminal to start the service, then run **Developer: Reload Window**. |
 | A chat is not grouped with the others about the same thing | Only chats started from a page's button (Build, Repair, Fix with Albert, Ask Albert…) are filed under a topic; chats you start by typing are not. See [Chats about one thing](chat.md#chats-about-one-thing). |
 

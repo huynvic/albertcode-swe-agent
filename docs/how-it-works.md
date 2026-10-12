@@ -30,7 +30,9 @@ Everything you type is one of two things:
 - **A question.** "Where is the login handled?" Albert reads the repository and answers. Nothing is
   changed.
 - **A change.** "Make the login endpoint return 400 when the password is empty." Albert works out
-  what to change and does it, the way the current **mode** says.
+  what to change and does it, the way the current **mode** says. In Governed and Direct it says in one
+  sentence what it is about to do and starts at once, without reading the repository first: the work
+  reads what it needs, so reading before it would only make you wait twice.
 
 Albert tells the two apart from your words. To decide for it, start a request with `/plan` (a
 governed change) or `/do` (a direct change). See [Chatting with Albert](chat.md).

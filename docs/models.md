@@ -69,7 +69,24 @@ This sends one tool-calling request and tells you whether the model handled it. 
 the Chosen Model**.
 
 Pictures you attach reach the model as pictures only if it accepts images; when it doesn't, AlbertCode
-tells you.
+tells you. The same goes for the screenshots Albert takes of the app: a model that cannot see, such as
+DeepSeek, is told plainly that it cannot look at them and works from the page's text instead, and no
+more pictures are sent to it.
+
+A model that thinks before it answers is told how hard to think at each step, whichever provider it
+comes from, OpenAI's included:
+
+| Step | How hard it thinks |
+|---|---|
+| A conversation about your code, and the first reading of the repository | Lightly, so an answer starts sooner |
+| A review, and the check of each finding | Moderately |
+| The plan, and writing the change | Hard |
+
+**Example.** With an OpenAI model, "What does `total()` do?" is answered after a short think, while
+the plan for "Make `total()` reject negative quantities" and the change itself get the model's full
+attention. That depth can take longer than the model's own default did before AlbertCode asked for
+it; whoever runs your AlbertCode service can set it lower for planning and writing. A model that
+takes no such setting is simply asked without it.
 
 ## Pace
 
