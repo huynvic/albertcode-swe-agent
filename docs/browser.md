@@ -17,30 +17,54 @@ version of AlbertCode signs in again.
 ## The layout
 
 ```text
-┌ Sidebar ────────────┬ Top bar: page · Preview · Test · Files · Terminal · ⋮ ─────────┐
-│ AlbertCode  v1.47   │                                                              │
-│ ┌ repository ─────┐ │   The page: Chat, or Requirements, Architecture, Tasks…     │
-│ │ N notes  Browse │ │                                                              │
-│ │ Boundary  Run   │ │                                     ┌ Side panel ─────────┐  │
-│ └─────────────────┘ │                                     │ Preview, Test,      │  │
-│ ● New session       │                                     │ Files, Terminal or  │  │
-│ Search sessions     │                                     │ a file              │  │
-│ TODAY               │                                     └─────────────────────┘  │
-│   sessions…         │   ┌ message box · mode · model · attach ─────────────────┐   │
-└─────────────────────┴───┴──────────────────────────────────────────────────────┴───┘
+┌ Sidebar ──────────────┬ Top bar: session title · folder · Preview · Test · Files · Terminal · ⋮ ─────┐
+│ AlbertCode  v1.51  ◧  │ ✓ Plan ─ ◆ Your approval ─ ○ Build in a copy ─ ○ Checks ─ … ─ ○ In your files│
+│ ┌ repository ───────┐ │                                                                              │
+│ │ S shop     Browse │ │   The page: Chat, or Requirements, Architecture, Tasks…                      │
+│ │ Boundary · Run app│ │                                                   ┌ Side panel ──────────┐   │
+│ └───────────────────┘ │                                                   │ Preview, Test,       │   │
+│ ● New session         │                                                   │ Files, Terminal or   │   │
+│ Search sessions       │                                                   │ a file               │   │
+│ SESSIONS Projects|Days│                                                   └──────────────────────┘   │
+│ ▾ S shop           3  │                                                                              │
+│    ● Show prices…     │                                                                              │
+│    ○ Fix the cart  1h │                                                                              │
+│ ▸ N notes          2  │   ┌ message box · mode · model · attach ─────────────────────────────────┐   │
+└───────────────────────┴───┴──────────────────────────────────────────────────────────────────────┴───┘
 ```
 
 - **The repository card** at the top of the sidebar: the folder you are working in, with
   **Browse** to choose another, **Boundary** for its [contract](contract.md), and **Run app** to
   start its app with one command.
-- **New session** and **Search sessions**, then every session, newest first, grouped by day. See
-  [Sessions](chat.md#sessions) and [Chats about one thing](chat.md#chats-about-one-thing).
-- **The top bar**: the page you are on, the side panels (**Preview**, **Test**, **Files**,
+- **New session** and **Search sessions**, then every session **under the folder it works in**, the
+  folder you used most recently first, each with a lamp that says whether its run is working or
+  waiting for you. **Days** lists them by day instead. See [Sessions](chat.md#sessions) and
+  [Chats about one thing](chat.md#chats-about-one-thing).
+- **◧**, at the top right of the sidebar, folds it to a rail (see
+  [Folding the sidebar](#folding-the-sidebar)).
+- **The top bar**: on Chat, the session's own title (click it to rename the session) and its folder;
+  on any other page, that page's name. Then the side panels (**Preview**, **Test**, **Files**,
   **Terminal**), and the **⋮** menu with every other page and setting.
+- **The gate track**, under the top bar while the session has a governed task: where the task
+  stands, from the plan to your files. See [While Albert works](chat.md#while-albert-works).
 - **The message box** at the bottom of Chat, with the mode chip, the model chip, the agent chip and
   the attach button.
 
 On a narrow window the sidebar folds away behind the **☰** button at the top left.
+
+### Folding the sidebar
+
+**◧** at the top right of the sidebar, or **Fold the sidebar** in the command palette, folds the
+sidebar to a rail of icons so the conversation gets the room. The rail keeps:
+
+| On the rail | What it does |
+|---|---|
+| ◧ | Opens the sidebar again (**Show the sidebar** in the palette does too) |
+| **+** | A new session |
+| The magnifier | Opens the sidebar and puts you in **Search sessions** |
+| Each folder's mark | Opens a session there: the one waiting for you, else the one at work, else the newest. A dot on the mark says one of its sessions is working (it moves), waiting for you (amber) or stopped with an error (red) |
+
+AlbertCode remembers whether the sidebar is folded. **Focus mode** hides it altogether.
 
 ## Choosing a folder
 
@@ -125,9 +149,12 @@ command or a session, <kbd>Enter</kbd> to run it.
 | Models and keys (advanced) | **Models and keys** |
 | Light or dark | |
 | Focus mode | |
+| List sessions by day, List sessions by project | **Projects** and **Days** above the sessions |
+| Fold the sidebar, Show the sidebar | **◧** at the top right of the sidebar |
 | Documentation — every command, page and button, with examples | **Documentation** |
 
-Below the commands, the palette lists your sessions: pick one to open it.
+Below the commands, the palette lists your sessions, each with its folder and day: pick one to open it.
+Typing a folder's name finds its sessions.
 
 ## Slash commands in the browser
 
@@ -163,6 +190,7 @@ Typed in the message box, these are answered by the page and never sent to a mod
 | <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>C</kbd>, <kbd>X</kbd>, <kbd>V</kbd> | Files | Copy, cut, paste into the selected folder |
 | <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd>, <kbd>Enter</kbd> | Files | Move, open or close a folder, open a file |
 | Double-click a session's title | Sidebar | Rename it |
+| Click the session's title | Top bar, on Chat | Rename it: <kbd>Enter</kbd> keeps the new name, <kbd>Esc</kbd> puts the old one back |
 
 ## Files
 
@@ -235,4 +263,5 @@ published on the web, in the public repository's `docs/` folder.
 ## Light, dark and focus
 
 **Light or dark** in the ⋮ menu switches the theme; by default AlbertCode follows your system.
-**Focus mode** hides the sidebar for a wider conversation; the **☰** button brings it back.
+**Focus mode** hides the sidebar for a wider conversation; the **☰** button brings it back. To keep
+your sessions in reach with the same room, [fold the sidebar](#folding-the-sidebar) instead.

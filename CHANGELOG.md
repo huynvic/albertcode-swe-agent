@@ -3,6 +3,25 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.52.0 — 2026-10-13
+
+- **Sessions are listed by project.** The browser's sidebar lists every session under the folder it
+  works in, the folder used most recently first, each with a lamp: working, waiting for you, or
+  stopped with an error while you were elsewhere. A folder folds away and stays folded, still showing
+  the session open now, and lights when one of its sessions needs you; its **+** starts a new session
+  there. **Days** lists the sessions by day instead, with what is pinned first. See
+  [Sessions](docs/chat.md#sessions).
+- **Each session has its own actions.** Its **⋯** renames it, pins it to the top, stops its run, or
+  deletes it, after asking (its tasks and their evidence stay). A session at work has its own stop
+  button, so a run can be stopped without leaving what you are doing.
+- **The session's name, and where its task stands.** On the Chat page the top bar names the session
+  and its folder (click the name to rename it). While a governed task is under way, a track under it
+  shows where the task stands: the plan, your approval, the build in a copy, the checks, the reviews,
+  your acceptance, your files.
+- **The sidebar folds to a rail** of icons, kept as you leave it, with a new session, the search, and
+  each folder's mark lit when one of its sessions needs you. See
+  [Folding the sidebar](docs/browser.md#folding-the-sidebar).
+
 ## 1.51.2 — 2026-10-12
 
 - **No more looking at the same page over and over.** With a model that cannot see pictures, a task

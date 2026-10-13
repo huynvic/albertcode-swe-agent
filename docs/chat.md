@@ -129,10 +129,22 @@ Either way, Git is your undo: `git diff` shows what changed and `git restore` pu
 - **Steps.** Each step appears as it happens: what Albert read, searched, ran and changed. Open a
   step to see its output or diff. In the terminal, `/tasks` and then a task's steps open the same
   detail.
+- **The gate track.** In the browser, while a session has a governed task, a track under the
+  session's title shows where the task stands, from the plan to your files:
+
+  ```text
+  ✓ Plan ─ ◆ Your approval ─ ○ Build in a copy ─ ○ Checks ─ ○ Reviews ─ ◇ Your acceptance ─ ○ In your files
+  ```
+
+  The work is circles and your two decisions are diamonds. Done is green with a tick, the step under
+  way is lit, a step waiting for you is amber, and where a task stopped is red. Above, the plan is
+  waiting for your approval. Click the track to go to the task's card. Direct and Ask only have no
+  gates, so no track.
 - **Stop.** The **Stop** button (browser and VS Code) ends the run. A governed change's isolated copy
-  is kept until you discard it.
+  is kept until you discard it. In the browser you can stop a run from the sidebar too, without
+  opening its session: see [Sessions](#sessions).
 - **It keeps going.** A run belongs to the service. Start a new session, switch to another, or
-  close the window, and it carries on. Its session in the sidebar shows a moving dot while it
+  close the window, and it carries on. Its session in the sidebar shows a moving lamp while it
   works and an amber one when it is waiting for you.
 
 ## Follow-ups
@@ -150,19 +162,64 @@ previous task changed and why, so you don't repeat yourself.
 
 ## Sessions
 
-A session is one conversation. Nothing said in one session reaches another.
+A session is one conversation. Nothing said in one session reaches another, and each has its own
+run: start or open another session while one is working, and the first carries on (see
+[While Albert works](#while-albert-works)).
+
+In the browser, the sidebar lists every session **under the folder it works in**, the folder you
+used most recently first:
+
+```text
+SESSIONS                     Projects | Days
+▾ S shop                                  3
+    ● Show prices with VAT on the…            the session open now
+    ● Add a WELCOME10 discount…          1h   waiting for you (amber)
+    ○ Add discount codes in shop/…       3h
+▾ N notes                                 2
+    ○ What does the notes app store?     2h   pinned, so first in its folder
+    ● Why does saving a long note…       1d   stopped with an error (red)
+▸ PA payments-api                         3   folded
+```
+
+- **The lamp** before each title moves while its run works, is amber while it waits for you (a
+  plan or a diff to approve, a write to allow), and is red when its run stopped with an error
+  while you were elsewhere, until you open it. A ring means nothing is going on.
+- **When** it was last used is on the right. Hover a row and its **⋯** takes that place.
+- **A folder's row** folds and unfolds its sessions, and AlbertCode remembers. A folded folder
+  still shows the session open now, and its row lights when one of its sessions needs you. Its
+  **+** starts a new session in that folder. Its **⋯** has **New session here**, **Copy its path**
+  and **Delete its sessions…** (the session open now is kept, and the folder and its files are
+  never touched).
+- **Days**, above the list, lists the sessions by day instead: Pinned, Today, Yesterday, Previous 7
+  days, Previous 30 days and Older. **Projects** goes back. AlbertCode remembers which you chose.
+
+Each session's **⋯**:
+
+| Action | What it does |
+|---|---|
+| **Rename…** | Edits the title in place: <kbd>Enter</kbd> keeps it, <kbd>Esc</kbd> puts it back |
+| **Pin to the top** / **Unpin** | Keeps it first in its folder, and under **Pinned** by day |
+| **Stop its run** | Stops the run working or waiting in that session, as **Stop** does in the conversation. Offered only when there is a run to stop. A session at work also has its own **■** button on its row |
+| **Delete…** | Asks first, then removes the conversation from this browser. Its tasks and their evidence stay, in Tasks and the evidence ledger. The session open now is not deleted from its own row: open another first, or use **Clear this chat** |
+
+**Example.** You ask in **shop** for "Add a WELCOME10 discount code, with tests", then open **notes**
+and ask "Why does saving a long note fail?" while the first is still working. Under **shop** its
+lamp keeps moving; when the plan is ready it turns amber, wherever you are. Its **■** stops it
+without leaving **notes**.
 
 | To | Browser | Terminal | VS Code |
 |---|---|---|---|
-| Start a new session | **New session**, <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>Shift</kbd> <kbd>O</kbd>, or `/new` | `/new` | The **+** button, or `/new` |
-| Find a session | **Search sessions** in the sidebar, or <kbd>Ctrl</kbd> <kbd>K</kbd> | `/tasks` lists the tasks | The **Chats** button, or `/chats` |
+| Start a new session | **New session**, <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>Shift</kbd> <kbd>O</kbd>, `/new`, or a folder's **+** | `/new` | The **+** button, or `/new` |
+| Find a session | **Search sessions** (a title, or a folder's name), or <kbd>Ctrl</kbd> <kbd>K</kbd> | `/tasks` lists the tasks | The **Chats** button, or `/chats` |
 | Open one again | Click it in the sidebar | | Pick it in **Chats** |
-| Rename | Double-click its title, or the pencil | | |
-| Delete | The **×** on its row | | |
+| Rename | Its **⋯**, **Rename…**; or click the title at the top of the chat; or double-click the open one | | |
+| Pin | Its **⋯**, **Pin to the top** | | |
+| Stop its run | Its **■**, or its **⋯**, **Stop its run** | | **Stop**, in that chat |
+| Delete | Its **⋯**, **Delete…** | | |
 
 Opening a session picks it up where it was: its words, its run (still working, or waiting for an
-approval you can give now), and the folder it was about. The sidebar groups sessions by day: Today,
-Yesterday, Previous 7 days, Previous 30 days and Older.
+approval you can give now), and the folder it was about. On the Chat page the top bar shows the
+session's title and its folder.
 
 **Clear this chat**, in the ⋮ menu, empties the session open now.
 
@@ -170,15 +227,15 @@ Yesterday, Previous 7 days, Previous 30 days and Older.
 
 When you start a chat from a button on one of AlbertCode's pages, the chat is filed under the thing
 that button is about. When a thing has more than one chat, the sidebar shows it as **one row that
-opens to its chats**, with a count:
+opens to its chats**, with a count, under its folder (or its day):
 
 ```text
-TODAY
-  ▾ Add a note and see it listed     2
-      Add a browser test for R1 …
-      Build R1: add a note …
-  ▸ notes.spec.ts: add a note        2
-    What does this repository do?
+▾ N notes                            4
+    ▾ Add a note and see it listed     2
+        Add a browser test for R1 …
+        Build R1: add a note …
+    ▸ notes.spec.ts: add a note        2
+    ○ What does this repository do?
 ```
 
 | Started from | Filed under |
