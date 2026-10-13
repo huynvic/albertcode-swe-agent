@@ -3,6 +3,31 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.53.0 — 2026-10-13
+
+- **88 connectors, each seen working.** The Connectors gallery grows from 12 to 88, in eleven
+  categories. Fifty sign in with a click and nothing else: Linear, Notion, Jira and Confluence, Asana,
+  monday.com, ClickUp, Todoist, Airtable, Zapier, GitLab, Sentry, Stripe, PayPal, Square, Vercel,
+  Netlify, Cloudflare, Supabase, Neon, Datadog, PostHog, Canva, Miro, Webflow, Intercom and more.
+  Thirty-two need no setup at all, among them Context7, DeepWiki, Microsoft Learn, AWS Knowledge, Exa,
+  Serena, Docker, Kubernetes, Next.js DevTools, Angular CLI, Nx and ESLint. Nine databases ask only for
+  their address or file: PostgreSQL, MySQL, MongoDB, Redis, SQLite, DuckDB, Neo4j, ClickHouse and Chroma.
+  Every one was run for real: started or reached the way AlbertCode does it with one of its tools
+  called, each database against a real one, and each sign-in taken as far as the service's own sign-in
+  page. See [Connectors](docs/mcp.md#the-quickest-way-connectors).
+- **A sign-in asks only for what the server needs.** Signing in used to ask for every permission the
+  service's sign-in server offers; for GitLab that included administrator rights. It now asks for the
+  scope the server names, as the MCP specification says. See [Signing in](docs/mcp.md#signing-in).
+- **A server that loses its session gets a new one.** A remote server that forgets the session it has
+  just opened (common behind load balancers) is connected to again, instead of showing as failed.
+- **Browsers opened by a server show on Linux.** Chrome DevTools could not open its window on a Linux
+  desktop ("Missing X server"); the desktop's display now reaches the servers AlbertCode starts, and
+  AlbertCode's own keys still do not.
+- **Already added means already added.** The gallery could mark an unrelated server as an added
+  connector when its command ended in a common word; it now matches the package the server runs.
+- Five connectors that broke on a fresh install now start: SQLite, Chroma, Angular CLI, Nx (with its
+  workspace tools) and DuckDB. On a phone, the gallery's categories sit in one row that scrolls sideways.
+
 ## 1.52.0 — 2026-10-13
 
 - **Sessions are listed by project.** The browser's sidebar lists every session under the folder it
