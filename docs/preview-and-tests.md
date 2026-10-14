@@ -1,23 +1,27 @@
 # Preview and browser tests
 
-Two buttons in the browser's top bar let you see your app working and prove it: **Preview** runs the
-app beside the chat, and **Test** runs its browser tests.
+Two tabs of the browser's inspector let you see your app working and prove it: **App** runs the app beside
+the chat (**Run the app** in the **Project** menu, or `/preview`), and **Tests** runs its browser tests
+(**Browser tests**, or `/test`). In the terminal, `/preview` and `/test` do the same: see
+[AlbertCode's own screens](terminal.md#albertcodes-own-screens). On the classic page they are **Preview** and
+**Test** in the top bar.
 
 ## Preview
 
-**Preview** starts the open repository's app if it is not running, and shows it in the side panel.
+**Run the app** starts the open repository's app if it is not running, and shows it in the inspector's
+**App** tab.
 
 - **Starting it.** AlbertCode uses the project's dev script. When there is none, it asks for the start
-  command once and remembers it for this repository. You can also type one into **Run app** on the
-  repository card, or `/preview <command>` in the terminal.
+  command once and remembers it for this repository. You can also type `/preview <command>`, in the
+  browser or the terminal.
 - **Widths.** Desktop, tablet (834 px) and phone (390 px).
 - **Status.** Whether the app is answering, on which address, with which status and how fast:
   `Running · localhost:5173 · 200 · 12 ms`.
 - **Problems, said plainly.** It did not start, it stopped, it answers with an error page, or its
   output reports an error now. An error that has since been fixed is not shown as current.
   **Ask Albert to fix** puts the error into the chat; **Logs** shows the app's output.
-- **Restart** and **Stop** are in the panel's header; **Open in a new tab** opens the app at its own
-  address.
+- **Restart** and **Stop the app** are in the tab's toolbar, with **Reload**; **Open in browser** opens
+  the app at its own address.
 
 **A free port, every time.** Before the app starts, its usual port is checked. If another program
 holds it, the app gets the next free one and the status line says so; nothing else is touched.
@@ -30,7 +34,7 @@ that tells browsers not to show it inside another page still shows here.
 
 ## Edit by clicking
 
-**Edit** in the Preview panel lets you change the app by clicking it.
+**Edit**, in the **App** tab's toolbar, lets you change the app by clicking it.
 
 1. Turn on **Edit**. Hovering outlines what you would choose; links and buttons do not act while
    editing. Click to choose; <kbd>Esc</kbd> lets go.
@@ -89,7 +93,7 @@ you approve in the chat.
 
 ## Browser tests
 
-**Test** in the top bar checks your app the way a person uses it: pages, forms, saved data and
+The **Tests** tab (or `/test`) checks your app the way a person uses it: pages, forms, saved data and
 sign-in. The tests are [Playwright](https://playwright.dev) files in your repository's `e2e/` folder,
 so you can read them, change them, run them yourself with `npx playwright test`, and commit them.
 
@@ -101,7 +105,9 @@ so you can read them, change them, run them yourself with `npx playwright test`,
    does the panel offer Playwright's Chromium (about 150 MB), downloaded when you click.
 4. **Run tests** starts the app if needed, runs every test, and shows what passed and what failed.
    Each failure has its error, its place in the test, its screenshot and its trace, with **Fix with
-   Albert**, **Open the test** and **Run again** (just that file).
+   Albert**, **Open the test**, **Download trace** and **Run again** (just that file). In the terminal,
+   a run goes on in the background and a notice gives the result; `/test` then lists the tests, failed
+   first, each with **Fix with Albert**, **Run this file again** and **Read its error**.
 
 Results come from Playwright's own report: a run that leaves no report is shown as not having run,
 never as a pass. Installing, downloading a browser and running tests are each your click, and each is

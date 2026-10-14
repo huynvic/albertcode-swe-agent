@@ -102,8 +102,8 @@ Untick *Edit files* and it says plainly that the agent will answer questions but
 
 ## Tools and skills
 
-**Tools and skills**, in the browser's ⋮ menu (`/tools` in the terminal, **Tools and Skills** in VS
-Code), lists what Albert may use in this repository:
+**Tools and skills…**, in the browser's **Settings** menu (`/tools` in the browser or the terminal, **Tools and
+Skills** in VS Code), lists what Albert may use in this repository:
 
 - **Built-in tools** are always on.
 - **Saved tools** are your own commands, saved so the model can call them by name.

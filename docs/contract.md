@@ -26,8 +26,10 @@ accepting that task is refused until it is planned again.
 
 | Interface | How |
 |---|---|
-| Browser | **Contract** in the ⋮ menu (or **Boundary** on the repository card): describe what you want, read the draft, then save it |
-| Terminal | `/contract draft <words>`, or `/contract edit` to open it in your editor |
+| Browser | **Contract and memory…** in the **Evidence** menu (or `/contract`): describe what you want, read the draft, then save it into the repository. Each saved version is kept, to read and restore |
+| Terminal | `/contract`, then **Redraft it from a description…**: the draft is shown in full, then saved when you say so. Each saved version can be read and restored there |
+| Classic terminal | `/contract draft <words>`, or `/contract edit` to open it in your editor |
+| Classic page | **Contract** in the ⋮ menu (or **Boundary** on the repository card) |
 | VS Code | **Write a Contract** |
 
 ```text

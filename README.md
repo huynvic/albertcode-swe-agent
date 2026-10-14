@@ -335,7 +335,7 @@ One request, from plan to proof. Every screen below is from the same real task.
   <img src="assets/readme/screen-terminal-light.png" alt="The same result in the terminal: two files, two checks passed, none failed, review cleared, and the original repository still unchanged." width="100%">
 </picture>
 
-<sub>The same task from <code>albertcode</code>. Your repository stays unchanged until you accept.</sub>
+<sub>The same task in the classic terminal (<code>albertcode classic</code>). Your repository stays unchanged until you accept.</sub>
 
 </td>
 </tr>
@@ -385,7 +385,7 @@ One request, from plan to proof. Every screen below is from the same real task.
 <td width="50%" valign="top">
 <img src="assets/readme/icon-interfaces.svg" width="32" height="32" alt=""><br>
 <b>Three interfaces</b><br>
-<sub>Terminal (<code>albertcode</code>), browser (<code>albertcode --ui</code>) and VS Code, all driving the same local service.</sub>
+<sub>Terminal (<code>albertcode</code>), browser (<code>albertcode web</code>) and VS Code, all driving the same local service.</sub>
 </td>
 <td width="50%" valign="top">
 <img src="assets/readme/icon-private.svg" width="32" height="32" alt=""><br>
@@ -435,13 +435,16 @@ One request, from plan to proof. Every screen below is from the same real task.
 
 ### Three interfaces, one agent
 
-All three use the same local service, so a task started in one can be followed in another.
+All three use the same local service, so a task started in one can be followed in another. The
+terminal and the browser also share their sessions: one started in either is in the other at once.
 
 | Interface | Start it | Good for |
 |---|---|---|
-| **Terminal** | `albertcode` in your project folder | Working where you already are |
-| **Browser** | `albertcode --ui` | Reading plans and diffs side by side; several sessions at once |
+| **Terminal** | `albertcode` in your project folder | Working where you already are: your sessions, the conversation with its gates, and every list on one screen. `albertcode classic` opens the classic terminal |
+| **Browser** | `albertcode web` | Reading plans and diffs side by side, with your files, your app, its tests and a shell beside the conversation |
 | **VS Code** | The AlbertCode panel, or right-click a folder → *Open Here* | Staying in your editor |
+
+See [Terminal](docs/terminal.md) and [Browser interface](docs/browser.md).
 
 ### Three modes
 
@@ -461,20 +464,21 @@ Type `/help` for all of them.
 |---|---|
 | `/connect` | Connect a model provider: its key, or the address of a local model |
 | `/model` | Choose a model |
-| `/test` | Check that a model can drive AlbertCode |
 | `/plan <request>` | Start a governed change |
 | `/attach <paths>` | Give it files or screenshots |
-| `/tasks` | Recent tasks |
-| `/status` | The repository and model in use |
-| `/exit` | Leave. The service keeps running; `albertcode stop` stops it |
+| `/tasks` | Every task by where it stands; open one to answer its gate |
+| `/test` | Browser tests for your app: write them, install what they need, run them |
+| `/status` | The service, the engine and what is connected |
+| `/exit` | Leave. Sessions and runs keep going; `albertcode stop` stops the service |
 
-Every step is also a subcommand (`albertcode create`, `approve`, `diff`, `accept`), so AlbertCode
-fits scripts and CI. See [Using AlbertCode](docs/usage.md).
+`albertcode models test` checks that a model can drive AlbertCode. Every step is also a subcommand
+(`albertcode create`, `approve`, `diff`, `accept`), and `albertcode run` sends one request without
+the interface, so AlbertCode fits scripts and CI. See [Using AlbertCode](docs/usage.md).
 
 ### Files panel
 
-In the browser (`albertcode --ui`), **Files** in the top bar shows the repository's files beside the
-chat. Make a new file or folder, rename, duplicate, copy, cut and paste, copy a path, or move
+In the browser (`albertcode web`), the inspector's **Files** tab shows the repository's files beside
+the conversation; click a file to read it. Make a new file or folder, rename, duplicate, copy, cut and paste, copy a path, or move
 something to the Trash, from the toolbar, the ⋯ menu on each row, a right-click, or the keyboard.
 
 <picture>
@@ -498,11 +502,10 @@ something to the Trash, from the toolbar, the ⋯ menu on each row, a right-clic
 
 ### Terminal
 
-**Terminal** in the top bar (or <kbd>Ctrl</kbd> <kbd>`</kbd>) opens a real shell beside the chat,
-like Files: zsh or bash on macOS and Linux, PowerShell on Windows, in the open repository. The
-button in its header docks it under the chat instead, and back; AlbertCode remembers where you
-like it. Open more as tabs, and hide or move it whenever you like: your shells keep running, even
-across a page reload. Colours, clickable links, full-screen programs, and copy and paste all work
+**Terminal** in the **Project** menu (or <kbd>Ctrl</kbd> <kbd>`</kbd>) opens a real shell under the
+conversation: zsh or bash on macOS and Linux, PowerShell on Windows, in the open repository. Drag
+its top edge to make it taller; AlbertCode remembers the height. Open more as tabs, and hide it
+whenever you like: your shells keep running, even across a page reload. Colours, clickable links, full-screen programs, and copy and paste all work
 as in your own terminal, in light and dark. Run your project's tests and other checks here.
 
 <picture>
@@ -527,8 +530,9 @@ as in your own terminal, in light and dark. Run your project's tests and other c
 
 ### Preview
 
-**Preview** in the top bar starts your app if it is not running and shows it beside the chat. If
-the project has no dev script, it asks for the start command once. Before the app starts,
+**Run the app**, in the **Project** menu (or `/preview`), starts your app if it is not running and
+shows it in the inspector's **App** tab, beside the conversation. If the project has no dev script,
+it asks for the start command once. Before the app starts,
 AlbertCode checks its port: when something else is using it, the app gets the next free one, so it
 never shows another project's app. Switch between desktop, tablet
 and phone widths, restart or stop it, and open its logs. The status line says whether the app is
@@ -544,7 +548,7 @@ reports an error now. **Ask Albert to fix** puts the error into the chat for you
 
 #### Edit by clicking
 
-Turn on **Edit** in the Preview panel and click anything in your app: a heading, a button, a card.
+Turn on **Edit** in the **App** tab and click anything in your app: a heading, a button, a card.
 Change its text, text colour, background, size, weight, alignment, padding or corners, and you see
 the change at once. Nothing is saved yet.
 
@@ -574,7 +578,7 @@ project until **Apply change**. See [Pictures and videos](docs/preview-and-tests
 
 ### Task board
 
-**Tasks**, in the ⋮ menu at the top right, shows every task on a board, in columns for where each
+**Tasks…**, in the **Evidence** menu (or `/tasks`), shows every task on a board, in columns for where each
 one stands: Planned, Active, Blocked, Verifying and Completed. Each card shows how far it has come, what it is
 waiting for ("Plan waiting for you", "Diff waiting for you"), its checks and files, and why it
 failed if it did. Open a card to pick the task up where it is. **List** shows the same tasks as a
@@ -588,7 +592,7 @@ searchable list.
 
 ### Browser tests
 
-**Test** in the top bar checks your app the way a person uses it: pages, forms, saved data and
+The inspector's **Tests** tab (**Browser tests** in the **Project** menu, or `/test`) checks your app the way a person uses it: pages, forms, saved data and
 sign-in. The tests are Playwright files in your repository's `e2e/` folder, so you can read them,
 change them, run them yourself with `npx playwright test`, and commit them.
 
@@ -612,7 +616,7 @@ change them, run them yourself with `npx playwright test`, and commit them.
 
 ### Requirements
 
-**Requirements**, in the ⋮ menu, turns your specification into a checklist and shows where each
+**Requirements…**, in the **Evidence** menu (or `/requirements`), turns your specification into a checklist and shows where each
 item stands. Paste the specification and your model drafts one requirement per behaviour; edit
 the list and save it. It is kept in your repository as `.albertcode/requirements.json`, numbered
 R1, R2 and so on, beside the code it describes.
@@ -638,7 +642,7 @@ test titled `[R3] …` checks R3.
 
 ### Architecture
 
-**Architecture**, in the ⋮ menu, draws what your app is made of and how the parts connect, from
+**Architecture…**, in the **Project** menu (or `/architecture`), draws what your app is made of and how the parts connect, from
 its own files, in three columns: what people use (frontends and web pages), what runs (API servers
 and background jobs), and what it relies on (databases, caches, sign-in, queues, file storage and
 outside services such as payments or email).
@@ -708,9 +712,9 @@ Linux, `%LOCALAPPDATA%\AlbertCode\install.log` on Windows.
 |---|---|
 | "No model is connected" | Run `/connect`, or choose **Connect a provider** in the browser or VS Code |
 | After updating, your model is no longer connected | Saved keys are cleared when a new version first starts. Run `/connect` again |
-| A model connects but tasks stall or fail early | The model may not handle tool calling well. Run `/test`, and see [Models](docs/models.md#what-a-model-needs) |
+| A model connects but tasks stall or fail early | The model may not handle tool calling well. Run `albertcode models test`, and see [Models](docs/models.md#what-a-model-needs) |
 | Tests don't run, or use the wrong tool | Run `albertcode doctor` to see which build tools AlbertCode finds, then install or add the missing one to your PATH |
-| The browser page says to open AlbertCode from your terminal | Run `albertcode --ui`. It signs your browser in |
+| The browser page says to open AlbertCode from your terminal | Run `albertcode web`. It signs your browser in |
 | **macOS:** "New folder" says the folder is read-only | You are at the top of the disk ("This computer") or in a system folder. Choose **Home** or **Documents** in the picker and make the folder there |
 | VS Code can't reach AlbertCode | Run `albertcode` once in a terminal to start the service, then reload the VS Code window |
 | The preview says "localhost refused to connect" but the app opens in its own tab | Update to 1.42.1 or later: apps that forbid being shown inside another page now show in the preview too |
@@ -791,7 +795,7 @@ hardest part, the tasks that at least two of five frontier model families failed
 ## Documentation
 
 The full guide covers every command, page and button, with examples. It is also inside AlbertCode,
-offline: **⋮ → Documentation** in the browser interface.
+offline: **Help → Search the guide…** in the browser, or `/docs` in the terminal.
 
 | Guide | What's in it |
 |---|---|
@@ -799,8 +803,8 @@ offline: **⋮ → Documentation** in the browser interface.
 | [**How AlbertCode works**](docs/how-it-works.md) | The service, the modes, a change's two approvals, tasks, sessions and evidence |
 | [**Chatting with Albert**](docs/chat.md) | Asking, changing, approving, sessions, chats grouped by topic, attachments |
 | [**Using AlbertCode**](docs/usage.md) | The short version of everything, with links |
-| [**Terminal**](docs/terminal.md) | Every option, slash command and subcommand, scripting, environment variables |
-| [**Browser interface**](docs/browser.md) | The layout, the ⋮ menu, the command palette, every shortcut, Files and Terminal |
+| [**Terminal**](docs/terminal.md) | The full-screen interface and the classic terminal: every option, slash command and subcommand, scripting, environment variables |
+| [**Browser interface**](docs/browser.md) | The workspace, its menus and inspector, the command palette, every shortcut, Files and Terminal |
 | [**VS Code**](docs/vscode.md) | The extension, its panel, every command and setting |
 | [**Models**](docs/models.md) | Providers, local models, and what a model needs |
 | [**Architecture**](docs/architecture.md) | What a repository is made of, read from its own files |

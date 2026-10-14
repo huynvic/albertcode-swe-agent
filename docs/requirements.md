@@ -1,8 +1,12 @@
 # Requirements
 
-**Requirements**, in the browser's **⋮** menu, keeps what your app must do as a checklist, and shows
-where each item stands from evidence: the browser tests that passed or failed, and the tasks that built
-it. Nothing is marked done because someone said so.
+**Requirements…**, in the browser's **Evidence** menu (`/requirements` in the browser or the terminal), keeps
+what your app must do as a checklist, and shows where each item stands from evidence: the browser tests that
+passed or failed, and the tasks that built it. Nothing is marked done because someone said so.
+
+In the terminal, `/requirements` lists them under **Failed**, **Missing**, **Partial** and **Complete**;
+<kbd>Enter</kbd> on one puts the request to build, prove or fix it in the box, **Draft them from a
+specification…** and **Add one…** change the list, and <kbd>Ctrl</kbd> <kbd>D</kbd> removes one.
 
 ## Write the list
 

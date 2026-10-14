@@ -3,7 +3,7 @@
 Everything you need to install, use and operate AlbertCode SWE Agent: every command, page and button,
 with examples.
 
-You can read it inside AlbertCode too, offline: **⋮ → Documentation** in the browser interface,
+You can read it inside AlbertCode too, offline: **Help → Search the guide…** in the browser workspace,
 `/docs` in the terminal, or **Documentation** in VS Code.
 
 ## Start here
@@ -20,8 +20,8 @@ You can read it inside AlbertCode too, offline: **⋮ → Documentation** in the
 | Guide | What's in it |
 |---|---|
 | [Using AlbertCode](usage.md) | The short version of everything, with links |
-| [Terminal](terminal.md) | `albertcode`: every option, slash command and subcommand, scripting, environment variables |
-| [Browser interface](browser.md) | The layout, the ⋮ menu, the command palette, every shortcut, Files and Terminal |
+| [Terminal](terminal.md) | `albertcode`: the terminal interface and the classic terminal, every option, command and subcommand, scripting, environment variables |
+| [Browser interface](browser.md) | The workspace: its menus, the inspector (changes, files, the app, its tests), the terminal, the command palette, every shortcut; and the classic page |
 | [VS Code](vscode.md) | Installing the extension, the panel, every command and setting |
 | [Models](models.md) | Providers, local models, choosing and testing a model, pace, keys |
 
@@ -66,8 +66,8 @@ You can read it inside AlbertCode too, offline: **⋮ → Documentation** in the
 | Make a change with approvals | `/plan …` | `/plan …`, or the **Governed** mode | `/plan …`, or **Governed** |
 | Change files directly | `/do …` | `/do …`, or **Direct** | `/do …`, or **Direct** |
 | Connect a model | `/connect` | **Connect a provider** | **Connect a Provider** |
-| Choose a model | `/model` | <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>'</kbd> | **Choose Model** |
-| Start a new conversation | `/new` | <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>Shift</kbd> <kbd>O</kbd> | **+** (New chat) |
+| Choose a model | `/model` | <kbd>Alt</kbd> <kbd>M</kbd> | **Choose Model** |
+| Start a new conversation | `/new` | <kbd>Alt</kbd> <kbd>N</kbd> | **+** (New chat) |
 | Give it a file or screenshot | `/attach <path>` | Paste or drop | Paste or drop |
 | See every task | `/tasks` | **Tasks** | **Task History** |
 | Read the evidence ledger | `/ledger` | **Evidence ledger** | **Evidence Ledger** |
@@ -76,7 +76,7 @@ You can read it inside AlbertCode too, offline: **⋮ → Documentation** in the
 | Add an MCP server | `/mcp add`, `/connectors` | **MCP servers** | **Add an MCP Server** |
 | Make a custom command | `/commands new` | **Commands, agents and plugins** | **Custom Commands** |
 | Install a plugin | `/plugins install …` | **Plugins** | **Plugins** |
-| Run the app | `/preview` | **Preview** | **Run App** |
+| Run the app | `/preview` | **Run the app** | **Run App** |
 | Every command | `/help` | <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>K</kbd> | <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>Shift</kbd> <kbd>P</kbd> → *AlbertCode* |
 
 ## Getting help

@@ -10,8 +10,9 @@ Give a folder on your computer, or an `https` Git address:
 
 | Interface | How |
 |---|---|
-| Terminal | `/plugins install <folder or https address>` |
-| Browser | **Commands, agents and plugins** (⋮ menu) → **Plugins**: type the folder or address, then **Look at it** |
+| Browser | **Commands, agents and plugins…** in the **Settings** menu (or `/plugins`) → **Plugins**: type the folder or address, then **Look at it** |
+| Terminal | `/plugins`, then **Install a plugin…**: everything it would add is shown before anything is installed |
+| Classic terminal | `/plugins install <folder or https address>` |
 | VS Code | **Plugins** → **Install a plugin…** |
 
 ```text

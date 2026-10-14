@@ -6,8 +6,8 @@ the checks that run along the way.
 
 ## The task board
 
-**Tasks**, in the browser's **⋮** menu, shows every task on a **Board**, in columns for where each
-stands:
+**Tasks…**, in the browser's **Evidence** menu (or `/tasks`), shows every task on a **Board**, in columns for
+where each stands:
 
 | Column | Tasks that are |
 |---|---|
@@ -30,8 +30,13 @@ Elsewhere:
 
 | Interface | How |
 |---|---|
-| Terminal | `/tasks` lists recent tasks to open; `albertcode show <task>` prints one as JSON |
+| Terminal | `/tasks` lists every task by where it stands; open one to read it and answer its gate (see [AlbertCode's own screens](terminal.md#albertcodes-own-screens)). `albertcode show <task>` prints one as JSON |
+| Classic terminal | `/tasks` lists recent tasks to open |
 | VS Code | **Task History** |
+
+A task no session holds, such as one started from a script or from VS Code, is answered right there: **Approve
+and build** or **Reject**, then **Accept into your files** or **Discard**, the same answers its gate takes in a
+session. One a session holds opens in that session (**Open its session**).
 
 ## A task's evidence
 
@@ -62,8 +67,10 @@ deleting an entry breaks the chain, and the break is found.
 
 | Interface | How |
 |---|---|
-| Browser | **Evidence ledger** in the ⋮ menu: the latest entries, **Load older entries**, **Check the whole chain**, **Export ledger**, **Reload** |
-| Terminal | `/ledger [n]`, `/ledger task <id>`, `/ledger check <#>`, `/ledger export [file]`, `/ledger evidence <task> [file]` |
+| Browser | **Evidence ledger…** in the **Evidence** menu: whether the chain holds, the entries by kind (**Decisions**, **Tasks**, **Tool calls**, **Failures**), each opening to every field with **Check this entry**, **Only this task** and **Open the task**; **Export the chain** and **Check the chain again** |
+| Terminal | `/ledger`: type to find an entry, <kbd>Enter</kbd> reads and checks it, <kbd>Ctrl</kbd> <kbd>T</kbd> only its task, <kbd>Ctrl</kbd> <kbd>S</kbd> saves the chain to a file. `/ledger task <id>` |
+| Classic terminal | `/ledger [n]`, `/ledger task <id>`, `/ledger check <#>`, `/ledger export [file]`, `/ledger evidence <task> [file]` |
+| Classic page | **Evidence ledger** in the ⋮ menu: the latest entries, **Load older entries**, **Check the whole chain**, **Export ledger**, **Reload** |
 | VS Code | **Evidence Ledger** |
 
 **Check the whole chain** recomputes every entry and every link from the first. **Export ledger**
@@ -126,8 +133,8 @@ front of it. Errors that were already there, and imports a machine has not insta
 | Shell | bash-language-server and shellcheck | `.sh`, `.bash` |
 | CSS, SCSS and Less | VS Code's CSS language server | `.css`, `.scss`, `.less` |
 
-A checker is used only when it is installed. **Language checks** (browser ⋮ menu or palette),
-`/checks` or `albertcode checks` (terminal) and **Language Checks** (VS Code) show which are in use,
+A checker is used only when it is installed. **Language checks…** (the browser's **Settings** menu, or the
+palette), `/checks` or `albertcode checks` (terminal) and **Language Checks** (VS Code) show which are in use,
 and install the rest in one click or command:
 
 ```bash

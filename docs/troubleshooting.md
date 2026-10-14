@@ -35,7 +35,7 @@ Everything an installer run did is written to its log:
 | Symptom | Fix |
 |---|---|
 | It says no model is connected | Run `/connect`, or **Connect a provider** in the browser or VS Code. |
-| A model connects but tasks stall or fail early | The model may not handle tool calling well. Run `/test`, and see [Models](models.md#what-a-model-needs). |
+| A model connects but tasks stall or fail early | The model may not handle tool calling well. Run `albertcode models test`, and see [Models](models.md#what-a-model-needs). |
 | Tests don't run, or run with the wrong tool | Run `albertcode doctor` to see which build tools AlbertCode can find. Install the missing one, or put it on your PATH. |
 | Acceptance is refused | A file the change touches was edited after the task started. Look at your edits, then run the task again. |
 | After updating, your provider is no longer connected | Saved keys are cleared when a new version first starts. Run `/connect` again. |

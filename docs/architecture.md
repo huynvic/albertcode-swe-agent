@@ -1,8 +1,9 @@
 # The Architecture page
 
-**Architecture**, in the browser's **⋮** menu, draws what your app is made of and how its parts
-connect, read from the repository's own files. Use it to learn a codebase, or to check what a change
-touches.
+**Architecture…**, in the browser's **Project** menu (`/architecture` in the browser or the terminal), draws
+what your app is made of and how its parts connect, read from the repository's own files. Use it to learn a
+codebase, or to check what a change touches. In the terminal it lists each part, its technology and where it
+lives, then how the parts connect; `/architecture fresh` reads the repository again.
 
 ## What you see
 

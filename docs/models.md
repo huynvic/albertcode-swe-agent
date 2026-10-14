@@ -47,11 +47,13 @@ With a local model, your code never leaves your computer.
 
 | Interface | How |
 |---|---|
-| Terminal | `/model`, or `/model <search>` to filter. Recent models come first, then every connected provider's; you can also type any model ID |
-| Browser | The model chip under the message box, <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>'</kbd>, or `/model` |
+| Terminal | `/model`, then type to narrow the list. In the classic terminal, `/model <search>` filters; recent models come first, then every connected provider's, and you can also type any model ID |
+| Browser | The model chip under the message box, <kbd>Alt</kbd> <kbd>M</kbd>, or `/model` |
 | VS Code | **Choose Model**, or `/model` |
 
-**Refresh models** in the browser's ⋮ menu asks the providers for their lists again.
+**Models…** in the browser's **Settings** menu (<kbd>Alt</kbd> <kbd>M</kbd>) reads each connected provider's
+list when it opens; on the [classic page](browser.md#the-classic-page), **Refresh models** in the ⋮ menu asks
+the providers for their lists again.
 
 ## What a model needs
 
@@ -61,12 +63,13 @@ with size and quantisation.
 
 Check a model before relying on it:
 
-```text
-/test
+```bash
+albertcode models test
 ```
 
-This sends one tool-calling request and tells you whether the model handled it. In VS Code, run **Test
-the Chosen Model**.
+This sends one tool-calling request and tells you whether the model handled it. In the browser, **Test** in
+**Connect a provider** does the same; in the classic terminal it is `/test`, and in VS Code **Test the Chosen
+Model**.
 
 Pictures you attach reach the model as pictures only if it accepts images; when it doesn't, AlbertCode
 tells you. The same goes for the screenshots Albert takes of the app: a model that cannot see, such as
@@ -110,7 +113,8 @@ given to the commands AlbertCode runs, and never shown to a model. See the
 | Remove one key | `/disconnect` | **Disconnect a Provider** |
 | Remove every key | `/disconnect all` | **Remove All Saved Keys** |
 
-In the browser, **Models and keys** in the ⋮ menu has the same, plus the advanced settings.
+In the browser, **Settings…** → **Providers** has the same; on the classic page, **Models and keys** in the ⋮
+menu has it, plus the advanced settings.
 
 Updating AlbertCode clears saved keys the first time the new version starts: run `/connect` again.
 

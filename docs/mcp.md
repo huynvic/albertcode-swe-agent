@@ -163,8 +163,10 @@ minute; later starts are quick.
 
 | Interface | How |
 |---|---|
-| Terminal | `/connectors`, or `/connectors postgres` to search; `/mcp install <id> key=value` adds one without questions |
-| Browser | **MCP servers** (⋮ menu) → **Browse connectors**, or **Connectors** in the command palette. Pick a category, or search |
+| Browser | **MCP servers…** in the **Settings** menu (or `/mcp`): under **Ready to add**, pick a category chip or search, then **Add**. One that needs an answer (a key, a folder) asks for it, with a **Server name** of your choosing; one that signs in opens its sign-in page in a new tab as it is added |
+| Terminal | `/mcp`, then **+ Add a connector…** |
+| Classic terminal | `/connectors`, or `/connectors postgres` to search; `/mcp install <id> key=value` adds one without questions |
+| Classic page | **MCP servers** (⋮ menu) → **Browse connectors**, or **Connectors** in the command palette |
 | VS Code | **Browse MCP Connectors** |
 
 ```text

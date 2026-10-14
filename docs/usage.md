@@ -40,7 +40,7 @@ and undo them with Git.
 
 | Command | |
 |---|---|
-| `/connect`, `/model`, `/test` | Connect a provider, choose a model, check it ([Models](models.md)) |
+| `/connect`, `/model` | Connect a provider, choose a model; `albertcode models test` checks it ([Models](models.md)) |
 | `/plan <request>`, `/do <request>` | Start a governed or a direct change |
 | `/mode [governed\|direct\|auto\|ask]` | How plain requests are handled |
 | `/new` | A fresh conversation |

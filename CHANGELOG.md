@@ -3,6 +3,34 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.54.0 — 2026-10-14
+
+- **A new browser workspace.** `albertcode web` (or `albertcode --ui`) opens a workspace with your
+  sessions listed by project, a menu bar (Session, Project, Git, Evidence, View, Settings, Help), a
+  command palette (Ctrl K) and an inspector beside the conversation. AlbertCode is still the engine:
+  every plan, gate, check and review is its own, and a task's steps look as they did, each stage with
+  its tick and counts, opening to its steps. The classic page is still at `/ui`. See
+  [The browser](docs/browser.md).
+- **A full-screen terminal interface.** `albertcode` now opens it: your sessions, the conversation with
+  its gates, and every list on one screen, in six themes, with a command palette (Ctrl P).
+  `albertcode classic` keeps the terminal as it was. New subcommands: `albertcode web`, `run`,
+  `sessions`, `models`, `stats`, `docs` and `status`. See [The terminal](docs/terminal.md).
+- **One set of sessions for both.** A session started in the browser shows in the terminal at once, and
+  the other way round. Closing either never stops the work.
+- **AlbertCode's own screens, in both interfaces.** Tasks, as a board or a list, each opening to its
+  gates and steps; the evidence ledger, checked whole and entry by entry; requirements; contract and
+  memory; architecture; language checks; tools and skills, with **Allow in contract**; commands, agents
+  and plugins, with what a plugin adds shown before it is installed; and MCP servers, with the
+  connectors by category and a server's prompts and resources. In the browser each opens from a menu,
+  the palette or a slash command; in the terminal they are `/tasks`, `/ledger`, `/contract`,
+  `/requirements`, `/architecture`, `/checks`, `/tools`, `/commands`, `/plugins`, `/preview` and
+  `/test`, and they are in its palette too.
+- **The inspector.** Beside the conversation: the changes, the repository's files, your app running (at
+  a phone's width too, with the visual editor), browser tests and the task. A terminal docks under the
+  conversation (Ctrl \`).
+- **Language checks on a service started on its own.** A service started by hand, without the
+  terminal, answered the language checks with an error; they now work there as everywhere else.
+
 ## 1.53.0 — 2026-10-13
 
 - **88 connectors, each seen working.** The Connectors gallery grows from 12 to 88, in eleven

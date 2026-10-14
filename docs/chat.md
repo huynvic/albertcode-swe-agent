@@ -218,10 +218,11 @@ without leaving **notes**.
 | Delete | Its **⋯**, **Delete…** | | |
 
 Opening a session picks it up where it was: its words, its run (still working, or waiting for an
-approval you can give now), and the folder it was about. On the Chat page the top bar shows the
-session's title and its folder.
+approval you can give now), and the folder it was about. The top of the conversation shows the
+session's title, its folder and branch, and its mode.
 
-**Clear this chat**, in the ⋮ menu, empties the session open now.
+On the [classic page](browser.md#the-classic-page), **Clear this chat**, in the ⋮ menu, empties the session
+open now.
 
 ### Chats about one thing
 
@@ -272,9 +273,9 @@ than letting the model guess.
 
 | To | Browser | Terminal | VS Code |
 |---|---|---|---|
-| Choose a model | The model chip, <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>'</kbd>, or `/model` | `/model [search]` | **Choose Model**, or `/model` |
-| Connect a provider | **Connect a provider**, or `/connect` | `/connect [provider]` | **Connect a Provider**, or `/connect` |
-| Test the model | | `/test [model]` | **Test the Chosen Model** |
+| Choose a model | The model chip, <kbd>Alt</kbd> <kbd>M</kbd>, or `/model` | `/model`, then type to narrow the list | **Choose Model**, or `/model` |
+| Connect a provider | **Connect a provider**, or `/connect` | `/connect` | **Connect a Provider**, or `/connect` |
+| Test the model | **Test** in **Connect a provider** | `albertcode models test`; `/test` in the classic terminal | **Test the Chosen Model** |
 
 See [Models](models.md).
 
@@ -291,11 +292,11 @@ See [Models](models.md).
 
 | Keys | Browser | VS Code |
 |---|---|---|
-| <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>Enter</kbd> | Send | |
-| <kbd>Enter</kbd> | New line | Send |
-| <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>K</kbd> | Command palette: every command and session | |
-| <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>'</kbd> | Choose a model | |
-| <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>Shift</kbd> <kbd>O</kbd> | New session | |
+| <kbd>Enter</kbd> | Send | Send |
+| <kbd>Shift</kbd> <kbd>Enter</kbd> | New line | |
+| <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>K</kbd> | Command palette: every command | |
+| <kbd>Alt</kbd> <kbd>M</kbd> | Choose a model | |
+| <kbd>Alt</kbd> <kbd>N</kbd> | New session | |
 | <kbd>Esc</kbd> | Close the open dialog | |
 
 The [browser reference](browser.md#keyboard-shortcuts) lists every shortcut, including the Files
