@@ -3,6 +3,16 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.54.1 — 2026-10-15
+
+- **The same words for every provider.** The browser workspace's **Connect a provider** dialog now
+  describes Anthropic as "Anthropic's models", as the classic page and the terminal do.
+- **The guide matches the workspace.** The Requirements page names the workspace's buttons: **Build
+  it**, **Prove it** and **Fix it** put the request in the message box for you to send, and **Edit the
+  list** changes the list. The Architecture page describes each part's card, **How it was found**,
+  **How they connect** and **Read it again**. See [Requirements](docs/requirements.md) and
+  [Architecture](docs/architecture.md).
+
 ## 1.54.0 — 2026-10-14
 
 - **A new browser workspace.** `albertcode web` (or `albertcode --ui`) opens a workspace with your
