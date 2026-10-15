@@ -15,13 +15,14 @@ Three columns:
 | **It runs** | API servers and background jobs |
 | **It relies on** | Databases, caches, sign-in, queues, file storage and outside services such as payments or email |
 
-Select a part to see:
+Each part says what it is built with, where it lives, and how many routes, pages and data models it has;
+**How it was found** opens to the files that put it on the map. Under the parts, **How they connect** lists each
+connection and what shows it, and the last line says how many files were read and from which manifests. **Read it
+again** reads the repository afresh.
 
-- **The files that put it on the map**, each one click from the code.
-- **What it connects to**, with the file that shows each connection.
-- **Its routes, pages and data models**, each with its file and line.
-
-Click any file to open it in the side panel, beside the map.
+On the [classic page](browser.md#the-classic-page), select a part to see those files, what it connects to, and its
+routes, pages and data models, each with its file and line; click any file to open it in the side panel, beside the
+map.
 
 ## Nothing is guessed
 

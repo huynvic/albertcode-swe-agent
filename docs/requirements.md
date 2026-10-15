@@ -14,7 +14,8 @@ specification…** and **Add one…** change the list, and <kbd>Ctrl</kbd> <kbd>
    connected, AlbertCode drafts one checkable requirement per behaviour; without one, it uses the
    specification's own bullets and sentences.
 2. Or choose **Write them myself**.
-3. Edit, reorder, add and remove, then **Save requirements**.
+3. Edit, reorder, add and remove, one requirement a line with any detail after a dash (—), then **Save**
+   (**Save requirements** on the classic page). **Edit the list** changes it later.
 
 Each requirement has a title (up to 160 characters) and an optional detail; a list holds up to 200.
 They are numbered R1, R2, R3…, and each keeps its number when you edit the list; new ones are numbered
@@ -43,8 +44,9 @@ You can edit the file by hand too; the page reads it as it is.
 | **Failed** | One of its tests failed, or the task that built it failed |
 | **Missing** | Nothing has built it, and no test has passed for it |
 
-Each row says why, and opens to its **Evidence**: the tests (with their file and line) and the tasks
-behind it, each one click away.
+Each row says why, and lists the browser tests behind it with how each one ended. On the
+[classic page](browser.md#the-classic-page) a row opens to its **Evidence**: the tests (with their file and line)
+and the tasks behind it, each one click away.
 
 ### How evidence finds its requirement
 
@@ -60,15 +62,19 @@ The buttons below word their requests that way for you.
 
 ## Move one forward
 
-| Button | For | What it does |
-|---|---|---|
-| **Build with Albert** | A missing requirement | Asks Albert to build it, with a browser test titled `[R…]` |
-| **Fix with Albert** | A failed requirement | Asks Albert to find the cause and fix it |
-| **Add a test** | A partial requirement | Asks Albert for the browser test that checks it |
-| **Check now** | The whole list | Runs the browser tests again |
+Each requirement that is not complete has one button, for the step that moves it on. It puts the request in the
+message box, for you to read and send; what Albert does then goes through the usual approvals.
 
-Each starts a chat of its own on the Chat page, filed under that requirement in the sidebar (see
-[Chats about one thing](chat.md#chats-about-one-thing)), and goes through the usual approvals.
+| Button | For | What it asks Albert |
+|---|---|---|
+| **Build it** | A missing requirement | To build it, with a browser test titled `[R…]` |
+| **Prove it** | A partial requirement | For the browser test that checks it |
+| **Fix it** | A failed requirement | To find the cause and fix it |
+
+**Run tests**, in the inspector's **Tests** tab, checks the whole list again. On the
+[classic page](browser.md#the-classic-page) the buttons are **Build with Albert**, **Add a test** and **Fix with
+Albert**, with **Check now** for the whole list, and each starts a chat of its own, filed under that requirement in
+the sidebar (see [Chats about one thing](chat.md#chats-about-one-thing)).
 
 ## Example
 

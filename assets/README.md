@@ -8,7 +8,7 @@
 | `logo/glyph.svg` | The mark without its tile; its cursor takes the surrounding text colour |
 | `logo/favicon-32.png`, `logo/icon-180.png`, `logo/icon-512.png` | Favicon, touch icon, app icon |
 | `social/social-preview.png` | The repository's social preview, 1280×640 |
-| `demo/albertcode-demo.gif` | The README walkthrough (illustrative) |
+| `demo/albertcode-demo.gif` | The README's terminal walkthrough, recorded from `albertcode` with the model's answers scripted; `demo/albertcode-demo-final.png` is its last frame |
 
 The mark is a terminal prompt (`>`) beside a cursor with a checkpoint on it, inside a rounded
 frame: the agent works, and stops for your approval.

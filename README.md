@@ -34,10 +34,10 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-outcome-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-outcome-light.png">
-  <img src="assets/readme/screen-outcome-light.png" alt="The AlbertCode browser interface at approval gate 2: the change is ready, with two files changed, two checks passed, the steps it took, and buttons to review the diff, accept it into the repository, export the evidence or discard it." width="100%">
+  <img src="assets/readme/screen-outcome-light.png" alt="The AlbertCode browser workspace at approval gate 2: the change is ready to accept, with its two changed files, the steps it took, and buttons to reject it, discard it, ask for changes, view the diff or accept it into your files." width="100%">
 </picture>
 
-<sub>A real task in the AlbertCode browser interface, waiting at the second approval gate.</sub>
+<sub>A task in the AlbertCode browser workspace, waiting at the second approval gate.</sub>
 
 </div>
 
@@ -280,7 +280,8 @@ and only then does the change reach your files.
 
 ## See it in action
 
-One request, from plan to proof. Every screen below is from the same real task.
+One request, from plan to proof. Every screen below is from the same task in AlbertCode; the model's answers
+were scripted for these pictures.
 
 <table>
 <tr>
@@ -291,7 +292,7 @@ One request, from plan to proof. Every screen below is from the same real task.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-plan-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-plan-light.png">
-  <img src="assets/readme/screen-plan-light.png" alt="Approval gate 1: the proposed plan, with its risk, the files it will change and how, and buttons to approve or reject it." width="100%">
+  <img src="assets/readme/screen-plan-light.png" alt="Approval gate 1: the proposed plan, with the files it will change, its steps, how it will be tested, its security note, how to undo it and its risk, and buttons to reject it, read the whole plan, ask for changes, or approve and build." width="100%">
 </picture>
 
 <sub>The goal, the files it will change, how, and the risk. Nothing is written yet.</sub>
@@ -304,7 +305,7 @@ One request, from plan to proof. Every screen below is from the same real task.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-diff-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-diff-light.png">
-  <img src="assets/readme/screen-diff-light.png" alt="The diff of the finished change: the fix in shop/discounts.py and the new import in the test file." width="100%">
+  <img src="assets/readme/screen-diff-light.png" alt="The diff of the finished change in the inspector beside the conversation: the one-line fix in cart.py, with the new tests/test_checkout.py beside it, both still in the task's isolated copy." width="100%">
 </picture>
 
 <sub>Built in an isolated copy of your repository, never in your working tree.</sub>
@@ -319,7 +320,7 @@ One request, from plan to proof. Every screen below is from the same real task.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-evidence-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-evidence-light.png">
-  <img src="assets/readme/screen-evidence-light.png" alt="The evidence: eight contract checks passed, including independent security and quality reviews, and the project's tests ran with exit code 0." width="100%">
+  <img src="assets/readme/screen-evidence-light.png" alt="The evidence in the inspector's Task tab: the steps the task took, the two test runs that passed, the security and quality reviews approved with their reasons, and the summary of the change." width="100%">
 </picture>
 
 <sub>Your own tests, independent reviews and safety checks, all recorded.</sub>
@@ -332,10 +333,10 @@ One request, from plan to proof. Every screen below is from the same real task.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-terminal-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-terminal-light.png">
-  <img src="assets/readme/screen-terminal-light.png" alt="The same result in the terminal: two files, two checks passed, none failed, review cleared, and the original repository still unchanged." width="100%">
+  <img src="assets/readme/screen-terminal-light.png" alt="The same task in the terminal: implementation complete and waiting for you, the two test runs that passed, the security and quality reviews approved, the two changed files, and the choice to apply, read the diff, revise, discard or reject." width="100%">
 </picture>
 
-<sub>The same task in the classic terminal (<code>albertcode classic</code>). Your repository stays unchanged until you accept.</sub>
+<sub>The same task in the terminal (<code>albertcode</code>). Your repository stays unchanged until you accept.</sub>
 
 </td>
 </tr>
@@ -346,9 +347,9 @@ One request, from plan to proof. Every screen below is from the same real task.
 
 <br>
 
-<img src="assets/demo/albertcode-demo.gif" alt="A terminal session: a request is typed, AlbertCode analyses the repository, prepares a plan that is approved, implements the change in an isolated copy, runs the tests, verifies and reviews it, then reports it is ready for approval." width="100%">
+<img src="assets/demo/albertcode-demo.gif" alt="The terminal interface, start to finish: a request is typed, AlbertCode reads the repository and proposes a plan, the plan is approved, the change is built in an isolated copy, tested and reviewed, and once accepted it is applied to the repository." width="100%">
 
-<sub>Illustrative walkthrough. The real interface shows more detail at each step.</sub>
+<sub>Recorded from <code>albertcode</code>, with the model's answers scripted to keep it short.</sub>
 
 </details>
 
@@ -484,7 +485,7 @@ something to the Trash, from the toolbar, the ⋯ menu on each row, a right-clic
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-files-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-files-light.png">
-  <img src="assets/readme/screen-files-light.png" alt="The Files panel beside the chat: the repository's folders and files, with the actions menu for cart.py open: Open, Rename, Duplicate, Copy, Cut, Copy path, Copy relative path and Move to Trash." width="100%">
+  <img src="assets/readme/screen-files-light.png" alt="The inspector's Files tab beside the conversation: the repository's folders and files, with the actions menu for cart.py open: Open, Rename, Duplicate, Copy, Cut, Copy path, Copy relative path, Open a terminal here and Move to Trash." width="100%">
 </picture>
 
 | Shortcut | What it does |
@@ -511,7 +512,7 @@ as in your own terminal, in light and dark. Run your project's tests and other c
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-shell-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-shell-light.png">
-  <img src="assets/readme/screen-shell-light.png" alt="The terminal beside the chat: a bash tab in the shop repository showing git log, git status and a test run with 12 passed." width="100%">
+  <img src="assets/readme/screen-shell-light.png" alt="The terminal under the conversation: a bash tab in the shop repository showing git status, with the two files the accepted change wrote, and a test run with 4 passed." width="100%">
 </picture>
 
 | Shortcut | What it does |
@@ -543,7 +544,7 @@ reports an error now. **Ask Albert to fix** puts the error into the chat for you
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-preview-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-preview-light.png">
-  <img src="assets/readme/screen-preview-light.png" alt="The app preview beside the chat at tablet width, with a red notice above it: the app answered with an error (500), the TypeError from its output and where it happened, and buttons to ask Albert to fix it or show the logs." width="100%">
+  <img src="assets/readme/screen-preview-light.png" alt="The inspector's App tab beside the conversation: the bakery's page running at localhost:3000 and answering 200, with buttons for desktop, tablet and phone widths, Edit, Logs, Restart and Stop." width="100%">
 </picture>
 
 #### Edit by clicking
@@ -568,7 +569,7 @@ project until **Apply change**. See [Pictures and videos](docs/preview-and-tests
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-visual-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-visual-light.png">
-  <img src="assets/readme/screen-visual-light.png" alt="Editing the app in the preview: a button is selected, its text, background, size and corners are changed in the panel below the app, and the review shows the diff to the CSS file with buttons to ask Albert instead or apply the change." width="100%">
+  <img src="assets/readme/screen-visual-light.png" alt="Editing the app in the App tab: the order button is selected and its background and corners are changed in the panel below the app; the review has found where the style comes from, styles.css line 6, and shows the diff, with buttons to ask Albert instead or apply the change." width="100%">
 </picture>
 
 > [!NOTE]
@@ -587,7 +588,7 @@ searchable list.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-board-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-board-light.png">
-  <img src="assets/readme/screen-board-light.png" alt="The task board: nine tasks in five columns, Planned, Active, Blocked, Verifying and Completed, each card with its progress, what it waits for, its checks and files." width="100%">
+  <img src="assets/readme/screen-board-light.png" alt="The task board: seven tasks in five columns, Planned, Active, Blocked, Verifying and Completed, each card with its progress, what it waits for (a plan or a diff), its checks and files." width="100%">
 </picture>
 
 ### Browser tests
@@ -605,7 +606,7 @@ change them, run them yourself with `npx playwright test`, and commit them.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-tests-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-tests-light.png">
-  <img src="assets/readme/screen-tests-light.png" alt="The Test panel beside the chat: one test passed and one failed. The failure shows its error, the screenshot taken when it failed, and buttons to fix it with Albert, open the test, download the trace or run it again." width="100%">
+  <img src="assets/readme/screen-tests-light.png" alt="The inspector's Tests tab beside the conversation: three tests passed, one failed and one was skipped. The failure shows its error, the screenshot taken when it failed, and buttons to fix it with Albert, open the test, download the trace or run it again." width="100%">
 </picture>
 
 > [!NOTE]
@@ -630,33 +631,34 @@ Each requirement's status is worked out from evidence, never guessed:
 | **Failed** | One of its tests failed, or the task that built it failed |
 | **Missing** | Nothing has built it, and no test has passed for it |
 
-Each row says why, lists the tests and tasks behind it, and offers the next step: **Build with
-Albert**, **Fix with Albert** or **Add a test**. What they make links back by itself: a browser
-test titled `[R3] …` checks R3.
+Each row says why, lists the browser tests behind it with how each one ended, and offers the next
+step: **Build it**, **Prove it** or **Fix it**, which put the request in the message box for you to
+send. What Albert makes links back by itself: a browser test titled `[R3] …` checks R3.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-requirements-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-requirements-light.png">
-  <img src="assets/readme/screen-requirements-light.png" alt="The Requirements page: one complete, two partial, one missing and one failed, with a progress bar, and five requirements each with its status, the reason, its evidence and an action: Fix with Albert, Add a test or Build with Albert." width="100%">
+  <img src="assets/readme/screen-requirements-light.png" alt="The Requirements dialog: two complete, one partial, one missing and one failed, each requirement with its status, the reason, the browser tests behind it and how each ended, and the next step: Fix it, Prove it or Build it." width="100%">
 </picture>
 
 ### Architecture
 
-**Architecture…**, in the **Project** menu (or `/architecture`), draws what your app is made of and how the parts connect, from
+**Architecture…**, in the **Project** menu (or `/architecture`), shows what your app is made of and how the parts connect, from
 its own files, in three columns: what people use (frontends and web pages), what runs (API servers
 and background jobs), and what it relies on (databases, caches, sign-in, queues, file storage and
 outside services such as payments or email).
 
 Nothing is guessed. Every box comes from a file that declares it (`package.json`,
 `pyproject.toml`, `requirements.txt`, `go.mod`, `docker-compose.yml`, or the names in
-`.env.example`), and a line is drawn only where a file shows the connection. Select a part to see
-those files, what it connects to and why, and its routes, pages and data models, each one click
-from the code.
+`.env.example`), and a connection is listed only where a file shows it. Each part says what it is
+built with, where it lives, and how many routes, pages and data models it has; **How it was found**
+opens to the files behind it, **How they connect** lists each connection and what shows it, and
+**Read it again** reads the repository afresh.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen-architecture-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/screen-architecture-light.png">
-  <img src="assets/readme/screen-architecture-light.png" alt="The Architecture page: a Next.js app, a FastAPI server and Celery jobs, connected to PostgreSQL, Redis, NextAuth, Stripe and SendGrid, with the FastAPI server selected: the file that declares it, what it connects to and why, and its two routes with their files and lines." width="100%">
+  <img src="assets/readme/screen-architecture-light.png" alt="The Architecture dialog in three columns: a Next.js app; a FastAPI server and Celery jobs; and what they rely on, NextAuth, Redis, PostgreSQL and SendGrid. Each card shows what the part is built with, where it lives, its routes, pages or models, and How it was found." width="100%">
 </picture>
 
 <br>
