@@ -179,7 +179,10 @@ What AlbertCode does not do, or does only partly:
   them if the computer is lost or stolen.
 - **Masking only covers your saved keys, by exact value.** In governed mode, common secret files
   (`.env` files, private keys, credential files, `secrets/` and `.ssh/` folders) are left out of
-  the isolated copy, so the agent never sees them. Any other secret in your code, such as a
+  the isolated copy, so the agent never sees them. A private key counts wherever it sits: an SSH key
+  copied into `deploy/id_rsa` is left out as surely as `~/.ssh/id_rsa`, and so are `.ppk`, `.jks`
+  and `.keystore` files, a KeePass `.kdbx` database, and the plain-text logins in `.netrc`,
+  `.pgpass` and `.git-credentials`. Public halves such as `deploy/id_rsa.pub` are still read. Any other secret in your code, such as a
   password written into a source file, can be read and sent to the model like the rest of the
   code. A saved key that has been encoded or split isn't recognised.
 - **Your project's commands run with your permissions.** Your tests and build can reach the

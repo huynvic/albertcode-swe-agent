@@ -226,6 +226,15 @@ server a scope of your own in `mcp.json`, the file beside your credentials that 
 "tracker": {"type": "remote", "url": "https://mcp.example.com/mcp", "oauth": {"scope": "read write"}}
 ```
 
+Once you have signed in, the sign-in page sends your browser back to AlbertCode, and the sign-in finishes
+there by itself. That works in any browser, also one you never opened AlbertCode in, when you started the
+sign-in in the terminal, and when the sign-in page is on another site: AlbertCode lets that one answer in
+while its sign-in waits, and nothing else. It does not sign that browser in to AlbertCode.
+
+A sign-in is good for one try and 15 minutes. If you say no at the sign-in page, or the answer comes back
+from a different sign-in server than the one AlbertCode sent you to, the page says so and that sign-in is
+over: run `/mcp auth <name>` (or **Sign in**) again.
+
 ## Managing servers
 
 | Terminal | Browser (**MCP servers**, then a server's **Edit**) | What it does |

@@ -110,7 +110,7 @@ what Albert does shows in both as it happens.
 | `/rename [title]`, `/fork` | Rename this session; a new session holding its messages | `/rename Euro prices` |
 | `/export [file]`, `/import <file>` | Save this session as a JSON file; open one saved that way | `/export euros.json` |
 | `/attach <paths>` | Attach files to your next message. `/attach clear` drops them | `/attach logs/*.txt shot.png` |
-| `/theme`, `/speed [fast\|balanced\|thorough]` | Colours; how much the model thinks at each step. Also `/themes` | `/speed thorough` |
+| `/theme`, `/speed [fast\|balanced\|thorough]` | Colours (Ember, dark, until you choose another; shared with the browser); how much the model thinks at each step. Also `/themes` | `/speed thorough` |
 | `/details`, `/timestamps`, `/sidebar` | Every step of the tasks here; the time of each message; the sidebar | |
 | `/web` | Open this session in the browser workspace | |
 | `/status` | The service, the engine and what is connected. Also `/doctor` | |

@@ -108,7 +108,7 @@ come back from the buttons at the top.
 | **Changes**, **Files**, **App**, **Tests**, **Context**, **Task** | Open that tab of the inspector |
 | **Show the inspector** or **Hide the inspector** (<kbd>Alt</kbd> <kbd>P</kbd>) | |
 | **Show the agent's steps** (<kbd>Alt</kbd> <kbd>S</kbd>) | Every step of every task in the conversation, or each task folded to its card |
-| **Theme** | **Match the system**, or **Nebula (dark)**, **Aurora (light)**, **Ember (dark)**, **Ember light**, **Slate (dark)** or **High contrast** |
+| **Theme** | **Ember (dark)**, the default, or **Match the system**, **Nebula (dark)**, **Aurora (light)**, **Ember light**, **Slate (dark)** or **High contrast** |
 | **Show the time of each message** | |
 
 ### Settings
@@ -541,6 +541,8 @@ published on the web, in the public repository's `docs/` folder.
 
 ### Light, dark and focus
 
-**Light or dark** in the ⋮ menu switches the theme; by default AlbertCode follows your system.
+**View → Theme** (or `/theme`) chooses the colours. AlbertCode starts in **Ember (dark)** until you
+choose another; **Match the system** follows your system's light or dark setting instead. The
+terminal shares the choice.
 **Focus mode** hides the sidebar for a wider conversation; the **☰** button brings it back. To keep
 your sessions in reach with the same room, [fold the sidebar](#folding-the-sidebar) instead.

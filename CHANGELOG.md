@@ -3,6 +3,26 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.54.2 — 2026-11-07
+
+- **Ember (dark) is the default theme.** A new installation opens in Ember, warm dark surfaces with
+  coral, in the browser workspace and the terminal alike, from the first run. A theme you chose stays
+  chosen, and **Match the system** still follows your system's light or dark setting. See
+  [Browser interface](docs/browser.md#light-dark-and-focus).
+- **Private keys are secrets wherever they sit.** SSH private keys under their standard names
+  (`id_rsa`, `id_ed25519`, `id_ecdsa`, `id_dsa`), PuTTY keys, Java keystores, KeePass databases and
+  plain-text logins such as `.netrc` and `.git-credentials` are never read, listed, searched or copied
+  into a task's isolated copy, in any folder. Public halves (`.pub`) are still read. See
+  [Security](docs/security.md).
+- **MCP sign-ins check where the answer came from.** A sign-in's answer must come from the server it
+  went to (RFC 9207), so a code from one server can no longer be sent to another's, and a sign-in that
+  is refused ends there.
+- **MCP sign-ins finish wherever they start.** A sign-in started in the terminal, or one whose page is
+  on another site, now completes instead of leaving the server on **Needs auth**. See
+  [MCP servers](docs/mcp.md).
+- **Current dependencies.** Pillow 13.0.0 and a current certificate bundle: the dependency audit finds
+  no known vulnerabilities.
+
 ## 1.54.1 — 2026-10-15
 
 - **The same words for every provider.** The browser workspace's **Connect a provider** dialog now
