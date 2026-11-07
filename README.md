@@ -280,6 +280,18 @@ One workspace, several projects, each at a different step: a plan waiting for yo
 finished change with its evidence, and the same tasks in the terminal. Every screen is from AlbertCode itself;
 the model's answers were scripted for these pictures.
 
+**Watch it work, in the browser**
+
+<img src="assets/demo/albertcode-browser.gif" alt="A recording of the browser workspace: a request to fix a discount bug is typed, AlbertCode reads the project and proposes a plan, the plan is approved, the agent builds and tests the change step by step in an isolated copy, the diff of cart.py and the new test is opened, and the change is accepted into the files." width="100%">
+
+<sub>Request, plan, build and test in an isolated copy, read the diff, accept. A little faster than life.</sub>
+
+**And in the terminal**
+
+<img src="assets/demo/albertcode-terminal.gif" alt="A recording of the terminal interface: the request is typed, the plan appears and is approved with one key, the agent works through its steps while the terminal shows each one, the change is ready with its test runs and reviews, its diff is read, and it is applied." width="100%">
+
+<sub>The same gates from the keyboard: approve, watch it work, read the diff, apply.</sub>
+
 <table>
 <tr>
 <td width="50%" valign="top">
@@ -306,7 +318,7 @@ the model's answers were scripted for these pictures.
 
 **3 · It shows you the exact diff**
 
-<img src="assets/readme/screen-diff.png" alt="The diff of the finished change in the inspector beside the conversation: the one-line fix in cart.py, with the new tests/test_checkout.py beside it, both still in the task's isolated copy." width="100%">
+<img src="assets/readme/screen-diff.png" alt="The diff of a finished change in the inspector, beside the conversation: the new tests/test_checkout.py and the one-line fix in cart.py, both still in the task's isolated copy, with the task ready to accept." width="100%">
 
 <sub>Built in an isolated copy of your repository, never in your working tree.</sub>
 
@@ -344,11 +356,11 @@ the model's answers were scripted for these pictures.
 <tr>
 <td width="50%" valign="top">
 
-**A plan, in the terminal**
+**The agent at work, in the terminal**
 
-<img src="assets/readme/screen-terminal-plan.png" alt="The weather-api plan in the terminal: the plan, its files, three steps, tests and risk, what it did to make it, and the choice to approve, revise, read the details or reject." width="100%">
+<img src="assets/readme/screen-terminal-working.png" alt="The agent at work in the terminal, in the cart-service project: implementation in progress, the steps done so far ticked off, and the one under way, editing cart.py, with the time it has taken." width="100%">
 
-<sub>Approve, revise or reject with one key.</sub>
+<sub>Every step as it happens, and Esc to stop it.</sub>
 
 </td>
 <td width="50%" valign="top">
@@ -363,16 +375,6 @@ the model's answers were scripted for these pictures.
 </tr>
 </table>
 
-<details>
-<summary><b>Watch the terminal walkthrough</b></summary>
-
-<br>
-
-<img src="assets/demo/albertcode-demo.gif" alt="The terminal interface, start to finish: a request is typed, AlbertCode reads the repository and proposes a plan, the plan is approved, the change is built in an isolated copy, tested and reviewed, and once accepted it is applied to the repository." width="100%">
-
-<sub>Recorded from <code>albertcode</code>, with the model's answers scripted to keep it short.</sub>
-
-</details>
 
 <br>
 
@@ -690,7 +692,6 @@ built with, where it lives, and how many routes, pages and data models it has; *
 opens to the files behind it, **How they connect** lists each connection and what shows it, and
 **Read it again** reads the repository afresh.
 
-<img src="assets/readme/screen-architecture.png" alt="The Architecture dialog in three columns: a Next.js app; a FastAPI server and Celery jobs; and what they rely on, NextAuth, Redis, PostgreSQL and Docker. Each card shows what the part is built with, where it lives, its routes, pages or models, and How it was found." width="100%">
 
 <br>
 
