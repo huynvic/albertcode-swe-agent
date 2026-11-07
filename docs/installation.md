@@ -54,7 +54,7 @@ $env:ALBERTCODE_INSTALL_ARGS = '--check'; irm https://raw.githubusercontent.com/
 | `--check` | Only check and show the plan |
 | `--yes` | Install without asking (scripts, CI) |
 | `--reinstall` | Install again even when this version is already installed |
-| `--version X.Y.Z` | Install that release instead of the latest |
+| `--version X.Y.Z` | Install exactly that version. Only the latest release stays published, so an older version can't be installed |
 | `--uninstall` | Remove AlbertCode (see below) |
 
 ## Updating
