@@ -10,8 +10,8 @@ You can read it inside AlbertCode too, offline: **Help → Search the guide…**
 
 1. [**Getting started**](getting-started.md): install, connect a model, and finish a first task in
    about five minutes.
-2. [**How AlbertCode works**](how-it-works.md): the service, the modes, a change's two approvals, tasks,
-   sessions, evidence, and what AlbertCode keeps where.
+2. [**How AlbertCode works**](how-it-works.md): the service, the modes, a change's two approvals,
+   several agents on one task, tasks, sessions, evidence, and what AlbertCode keeps where.
 3. [**Chatting with Albert**](chat.md): asking, changing, approving, sessions, chats grouped by topic,
    attachments.
 

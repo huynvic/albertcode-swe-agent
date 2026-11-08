@@ -33,3 +33,4 @@ The words AlbertCode uses, in one place.
 | **Task** | One change: its request, plan, build, checks, reviews and diff |
 | **Tool (saved)** | One of your commands, saved so the model can call it by name |
 | **Topic** | The thing a group of chats is about (a requirement, a test…), shown as one row in the sidebar |
+| **Work item** | One part of a change that Albert hands to an agent of its own, with the exact files it may change. See [Several agents on one task](how-it-works.md#several-agents-on-one-task) |
