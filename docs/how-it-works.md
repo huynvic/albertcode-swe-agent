@@ -83,6 +83,42 @@ Accepted changes are ordinary edits in your working tree. Review them with `git 
 and undo them with Git. A task you have not accepted can be thrown away with **Discard** in the
 browser, or `albertcode rollback <task>`, which deletes its isolated copy.
 
+## Several agents on one task
+
+Albert is the agent you talk to, but one task can use several. AlbertCode starts other agents for it
+in three places, each with less authority than Albert has, and every step they take is recorded on
+the task like Albert's own.
+
+**Questions answered in parallel.** When Albert needs several things found out before it can start
+(where something is handled, what calls a module, how this project does a thing), it can ask up to
+four questions at once. Each question goes to an agent of its own, and they work at the same time.
+Each answer is a short reply naming the files and lines that show it. These agents can only read:
+they cannot change anything, and they cannot start agents of their own. A question one of them
+cannot answer comes back saying so, and the task carries on. Albert can ask them while it plans a
+governed change, while it builds one, and in Direct.
+
+**Work split between agents.** A change made of independent parts can be split into up to six work
+items. Each names what it is for, the exact files it may change and what it depends on; items that
+touch the same files, or share an interface, are never built at the same time. Albert hands each
+item to an agent of its own, two at a time, in the order the dependencies allow:
+
+- Each agent works in a disposable copy of its own and may change only its item's files, within what
+  the [contract](contract.md) allows. An item that changes any other file, or deletes one, fails.
+- When an item fails, the items that depend on it are not started and nothing is changed.
+- When every item is done, their work is put together and a test run of your project checks the
+  whole. Only if it passes is the change written, the same way as any other edit: into the isolated
+  copy in Governed, where it is still verified and reviewed and waits for your approval, or into
+  your files in Direct, asking before each write when Direct asks.
+- An agent cannot pass its item on to more agents, and a task can split its work this way at most
+  three times.
+
+While this happens the activity reads **Organizing work by its dependencies** and **Coordinating
+isolated implementation work**, and the evidence names the work item behind each step.
+
+**Two reviews at once.** At the *thorough* pace, the security review and the quality review each
+read the finished change in a fresh conversation of their own that cannot change anything, and the
+two run at the same time. A small, low-risk change gets one reading that covers both.
+
 ## Tasks, sessions and topics
 
 - A **task** is one change: its request, plan, build, checks, reviews and diff. Tasks are listed on
