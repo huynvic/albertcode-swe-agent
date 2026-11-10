@@ -3,6 +3,21 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.55.1 — 2026-11-10
+
+- **Set up AlbertCode, from the editor.** The first time you start a thread with no model chosen (or after an
+  upgrade, which starts with none), Zed, JetBrains IDEs and other editors that speak the Agent Client Protocol
+  ask you to sign in. **Set up AlbertCode** opens a terminal that runs `albertcode --setup`: connect a provider,
+  choose a model, and go back to the editor. See [Other editors](docs/editors.md).
+- **`albertcode --setup`.** Choose the model AlbertCode answers with, in a terminal, then exit. See
+  [Terminal](docs/terminal.md).
+- **AlbertCode for editors.** Each release has a small download for each system, `albertcode-acp`, that an editor
+  runs to start AlbertCode. It finds AlbertCode even when the editor was started from the Dock or the Start menu,
+  and can install AlbertCode for you when it is missing. It is for the Agent Client Protocol's registry, where
+  editors list agents to add in one click.
+- **The VS Code extension in the stores.** Releases can now publish the extension to the Visual Studio
+  Marketplace and Open VSX (for Cursor, Windsurf and VSCodium), so it installs from the editor's Extensions view.
+
 ## 1.55.0 — 2026-11-10
 
 - **AlbertCode in Zed, JetBrains IDEs and other editors.** Add AlbertCode to an editor that speaks the Agent
