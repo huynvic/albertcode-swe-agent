@@ -23,6 +23,7 @@ You can read it inside AlbertCode too, offline: **Help → Search the guide…**
 | [Terminal](terminal.md) | `albertcode`: the terminal interface and the classic terminal, every option, command and subcommand, scripting, environment variables |
 | [Browser interface](browser.md) | The workspace: its menus, the inspector (changes, files, the app, its tests), the terminal, the command palette, every shortcut; and the classic page |
 | [VS Code](vscode.md) | Installing the extension, the panel, every command and setting |
+| [Other editors](editors.md) | Cursor, Windsurf and VSCodium; Zed, JetBrains IDEs, Neovim, Emacs and others through the Agent Client Protocol (`albertcode acp`) |
 | [Models](models.md) | Providers, local models, choosing and testing a model, pace, keys |
 
 ## What your app is made of, and what it must do

@@ -15,6 +15,9 @@ installed on your computer, so install AlbertCode first.
 
 Update the extension the same way when you update AlbertCode: the two are released together.
 
+The same file installs in Cursor, Windsurf, VSCodium and other editors built on VS Code; for Zed, JetBrains IDEs
+and other editors, see [Other editors](editors.md).
+
 ## The panel
 
 ```text

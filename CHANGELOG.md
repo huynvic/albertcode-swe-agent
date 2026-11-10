@@ -3,6 +3,20 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.55.0 — 2026-11-10
+
+- **AlbertCode in Zed, JetBrains IDEs and other editors.** Add AlbertCode to an editor that speaks the Agent
+  Client Protocol: the editor runs `albertcode acp`, and AlbertCode answers in its agent panel, on the same
+  sessions as the terminal and the browser. Zed and the JetBrains IDEs run it natively; Neovim, Emacs and
+  Sublime Text through their ACP plugins. See [Other editors](docs/editors.md).
+  - Governed, Direct and Ask only are the editor's modes.
+  - Both approvals are questions in the editor, with the change shown as the editor's own diff. A question
+    answered first in the terminal or browser is withdrawn from the editor.
+  - What Albert reads, searches, edits and runs shows as the editor's steps, the approved plan as its plan.
+    `/plan` and `/do` work as in the terminal, and sessions open again with their conversation.
+- **Cursor, Windsurf and VSCodium.** The AlbertCode extension installs in editors built on VS Code 1.95 or
+  later from the same `.vsix` file as VS Code.
+
 ## 1.54.2 — 2026-11-07
 
 - **Ember (dark) is the default theme.** A new installation opens in Ember, warm dark surfaces with
