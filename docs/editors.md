@@ -22,9 +22,9 @@ Cursor, Windsurf, VSCodium and other editors built on VS Code install the Albert
 3. In the editor, open **Extensions**, then **⋯ → Install from VSIX…**, and choose the file. Or, from a terminal:
 
 ```bash
-cursor --install-extension albertcode-1.55.0.vsix     # Cursor
-windsurf --install-extension albertcode-1.55.0.vsix   # Windsurf
-codium --install-extension albertcode-1.55.0.vsix     # VSCodium
+cursor --install-extension albertcode-1.55.1.vsix     # Cursor
+windsurf --install-extension albertcode-1.55.1.vsix   # Windsurf
+codium --install-extension albertcode-1.55.1.vsix     # VSCodium
 ```
 
 The extension uses only VS Code's standard features and needs a version built on VS Code 1.95 or later, which
@@ -38,8 +38,13 @@ build. The editor starts `albertcode acp`, and AlbertCode answers in the editor'
 ### Before you start
 
 1. Install AlbertCode ([Installation](installation.md)).
-2. Run `albertcode` once in a terminal and choose a model (`/model`). The editor uses the model AlbertCode is set
-   to; `albertcode models use <provider:model>` changes it, for the editor and every new session.
+2. Choose a model: run `albertcode --setup` in a terminal, or `albertcode` and type `/model`. The editor uses the
+   model AlbertCode is set to; `albertcode models use <provider:model>` changes it, for the editor and every new
+   session.
+
+If no model is chosen yet, the editor asks you to sign in the first time you start a thread, with **Set up
+AlbertCode**: it opens a terminal that runs `albertcode --setup`, and the editor carries on once a model is chosen.
+A new version of AlbertCode starts with no model chosen, so the editor asks again after an upgrade.
 
 ### Zed
 
@@ -101,6 +106,7 @@ command's full path instead of `albertcode`:
 
 | In AlbertCode | In the editor |
 |---|---|
+| **Choosing a model** | The editor's sign-in: **Set up AlbertCode** opens a terminal to choose one |
 | **Modes** (Governed, Direct asking each write, Direct auto, Ask only) | The editor's mode picker. A new session starts in Governed |
 | **Approval 1: the plan** | A question: **Approve and build**, or **Reject the plan**. The plan is shown with it, and its steps become the editor's plan |
 | **A write in Direct** | A question: **Allow**, **Allow the rest of this task**, or **Decline** |
@@ -124,7 +130,7 @@ The editor's own MCP servers are not passed to AlbertCode, which uses its own: s
 | What you see | What to do |
 |---|---|
 | The editor says the agent could not start | Run `albertcode acp` in a terminal. It waits silently for an editor: that is right (<kbd>Ctrl</kbd> <kbd>C</kbd> ends it). An error there says what is wrong. If the command is not found, see [If the editor cannot find `albertcode`](#if-the-editor-cannot-find-albertcode) |
-| "Choose a model first" | Run `albertcode` in a terminal and type `/model` |
+| "Authentication required" or "Choose a model first" | Choose **Set up AlbertCode** in the editor, or run `albertcode --setup` in a terminal |
 | "AlbertCode's service could not be reached" | `albertcode status`, then `albertcode` to start it |
 | An answer never comes | Open the same session in the terminal (`albertcode --resume`) or the browser: what it is doing is shown there |
 

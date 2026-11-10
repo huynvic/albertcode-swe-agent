@@ -40,6 +40,7 @@ instead.
 | `--mode MODE` | How a new session handles a request for a change: `governed`, `direct`, `direct_auto` or `ask` |
 | `--model NAME` | The model a new session uses, as `provider` or `provider:model` |
 | `--inline` | The terminal interface under your shell's last lines, not full screen |
+| `--setup` | Choose the model AlbertCode answers with, then exit: what an editor runs to set AlbertCode up (see [Other editors](editors.md)) |
 | `--ui` | Open the browser workspace, signed in, on this folder |
 | `--terminal` | Stay in the terminal (the default; useful when `ALBERTCODE_SURFACE=ui` is set) |
 | `--workspace PATH` | The repository to work on, instead of the current folder |
