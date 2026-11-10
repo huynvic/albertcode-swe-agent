@@ -5,6 +5,7 @@ The words AlbertCode uses, in one place.
 | Word | Meaning |
 |---|---|
 | **Accept** | Approval 2: apply a finished change to your repository. Refused if you edited a file it touches meanwhile |
+| **ACP (Agent Client Protocol)** | How an editor such as Zed or a JetBrains IDE runs a coding agent: `albertcode acp`. See [Other editors](editors.md) |
 | **Agent (custom)** | A role Albert works as, written in Markdown, which can only take tools away. See [Extending](extending.md#custom-agents) |
 | **Albert** | AlbertCode's agent: the one you talk to |
 | **Approval 1, approval 2** | The two points where a governed change waits for you: the plan, then the diff |

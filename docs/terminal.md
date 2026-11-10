@@ -21,6 +21,7 @@ bottom: a question, a change, or a `/command`.
 | Open one session | `albertcode --session 3f9c2a71` (its id, from `albertcode sessions`) |
 | Use the classic terminal | `albertcode classic` |
 | Open the browser workspace instead | `albertcode web`, or `albertcode --ui` |
+| Use it from Zed, a JetBrains IDE or another editor | The editor runs `albertcode acp`: see [Other editors](editors.md) |
 | Work on another folder | `albertcode --workspace ~/code/shop` |
 | See the version | `albertcode --version` |
 | Leave | `/exit`, or <kbd>Ctrl</kbd> <kbd>C</kbd> twice. Sessions and runs keep going |
@@ -324,6 +325,7 @@ Every step of a task is also a subcommand, so AlbertCode fits scripts and CI. Ea
 |---|---|
 | `albertcode classic` | The classic terminal: see [above](#the-classic-terminal) |
 | `albertcode web` | Open the browser workspace, signed in, on this folder |
+| `albertcode acp` | AlbertCode as an Agent Client Protocol agent, on standard input and output, for an editor to start: see [Other editors](editors.md) |
 | `albertcode run "<message>" [--lane LANE] [--approve GATES] [--json] [--timeout S]` | One request in a new session, without the interface: see [Sessions from a script](#sessions-from-a-script) |
 | `albertcode sessions [list\|show\|export\|import\|rename\|delete] [id] [file or title] [--search WORDS] [--json]` | The sessions the terminal and the browser share |
 | `albertcode models [list\|use\|test] [provider:model] [--json]` | Connected providers and their models; the one new sessions use; a check that it answers |

@@ -185,7 +185,9 @@ take `Install-AlbertCode-<version>-linux-x86_64.sh` and run `bash Install-Albert
 
 **VS Code extension.** Download `albertcode-<version>.vsix` from the
 [latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest), then in VS Code
-choose *Extensions → … → Install from VSIX*. Install AlbertCode itself first: the extension uses it.
+choose *Extensions → … → Install from VSIX*. Install AlbertCode itself first: the extension uses it. The
+same file installs in Cursor, Windsurf and VSCodium; for Zed, JetBrains IDEs and other editors, see
+[Other editors](docs/editors.md).
 
 **Installer options:** `--check` only shows the plan, `--yes` installs without asking (for scripts and
 CI), and `--version X.Y.Z` installs a specific release. On Windows, put options in
@@ -408,8 +410,8 @@ the model's answers were scripted for these pictures.
 <tr>
 <td width="50%" valign="top">
 <img src="assets/readme/icon-interfaces.svg" width="32" height="32" alt=""><br>
-<b>Three interfaces</b><br>
-<sub>Terminal (<code>albertcode</code>), browser (<code>albertcode web</code>) and VS Code, all driving the same local service.</sub>
+<b>Wherever you work</b><br>
+<sub>Terminal (<code>albertcode</code>), browser (<code>albertcode web</code>), VS Code, and Zed, JetBrains IDEs and other editors (<code>albertcode acp</code>), all driving the same local service.</sub>
 </td>
 <td width="50%" valign="top">
 <img src="assets/readme/icon-private.svg" width="32" height="32" alt=""><br>
@@ -457,18 +459,20 @@ the model's answers were scripted for these pictures.
 
 ## Using AlbertCode
 
-### Three interfaces, one agent
+### One agent, wherever you work
 
-All three use the same local service, so a task started in one can be followed in another. The
-terminal and the browser also share their sessions: one started in either is in the other at once.
+They all use the same local service, so a task started in one can be followed in another. The
+terminal, the browser and the editors that speak the Agent Client Protocol also share their sessions:
+one started in any of them is in the others at once.
 
 | Interface | Start it | Good for |
 |---|---|---|
 | **Terminal** | `albertcode` in your project folder | Working where you already are: your sessions, the conversation with its gates, and every list on one screen. `albertcode classic` opens the classic terminal |
 | **Browser** | `albertcode web` | Reading plans and diffs side by side, with your files, your app, its tests and a shell beside the conversation |
-| **VS Code** | The AlbertCode panel, or right-click a folder → *Open Here* | Staying in your editor |
+| **VS Code** | The AlbertCode panel, or right-click a folder → *Open Here* | Staying in your editor. The same extension runs in Cursor, Windsurf and VSCodium |
+| **Zed, JetBrains IDEs, Neovim, Emacs** | Add AlbertCode as an agent: the editor runs `albertcode acp` | Staying in your editor, with the gates as its own questions and the change as its own diff |
 
-See [Terminal](docs/terminal.md) and [Browser interface](docs/browser.md).
+See [Terminal](docs/terminal.md), [Browser interface](docs/browser.md) and [Other editors](docs/editors.md).
 
 <table>
 <tr>
@@ -840,6 +844,7 @@ offline: **Help → Search the guide…** in the browser, or `/docs` in the term
 | [**Terminal**](docs/terminal.md) | The full-screen interface and the classic terminal: every option, slash command and subcommand, scripting, environment variables |
 | [**Browser interface**](docs/browser.md) | The workspace, its menus and inspector, the command palette, every shortcut, Files and Terminal |
 | [**VS Code**](docs/vscode.md) | The extension, its panel, every command and setting |
+| [**Other editors**](docs/editors.md) | Cursor, Windsurf and VSCodium; Zed, JetBrains IDEs, Neovim, Emacs and others through the Agent Client Protocol |
 | [**Models**](docs/models.md) | Providers, local models, and what a model needs |
 | [**Architecture**](docs/architecture.md) | What a repository is made of, read from its own files |
 | [**Requirements**](docs/requirements.md) | What the app must do, as a checklist backed by evidence |

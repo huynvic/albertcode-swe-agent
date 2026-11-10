@@ -3,16 +3,17 @@
 This page explains the pieces you meet in every part of AlbertCode, and how they fit together. The
 other guides assume you know them.
 
-## One service, three ways in
+## One service, many ways in
 
-AlbertCode runs as a small **service on your own computer**. You talk to it through any of three
-interfaces, and they all see the same tasks, sessions and settings:
+AlbertCode runs as a small **service on your own computer**. You talk to it through any of these, and
+they all see the same tasks, sessions and settings:
 
 | Interface | Start it | Read |
 |---|---|---|
 | **Terminal** | `albertcode` in a project folder | [Terminal](terminal.md) |
 | **Browser** | `albertcode --ui` | [Browser interface](browser.md) |
 | **VS Code** | the AlbertCode panel in the activity bar | [VS Code](vscode.md) |
+| **Other editors** | Cursor, Windsurf and VSCodium with the same extension; Zed, JetBrains IDEs, Neovim, Emacs and others with `albertcode acp` | [Other editors](editors.md) |
 
 The first command you run starts the service in the background. It keeps running between sessions,
 so a task started in the browser can be followed in the terminal, and a run keeps going when you
