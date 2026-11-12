@@ -14,9 +14,10 @@ AlbertCode SWE Agent product itself.**
 The AlbertCode SWE Agent application is proprietary software. That includes the installers and
 packages attached to this repository's releases, and everything they install.
 
+- It is licensed under the [AlbertCode SWE Agent End User Licence Agreement](EULA.md): free to
+  install and use, including at work. By installing or using it, you agree to that agreement.
 - Its source code is not in this repository.
 - It is not covered by the Apache License, CC BY 4.0, or any other licence in this repository.
-- It is distributed under its own terms.
 
 ## Contributions
 

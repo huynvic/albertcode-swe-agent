@@ -96,6 +96,10 @@ what it will do and asks `Proceed? [Y/N]` before it changes anything. It install
 AlbertCode needs, including Python, for your user only. No pip, virtual environments or PATH
 editing. It takes a minute or two.
 
+AlbertCode is free to install and use. By installing or using it, you agree to its
+[End User Licence Agreement](EULA.md). AI output can be wrong: review and test every change before
+you accept it.
+
 > [!TIP]
 > When it finishes, **open a new terminal**, then check it:
 >
@@ -892,8 +896,9 @@ installer, examples and benchmark methodology welcome contributions. See
 
 <br>
 
-You use your own model provider account, or a free local model. AlbertCode doesn't charge for
-model usage.
+No. AlbertCode is free to install and use, including at work, under its
+[End User Licence Agreement](EULA.md). You use your own model provider account, under that
+provider's terms, or a free local model.
 
 </details>
 
@@ -920,8 +925,10 @@ model usage.
 
 ## License
 
-AlbertCode SWE Agent is proprietary software, and it isn't covered by the licences in this
-repository. Code in this repository is [Apache-2.0](LICENSE), and its documentation is
+AlbertCode SWE Agent is proprietary software, free to install and use under its
+[End User Licence Agreement](EULA.md). By installing or using it, you agree to that agreement. It
+isn't covered by the licences in this repository: code in this repository is
+[Apache-2.0](LICENSE), and its documentation is
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See [LICENSING.md](LICENSING.md).
 
 <div align="center">

@@ -40,8 +40,16 @@ With a local model, yes, once installed. Installing needs the network, and so do
 
 ## What does it cost?
 
-AlbertCode doesn't charge for model usage: you use your own provider account, or a local model.
-Terms for AlbertCode itself will be published with the first public release.
+Nothing. AlbertCode is free to install and use, including at work, under its
+[End User Licence Agreement](https://github.com/huynvic/albertcode-swe-agent/blob/main/EULA.md). It doesn't charge for model usage: you use your own provider
+account, under that provider's terms, or a local model.
+
+## Who is responsible for the code it writes?
+
+You are. AI output can be wrong, incomplete or insecure. AlbertCode's plan, isolated copy, checks
+and reviews reduce that risk, but they don't remove it, so review and test every change before you
+accept it, and before you deploy it. The code AlbertCode writes for you is yours. See the
+[End User Licence Agreement](https://github.com/huynvic/albertcode-swe-agent/blob/main/EULA.md), sections 3 and 4.
 
 ## Where are the benchmark results?
 
