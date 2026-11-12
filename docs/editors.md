@@ -22,9 +22,9 @@ Cursor, Windsurf, VSCodium and other editors built on VS Code install the Albert
 3. In the editor, open **Extensions**, then **⋯ → Install from VSIX…**, and choose the file. Or, from a terminal:
 
 ```bash
-cursor --install-extension albertcode-1.55.1.vsix     # Cursor
-windsurf --install-extension albertcode-1.55.1.vsix   # Windsurf
-codium --install-extension albertcode-1.55.1.vsix     # VSCodium
+cursor --install-extension albertcode-1.55.2.vsix     # Cursor
+windsurf --install-extension albertcode-1.55.2.vsix   # Windsurf
+codium --install-extension albertcode-1.55.2.vsix     # VSCodium
 ```
 
 The extension uses only VS Code's standard features and needs a version built on VS Code 1.95 or later, which

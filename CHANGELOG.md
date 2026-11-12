@@ -3,6 +3,17 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.55.2 — 2026-11-12
+
+- **An End User Licence Agreement.** AlbertCode is free to install and use, including at work, under its
+  [End User Licence Agreement](EULA.md). Your code, and the code AlbertCode writes for you, are yours. The
+  agreement ships with AlbertCode, and is the VS Code extension's licence.
+- **The installers show it before they ask.** After the plan, each installer shows the agreement and says that
+  answering Y accepts it. `--yes` accepts it for a script, and `--check` only shows it.
+- **AI can be wrong, said where you start.** The terminal, the browser workspace and `albertcode --setup` say
+  that AI output can be wrong, so you review every change before you accept it, and name the licence. See
+  [FAQ](docs/faq.md#who-is-responsible-for-the-code-it-writes).
+
 ## 1.55.1 — 2026-11-10
 
 - **Set up AlbertCode, from the editor.** The first time you start a thread with no model chosen (or after an
