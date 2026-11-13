@@ -1,7 +1,16 @@
 # Privacy
 
+Updated 13 November 2026
+
 AlbertCode SWE Agent runs on your machine. **It collects no telemetry, no analytics and no usage
 data, and it has no account to sign in to.** Nothing about you or your code is sent to AlbertCode.
+
+This notice covers the AlbertCode apps: the installers, the `albertcode` command and service, the
+terminal and browser interfaces, AlbertCode for editors and the VS Code extension. The website
+www.albertcode.dev has its own section of the [privacy page](https://www.albertcode.dev/privacy),
+which also shows this notice. Your use of AlbertCode is governed by its
+[End User Licence Agreement](EULA.md), and the [Disclaimer](DISCLAIMER.md) explains what AI output,
+and AlbertCode's information, can and cannot promise.
 
 ## Where your data goes
 
@@ -55,3 +64,11 @@ It sends nothing about your machine anywhere.
 
 Any change to what AlbertCode sends, or where it sends it, will be listed in this file and in the
 [changelog](CHANGELOG.md) before it ships.
+
+## Questions
+
+AlbertCode holds nothing about you, so there is nothing for us to give you, correct or delete: what
+it keeps stays on your machine, where you can remove it as described above. For anything else,
+contact Huy Nguyen through the GitHub account [huynvic](https://github.com/huynvic), for example as an
+issue in [albertcode-swe-agent](https://github.com/huynvic/albertcode-swe-agent/issues). Please do
+not post personal details, keys or private code in a public issue.
