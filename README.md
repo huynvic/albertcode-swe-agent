@@ -800,7 +800,8 @@ protection or your Linux keyring), and are never given to the commands AlbertCod
 </table>
 
 See the [security model](docs/security.md) and [PRIVACY.md](PRIVACY.md). To report a
-vulnerability, follow [SECURITY.md](SECURITY.md).
+vulnerability, follow [SECURITY.md](SECURITY.md). AI output can be wrong: the
+[Disclaimer](DISCLAIMER.md) says what AlbertCode can and cannot promise.
 
 <br>
 
@@ -926,7 +927,8 @@ provider's terms, or a free local model.
 ## License
 
 AlbertCode SWE Agent is proprietary software, free to install and use under its
-[End User Licence Agreement](EULA.md). By installing or using it, you agree to that agreement. It
+[End User Licence Agreement](EULA.md). By installing or using it, you agree to that agreement. See
+also the [Disclaimer](DISCLAIMER.md) and the [Privacy notice](PRIVACY.md). It
 isn't covered by the licences in this repository: code in this repository is
 [Apache-2.0](LICENSE), and its documentation is
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See [LICENSING.md](LICENSING.md).
