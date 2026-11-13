@@ -23,7 +23,9 @@ code never leaves your machine. See [PRIVACY.md](../PRIVACY.md).
 
 From version 1.56.0, it sends an anonymous usage count: once when you first run a new version, and
 at most once a day when you use it. A count holds only the version, your system, your computer's
-chip and the interface you used, with no ID, and nothing about you or your code. The counts are kept
+chip and the interface you used, with no ID, and nothing about you or your code. From 1.57.0, a
+count for a day you use it also says roughly how many of the last 30 days you used it (`1`, `2-5`,
+`6-15` or `16+`). The counts are kept
 private and never published, shared or sold. To turn counting off, run `albertcode telemetry off`,
 or set `ALBERTCODE_TELEMETRY=off` or `DO_NOT_TRACK=1`. See
 [Anonymous usage counts](../PRIVACY.md#anonymous-usage-counts).
