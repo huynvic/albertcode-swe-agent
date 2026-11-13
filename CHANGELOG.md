@@ -3,6 +3,14 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.57.0 — coming next
+
+- **How often AlbertCode is used, roughly.** A count for a day you use AlbertCode will also say how many of the last
+  30 days it was used on this computer, as a range: `1`, `2-5`, `6-15` or `16+`. The days themselves stay on your
+  computer, and there is still no ID. `albertcode telemetry off` turns this off with the rest. See
+  [Anonymous usage counts](PRIVACY.md#anonymous-usage-counts). The [End User Licence Agreement](EULA.md) is now
+  version 1.2, which adds this to section 6.
+
 ## 1.56.0 — 2026-11-13
 
 - **Anonymous usage counts.** AlbertCode sends a small anonymous count once when you first run a new version,

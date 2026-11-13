@@ -39,7 +39,7 @@ From version 1.56.0, AlbertCode sends a small anonymous count to our website, ww
 - once, the first time you run a new version (an *install* count), and
 - at most once a day, on a day you use it (an *active* count).
 
-A count holds only these five things:
+A count holds only these things:
 
 | What | Example |
 |---|---|
@@ -48,6 +48,10 @@ A count holds only these five things:
 | Your system | `linux`, `macos` or `windows` |
 | Your computer's chip | `x86_64` or `arm64` |
 | Where you used AlbertCode | `terminal`, `classic`, `browser`, `editor`, `setup` or `service` |
+| From version 1.57.0, on an *active* count only: how many of the last 30 days AlbertCode was used on this computer, as a range | `1`, `2-5`, `6-15` or `16+` |
+
+AlbertCode works out that range on your computer, from the days it was used in the last 30. Those
+days are kept only on your computer, and only the range is sent.
 
 It holds no ID, no account, no name for you or your computer, no file or folder names, no code, no
 prompts, no model or provider, and no keys. Counts can't be linked to each other or to you.
@@ -58,10 +62,10 @@ Vercel, and GitHub keeps the repository, both in the United States. Like any web
 each request, including the IP address it came from, and keeps those logs for a short time under
 its own policy.
 
-**What it is for.** Only to know how many people install and use AlbertCode, which versions and
-systems to support, and how that changes over time. The counts themselves are never published,
-shared or sold, and never combined with other data to identify anyone. We may mention overall
-totals, such as how many computers used AlbertCode in a month.
+**What it is for.** Only to know how many people install and use AlbertCode, how often it is
+used, which versions and systems to support, and how that changes over time. The counts themselves
+are never published, shared or sold, and never combined with other data to identify anyone. We may
+mention overall totals, such as how many computers used AlbertCode in a month.
 
 **Turning it off.** Any one of these stops every count:
 
@@ -86,6 +90,12 @@ nothing is retried, and AlbertCode works the same. Versions before 1.56.0 send n
   past work. `/tasks clear` deletes it.
 - **Task workspaces**: the isolated copies of your repository that tasks work in. `/cleanup`
   shows their size and clears them.
+- **Usage counting**, in a folder named `usage` inside AlbertCode's configuration folder
+  (`%APPDATA%\AlbertCode SWE Agent` on Windows, `~/Library/Application Support/AlbertCode SWE Agent`
+  on macOS, `~/.config/AlbertCode SWE Agent` on Linux): your choice to turn counting on or off,
+  whether you have seen the notice about counting, and, while counting is on, small empty markers
+  for each version that has run and each day AlbertCode was used in the last 30 days, so each is
+  counted once. Day markers older than 30 days are deleted.
 
 | System | Settings folder |
 |---|---|
