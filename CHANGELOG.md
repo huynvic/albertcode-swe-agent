@@ -3,14 +3,16 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
-## 1.56.0 — coming next
+## 1.56.0 — 2026-11-13
 
-- **Anonymous usage counts.** AlbertCode will send a small anonymous count once when you first run a new version,
+- **Anonymous usage counts.** AlbertCode sends a small anonymous count once when you first run a new version,
   and at most once a day when you use it: the version, your system, your computer's chip and the interface you used,
   with no ID, and nothing about you or your code. The counts are kept private and never published, shared or sold.
   `albertcode telemetry off`, `ALBERTCODE_TELEMETRY=off` or `DO_NOT_TRACK=1` turns counting off, and it is always off
   in CI. See [Anonymous usage counts](PRIVACY.md#anonymous-usage-counts). The
   [End User Licence Agreement](EULA.md) is now version 1.1, which describes them in section 6.
+- **Said before anything is sent.** The installer mentions the counts before it installs, and AlbertCode shows a
+  one-line notice the first time it starts. `albertcode telemetry status` says whether counts are sent, and why.
 
 ## 1.55.2 — 2026-11-12
 
