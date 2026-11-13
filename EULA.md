@@ -1,6 +1,6 @@
 # AlbertCode SWE Agent End User Licence Agreement
 
-Version 1.0 · Effective 12 November 2026
+Version 1.1 · Effective 13 November 2026
 
 This agreement is between you and Huy Nguyen ("we", "us"), the developer of AlbertCode SWE Agent.
 It covers AlbertCode SWE Agent: its installers, the `albertcode` command and service, the terminal
@@ -69,9 +69,13 @@ AlbertCode includes third-party software, which is licensed under its own terms,
 
 ## 6. Privacy
 
-AlbertCode runs on your machine. It collects no telemetry, analytics or usage data, and it has no
-account. Our [Privacy notice](https://github.com/huynvic/albertcode-swe-agent/blob/main/PRIVACY.md)
-explains where your data goes when you use a feature that needs a service.
+AlbertCode runs on your machine and has no account. It does not send your code, prompts or files
+to us. From version 1.56.0, it sends us anonymous usage counts: whether it was installed or used
+that day, its version, your system, your computer's chip and the interface you used, with no ID.
+We keep these counts private, and never sell or share them. You can turn them off with
+`albertcode telemetry off`. Our
+[Privacy notice](https://github.com/huynvic/albertcode-swe-agent/blob/main/PRIVACY.md) explains the
+counts, how to turn them off, and where your data goes when you use a feature that needs a service.
 
 ## 7. Other licences
 
@@ -149,6 +153,9 @@ Questions about this agreement, and notices under it, go to Huy Nguyen through t
 [albertcode-swe-agent](https://github.com/huynvic/albertcode-swe-agent/issues).
 
 ---
+
+Version 1.1 (13 November 2026) describes the anonymous usage counts sent from AlbertCode 1.56.0, in
+section 6. Version 1.0 took effect on 12 November 2026.
 
 Copyright © 2026 Huy Nguyen. All rights reserved. AlbertCode SWE Agent is proprietary software,
 licensed under this agreement, not sold.
