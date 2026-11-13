@@ -2,8 +2,11 @@
 
 Updated 13 November 2026
 
-AlbertCode SWE Agent runs on your machine. **It collects no telemetry, no analytics and no usage
-data, and it has no account to sign in to.** Nothing about you or your code is sent to AlbertCode.
+AlbertCode SWE Agent runs on your machine, with no account to sign in to. **Your code, your
+prompts and your files are never sent to us.** From version 1.56.0, AlbertCode sends an anonymous
+usage count, so we know how many people install and use it. A count has no ID and nothing about you
+or your code, we keep it private, and you can turn counting off. See
+[Anonymous usage counts](#anonymous-usage-counts).
 
 This notice covers the AlbertCode apps: the installers, the `albertcode` command and service, the
 terminal and browser interfaces, AlbertCode for editors and the VS Code extension. The website
@@ -14,7 +17,8 @@ and AlbertCode's information, can and cannot promise.
 
 ## Where your data goes
 
-Data leaves your machine only where a feature you use needs it:
+Apart from the anonymous usage count below, data leaves your machine only where a feature you use
+needs it:
 
 | What | Sent to | When |
 |---|---|---|
@@ -27,6 +31,49 @@ Data leaves your machine only where a feature you use needs it:
 Each provider and service handles what it receives under its own terms. Read your model provider's
 data-use policy before sending it private code. If you want no code to leave your machine, use a
 local model.
+
+## Anonymous usage counts
+
+From version 1.56.0, AlbertCode sends a small anonymous count to our website, www.albertcode.dev:
+
+- once, the first time you run a new version (an *install* count), and
+- at most once a day, on a day you use it (an *active* count).
+
+A count holds only these five things:
+
+| What | Example |
+|---|---|
+| What happened | `install` or `active` |
+| AlbertCode's version | `1.56.0` |
+| Your system | `linux`, `macos` or `windows` |
+| Your computer's chip | `x86_64` or `arm64` |
+| Where you used AlbertCode | `terminal`, `classic`, `browser`, `editor`, `setup` or `service` |
+
+It holds no ID, no account, no name for you or your computer, no file or folder names, no code, no
+prompts, no model or provider, and no keys. Counts can't be linked to each other or to you.
+
+**Where it goes.** The website receives the count and keeps it, without your IP address, in a
+private repository on GitHub that only AlbertCode's developer can read. The website is hosted by
+Vercel, and GitHub keeps the repository, both in the United States. Like any web host, Vercel logs
+each request, including the IP address it came from, and keeps those logs for a short time under
+its own policy.
+
+**What it is for.** Only to know how many people install and use AlbertCode, which versions and
+systems to support, and how that changes over time. The counts themselves are never published,
+shared or sold, and never combined with other data to identify anyone. We may mention overall
+totals, such as how many computers used AlbertCode in a month.
+
+**Turning it off.** Any one of these stops every count:
+
+- run `albertcode telemetry off` (`albertcode telemetry on` turns it back on, and
+  `albertcode telemetry status` shows which it is). Your choice is kept when you update AlbertCode;
+- set the environment variable `ALBERTCODE_TELEMETRY=off`;
+- set the environment variable `DO_NOT_TRACK=1`.
+
+AlbertCode never sends counts from CI (where the `CI` environment variable is set). The installer
+tells you about counting before it installs AlbertCode, and AlbertCode tells you again the first
+time it starts. If a count can't be sent, for example offline or behind a firewall, it is dropped:
+nothing is retried, and AlbertCode works the same. Versions before 1.56.0 send no counts.
 
 ## What is kept on your machine
 
@@ -58,7 +105,7 @@ The installer downloads from:
 - if needed, a Python build, Git (through winget, Homebrew or your Linux package manager), and a
   browser for the browser tools.
 
-It sends nothing about your machine anywhere.
+The installer itself sends nothing about your machine anywhere.
 
 ## Changes
 
@@ -67,8 +114,10 @@ Any change to what AlbertCode sends, or where it sends it, will be listed in thi
 
 ## Questions
 
-AlbertCode holds nothing about you, so there is nothing for us to give you, correct or delete: what
-it keeps stays on your machine, where you can remove it as described above. For anything else,
+AlbertCode holds nothing about you. What it keeps stays on your machine, where you can remove it as
+described above, and the usage counts carry nothing that could tell us which counts are yours, so
+we can't find, correct or delete them for one person: turn counting off to stop sending them. For
+anything else,
 contact Huy Nguyen through the GitHub account [huynvic](https://github.com/huynvic), for example as an
 issue in [albertcode-swe-agent](https://github.com/huynvic/albertcode-swe-agent/issues). Please do
 not post personal details, keys or private code in a public issue.

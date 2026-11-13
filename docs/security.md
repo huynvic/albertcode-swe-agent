@@ -13,7 +13,8 @@ This describes the current version of AlbertCode. Run `albertcode --version` to 
   belong to.
 - Nothing reaches your files until you approve it.
 - AlbertCode keeps its data in folders only you can read.
-- There's no telemetry and no account.
+- There's no account. AlbertCode sends only an anonymous usage count, with no ID and nothing about
+  you or your code, and you can turn it off. See [Privacy](../PRIVACY.md#anonymous-usage-counts).
 
 ## Only AlbertCode can use its service
 

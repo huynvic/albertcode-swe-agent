@@ -179,7 +179,7 @@ its own limits. See [The contract](contract.md).
 To work on your code, AlbertCode sends your chosen model the parts of the repository a task needs,
 and your messages. Keys are never sent: provider keys go only to their own provider, and anything
 that looks like a secret is masked before a model sees it. Files that look like they hold secrets,
-such as `.env` and private keys, are never read. With a local model, nothing leaves your computer.
+such as `.env` and private keys, are never read. With a local model, your code never leaves your computer.
 See [Models](models.md) and the [security model](security.md).
 
 ## The pages for building whole systems

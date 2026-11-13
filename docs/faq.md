@@ -16,8 +16,17 @@ parts of it are open to contributions:
 ## Does it send my code anywhere?
 
 Only to the model provider you choose, because the model needs to read the code to work on it.
-AlbertCode itself collects no telemetry and has no account to sign in to. With a local model, your
+AlbertCode has no account to sign in to, and never sends your code to us. With a local model, your
 code never leaves your machine. See [PRIVACY.md](../PRIVACY.md).
+
+## Does AlbertCode collect usage data?
+
+From version 1.56.0, it sends an anonymous usage count: once when you first run a new version, and
+at most once a day when you use it. A count holds only the version, your system, your computer's
+chip and the interface you used, with no ID, and nothing about you or your code. The counts are kept
+private and never published, shared or sold. To turn counting off, run `albertcode telemetry off`,
+or set `ALBERTCODE_TELEMETRY=off` or `DO_NOT_TRACK=1`. See
+[Anonymous usage counts](../PRIVACY.md#anonymous-usage-counts).
 
 ## Which models can I use?
 

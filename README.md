@@ -420,7 +420,7 @@ the model's answers were scripted for these pictures.
 <td width="50%" valign="top">
 <img src="assets/readme/icon-private.svg" width="32" height="32" alt=""><br>
 <b>Private by default</b><br>
-<sub>It runs on your machine, with no account and no telemetry.</sub>
+<sub>It runs on your machine, with no account. Your code goes only to the model you choose.</sub>
 </td>
 </tr>
 <tr>
@@ -785,7 +785,8 @@ Linux, `%LOCALAPPDATA%\AlbertCode\install.log` on Windows.
 **Your code** goes only to the model provider you choose. With a local model, it never leaves your
 machine.
 
-**No telemetry and no account.**
+**No account.** AlbertCode sends only an anonymous usage count, with no ID and nothing about you or
+your code, and `albertcode telemetry off` stops it. See [Privacy](PRIVACY.md#anonymous-usage-counts).
 
 </td>
 <td width="50%" valign="top">
