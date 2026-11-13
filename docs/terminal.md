@@ -442,7 +442,8 @@ can't find it, your shell profile sets your `PATH` (a version manager does this)
 
 AlbertCode sends an anonymous usage count once when you first run a new version, and at most once
 a day when you use it: the version, your system, your computer's chip and the interface, with no ID
-and nothing about you or your code. See
+and nothing about you or your code. A count for a day you use it also says roughly how many of the
+last 30 days you used it (`1`, `2-5`, `6-15` or `16+`). See
 [Anonymous usage counts](../PRIVACY.md#anonymous-usage-counts).
 
 ```bash
