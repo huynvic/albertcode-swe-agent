@@ -344,6 +344,7 @@ Every step of a task is also a subcommand, so AlbertCode fits scripts and CI. Ea
 | `albertcode checks [list\|install] [language]` | Which languages edits are checked in; install a checker |
 | `albertcode mcp …` | Manage MCP servers: see [below](#albertcode-mcp) |
 | `albertcode doctor` | Which build tools AlbertCode can see (node, npm, python3, pytest, git, go, cargo, dotnet…), and where |
+| `albertcode telemetry [status\|on\|off]` | Whether AlbertCode sends its anonymous usage counts, and why; turn them on or off. See [below](#albertcode-telemetry) |
 | `albertcode stop` | Stop the background service, freeing its database and files |
 | `albertcode uninstall [--check] [--yes] [--all]` | Remove AlbertCode. `--check` shows what would go; `--all` also removes settings, saved keys, sign-ins and task history |
 | `albertcode configure …`, `login …`, `logout …`, `profiles` | [Profiles](#profiles-the-older-way) |
@@ -436,6 +437,21 @@ Shows the folders AlbertCode searches for tools, then each build tool it looks f
 when tests don't run, or run with the wrong tool. If a tool works in your own terminal but doctor
 can't find it, your shell profile sets your `PATH` (a version manager does this): run
 `albertcode stop`, then start `albertcode` again from that terminal.
+
+### `albertcode telemetry`
+
+AlbertCode sends an anonymous usage count once when you first run a new version, and at most once
+a day when you use it: the version, your system, your computer's chip and the interface, with no ID
+and nothing about you or your code. See
+[Anonymous usage counts](../PRIVACY.md#anonymous-usage-counts).
+
+```bash
+albertcode telemetry            # on or off, and why
+albertcode telemetry off        # stop sending counts; kept when you update
+albertcode telemetry on         # send them again
+```
+
+`ALBERTCODE_TELEMETRY=off` or `DO_NOT_TRACK=1` also turns counting off, and it is always off in CI.
 
 ### Profiles (the older way)
 
