@@ -70,9 +70,15 @@ This applies to model provider keys and to sign-ins for MCP servers.
   only what that step needs. See [PRIVACY.md](../PRIVACY.md) for everything AlbertCode sends, and where.
 - **Outside sites are asked about first.** AlbertCode reads a page without asking only when it is on
   its list of documentation sites, came back from a search it ran, or is a link you pasted yourself.
-  For any other site, Direct mode asks you first; a governed task does not read it.
+  For any other site, Direct mode asks you first, once (a site you decline is not asked about again);
+  a governed task does not read it. A link written in a command file is asked about, not taken as yours.
 - **Its browser has no window.** Checking a page uses AlbertCode's own headless browser, so nothing
   opens over your work and your own browser profile is never used.
+- **Git stays inside your repository.** Nothing is written inside `.git` (or `.hg`, `.svn`), by the
+  agent or by applying a change: a file there could run a program the next time Git runs. A Git
+  command that would read, write or run something outside the repository, such as
+  `git diff /etc/hosts app.py` or `git -c core.fsmonitor=… status`, is refused, and never put to you
+  as a question.
 - **Direct mode** works in your files themselves, and you choose whether it asks before each
   write. Use governed mode when you want the isolated copy and both approvals.
 

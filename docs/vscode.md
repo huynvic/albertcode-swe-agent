@@ -55,7 +55,7 @@ See [Chatting with Albert](chat.md) for what each one does.
 
 Albert works in the folder open in VS Code: with several open, the one holding the file you are
 editing, else the first. To work in another folder or a subfolder, right-click it in the Explorer and
-choose **AlbertCode SWE Agent: Open Here**.
+choose **Open in AlbertCode SWE Agent**.
 
 ## Slash commands in the panel
 
@@ -107,7 +107,7 @@ Open the command palette (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>Shift</kbd> <kbd>P
 | **Documentation** | Open this documentation on the web |
 | **Check Service** | Whether the AlbertCode service is reachable |
 | **Configure Enterprise API Key** | The key for a shared AlbertCode service your organisation runs |
-| **Open Here** | Work in the folder you right-clicked (Explorer menu) |
+| **Open in AlbertCode SWE Agent** | Work in the folder you right-clicked (Explorer menu) |
 
 ## Settings
 

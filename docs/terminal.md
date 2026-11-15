@@ -95,6 +95,8 @@ what Albert does shows in both as it happens.
 | `/model`, `/mode` | The model for this session; the mode: `governed`, `direct`, `auto` or `ask`. Also `/models` | `/mode ask` |
 | `/agent`, `/agents` | Work as one of this repository's custom agents | |
 | `/connect` | Connect a model provider | |
+| `/disconnect [provider\|all]` | Remove a provider's saved key from this computer, or every saved key | `/disconnect all` |
+| `/cleanup [all]` | How much disk the isolated task copies use, and clear the ones not running. Also `/disk` | `/cleanup` |
 | `/mcp` | MCP servers: on or off, reconnect, sign in, remove; add a connector, import from JSON; use a prompt or resource | |
 | `/tasks [clear]` | Every task by where it stands; open one to answer its gate. Also `/task` | `/tasks` |
 | `/ledger [task <id>]` | The evidence ledger, and whether its chain holds. Also `/evidence`, `/audit` | `/ledger task 3f2a91c0` |
@@ -112,7 +114,7 @@ what Albert does shows in both as it happens.
 | `/rename [title]`, `/fork` | Rename this session; a new session holding its messages | `/rename Euro prices` |
 | `/export [file]`, `/import <file>` | Save this session as a JSON file; open one saved that way | `/export euros.json` |
 | `/attach <paths>` | Attach files to your next message. `/attach clear` drops them | `/attach logs/*.txt shot.png` |
-| `/theme`, `/speed [fast\|balanced\|thorough]` | Colours (Ember, dark, until you choose another; shared with the browser); how much the model thinks at each step. Also `/themes` | `/speed thorough` |
+| `/theme`, `/speed [fast\|balanced\|thorough]` | Colours (Ember, dark, until you choose another; shared with the browser); how much the model thinks at each step. Also `/themes`, `/pace` | `/speed thorough` |
 | `/details`, `/timestamps`, `/sidebar` | Every step of the tasks here; the time of each message; the sidebar | |
 | `/web` | Open this session in the browser workspace | |
 | `/status` | The service, the engine and what is connected. Also `/doctor` | |

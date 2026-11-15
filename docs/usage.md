@@ -8,7 +8,7 @@ The short version of everything. Each section links to its full guide.
 |---|---|---|---|
 | Terminal | `albertcode` | Working where you already are; scripts and CI | [Terminal](terminal.md) |
 | Browser | `albertcode --ui` | Plans and diffs side by side; several sessions at once | [Browser interface](browser.md) |
-| VS Code | The AlbertCode panel | Staying in the editor; right-click a folder → *Open Here*. Also in Cursor, Windsurf and VSCodium | [VS Code](vscode.md) |
+| VS Code | The AlbertCode panel | Staying in the editor; right-click a folder → *Open in AlbertCode SWE Agent*. Also in Cursor, Windsurf and VSCodium | [VS Code](vscode.md) |
 | Zed, JetBrains IDEs, Neovim, Emacs | Add AlbertCode as an agent; the editor runs `albertcode acp` | Staying in the editor, with the gates as its own questions | [Other editors](editors.md) |
 
 They all talk to the same local service, so a task started in one can be followed in another. See
