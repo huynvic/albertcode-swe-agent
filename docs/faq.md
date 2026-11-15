@@ -15,8 +15,10 @@ parts of it are open to contributions:
 
 ## Does it send my code anywhere?
 
-Only to the model provider you choose, because the model needs to read the code to work on it.
-AlbertCode has no account to sign in to, and never sends your code to us. With a local model, your
+To the model provider you choose, because the model needs to read the code to work on it. A task
+can also search the web, read documentation pages, and use MCP servers you added, each with only
+what that step needs; AlbertCode asks before reading a site you did not link to. AlbertCode has no
+account to sign in to, and never sends your code to us. With a local model, your
 code never leaves your machine. See [PRIVACY.md](../PRIVACY.md).
 
 ## Does AlbertCode collect usage data?
@@ -64,8 +66,9 @@ accept it, and before you deploy it. The code AlbertCode writes for you is yours
 
 ## Where are the benchmark results?
 
-None have been published yet. The [benchmarks](../benchmarks/README.md) page explains how they will
-be reported, and that self-reported and independently verified results will be kept apart.
+One self-reported result is published: 39 of the 51 hardest SWE-bench Pro tasks. The
+[benchmarks](../benchmarks/README.md) page has it, how results are reported, and why self-reported and
+independently verified results are kept apart.
 
 ## How do I report a security problem?
 

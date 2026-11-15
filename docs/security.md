@@ -11,7 +11,8 @@ This describes the current version of AlbertCode. Run `albertcode --version` to 
 - Only AlbertCode itself can use the service it runs on your computer.
 - Your keys are kept by your operating system's own protection, and go only to the provider they
   belong to.
-- Nothing reaches your files until you approve it.
+- In governed mode, nothing reaches your files until you approve it. In Direct mode you choose
+  whether each write asks first or is carried out without asking.
 - AlbertCode keeps its data in folders only you can read.
 - There's no account. AlbertCode sends only an anonymous usage count, with no ID and nothing about
   you or your code, and you can turn it off. See [Privacy](../PRIVACY.md#anonymous-usage-counts).
@@ -64,8 +65,14 @@ This applies to model provider keys and to sign-ins for MCP servers.
   before it's applied.
 - **Your newer edits are never overwritten.** If you changed a file the task also changed,
   applying the change is refused.
-- **Code goes only to the model provider you choose.** With a local model, it stays on your
-  computer. See [PRIVACY.md](../PRIVACY.md) for everything AlbertCode sends, and where.
+- **Code goes to the model provider you choose.** With a local model, it stays on your computer.
+  A task can also search the web, read documentation pages and use MCP servers you added; each gets
+  only what that step needs. See [PRIVACY.md](../PRIVACY.md) for everything AlbertCode sends, and where.
+- **Outside sites are asked about first.** AlbertCode reads a page without asking only when it is on
+  its list of documentation sites, came back from a search it ran, or is a link you pasted yourself.
+  For any other site, Direct mode asks you first; a governed task does not read it.
+- **Its browser has no window.** Checking a page uses AlbertCode's own headless browser, so nothing
+  opens over your work and your own browser profile is never used.
 - **Direct mode** works in your files themselves, and you choose whether it asks before each
   write. Use governed mode when you want the isolated copy and both approvals.
 
