@@ -266,8 +266,11 @@ Give Albert screenshots, logs, documents and other files with your message.
 | Terminal | `/attach <paths>`: one or more paths, globs work (`/attach logs/*.txt screenshot.png`). `/attach` alone lists what is waiting; `/attach clear` drops it |
 
 Files up to 500 MB are accepted. What you attach goes with your next message only. Pictures reach
-the model as pictures when the model accepts images; when it doesn't, AlbertCode tells you rather
-than letting the model guess.
+the model as pictures when the model accepts images: PNG, JPEG, GIF, WebP, BMP, TIFF, ICO, AVIF and
+SVG (an SVG also gives its source). Large pictures are scaled down to fit, and one of more than
+50 million pixels is refused rather than decoded; an animation shows its first frame. When a picture
+cannot be shown (a damaged file, an iPhone HEIC photo this computer cannot decode, or a model that
+does not take images), AlbertCode says so rather than letting the model guess.
 
 ## Models
 

@@ -113,8 +113,9 @@ given to the commands AlbertCode runs, and never shown to a model. See the
 | Remove one key | `/disconnect` | **Disconnect a Provider** |
 | Remove every key | `/disconnect all` | **Remove All Saved Keys** |
 
-In the browser, **Settings…** → **Providers** has the same; on the classic page, **Models and keys** in the ⋮
-menu has it, plus the advanced settings.
+In the browser, **Settings…** → **Providers** connects a provider and changes its key, and **Change** →
+**Remove key** removes it from this computer. On the classic page, **Models and keys** in the ⋮ menu removes keys
+too, plus the advanced settings.
 
 Updating AlbertCode clears saved keys the first time the new version starts: run `/connect` again.
 
