@@ -1,6 +1,6 @@
 # Privacy
 
-Updated 13 November 2026
+Updated 15 November 2026
 
 AlbertCode SWE Agent runs on your machine, with no account to sign in to. **Your code, your
 prompts and your files are never sent to us.** From version 1.56.0, AlbertCode sends an anonymous
@@ -24,7 +24,7 @@ needs it:
 |---|---|---|
 | The parts of your repository a task needs, your requests, and attached files | The model provider you connected | Whenever the model works on a task or a chat. With a local model, this stays on your machine. |
 | Search queries | DuckDuckGo, or a search service you configured with your own key | When a task searches the web |
-| Requests for documentation pages | The documentation site | When a task reads documentation |
+| Requests for web pages (the address only: no sign-in, nothing else) | That site | When a task reads a page from AlbertCode's list of documentation sites, a page a search returned, a link you pasted, or a site you allowed when AlbertCode asked (from version 1.57.1 it asks before any other site) |
 | Whatever an MCP server's tools are given | That MCP server | When a task uses one of its tools |
 | A task's evidence summary | GitHub | Only if you ask AlbertCode to post it to a pull request, with your token |
 
@@ -81,7 +81,7 @@ nothing is retried, and AlbertCode works the same. Versions before 1.56.0 send n
 
 ## What is kept on your machine
 
-- **Settings**, in AlbertCode's settings folder. The provider keys and MCP sign-ins you saved are
+- **Settings**, in AlbertCode's two settings folders (below). The provider keys and MCP sign-ins you saved are
   kept by your system's own protection: the macOS Keychain, Windows data protection, or your Linux
   desktop keyring. Without a keyring, they go in a file only your user can read. Keys are sent
   only to the provider they belong to. `/disconnect all` removes every saved key. See
@@ -97,13 +97,15 @@ nothing is retried, and AlbertCode works the same. Versions before 1.56.0 send n
   for each version that has run and each day AlbertCode was used in the last 30 days, so each is
   counted once. Day markers older than 30 days are deleted.
 
-| System | Settings folder |
-|---|---|
-| Windows | `%LOCALAPPDATA%\AlbertCode SWE Agent` |
-| macOS | `~/Library/Application Support/AlbertCode SWE Agent` |
-| Linux | `~/.local/share/AlbertCode SWE Agent` |
+| System | Data folder | Configuration folder |
+|---|---|---|
+| Windows | `%LOCALAPPDATA%\AlbertCode SWE Agent` | `%APPDATA%\AlbertCode SWE Agent` |
+| macOS | `~/Library/Application Support/AlbertCode SWE Agent` | the same folder |
+| Linux | `~/.local/share/AlbertCode SWE Agent` | `~/.config/AlbertCode SWE Agent` |
 
-Uninstalling leaves this folder in place. Delete it to remove everything AlbertCode kept.
+The data folder holds task history, task workspaces and the service's settings; the configuration
+folder holds the terminal's settings and the usage folder. Uninstalling leaves both in place. Delete
+both to remove everything AlbertCode kept (`albertcode uninstall --all` does, along with saved keys).
 
 ## The installer
 

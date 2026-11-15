@@ -3,6 +3,24 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.57.1 — coming next
+
+A quality release, from a review of the whole product.
+
+- **No browser windows over your work.** The browser tools use AlbertCode's own windowless browser; the Playwright
+  and Chrome DevTools connectors start without a window and with a throwaway profile.
+- **Asked before reading outside sites.** A link you paste is read. A documentation site on AlbertCode's list, or a
+  page a search found, is read as before. Any other site is put to you first in Direct mode. See
+  [Where your data goes](PRIVACY.md#where-your-data-goes).
+- **More pictures reach the model**: BMP, TIFF, ICO, AVIF and SVG; a damaged picture or an iPhone HEIC photo that
+  cannot be decoded is said plainly.
+- **Safer**: searches never return lines from secret files; nothing is written inside `.git`; a failing test can no
+  longer pass as skipped; the page viewer stays inside your repository.
+- **More reliable**: accepting a change is all or nothing; a saved key is no longer lost on first start on Linux.
+- **Terminal**: `/disconnect`, `/cleanup` and `/pace` are in the terminal interface.
+- **Privacy**: the installer's own check of the install sends no usage count, and an editor counts only after the
+  notice has been shown.
+
 ## 1.57.0 — 2026-11-13
 
 - **How often AlbertCode is used, roughly.** A count for a day you use AlbertCode now also says how many of the last
