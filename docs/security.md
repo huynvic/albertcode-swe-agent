@@ -71,6 +71,7 @@ This applies to model provider keys and to sign-ins for MCP servers.
 - **Outside sites are asked about first.** AlbertCode reads a page without asking only when it is on
   its list of documentation sites, came back from a search it ran, or is a link you pasted yourself.
   For any other site, Direct mode asks you first, once (a site you decline is not asked about again);
+  in Ask mode the agent asks in its reply, with the full address, and reads it only if you answer yes;
   a governed task does not read it. A link written in a command file is asked about, not taken as yours.
 - **Its browser has no window.** Checking a page uses AlbertCode's own headless browser, so nothing
   opens over your work and your own browser profile is never used.

@@ -26,9 +26,9 @@ To install a release's file instead, download `albertcode-<version>.vsix` from t
 **⋯ → Install from VSIX…** and the file. Or, from a terminal:
 
 ```bash
-cursor --install-extension albertcode-1.57.2.vsix     # Cursor
-windsurf --install-extension albertcode-1.57.2.vsix   # Windsurf
-codium --install-extension albertcode-1.57.2.vsix     # VSCodium
+cursor --install-extension albertcode-1.58.0.vsix     # Cursor
+windsurf --install-extension albertcode-1.58.0.vsix   # Windsurf
+codium --install-extension albertcode-1.58.0.vsix     # VSCodium
 ```
 
 The extension uses only VS Code's standard features and needs a version built on VS Code 1.95 or later, which

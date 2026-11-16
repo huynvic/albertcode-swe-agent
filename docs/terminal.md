@@ -328,6 +328,7 @@ Every step of a task is also a subcommand, so AlbertCode fits scripts and CI. Ea
 |---|---|
 | `albertcode classic` | The classic terminal: see [above](#the-classic-terminal) |
 | `albertcode web` | Open the browser workspace, signed in, on this folder |
+| `albertcode start` | Start AlbertCode's service in the background if it is not running, then exit. The VS Code panel runs it for you |
 | `albertcode acp` | AlbertCode as an Agent Client Protocol agent, on standard input and output, for an editor to start: see [Other editors](editors.md) |
 | `albertcode run "<message>" [--lane LANE] [--approve GATES] [--json] [--timeout S]` | One request in a new session, without the interface: see [Sessions from a script](#sessions-from-a-script) |
 | `albertcode sessions [list\|show\|export\|import\|rename\|delete] [id] [file or title] [--search WORDS] [--json]` | The sessions the terminal and the browser share |

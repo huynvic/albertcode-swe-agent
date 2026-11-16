@@ -6,12 +6,15 @@ installed on your computer, so install AlbertCode first.
 
 ## Install the extension
 
-1. Install AlbertCode ([Installation](installation.md)) and run `albertcode` once in a terminal, so
-   its service is running.
-2. In VS Code, open **Extensions**, search for **AlbertCode SWE Agent**, and click **Install**. It comes
+1. In VS Code, open **Extensions**, search for **AlbertCode SWE Agent**, and click **Install**. It comes
    from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=huynvic.albertcode)
    and VS Code keeps it up to date.
-3. The AlbertCode icon appears in the activity bar. Click it to open the panel.
+2. Open your project folder, and click the AlbertCode icon in the activity bar to open the panel. To keep it
+   on the right, beside Chat, drag the icon into the right-hand side bar.
+3. The panel starts AlbertCode for you and connects in a few seconds. If AlbertCode is not installed yet,
+   click **Install AlbertCode** on the panel's top line: the installer ([Installation](installation.md)) runs
+   in a terminal and asks `Proceed? [Y/N]`, and the panel connects by itself when it is done.
+4. Click the model chip under the message box (or type `/connect`), pick a provider and paste its key.
 
 Keep AlbertCode itself up to date too: the extension and AlbertCode are released together.
 

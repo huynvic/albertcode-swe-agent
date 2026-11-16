@@ -3,6 +3,24 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.58.0 — 2026-11-16
+
+- **The VS Code panel starts AlbertCode.** Open the AlbertCode panel and it starts AlbertCode for you and connects
+  in a few seconds: no terminal and no window reload.
+- **Install AlbertCode from the panel.** If AlbertCode is not on your computer yet, the panel says so with an
+  **Install AlbertCode** button; the installer runs in a terminal and asks before it changes anything, and the
+  panel connects by itself once it is done.
+- **Connect a model in the panel.** Click the model chip (or type `/connect`), pick a provider and paste its key.
+- **How to use**, at the top of the extension's page on the VS Code Marketplace and Open VSX. See
+  [VS Code](docs/vscode.md).
+- **`albertcode start`.** Starts AlbertCode in the background if it is not running, then exits. It is what the
+  panel runs; see [Terminal](docs/terminal.md).
+- **Looking things up works for the person asking.** When the built-in web search is busy, AlbertCode asks again
+  before giving up. If it is still busy, AlbertCode says so and suggests trying again in a minute or pasting the
+  link; on your own computer it no longer tells you to set environment variables. In Ask mode, a site that is not a
+  documentation site and did not come from a search or from you is asked about in the reply, with its full
+  address, and read once you answer yes. See [Security](docs/security.md).
+
 ## 1.57.2 — 2026-11-16
 
 - **The VS Code extension shows its licence.** Open VSX showed it as "UNLICENSED"; it now shows
