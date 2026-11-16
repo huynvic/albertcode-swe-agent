@@ -8,15 +8,20 @@ installed on your computer, so install AlbertCode first.
 
 1. Install AlbertCode ([Installation](installation.md)) and run `albertcode` once in a terminal, so
    its service is running.
-2. Download `albertcode-<version>.vsix` from the
-   [latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest).
-3. In VS Code, open **Extensions**, then **⋯ → Install from VSIX…**, and choose the file.
-4. The AlbertCode icon appears in the activity bar. Click it to open the panel.
+2. In VS Code, open **Extensions**, search for **AlbertCode SWE Agent**, and click **Install**. It comes
+   from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=huynvic.albertcode)
+   and VS Code keeps it up to date.
+3. The AlbertCode icon appears in the activity bar. Click it to open the panel.
 
-Update the extension the same way when you update AlbertCode: the two are released together.
+Keep AlbertCode itself up to date too: the extension and AlbertCode are released together.
 
-The same file installs in Cursor, Windsurf, VSCodium and other editors built on VS Code; for Zed, JetBrains IDEs
-and other editors, see [Other editors](editors.md).
+To install a release's file instead (for a machine without the Marketplace), download
+`albertcode-<version>.vsix` from the
+[latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest), then choose **Extensions**,
+**⋯ → Install from VSIX…** and the file.
+
+Cursor, Windsurf, VSCodium and other editors built on VS Code find the same extension in their own Extensions
+view, from Open VSX; for them, and for Zed, JetBrains IDEs and other editors, see [Other editors](editors.md).
 
 ## The panel
 
