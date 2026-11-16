@@ -13,18 +13,22 @@ and the browser, and the other way round.
 
 ## Editors built on VS Code
 
-Cursor, Windsurf, VSCodium and other editors built on VS Code install the AlbertCode extension from the same
-`.vsix` file as VS Code, and it works the same way: see [VS Code](vscode.md) for the panel and its commands.
+Cursor, Windsurf, VSCodium and other editors built on VS Code use the same AlbertCode extension as VS Code, and it
+works the same way: see [VS Code](vscode.md) for the panel and its commands.
 
 1. Install AlbertCode ([Installation](installation.md)) and run `albertcode` once in a terminal.
-2. Download `albertcode-<version>.vsix` from the
-   [latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest).
-3. In the editor, open **Extensions**, then **⋯ → Install from VSIX…**, and choose the file. Or, from a terminal:
+2. In the editor, open **Extensions** and search for **AlbertCode SWE Agent**. It comes from
+   [Open VSX](https://open-vsx.org/extension/huynvic/albertcode), the extension store these editors use, and
+   updates itself with each release.
+
+To install a release's file instead, download `albertcode-<version>.vsix` from the
+[latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest), then choose **Extensions**,
+**⋯ → Install from VSIX…** and the file. Or, from a terminal:
 
 ```bash
-cursor --install-extension albertcode-1.57.1.vsix     # Cursor
-windsurf --install-extension albertcode-1.57.1.vsix   # Windsurf
-codium --install-extension albertcode-1.57.1.vsix     # VSCodium
+cursor --install-extension albertcode-1.57.2.vsix     # Cursor
+windsurf --install-extension albertcode-1.57.2.vsix   # Windsurf
+codium --install-extension albertcode-1.57.2.vsix     # VSCodium
 ```
 
 The extension uses only VS Code's standard features and needs a version built on VS Code 1.95 or later, which

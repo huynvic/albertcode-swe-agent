@@ -189,9 +189,10 @@ take `Install-AlbertCode-<version>-linux-x86_64.sh` and run `bash Install-Albert
 
 **VS Code extension.** Download `albertcode-<version>.vsix` from the
 [latest release](https://github.com/huynvic/albertcode-swe-agent/releases/latest), then in VS Code
-choose *Extensions → … → Install from VSIX*. Install AlbertCode itself first: the extension uses it. The
-same file installs in Cursor, Windsurf and VSCodium; for Zed, JetBrains IDEs and other editors, see
-[Other editors](docs/editors.md).
+choose *Extensions → … → Install from VSIX*. Install AlbertCode itself first: the extension uses it. In Cursor,
+Windsurf and VSCodium, search the Extensions view for **AlbertCode SWE Agent**
+([Open VSX](https://open-vsx.org/extension/huynvic/albertcode)), or install the same file; for Zed, JetBrains IDEs
+and other editors, see [Other editors](docs/editors.md).
 
 **Installer options:** `--check` only shows the plan, `--yes` installs without asking (for scripts and
 CI), and `--version X.Y.Z` installs a specific release. On Windows, put options in

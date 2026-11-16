@@ -3,6 +3,16 @@
 Release notes for AlbertCode SWE Agent, newest first. Each release's installers and checksums are
 on the [releases page](https://github.com/huynvic/albertcode-swe-agent/releases).
 
+## 1.57.2 — 2026-11-16
+
+- **The VS Code extension shows its licence.** Open VSX showed it as "UNLICENSED"; it now shows
+  **AlbertCode SWE Agent EULA**, linked to the [End User Licence Agreement](EULA.md) packaged with it.
+- **Published as `huynvic`.** The extension's ID is now `huynvic.albertcode`, matching the GitHub account it is
+  released from. If you installed 1.57.1 from Open VSX (`HuyNguyen.albertcode`), install this one and remove that.
+- **Install from your editor's store.** In Cursor, Windsurf or VSCodium, search the Extensions view for
+  **AlbertCode SWE Agent** ([Open VSX](https://open-vsx.org/extension/huynvic/albertcode)), or install the `.vsix`.
+  See [Other editors](docs/editors.md).
+
 ## 1.57.1 — 2026-11-15
 
 A quality release, from a review of the whole product.
